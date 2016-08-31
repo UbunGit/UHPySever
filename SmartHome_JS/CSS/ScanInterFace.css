@@ -1,0 +1,32 @@
+@CHARSET "UTF-8";
+
+/* 接口信息区域 */
+.inteFaceInfoBody{
+	margin: 10px 10px 10px 10px;
+	float:right;
+	height:100%;
+	width:75%;
+	background-color: #ffffff;
+}
+/* 接口描述 */
+.inteFaceInputTable{
+	border-radius:5px;
+	border: 1px solid #3b99fc;
+	text-align:center;
+    width:75%;
+}
+.inteFaceInputTable td{
+	border: 1px solid #e8e8e8;
+}
+.inteFaceOutputTable{
+	margin: 10px 0px 0px 0px;
+	border-radius:5px;
+	border: 1px solid #3b99fc;
+	text-align:center;
+    width:75%;
+}
+.inteFaceOutputTable td{
+	border: 1px solid #e8e8e8;
+}
+
+

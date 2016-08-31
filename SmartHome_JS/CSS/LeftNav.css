@@ -1,0 +1,36 @@
+@CHARSET "UTF-8";
+.leftNav{
+    text-align:center;
+    font-size:18px;
+    border-radius:10px;
+    border: 1px solid #3b99fc;
+    list-style-type: none;
+	float:left;
+	height:1000px;
+	width:200px;
+	background-color: #ffffff;
+}
+.leftNav ul{
+ 
+    height:40px;
+    margin:0;
+    padding:0;
+    list-style-type: none;
+}
+.leftNav ul li{
+	
+	height:30px;
+	line-height: 30px;
+    max-width:190px;
+	min-width:180px;
+	-moz-border-radius:2px;
+	margin: 5px;
+	border-radius:5px;
+	border: 1px solid #3b99fc;
+    background-color: #3b99fc opacity:0.5;
+}
+
+.leftNav ul li:hover,li:active
+{
+    background-color:#00ffff;
+}

@@ -1,0 +1,28 @@
+@CHARSET "UTF-8";
+
+.leftNav{
+/* 	position: absolute; */
+	float:left;
+	margin: 10 10 10 10px;
+	height:1000px;
+	width:20%;
+	background-color: #e8e8e8;
+}
+
+/* 接口信息区域 */
+.inteFaceInfoBody{
+	padding : 15px;
+	float:left;
+	height:80%;
+	width:75%;
+	background-color: #b2d7ff;
+}
+.inteFaceinfoTable{
+ 	width:75%; 
+}
+p.outPutText {
+	padding : 15px,15px,15px,15px;
+	width:100%;
+/*     word-break: break-all; */
+    word-wrap: break-word;
+}

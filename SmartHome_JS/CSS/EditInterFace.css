@@ -1,0 +1,31 @@
+@CHARSET "UTF-8";
+.leftNav{
+/* 	position: absolute; */
+	float:left;
+	margin: 10 10 10 10px;
+	height:1000px;
+	width:20%;
+	background-color: #e8e8e8;
+}
+/* 接口信息区域 */
+.inteFaceInfoBody{
+	margin: 10 50 10 10px;
+	float:right;
+	height:100%;
+	width:80%;
+	background-color: #b2d7ff;
+}
+/* 接口描述 */
+.inteFaceDescribe{
+/* 	background-color: #bebebe; */
+}
+/* 入参区域 */
+.inteFaceInput{
+	width:80%;
+	/* 	background-color: #7574af; */
+}
+/* 出参区域 */
+.inteFaceOutput{
+	width:80%;
+/* 		background-color: #7574af; */
+}
