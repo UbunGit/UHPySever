@@ -4,3 +4,5 @@
 *.log
 
 *.TXT
+
+.settings/org.eclipse.core.resources.prefs
