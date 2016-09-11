@@ -39,8 +39,14 @@ def writeLog(code, msg ,userName):
                           )
               )
    
-    logpath= os.path.abspath(os.curdir)
-    file_object = open(logpath+"/log/"+userName+'.log', 'ab')
+    logpath= os.path.abspath(os.curdir)+"/log/"
+    # 判断路径是否存在
+        # 存在     True
+        # 不存在   False
+    isExists=os.path.exists(logpath)
+    if not isExists:
+        os.makedirs(logpath)
+    file_object = open(logpath+userName+'.log', 'ab')
     file_object.write(msgInfo)
     file_object.close()
     logging.info(msgInfo.decode('utf8'));
