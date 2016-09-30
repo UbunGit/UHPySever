@@ -38,16 +38,15 @@ def writeLog(code, msg ,userName):
                           str(msg)
                           )
               )
-   
-    logpath= os.path.abspath(os.curdir) + "/log"
+
+    logpath= os.path.abspath(os.curdir)+"/log/"
+    # 判断路径是否存在
+        # 存在     True
+        # 不存在   False
     isExists=os.path.exists(logpath)
-    # 判断结果
     if not isExists:
-        # 如果不存在则创建目录
-        print logpath+' 创建成功'
-        # 创建目录操作函数
         os.makedirs(logpath)
-    file_object = open(logpath+"/"+userName+'.log', 'ab')
+    file_object = open(logpath+userName+'.log', 'ab')
     file_object.write(msgInfo)
     file_object.close()
     logging.info(msgInfo.decode('utf8'));

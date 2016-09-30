@@ -324,7 +324,6 @@ class FC3DProbability(object):
             minlist.append(min(temList))
             temList.remove(min(temList))
         return minlist
-    
 
         
         
