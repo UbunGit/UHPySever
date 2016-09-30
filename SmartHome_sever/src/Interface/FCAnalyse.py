@@ -12,7 +12,6 @@ from TOOL import LogHandle
 from TOOL.DownLoadFile import DownLoadFile
 from PymysqlHandle.PymysqlHandle import PymysqlHandle
 from FC3DAnalyse.FC3DProbability import FC3DProbability
-from numpy import empty
 
 class FCAnalyse(object):
     '''
