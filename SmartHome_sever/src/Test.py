@@ -31,7 +31,7 @@ class MyTest(unittest.TestCase):
         allcount = 0.0
         allmony = 0.0
         getMony = 0.0;
-        for i in range(2016201, 2016234):
+        for i in range(2016233, 2016234):
             data =fc.getRecommendMax('2002001', '2016200',probability,str(i),maxcount)
     
             if(data["geIsTrue"] == data["shiIsTrue"] == data["geIsTrue"] == "True"):

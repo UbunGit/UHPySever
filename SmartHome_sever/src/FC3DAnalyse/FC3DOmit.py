@@ -88,8 +88,4 @@ class FC3DOmit(object):
                 print("计算遗漏值:"+str(lastData["outNO"]));
             
         
-            
         
-test = FC3DOmit()
-test.reloadOmitData()
-print "ok"

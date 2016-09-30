@@ -20,9 +20,11 @@ def reloadData():
     pymysqlHandle = PymysqlHandle()
     pymysqlHandle.loadFC3DDataByText(savepath)
     LogHandle.writeLog(0, '加载FC3D数据文件到sql完成', "SYSROOT") 
+    
     fc3DOmit =FC3DOmit()
     fc3DOmit.reloadOmitData()
     LogHandle.writeLog(0, '录入FC3D数据遗漏数据完成', "SYSROOT") 
+    
     fc = FC3DProbability()
     fc.loadProbabilityData(5)
     LogHandle.writeLog(0, '录入FC3D频率表5数据完成', "SYSROOT")
@@ -43,13 +45,20 @@ def reloadData():
     
     zuf = FC3DZUPribability()
     zuf.loadProbabilityData(5)
+    LogHandle.writeLog(0, '录入组选FC3D频率表5数据完成', "SYSROOT")
     zuf.loadProbabilityData(10)
+    LogHandle.writeLog(0, '录入组选FC3D频率表10数据完成', "SYSROOT")
     zuf.loadProbabilityData(15)
+    LogHandle.writeLog(0, '录入组选FC3D频率表15数据完成', "SYSROOT")
     zuf.loadProbabilityData(20)
+    LogHandle.writeLog(0, '录入组选FC3D频率表20数据完成', "SYSROOT")
     zuf.loadProbabilityData(25)
+    LogHandle.writeLog(0, '录入组选FC3D频率表25数据完成', "SYSROOT")
     zuf.loadProbabilityData(30)
+    LogHandle.writeLog(0, '录入组选FC3D频率表30数据完成', "SYSROOT")
     zuf.loadProbabilityData(50)
+    LogHandle.writeLog(0, '录入组选FC3D频率表50数据完成', "SYSROOT")
     zuf.loadProbabilityData(100)
-    
-    
+    LogHandle.writeLog(0, '录入组选FC3D频率表100数据完成', "SYSROOT")
+
 reloadData()

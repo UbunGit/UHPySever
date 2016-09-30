@@ -18,10 +18,6 @@ class PymysqlHandle(object):
     数据库操作
     '''
     '''
-        Constructor
-    '''
-
-    '''
     注册
     插入用户数据
     -----------------------------
@@ -452,6 +448,7 @@ class PymysqlHandle(object):
             connection.commit()
             list = []
             for row in cursor:
+                row["outdate"] = str(row["outdate"])
                 list.append(row)
             if len(list) <= 0: 
                 returnDic = {"inforCode":-10004} 

@@ -12,6 +12,7 @@ from TOOL import LogHandle
 from TOOL.DownLoadFile import DownLoadFile
 from PymysqlHandle.PymysqlHandle import PymysqlHandle
 from FC3DAnalyse.FC3DProbability import FC3DProbability
+from numpy import empty
 
 class FCAnalyse(object):
     '''
@@ -77,9 +78,13 @@ class FCAnalyse(object):
         
         LogHandle.writeLog(0, '获取推荐的号码', self.userName)
         fc = FC3DProbability()
-        data =fc.getRecommend(data["BeginOutNO"], data["EndOutNO"],data["Probability"],data["RecommendOutON"])
-        returnDic = {"inforCode":0}   
-        returnDic['result'] = data
+        data =fc.getRecommend(data["BeginOutNO"], data["EndOutNO"],data["Probability"],data["RecommendOutON"]) 
+        if len(data) <= 0:
+            returnDic = {"inforCode":1004}   
+            returnDic['result'] = data
+        else:
+            returnDic = {"inforCode":0}   
+            returnDic['result'] = data
         return returnDic
     '''
     2.4获取遗漏数据

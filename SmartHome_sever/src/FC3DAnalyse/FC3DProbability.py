@@ -155,7 +155,8 @@ class FC3DProbability(object):
             maxCount=2
         if(int(probability)==100):
             maxCount=4
-        self.getRecommendMax(beginData, endData, probability, recommendOutNO, maxCount)
+        return self.getRecommendMax(beginData, endData, probability, recommendOutNO, maxCount)
+        
         
     '''
     获取推荐号码
@@ -324,30 +325,7 @@ class FC3DProbability(object):
             temList.remove(min(temList))
         return minlist
     
-'''
-test
-''' 
 
-probability = 30;
-fc = FC3DProbability()
-istrueCount = 0.0
-allcount = 0.0
-allmony = 0.0
-getMony = 0.0;
-for i in range(2016201, 2016234):
-    data =fc.getRecommendMax('2002001', '2016200',probability,str(i),3)
-    
-    if(data["geIsTrue"] == data["shiIsTrue"] == data["geIsTrue"] == "True"):
-        istrueCount = istrueCount+1 
-        getMony = getMony+1000;
-        print str(i)+" ==> PASS:" +str(2*len(data["outBaiList"])*len(data["outShiList"])*len(data["outGeList"]))
-        
-    else:
-        print str(i) + " ==> Flase:"+str(2*len(data["outBaiList"])*len(data["outShiList"])*len(data["outGeList"]))
-    allmony =allmony+ 2*len(data["outBaiList"])*len(data["outShiList"])*len(data["outGeList"])
-    allcount = allcount+1;
-print "赢："+ str(getMony- allmony)
-print istrueCount/allcount;
         
         
     
