@@ -6,14 +6,14 @@ class Globle_HttpIntface {
 	function __construct() {
 	}
 	
-	function requestInterface($options){
+	function requestInterface($options,$interfacePath){
 		
 		if (isset($_COOKIE["userName"])){
 			$options['userName'] = $_COOKIE["userName"];
 		}else{
 			$options['userName'] = 'userName';
 		}
-		$request = send_post ( HTTPREQUESTURL, $options );
+		$request = send_post ( HTTPREQUESTURL.$interfacePath, $options );
 		if ($request) {
 			return $request;
 		} else {
@@ -29,7 +29,7 @@ class Globle_HttpIntface {
 		$options = array (
 				'inefaceMode' => $funName,
 		);
-		return $this->requestInterface($options);
+		return $this->requestInterface($options,'/samrtHome');
 	}
 	
 	/**
@@ -42,7 +42,7 @@ class Globle_HttpIntface {
 				'inefaceMode' => $funName,
 				'interFaceName' => $interFaceName,
 		);
-		return $this->requestInterface($options);
+		return $this->requestInterface($options,'/samrtHome');
 	}
 	
 	/**
@@ -55,7 +55,7 @@ class Globle_HttpIntface {
 				'inefaceMode' => $funName,
 				'interFaceName' => $interFaceName,
 		);
-		return $this->requestInterface($options);
+		return $this->requestInterface($options,'/samrtHome');
 	}
 	
 	/**
@@ -68,7 +68,7 @@ class Globle_HttpIntface {
 				'inefaceMode' => $funName,
 				'interFaceName' => $interFaceName
 		);
-		return $this->requestInterface($options);
+		return $this->requestInterface($options,'/samrtHome');
 	}
 	
 	/**
@@ -83,7 +83,7 @@ class Globle_HttpIntface {
 				'pageSize' => $pageSize,
 				'pageNum' => $pageNum
 		);
-		return $this->requestInterface($options);
+		return $this->requestInterface($options,'/samrtHome');
 	}
 	
 	/**
@@ -98,15 +98,17 @@ class Globle_HttpIntface {
 				'inefaceMode' => $funName,
 				'memberNO' => $memberNO
 		);
-		return $this->requestInterface($options);
+		return $this->requestInterface($options,'/samrtHome');
 	}
 	
-	function getFC3DData(){
+	function getFC3DData($pageSize,$pageNum){
 		$funName = 'getFC3DData';
 		$options = array (
-				'inefaceMode' => $funName
+				'inefaceMode' => $funName,
+				'pageSize' => $pageSize,
+				'pageNum' => $pageNum
 		);
-		return $this->requestInterface($options);
+		return $this->requestInterface($options,'/FCAnalyse');
 	}
 	
   

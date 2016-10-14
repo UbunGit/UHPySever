@@ -6,3 +6,9 @@
 *.TXT
 
 .settings/org.eclipse.core.resources.prefs
+
+Install/MySQL/
+
+SmartHome_sever/.DS_Store
+
+SmartHome_sever/src/.DS_Store

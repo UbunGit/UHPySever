@@ -2,17 +2,16 @@
 require_once('../../Public_php/Globle_sc_fns.php');
 require_once ('FCOutPutPage.php');
 /* 输出头部信息 */
-// $jsArr = array (
-// 		"../../SmartHome_JS/JS/VIPHomePage.js",
-// 		"../../SmartHome_JS/JS/Tooltips.js",
-// 		"../../SmartHome_JS/JS/MenuNav.js"
-// );
-$cssArr = array (
-		'../FC3D/FCOutData.css'
+$jsArr = array (
+		"../../../SmartHome_JS/JS/FCOutData.js",
 );
+$cssArr = array (
+		'../../../SmartHome_JS/CSS/FCOutData.css'
+);
+
 $dataArr = getFC3DData();
 $fcoutPut = new FCOutPutPage();
-$fcoutPut->outPutHead ( null, $cssArr, "场景列表" );
+$fcoutPut->outPutHead ( $jsArr, $cssArr, "场景列表" );
 showFC3DData($dataArr);
 $fcoutPut->outPutTabBar();
 $fcoutPut->outputFoot();
@@ -23,10 +22,9 @@ $fcoutPut->outputFoot();
  */
 function getFC3DData(){
 
-
 	$returnArr = array();
 	$httpIntface =new Globle_HttpIntface();
-	$request = $httpIntface->getFC3DData();
+	$request = $httpIntface->getFC3DData("100","0");
 	if( $request){
 		if ($request['inforCode']==0){
 			$returnArr = $request['result'];
@@ -40,16 +38,13 @@ function getFC3DData(){
 	}
 }
 function showFC3DData($FC3DData){
-	
-	foreach ($FC3DData as $data){
-		
+   echo '<div class="scroll" >';
+	foreach ($FC3DData as $data){	
 	echo '
-			<table class="DataTable">
+			<table class="DataTable" >
 			<tr>
-			<td>第'.$data["outNO"].'期</td>
-			<td>'.$data["outdate"].'</td>
-			</tr>
-			<tr>
+			<td width=100px>第'.$data["outNO"].'期</td>
+			<td width=100px>'.$data["outdate"].'</td>
 			<td>'.$data["out_bai"].'</td>
 			<td>'.$data["out_shi"].'</td>
 			<td>'.$data["out_ge"].'</td>
@@ -57,5 +52,6 @@ function showFC3DData($FC3DData){
 			</table>
 			';
 	}
+	echo '</div>';
 }
 ?>

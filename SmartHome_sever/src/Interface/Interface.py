@@ -74,16 +74,19 @@ class InterfaceHandle(object):
         pymysqlHandle = PymysqlHandle()           
         returnData = pymysqlHandle.insetUserInfo( userName, telNO,passWord)
         return returnData
+    
     '''
     1.3获取用户场景列表
     '''
-    def do_getUserScenarioList(self,data):
-            
-        data['userId']
-        returnData = self.getLogState(data)   
+    def do_getfactionList(self,data):  
         pymysqlHandle = PymysqlHandle() 
-        return pymysqlHandle.getUserScenarioList(data)
-    
+        list = pymysqlHandle.getFactionList(data,self.userName)
+        if len(list) > 0:
+             returnDic = {"inforCode":0}
+             returnDic['result'] = list
+        else:
+             returnDic = {"inforCode":-10004}
+        return returnDic;
 
         
        

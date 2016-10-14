@@ -6,6 +6,7 @@ Created on 2016年8月29日
 @author: xiaoqy
 '''
 import pymysql.cursors
+from TOOL import mod_config
 
 DBHOST = '45.78.9.162'  # 数据库地址
 PORT = 3306
@@ -36,7 +37,7 @@ class SqlHabdleGlobal(object):
                                          user=DBUSER,
                                          password=DBPASSWORD,
                                          db=SMARTHOME_DB,
-                                         charset='utf8mb4',
+                                         charset='utf8',
                                          local_infile=1,
                                          cursorclass=pymysql.cursors.DictCursor)
         return connection;

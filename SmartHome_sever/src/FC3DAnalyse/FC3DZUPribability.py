@@ -16,24 +16,24 @@ class FC3DZUPribability(FC3DProbability):
     '''
     获取组合频率表名
     '''
-    def getTableName(self,probability):
-        return "FC3DprobabilityZU_"+str(probability)+"Table"; 
+    def getTableName(self, probability):
+        return "FC3DprobabilityZU_" + str(probability) + "Table"; 
     
     '''
     获取概率表表名
     '''
-    def getRecommendtableName(self,beginData,endData,probability):
-        return "FC3DRecZU_"+str(probability)+"_"+str(beginData)+"_"+str(endData)+"_Table"
+    def getRecommendtableName(self, beginData, endData, probability):
+        return "FC3DRecZU_" + str(probability) + "_" + str(beginData) + "_" + str(endData) + "_Table"
     
     '''
     录入频率表数据
     '''
-    def loadProbabilityData(self,probability):
+    def loadProbabilityData(self, probability):
         tableName = self.getTableName(probability)
         print tableName;
         ishave = SqlHabdleGlobal.isHaveTable(tableName)
         if(not ishave):
-            ishave =self.createTable(tableName);
+            ishave = self.createTable(tableName);
         if(ishave):
             lastData = self.getLastData(tableName)
         else:
@@ -41,18 +41,18 @@ class FC3DZUPribability(FC3DProbability):
             return 
         
         if(lastData):
-            minData = self.getlastNotAnalyseFC3DData(lastData["outNO"],probability)
+            minData = self.getlastNotAnalyseFC3DData(lastData["outNO"], probability)
         else:
-            minData = self.getlastNotAnalyseFC3DData(0,probability)
+            minData = self.getlastNotAnalyseFC3DData(0, probability)
         connection = SqlHabdleGlobal.connectionDb();
         with connection.cursor() as cursor:
-            while minData["lastData"]!=None:
+            while minData["lastData"] != None:
                  
                 sql = 'call pr_insterOneZUProbabilityDataToTable(%s,%s,%s);'
-                cursor.execute(sql, (str(probability),tableName,minData["lastData"]));   
+                cursor.execute(sql, (str(probability), tableName, minData["lastData"]));   
                 lastData = self.getLastData(tableName)
-                minData = self.getlastNotAnalyseFC3DData(lastData["outNO"],probability)
+                minData = self.getlastNotAnalyseFC3DData(lastData["outNO"], probability)
                 print(lastData["outNO"]);
             
-        print("===>频率：%d 频率表：%s 更新完毕"%(probability,tableName))
+        print("===>频率：%d 频率表：%s 更新完毕" % (probability, tableName))
         

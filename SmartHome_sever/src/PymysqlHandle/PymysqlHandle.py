@@ -197,8 +197,7 @@ class PymysqlHandle(object):
             connection.close() 
             returnDic = {"inforCode":0}
             return returnDic;
-    
-    
+
     
     ''' 
     查询接口输入输出列表
@@ -319,41 +318,6 @@ class PymysqlHandle(object):
             returnDic = {"inforCode":0}
             return returnDic;
         
-        '''
-    获取用户的场景列表
-    -----------------------------
-     2016.4.20 xiaoqy
-     html:    1.0.0 
-     ios:     1.0.0
-     android  1.0.0
-     data 参数dic
-    －－－－－－－－－－－－－－－－－
-    ''' 
-    def getUserScenarioList(self, data):
-        try:
-            connection = SqlHabdleGlobal.connectionDb();
-            with connection.cursor() as cursor:
-                # Create a new record
-                sql = 'call p_getUserScenarioList(%s)'; 
-                LogHandle.writeLog(0, '数据库操作：getUserScenarioList:' + sql.encode('utf-8'), "anyone")
-                cursor.execute(sql, (data['userId']));
-                connection.commit()
-                list = []
-                for row in cursor:
-                    list.append(row)
-                if len(list) <= 0: 
-                    returnDic = {"inforCode":-10004}
-                else:
-                    returnDic = {"inforCode":0}   
-                    returnDic['result'] = list
-        except BaseException, e:
-            LogHandle.writeLog(str(e.args[0]), '数据库操作：addParametervalue:' + str(e), "anyone")
-            returnDic = {"inforCode":-10000}
-            return returnDic
-        else:
-            connection.close() 
-            return returnDic;
-        
     '''
     获取会员列表
     '''
@@ -406,7 +370,7 @@ class PymysqlHandle(object):
         connection = SqlHabdleGlobal.connectionDb();
         with connection.cursor() as cursor:
             # Create a new record
-            sql = 'select* from FC3DData_t   order by outNO desc limit 0,1'; 
+            sql = 'select* from FC3DData_t order by outNO desc limit 0,1'; 
             LogHandle.writeLog(0, '数据库操作：获取3d彩票数据' + sql.encode('utf-8'), "anyone")
             cursor.execute(sql);
             connection.commit()
@@ -435,7 +399,9 @@ class PymysqlHandle(object):
             cursor.execute(sql);
             connection.commit()
             connection.close() 
-            
+    '''
+    获取遗漏表数据
+    '''        
     def getOmitData(self,data):
         
         connection = SqlHabdleGlobal.connectionDb();
@@ -457,5 +423,22 @@ class PymysqlHandle(object):
                 returnDic['result'] = list
             connection.close() 
             return returnDic
+        
+    def getFactionList(self,data,userName):
+        
+        connection = SqlHabdleGlobal.connectionDb();
+        with connection.cursor() as cursor:
+            # Create a new record
+            fatherID = data["fatherId"]
+            sql = 'SELECT * FROM FunctionData_t where fatherID='+str(fatherID) 
+            LogHandle.writeLog(0, '数据库操作：获取3d彩票数据' + sql.encode('utf-8'), userName)
+            cursor.execute(sql);
+            connection.commit()
+            list = []
+            for row in cursor:
+                list.append(row)
+            connection.close() 
+            return list
+        
             
         

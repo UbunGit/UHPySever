@@ -1,7 +1,8 @@
 
 
-table td{
-	width:160px;
+.pageList {
+	width:100%;
 	height:160px;
-	background-color: #b2d7ff;
+	border: .5px solid #3b99fc;
+	text-align: center;
 }

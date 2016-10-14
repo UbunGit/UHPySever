@@ -37,35 +37,13 @@ class FCAnalyse(object):
     '''
     def do_getFC3DData(self,data):
         LogHandle.writeLog(0, '获取3D数据', self.userName)
-        returnDic =self.do_getLastFCData(data);
-        if(returnDic['inforCode']==-10004):
-
-            downLoad =  DownLoadFile()
-            savepath =downLoad.downLoadFile("http://www.17500.cn/getData/3d.TXT", "Data/3d.TXT")  
-            #savepath ='/Users/xiaoqy/git/SmartHome/SmartHome_sever/src/Data/3d.TXT' 
-            pymysqlHandle = PymysqlHandle()
-            pymysqlHandle.loadFC3DDataByText(savepath)
-        else:
-            lastDic =  returnDic['result'][0]
-            outData= lastDic['outdate']
-            now = time.time()
-            year, month, day, hh, mm, ss, x, y, z = time.localtime(now)
-            nowdate = datetime.date(year, month, day-1)
-        
-            if(outData != nowdate):
-                downLoad =  DownLoadFile()
-                savepath =downLoad.downLoadFile("http://www.17500.cn/getData/3d.TXT", "Data/3d.TXT") 
-                #savepath ='/Users/xiaoqy/git/SmartHome/SmartHome_sever/src/Data/3d.TXT'
-                pymysqlHandle = PymysqlHandle()
-                pymysqlHandle.loadFC3DDataByText(savepath)
-        
         pymysqlHandle = PymysqlHandle()
         return pymysqlHandle.getFC3dData(data)
     
     '''
     2.2获取最后一期福彩3D数据
     '''
-    def do_getLastFCData(self,data):
+    def do_getLastFCData(self,data): 
         LogHandle.writeLog(0, '获取最后一期福彩3D数据', self.userName)
         pymysqlHandle = PymysqlHandle()
         return pymysqlHandle.getLastFCData()
