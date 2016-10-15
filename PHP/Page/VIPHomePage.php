@@ -20,7 +20,7 @@ $outPut = new OutPut();
 $outPut->outPutHead ( $jsArr, $cssArr, "功能列表" );
 /** testdata*/
 $userInfo = (object)[
-		"heardImg" =>$userimg,
+		"heardImg" =>"fc3d.jpg",
 		"userName"=>"UbunGit",
 ];
 $outPut->outPutHeader($userInfo);

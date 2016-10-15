@@ -27,26 +27,29 @@ class Output {
 		echo '<meta charset="UTF-8">';
 		echo '<title>' . $headStr . '</title>';
  		echo '<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=3.0, user-scalable=no">';
- 		echo ' <!--external css-->
+ 		echo ' <!--external css-->';
       
-        <script src="'.$this->getCSS("assets/font-awesome/css/font-awesome.css").'"></script>
-        <script src="'.$this->getCSS("assets/jquery-easy-pie-chart/jquery.easy-pie-chart.css").'"></script>';
+        echo '<link rel="stylesheet"  href='.$this->getCSS("assets/font-awesome/css/font-awesome.css").'></link>';
+        echo '<link rel="stylesheet"  href="'.$this->getCSS("assets/jquery-easy-pie-chart/jquery.easy-pie-chart.css").'">';
  		
- 		echo '<script src="'.$this->getCSS("bootstrap.min.css").'"></script>';
- 		echo '<script src="'.$this->getCSS("bootstrap-reset.css").'"></script>';
- 		echo '<script src="'.$this->getCSS("style.css").'"></script>';
+ 		echo '<link rel="stylesheet"  href='.$this->getCSS("bootstrap-reset.css").'>
+ 		<link rel="stylesheet"  href="../../../CSS/bootstrap.min.css">';
+ 		echo '<link rel="stylesheet"  href='.$this->getCSS("slidebars.css").'>';
+ 		echo '<link rel="stylesheet"  href='.$this->getCSS("style.css").'>';
+ 		echo '<link rel="stylesheet"  href='.$this->getCSS("style-responsive.css").'>';
+ 		
  		if (! empty ( $cssarr )) {
  			foreach ( $cssarr as $value ) {
  				echo ('<link rel="stylesheet" type="text/css" media="screen" href="' .$this->getCSS ($value ). '"/>');
  			}
  		}
 		
-		echo '<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>';
-		if (! empty ( $jsarr )) {
-			foreach ( $jsarr as $value ) {
-				echo ('<script src="' . $value . '"></script>');
-			}
-		}
+// 		echo '<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>';
+// 		if (! empty ( $jsarr )) {
+// 			foreach ( $jsarr as $value ) {
+// 				echo ('<script src="' . $value . '"></script>');
+// 			}
+// 		}
 		echo '</head>';
 		echo '<body>';
 	}
@@ -71,7 +74,7 @@ class Output {
                     <!-- user login dropdown start-->
                     <li class="dropdown">
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                            <img alt="" src="' . $userInfo->heardImg . '">
+                            <img alt="" src="' . $this->getImage($userInfo->heardImg) . '">
                             <span class="username">' . $userInfo->userName . '</span>
                             <b class="caret"></b>
                         </a>
