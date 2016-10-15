@@ -3,6 +3,9 @@
 	<name>UHPySever</name>
 	<comment></comment>
 	<projects>
+		<project>SmartHome_Client</project>
+		<project>SmartHome_JS</project>
+		<project>SmartHome_sever</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

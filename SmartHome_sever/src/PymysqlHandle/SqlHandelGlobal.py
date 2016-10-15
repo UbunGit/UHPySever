@@ -32,7 +32,7 @@ class SqlHabdleGlobal(object):
     def connectionDb(self):
         
         connection = pymysql.connect(
-                                         host=DBHOST,
+                                         host=mod_config.getConfig("database", "dbhost"),
                                          port=PORT,
                                          user=DBUSER,
                                          password=DBPASSWORD,

@@ -16,6 +16,12 @@ $cssArr = array (
 		'../../SmartHome_JS/CSS/LeftNav.css' 
 );
 outPutHead ( $jsArr, $cssArr, "功能列表" );
+/** testdata*/
+$userInfo = (object)[
+		"heardImg" =>$userimg,
+		"userName"=>"UbunGit",
+];
+outPutHeader($userInfo);
 
 echo '<table class="pageList">
          <tr>

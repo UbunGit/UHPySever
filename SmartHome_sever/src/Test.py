@@ -7,16 +7,18 @@ Created on 2016年8月29日
 '''
 
 import unittest
-from pymysqlHandle.SqlHandelGlobal import SqlHabdleGlobal
+from TOOL import mod_config
+from PymysqlHandle.SqlHandelGlobal import SqlHabdleGlobal
 
 class MyTest(unittest.TestCase):
  
     @classmethod
-    def testInterFace(self,data):
-        fcAnalyse =  SqlHabdleGlobal()
-        dic = SqlHabdleGlobal.connectionDb()
-        print dic;
+    def testInterFace(self):
+        dbname = mod_config.getConfig("database", "dbname")
+        print dbname
         pass
-
-
+    
+    
+# test =  MyTest()
+MyTest.testInterFace()
 
