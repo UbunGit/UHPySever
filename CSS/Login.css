@@ -2,7 +2,7 @@
 
 body {
 	margin:0;
-	background: #fbf8e8 url(../resource/logBg.jpg) no-repeat 0px 0px;
+	background: #fbf8e8 url(../image/2.jpg) no-repeat 0px 0px;
 	-webkit-background-size: cover;
 }
 
@@ -12,6 +12,8 @@ body {
 	margin-right: 8%;
 	margin-top: 20%;
 	font-size: 18px;
+	border-radius: 10px;
+	background: rgba(0, 0, 0, 0.7);
 }
 
 .login_Table {

@@ -1,3 +1,4 @@
+
 <?php
 require_once ('../Public_php/Globle_sc_fns.php');
 
@@ -5,25 +6,26 @@ $userimg = __getCookies ( 'userImg' );
 
 /* 输出头部信息 */
 $jsArr = array (
-		"VIPHomePage.js",
+		"index.js",
 		"Tooltips.js",
 		"MenuNav.js",
 		"Cookie.js"
 );
 $cssArr = array (
-		'VIPHomePage.css',
+		'index.css',
 		'MenuNav.css',
 		'LeftNav.css',
 		'header.css'
 );
 $outPut = new OutPut();
-$outPut->outPutHead ( $jsArr, $cssArr, "功能列表" );
+$outPut->outPutHead ( $jsArr, $cssArr, "主页" );
 /** testdata*/
 $userInfo = (object)[
 		"heardImg" =>"fc3d.jpg",
 		"userName"=>"UbunGit",
 ];
 $outPut->outPutHeader($userInfo);
+$outPut->outSider();
 
 // echo '<table class="pageList">
 //          <tr>

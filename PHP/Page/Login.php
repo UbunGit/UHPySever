@@ -2,20 +2,13 @@
     
     require_once('../Public_php/Globle_sc_fns.php');
 
-    $jsArr = array("../../SmartHome_JS/JS/Login.js","../../SmartHome_JS/JS/Tooltips.js","../../SmartHome_JS/JS/Cookie.js");
-    $cssArr = array('../../SmartHome_JS/CSS/Globle.css','../../SmartHome_JS/CSS/Login.css');
-    outPutHead($jsArr,$cssArr,"登录");
+    $jsArr = array("Login.js","Tooltips.js","Cookie.js");
+    $cssArr = array('Globle.css','Login.css');
+    $outPut = new OutPut();
+    $outPut->outPutHead ( $jsArr, $cssArr, "主页" );
+    $outPut->outPutHead($jsArr,$cssArr,"登录");
     
     $userName = __getCookies('userName');
- 
-    echo  $userName;
-  
-//     if (!empty($userName)){
-    	
-//     	header('Location: '.$uri.'./ScanInterFace.php');
-    	 
-//     	return ;
-//     }
     ?>
 <div class="main_box">
 <table class="login_Table">
@@ -34,5 +27,5 @@
 </table>
 </div>
 <?php
-    outputFoot();
+$outPut->outputFoot();
     ?>
