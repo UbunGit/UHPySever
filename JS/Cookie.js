@@ -1,8 +1,8 @@
 /**
  * 
  */
-var httpURL_interFace= 'http://192.168.1.10:8889/interface';
-var httpURL_FCAnalyse= 'http://192.168.1.10:8889/FCAnalyse';
+var httpURL_interFace= 'http://127.0.0.1:8889/interface';
+var httpURL_FCAnalyse= 'http://127.0.0.1:8889/FCAnalyse';
 /**
  * hours为空字符串时,
  * cookie的生存期至浏览器会话结束。

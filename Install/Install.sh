@@ -17,7 +17,7 @@ cd ./MySQL
 
 sh ./sql_Install.sh
 
-cd ../../SmartHome_sever/src
+cd ../../Sever 
 
 python <<EOF
 

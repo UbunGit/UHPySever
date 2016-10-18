@@ -66,7 +66,7 @@ class ConfigINI extends Config {
 	 *        	文件路径
 	 * @return bool
 	 */
-	function load($file) {
+	function load($file = NULL) {
 	
 		// 判断文件是否存在
 		if (file_exists ( $file) == false) {
