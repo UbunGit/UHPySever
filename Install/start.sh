@@ -19,6 +19,11 @@ echo "$IP"
 echo "[database]
 dbhost="$IP"
 
+[interFace]
+InterFaceIP=http://$IP:8889
+[path]
+errorLogpath='../log'
+
 [URL]
 root_css=http://$IP/xiaoqy/UHPySever/CSS/
 root_js=http://$IP/xiaoqy/UHPySever/JS/
