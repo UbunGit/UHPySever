@@ -1,14 +1,15 @@
 <?php
 require_once ('../Public_php/Globle_sc_fns.php');
 $userName = __getCookies ( 'userName' );
-$leftArr = getleftArr ();
+
 
 if (__get ( 'interFaceName' )) {
 	$interFaceName = __get ( 'interFaceName' );
-} else {
-	$interFaceName = $leftArr [0];
+}else {
+	$uri = $_SERVER['HTTP_HOST'];
+	header('Location:./AddNewInterFace.php');
+	exit;
 }
-
 /* 输出头部信息 */
 $jsArr = array (
 		"../../SmartHome_JS/ScanInterFace.js",
@@ -24,16 +25,16 @@ $cssArr = array (
 $inPutArr = getInterFaceInputArr ( $interFaceName );
 $outPutArr = getInterFaceOutputArr ( $interFaceName );
 $interFaceInfo = getInterFaceInfo ( $interFaceName );
-
-outPutHead ( $jsArr, $cssArr, "接口查询" );
+$outPut = new OutPut();
+$outPut->outPutHead ( $jsArr, $cssArr, "接口查询" );
 echo '<div class="data" data_interFaceName ="' . $interFaceInfo ['interFaceName'] . '"/>';
 
 /* 输出顶部导航 */
-outputNav ( $userName );
+$outPut->outPutHeadoutputNav ( $userName );
 /* 输出侧边栏 */
-outputLeftNav ( $leftArr );
-outputInterface ( $inPutArr, $outPutArr, $interFaceInfo );
-outputFoot ();
+$outPut->outPutHeadoutputLeftNav ( $leftArr );
+$outPut->outPutHeadoutputInterface ( $inPutArr, $outPutArr, $interFaceInfo );
+$outPut->outPutHeadoutputFoot ();
 
 /**
  * 输出接口信息html

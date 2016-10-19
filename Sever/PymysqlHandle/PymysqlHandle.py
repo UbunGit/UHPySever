@@ -14,6 +14,7 @@ from TOOL import LogHandle
 SMARTHOMEUSER_TABLE = 'SmartHomeUser_Table'  # 智能家居用户信息表
 INTERFAVE_TABLE = 'SmartHomeInterFace_Table'  # 接口数据表
 INTERFAVEPARAMETER_TABLE = 'SmartHomeParameter_Table'
+from distutils.tests.setuptools_build_ext import if_dl
 
 class PymysqlHandle(object):
     '''
@@ -73,7 +74,11 @@ class PymysqlHandle(object):
                     if(not row["userLevel"]):
                         row["userLevel"] = "1001"
                     cursorData = row;
-                return cursorData;
+                    return cursorData
+                
+                return 
+
+                    
 
 
 

@@ -9,6 +9,8 @@ $(document).ready(function() {
 $(function() {
 
 	$(".log").click(function() {
+		
+		
 		var userName = $("input[name='username']").val();
 		var passWord = $("input[name='passwd']").val();
 		if (userName.length <= 0) {
@@ -26,6 +28,7 @@ $(function() {
 			"passWord" : passWord
 		};
 		var json = JSON.stringify(inputArr);
+	
 		$.ajax({
 			type : 'POST',
 			url : httpURL_interFace,
@@ -44,7 +47,7 @@ $(function() {
 					if (userInfo.userLevel == 1002) {
 						window.location.href = "./ScanInterFace.php";
 					} else {
-						window.location.href = "./VIPHomePage.php";
+						window.location.href = "./index.php";
 					}
 				} else {
 					var msg = data.result;
@@ -59,7 +62,7 @@ $(function() {
 	});
 
 	$(".register").click(function() {
-		window.location.href = "./register.php";
+		window.location.href = "./Register.php";
 		return;
 	});
 });

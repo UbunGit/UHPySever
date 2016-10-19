@@ -18,9 +18,11 @@
         }
         
         function __errorlog(){
-            if($this->dir_(ERRORLOGPATH)){
+        	$config= new ConfigINI();
+        	$errorLogpath=$config->get('path.errorLogpath');
+            if($this->dir_($errorLogpath)){
                 $str = $this->__toString();
-                error_log($str, 3, ERRORLOGPATH."/C_error.log");
+                error_log($str, 3, $errorLogpath."/C_error.log");
             }
         }
         
@@ -28,7 +30,7 @@
          * 检查目录是否存在或是否可创建
          */
         private function dir_($dir) {
-   
+  
             if (is_dir($dir)) return true;
             try {
                 mkdir($dir,0777);

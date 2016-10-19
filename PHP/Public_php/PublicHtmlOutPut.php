@@ -13,6 +13,7 @@ class Output {
 		return $this->imagePath.$imageFile;
 	}
 	function getjs($jsFile){
+		
 		return $this->jsPath.$jsFile;
 	}
 	function getCSS($cssFile){
@@ -29,15 +30,13 @@ class Output {
 		echo '<meta charset="UTF-8">';
 		echo '<title>' . $headStr . '</title>';
  		echo '<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=3.0, user-scalable=no">';
- 		echo '<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/css/bootstrap.min.css" integrity="sha384-2hfp1SzUoho7/TsGGGDaFdsuuDL0LX2hnUp6VkX3CUQ2K4K+xjboZdsXyp4oUHZj" crossorigin="anonymous">
- 		';
  		echo ' <!--external css-->';
  		
         echo '<link rel="stylesheet"  href='.$this->getCSS("assets/font-awesome/css/font-awesome.css").'></link>';
         echo '<link rel="stylesheet"  href="'.$this->getCSS("assets/jquery-easy-pie-chart/jquery.easy-pie-chart.css").'">';
- 		
- 		echo '<link rel="stylesheet"  href='.$this->getCSS("bootstrap-reset.css").'>';
- 		echo '<link rel="stylesheet"  href='.$this->getCSS("bootstrap.min.css").'>';
+
+		echo '<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">';
+		echo '<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap-theme.min.css">';
  		echo '<link rel="stylesheet"  href='.$this->getCSS("slidebars.css").'>';
  		echo '<link rel="stylesheet"  href='.$this->getCSS("style.css").'>';
  		echo '<link rel="stylesheet"  href='.$this->getCSS("style-responsive.css").'>';
@@ -48,23 +47,12 @@ class Output {
  			}
  		}
  		echo'<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js" ></script>';
- 		echo'<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.2.0/js/tether.min.js"></script>';
- 		echo'<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/js/bootstrap.min.js" ></script>';
-
+		echo '<script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>';
  		echo '<script src='.$this->getCSS("assets/jquery-ui/jquery-ui-1.10.1.custom.min.js"). ' type="text/javascript"></script>';
  		echo '<script src='.$this->getCSS("assets/jquery-easy-pie-chart/jquery.easy-pie-chart.js").' type="text/javascript"></script>';
 		echo '<script class="include" src=' .$this->getjs("jquery/jquery.dcjqaccordion.2.7.js"). ' type="text/javascript"></script>';
 		echo '<script src=' .$this->getjs("jquery/jquery.sparkline.js"). ' type="text/javascript"></script>';
 		echo '<script src=' .$this->getjs("jquery/jquery.nicescroll.js"). ' type="text/javascript"></script>';
-// 		echo '<script src=' .$this->getjs("jquery/jquery.customSelect.min.js"). ' type="text/javascript"></script>';
-// 		echo '<script src=' .$this->getjs("jquery/jquery.js"). '></script>';
-// 		echo '<script src=' .$this->getjs("jquery/jquery.pulsate.min.js"). ' type="text/javascript"></script>';
-// 		echo '<script src=' .$this->getjs("jquery/jquery.scrollTo.min.js"). ' type="text/javascript"></script>';
-// 		echo '<script src=' .$this->getjs("jquery/jquery.steps.min.js"). ' type="text/javascript"></script>';
-// 		echo '<script src=' .$this->getjs("jquery/jquery.stepy.js"). ' type="text/javascript"></script>';
-// 		echo '<script src=' .$this->getjs("jquery/jquery.tagsinput.js"). ' type="text/javascript"></script>';
-// 		echo '<script src=' .$this->getjs("jquery/jquery.ui.touch-punch.min.js"). ' type="text/javascript"></script>';
-// 		echo '<script src=' .$this->getjs("jquery/jquery.validate.min.js"). ' type="text/javascript"></script>';
 		echo '<script src=' .$this->getjs("slidebars.min.js"). '></script>';
 		echo '<script src=' .$this->getjs("common-scripts.js"). '></script>';
 		echo '<script src=' .$this->getjs("respond.min.js"). '></script>';
@@ -106,7 +94,7 @@ class Output {
                             <img alt="" src="' . $this->getImage($userInfo->heardImg) . '">
                             <span class="username">' . $userInfo->userName . '</span>
                             <b class="caret"></b>
-                        </a>
+                         </a>
                         <ul class="dropdown-menu extended logout">
                             <div class="log-arrow-up"></div>
                             <li><a href="#"><i class=" fa fa-suitcase"></i>Profile</a></li>
@@ -132,37 +120,8 @@ class Output {
 		echo '</body>';
 		echo '</html>';
 	}
-	/*
-	 * 输出导航栏
-	 */
-	function outputNav($userimg) {
-		echo '<div id="navfirst">
-    			 <ul id="head">	
-    			  <li><img class="userInfo" src="' . $userimg . '"/></li>
-              </ul>
-              <ul id="menu">	
-              <li><a class="menuNav" src="./ScanInterFace.php">接口查询</a></li>
-    		      <li><a class="menuNav" href="./TestInterFace.php">接口测试</a></li>
-              <li><a class="menuNav" href="./MemberManagement.php">会员管理</a></li>
-              </ul>
-              </div>';
-	}
+
 	
-	/**
-	 * 输出左侧边栏
-	 */
-	function outputLeftNav($navArr) {
-		echo '<div class="leftNav">
-			  <ul>';
-		if (! empty ( $navArr )) {
-			foreach ( $navArr as $value ) {
-				echo ('<li><a class="leftNavMenu" >' . $value . ' </a> </li>');
-			}
-		}
-		;
-		echo '</ul>
-            </div>';
-	}
 	
 	/**
 	 * 输出<tr><td>
@@ -189,13 +148,13 @@ class Output {
                   <li class="sub-menu">
                       <a href="javascript:;" >
                           <i class="fa fa-laptop"></i>
-                          <span>Layouts</span>
+                          <span>接口管理</span>
                       </a>
                       <ul class="sub">
-                          <li><a  href="boxed_page.html">Boxed Page</a></li>
-                          <li><a  href="horizontal_menu.html">Horizontal Menu</a></li>
-                          <li><a  href="header-color.html">Different Color Top bar</a></li>
-                          <li><a  href="mega_menu.html">Mega Menu</a></li>
+						  <li><a  href="./ScanInterFace.php">接口查询</a></li>
+                          <li><a  href="./TestInterFace.php">接口测试</a></li>
+                          <li><a  href="./AddNewInterFace.php">添加接口</a></li>
+                          <li><a  href="./EditInterFace.php">修改接口</a></li>
                           <li><a  href="language_switch_bar.html">Language Switch Bar</a></li>
                           <li><a  href="email_template.html" target="_blank">Email Template</a></li>
                       </ul>

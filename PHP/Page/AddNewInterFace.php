@@ -11,55 +11,122 @@ if (__get ( 'interFaceName' )) {
 }
 
 /* 输出头部信息*/
-$jsArr = array("../../SmartHome_JS/AddNewInterFace.js","../../SmartHome_JS/Tooltips.js","../../SmartHome_JS/MenuNav.js");
-$cssArr = array('../../SmartHome_JS/CSS/AddNewInterFace.css','../../SmartHome_JS/CSS/MenuNav.css','../../SmartHome_JS/CSS/LeftNav.css');
+$jsArr = array("AddNewInterFace.js","Tooltips.js");
+$cssArr = array('AddNewInterFace.css','header.css');
 
-
-outPutHead($jsArr,$cssArr,"添加接口信息");
+$outPut = new OutPut();
+$outPut->outPutHead($jsArr,$cssArr,"添加接口信息");
 /* 输出顶部导航*/
-outputNav($userName);
+$userimg = __getCookies ( 'userImg' );
+$userName = __getCookies('userName');
+$userInfo = (object)[
+		"heardImg" =>"fc3d.jpg",
+		"userName"=>$userName,
+];
+$outPut->outPutHeader($userInfo);
+$outPut->outSider();
 outputInterFaceInfo_edit();
-outputFoot();
+$outPut->outputFoot();
 
 function  outputInterFaceInfo_edit(){
-
-	echo '<div class="inteFaceInfoBody">';
-	outputInterFaceHead_edit();
-	echo '<table class="inteFaceDescribe">
-	<tr>
-	<td>接口名称:</td>
-	<td><input type="text"  class="inteFaceVar" tag="interFaceName"  /></td>
-	<td>接口中文名称:</td>
-	<td><input type="text" class="inteFaceVar" tag="interFaceNameStr" /></td>
-	</tr>
-	<tr>
-	<td>开始版本号:</td>
-	<td><input type="text" class="inteFaceVar" tag="interFaceBeginVersions" /></td>
-	<td>结束版本号:</td>
-	<td><input type="text" class="inteFaceVar" tag="interFaceEndVersions"  /></td>
-	</tr>
-	<tr>
-	<td>开始时间:</td>
-	<td><input type="text" class="inteFaceVar" tag="interFaceBeginTime"  /></td>
-	<td>结束时间:</td>
-	<td><input type="text" class="inteFaceVar" tag="interFaceEndTime"   /></td>
-	</tr>
-			
-	<tr>
-	<td>接口路径:</td>
-	<td><input type="text"  class="inteFaceVar" tag="interFacepath" /></td>
-	<td>接口描述:</td>
-	<td><input type="text"  class="inteFaceVar" tag="interFaceDescribe" /></td>
-	</tr>
-	</table>
-	</div>';
+	echo '<section id="main-content">';
+	echo '<section class="wrapper">';
+	//接口基本信息from
+	outIntefaceBasicInfofrom();
+	outIntefaceOtherInfofrom();
+	echo '</section></section>';
 }
 
-function  outputInterFaceHead_edit(){
-
-	echo '<div class="interfaceInfoHead">
-	<button class="SaveInterFace">保存</button>
-	<button class="cancelEdit">返回</button>
-	</div>';
+// data_Dic = {"interFaceName":data['interFaceName'],
+// "interFaceNameStr":data['interFaceNameStr'],
+// "interFaceBeginVersions":data['interFaceBeginVersions'],
+// "interFaceEndVersions":data['interFaceEndVersions'],
+// "interFaceBeginTime":data['interFaceBeginTime'],
+// "interFaceEndTime":data['interFaceEndTime'],
+// "interFacepath":data['interFacepath'],
+// "interFaceDescribe":data['interFaceDescribe']
+function outIntefaceBasicInfofrom(){
+	?>  <div class="row">
+	                  <div class="col-lg-12">
+	                      <section class="panel">
+	                          <header class="panel-heading">
+	                              基本信息
+	                          </header>
+	                          <div class="panel-body">
+	                              <form role="form" class="form-horizontal tasi-form"  method="get" action="" novalidate="novalidate">
+	                                  <div class="form-group">
+	                                      <label class="col-lg-2 control-label">接口名称</label>
+	                                      <div class="col-lg-10">
+	                                          <input type="text" placeholder="" id="interFaceName" class="form-control">
+	                                      </div>
+	                                      
+	                                  </div>
+	                                  <div class="form-group">
+	                                      <label class="col-lg-2 control-label">功能描述</label>
+	                                      <div class="col-lg-10">
+	                                          <input type="text" placeholder="" id="interFaceDescribe" class="form-control">
+	                                      </div>
+	                                  </div>
+	                                  <label class="col-lg-0 control-label">接口路径</label>
+	                                  <select class="form-control input-lg m-bot15"  id="interFacepath">
+	                                              <option>InterFace</option>
+	                                              <option>Option 2</option>
+	                                              <option>Option 3</option>
+	                                          </select>
+	
+	                                  <div class="form-group">
+	                                      <div class="col-lg-offset-2 col-lg-10">
+	                                          <button class="btn btn-danger" type="submit">保存</button>
+	                                      </div>
+	                                  </div>
+	                              </form>
+	                          </div>
+	                      </section>
+	                  </div>
+	              </div>
+	              <?php 
 }
+
+function outIntefaceOtherInfofrom(){
+	?>  <div class="row">
+	                  <div class="col-lg-12">
+	                      <section class="panel">
+	                          <header class="panel-heading">
+	                              版本控制
+	                          </header>
+	                          <div class="panel-body">
+	                              <form role="form" class="form-horizontal tasi-form">
+	                                  <div class="form-group">
+	                                      <label class="col-lg-2 control-label">开始版本号</label>
+	                                      <div class="col-lg-10">
+	                                          <input type="text" placeholder="" id="f-name" class="form-control">
+	                                      </div>
+	                                      <label class="col-lg-2 control-label">结束版本号</label>
+	                                      <div class="col-lg-10">
+	                                          <input type="text" placeholder="" id="l-name" class="form-control">
+	                                      </div>
+	                                      <label class="col-lg-2 control-label">开始时间</label>
+	                                      <div class="col-lg-10">
+	                                          <input type="text" placeholder="" id="l-name" class="form-control">
+	                                      </div>
+	                                      <label class="col-lg-2 control-label">结束时间</label>
+	                                      <div class="col-lg-10">
+	                                          <input type="text" placeholder="" id="l-name" class="form-control">
+	                                      </div>
+	                                      
+	                                  </div>
+	                                  
+	                                  <div class="form-group">
+	                                      <div class="col-lg-offset-2 col-lg-10">
+	                                          <button class="btn btn-danger" type="submit">保存</button>
+	                                      </div>
+	                                  </div>
+	                              </form>
+	                          </div>
+	                      </section>
+	                  </div>
+	              </div>
+	              <?php 
+}
+
 ?>

@@ -34,7 +34,7 @@ $(function() {
 		alert(json);
 		$.ajax({
 			type : 'POST',
-			url : httpURL,
+			url : httpURL_interFace,
 			data : json,
 			dataType : "json",//jsonp数据类型  
 			contentType : "json",

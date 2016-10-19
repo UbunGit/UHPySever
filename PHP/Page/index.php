@@ -2,7 +2,7 @@
 <?php
 require_once ('../Public_php/Globle_sc_fns.php');
 
-$userimg = __getCookies ( 'userImg' );
+
 
 /* 输出头部信息 */
 $jsArr = array (
@@ -19,21 +19,23 @@ $cssArr = array (
 );
 $outPut = new OutPut();
 $outPut->outPutHead ( $jsArr, $cssArr, "主页" );
-/** testdata*/
+
+$userimg = __getCookies ( 'userImg' );
+$userName = __getCookies('userName');
 $userInfo = (object)[
 		"heardImg" =>"fc3d.jpg",
-		"userName"=>"UbunGit",
+		"userName"=>$userName,
 ];
 $outPut->outPutHeader($userInfo);
 $outPut->outSider();
 
-// echo '<table class="pageList">
-//          <tr>
-// 			<td><a class="page" href="../FC3D/FCOutData.php">福彩3D</a></td>
-//   			<td><a class="page" href="../TestInterFace.php">接口测试</a></td>
-//             <td><a class="page" href="../MemberManagement.php">会员管理</a></td>
-//            <tr>
-// 		</table>';
+echo '<table class="pageList">
+         <tr>
+			<td><a class="page" href="../FC3D/FCOutData.php">福彩3D</a></td>
+  			<td><a class="page" href="../TestInterFace.php">接口测试</a></td>
+            <td><a class="page" href="../MemberManagement.php">会员管理</a></td>
+           <tr>
+		</table>';
 $outPut->outputFoot ();
 
 

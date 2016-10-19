@@ -5,11 +5,13 @@
     $jsArr = array("Login.js","Tooltips.js","Cookie.js");
     $cssArr = array('Globle.css','Login.css');
     $outPut = new OutPut();
-    $outPut->outPutHead ( $jsArr, $cssArr, "主页" );
     $outPut->outPutHead($jsArr,$cssArr,"登录");
     
     $userName = __getCookies('userName');
+    $config= new ConfigINI();
+    $imagePath = $config->get('URL.root_image');
     ?>
+<img src="<?php echo $imagePath.'2.jpg' ?> " id="img" /> 
 <div class="main_box">
 <table class="login_Table">
 <tr>
@@ -20,10 +22,9 @@
 <td colspan="2" align="center">
 <button type="button" class="log" >Sign in</button></td></tr>
 <tr>
-<tr>
 <td colspan="2" align="center">
 <button type="button" class="register" >Sign up</button></td></tr>
-<tr>
+
 </table>
 </div>
 <?php

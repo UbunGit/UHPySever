@@ -2,7 +2,10 @@
  * 
  */
 $(function() {
-	
+	$.validator.setDefaults({
+        submitHandler: function() { alert("submitted!"); }
+    });
+
 	/*
 	 * 取消编辑1 查看 2修改 3 新增
 	 */
@@ -50,3 +53,20 @@ $(function() {
 				});
 	});
 });
+
+$('#submit').click(function(){	 
+	 $("from").validate({
+		 
+	        rules: {
+	            session_name: "required",
+	            session_start_date: "required",
+	            session_end_date: "required",
+	        },
+	        messages: {
+	            session_name: "Please enter an identification for the session",
+	            session_start_date: "Please enter a start date for the session",
+	            session_end_date: "Please enter a end date for the session",
+	        }
+		 
+	    });
+	});

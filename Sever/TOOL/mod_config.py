@@ -12,7 +12,9 @@ import os, sys
 def getConfig(section, key):
     config = ConfigParser.ConfigParser(allow_no_value=True)
     path, filename = os.path.split(os.path.abspath(sys.argv[0]))
-    path = path + '/config.conf'
+    path= os.path.join(path,"../")
+    path= os.path.abspath(path)
+    path = path+"/Install/config.conf"
     print path;
     config.read(path)
     return config.get(section, key)

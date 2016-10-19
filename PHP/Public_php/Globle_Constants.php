@@ -35,9 +35,7 @@ class Config {
 				return false;
 			}
 			$result = $result[$val];
-
 		}
-
 		return $result;
 	}
 }

@@ -13,7 +13,9 @@ class Globle_HttpIntface {
 		}else{
 			$options['userName'] = 'userName';
 		}
-		$request = send_post ( HTTPREQUESTURL.$interfacePath, $options );
+		$config= new ConfigINI();
+		$interFaceIP=$config->get('interFace.InterFaceIP');
+		$request = send_post ( $interFaceIP.$interfacePath, $options );
 		if ($request) {
 			return $request;
 		} else {
