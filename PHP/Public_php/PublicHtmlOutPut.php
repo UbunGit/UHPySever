@@ -91,8 +91,8 @@ class Output {
                     <!-- user login dropdown start-->
                     <li class="dropdown">
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                            <img alt="" src="' . $this->getImage($userInfo->heardImg) . '">
-                            <span class="username">' . $userInfo->userName . '</span>
+                            <img alt="" src="' . $this->getImage($userInfo['heardImg']) . '">
+                            <span class="username">' . $userInfo['userName'] . '</span>
                             <b class="caret"></b>
                          </a>
                         <ul class="dropdown-menu extended logout">

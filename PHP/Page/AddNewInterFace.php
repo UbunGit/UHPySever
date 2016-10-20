@@ -19,10 +19,10 @@ $outPut->outPutHead($jsArr,$cssArr,"添加接口信息");
 /* 输出顶部导航*/
 $userimg = __getCookies ( 'userImg' );
 $userName = __getCookies('userName');
-$userInfo = (object)[
+$userInfo = array(
 		"heardImg" =>"fc3d.jpg",
 		"userName"=>$userName,
-];
+);
 $outPut->outPutHeader($userInfo);
 $outPut->outSider();
 outputInterFaceInfo_edit();

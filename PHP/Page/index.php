@@ -22,10 +22,10 @@ $outPut->outPutHead ( $jsArr, $cssArr, "主页" );
 
 $userimg = __getCookies ( 'userImg' );
 $userName = __getCookies('userName');
-$userInfo = (object)[
+$userInfo = array(
 		"heardImg" =>"fc3d.jpg",
 		"userName"=>$userName,
-];
+);
 $outPut->outPutHeader($userInfo);
 $outPut->outSider();
 
