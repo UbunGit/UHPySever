@@ -37,14 +37,7 @@ function  outputInterFaceInfo_edit(){
 	echo '</section></section>';
 }
 
-// data_Dic = {"interFaceName":data['interFaceName'],
-// "interFaceNameStr":data['interFaceNameStr'],
-// "interFaceBeginVersions":data['interFaceBeginVersions'],
-// "interFaceEndVersions":data['interFaceEndVersions'],
-// "interFaceBeginTime":data['interFaceBeginTime'],
-// "interFaceEndTime":data['interFaceEndTime'],
-// "interFacepath":data['interFacepath'],
-// "interFaceDescribe":data['interFaceDescribe']
+
 function outIntefaceBasicInfofrom(){
 	?>  <div class="row">
 	                  <div class="col-lg-12">
@@ -117,7 +110,7 @@ function outIntefaceOtherInfofrom(){
 	                                  </div>
 	                                  
 	                                  <div class="form-group">
-	                                      <div class="col-lg-offset-2 col-lg-10">
+	                                      <div class="col-lg-offset-7 col-lg-4">
 	                                          <button class="btn btn-danger" type="submit">保存</button>
 	                                      </div>
 	                                  </div>

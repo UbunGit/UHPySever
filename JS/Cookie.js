@@ -2,9 +2,11 @@
  * 
  */
 
-var httpURL_interFace= 'http://'+ window.location.host+':8889/interface';
-var httpURL_FCAnalyse= 'http://'+window.location.host+'8889/FCAnalyse';
+//var httpURL_interFace= 'http://'+ window.location.host+':8889/interface';
+//var httpURL_FCAnalyse= 'http://'+window.location.host+'8889/FCAnalyse';
 
+var httpURL_interFace= 'http://45.78.9.162:8889/interface';
+var httpURL_FCAnalyse= 'http://45.78.9.162:8889/FCAnalyse';
 /**
  * hours为空字符串时,
  * cookie的生存期至浏览器会话结束。

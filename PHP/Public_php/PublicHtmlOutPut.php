@@ -30,13 +30,21 @@ class Output {
 		echo '<meta charset="UTF-8">';
 		echo '<title>' . $headStr . '</title>';
  		echo '<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=3.0, user-scalable=no">';
+ 		
+ 		echo ' <!--bootstrap-->';
+ 		echo '<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+ 		<!-- 可选的Bootstrap主题文件（一般不用引入） -->
+ 		<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap-theme.min.css">
+ 		<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+ 		<script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+ 		<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+ 		<script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>';
+ 		
  		echo ' <!--external css-->';
  		
         echo '<link rel="stylesheet"  href='.$this->getCSS("assets/font-awesome/css/font-awesome.css").'></link>';
         echo '<link rel="stylesheet"  href="'.$this->getCSS("assets/jquery-easy-pie-chart/jquery.easy-pie-chart.css").'">';
 
-		echo '<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">';
-		echo '<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap-theme.min.css">';
  		echo '<link rel="stylesheet"  href='.$this->getCSS("slidebars.css").'>';
  		echo '<link rel="stylesheet"  href='.$this->getCSS("style.css").'>';
  		echo '<link rel="stylesheet"  href='.$this->getCSS("style-responsive.css").'>';
@@ -46,13 +54,11 @@ class Output {
  				echo ('<link rel="stylesheet" type="text/css" media="screen" href="' .$this->getCSS ($value ). '"/>');
  			}
  		}
- 		echo'<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js" ></script>';
-		echo '<script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>';
- 		echo '<script src='.$this->getCSS("assets/jquery-ui/jquery-ui-1.10.1.custom.min.js"). ' type="text/javascript"></script>';
- 		echo '<script src='.$this->getCSS("assets/jquery-easy-pie-chart/jquery.easy-pie-chart.js").' type="text/javascript"></script>';
-		echo '<script class="include" src=' .$this->getjs("jquery/jquery.dcjqaccordion.2.7.js"). ' type="text/javascript"></script>';
-		echo '<script src=' .$this->getjs("jquery/jquery.sparkline.js"). ' type="text/javascript"></script>';
-		echo '<script src=' .$this->getjs("jquery/jquery.nicescroll.js"). ' type="text/javascript"></script>';
+ 		echo '<script src='.$this->getCSS("assets/jquery-ui/jquery-ui-1.10.1.custom.min.js"). '></script>';
+ 		echo '<script src='.$this->getCSS("assets/jquery-easy-pie-chart/jquery.easy-pie-chart.js").' ></script>';
+		echo '<script class="include" src=' .$this->getjs("jquery/jquery.dcjqaccordion.2.7.js"). ' ></script>';
+		echo '<script src=' .$this->getjs("jquery/jquery.sparkline.js"). ' ></script>';
+		echo '<script src=' .$this->getjs("jquery/jquery.nicescroll.js"). '></script>';
 		echo '<script src=' .$this->getjs("slidebars.min.js"). '></script>';
 		echo '<script src=' .$this->getjs("common-scripts.js"). '></script>';
 		echo '<script src=' .$this->getjs("respond.min.js"). '></script>';

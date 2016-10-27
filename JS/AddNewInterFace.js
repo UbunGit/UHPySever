@@ -2,16 +2,7 @@
  * 
  */
 $(function() {
-	$.validator.setDefaults({
-        submitHandler: function() { alert("submitted!"); }
-    });
-
-	/*
-	 * 取消编辑1 查看 2修改 3 新增
-	 */
-	$('.cancelEdit').click(function(){
-		window.location.href="./ScanInterFace.php";
-	});
+	
 	/**
 	 * 保存接口信息
 	 */

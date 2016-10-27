@@ -16,7 +16,6 @@ $(document).ready(function() {
 		dataType : "json",//jsonp数据类型  
 		contentType : "json",
 		success : function(data) {
-			reloadPageList(data);
 		},
 		error : function(e) {
 			show_err_msg(e.statusText);
@@ -24,31 +23,7 @@ $(document).ready(function() {
 	});
 });
 
-function reloadPageList(data) {
-	var element = document.getElementsByClassName("pageList")[0];
-	if (data.inforCode == 0) {
 
-		var listdata = data.result;
-		for (i = 0; i < listdata.length; i++) {
-			var datadic = listdata[i];
-			element.innerHTML = '<tr>\
-			<td><a  href="' + datadic.url + ' ">'
-					+ datadic.remark + ' </a></td>\
-           <tr>';
-		}
-	} else {
-
-		element.innerHTML = '<tr>\
-							<td>添加新功能:</td>\
-						</tr>\
-						<tr>\
-							<td><input class="newIntetFace" tag="parameterName" type="text"></input></td>\
-						</tr>\
-						<tr>\
-							<td><button class="saveParameter">确定</button></td>\
-						</tr>';
-	}
-}
 
 $(function() {
 	/**
