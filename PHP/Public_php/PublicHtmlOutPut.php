@@ -59,6 +59,7 @@ class Output {
 		echo '<script class="include" src=' .$this->getjs("jquery/jquery.dcjqaccordion.2.7.js"). ' ></script>';
 		echo '<script src=' .$this->getjs("jquery/jquery.sparkline.js"). ' ></script>';
 		echo '<script src=' .$this->getjs("jquery/jquery.nicescroll.js"). '></script>';
+		echo '<script src=' .$this->getjs("jquery/jquery.customSelect.min.js"). '></script>';
 		echo '<script src=' .$this->getjs("slidebars.min.js"). '></script>';
 		echo '<script src=' .$this->getjs("common-scripts.js"). '></script>';
 		echo '<script src=' .$this->getjs("respond.min.js"). '></script>';
@@ -73,6 +74,32 @@ class Output {
 				echo ('<script src="' .$this->getjs($value). '"></script>');
 			}
 		}
+		echo '
+<script> //owl carousel
+
+      $(document).ready(function() {
+          $("#owl-demo").owlCarousel({
+              navigation : true,
+              slideSpeed : 300,
+              paginationSpeed : 400,
+              singleItem : true,
+			  autoPlay:true
+
+          });
+      });
+
+      //custom select box
+
+      $(function(){
+          $(\'select.styled\').customSelect();
+      });
+
+      $(window).on("resize",function(){
+          var owl = $("#owl-demo").data("owlCarousel");
+          owl.reinit();
+      });
+</script>
+				';
 		echo '</head>';
 		echo '<body>';
 	}

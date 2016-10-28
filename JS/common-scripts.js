@@ -14,7 +14,9 @@ $(function() {
     
 //  tool tips
 
-    $('.tooltips').tooltip();
+    $('.tooltips').tooltip(function () {
+    	alert("jj");
+    });
 
 //    popovers
 
@@ -41,8 +43,6 @@ $(function() {
             });
             $("#container").removeClass("sidebar-closed");
         }
-        var owl = $("#owl-demo").data("owlCarousel");
-        owl.reinit();
     });
     
     $.slidebars();

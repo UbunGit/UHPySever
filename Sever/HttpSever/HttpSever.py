@@ -94,14 +94,7 @@ class TestHTTPHandle(BaseHTTPRequestHandler):
                 userName = "verstor"
             if("userTel"  in fields.keys()):
                 userTel = fields["userTel"];
-#             if("userId"  in fields.keys()):
-#                 userId = fields["userId"];
-                
-#             if(len(userName.encode('utf-8'))<6 and len(userTel.encode('utf-8')<6)):
-#                 returnData = {"inforCode":-20004};
-#                 LogHandle.writeLog(0, returnData, userName)
-#                 
-#             el
+
             if(path == '/interface'): 
                 interface = InterfaceHandle()
                 returnData = interface.interfaceMethodo(fields, userName) 
@@ -112,6 +105,7 @@ class TestHTTPHandle(BaseHTTPRequestHandler):
                 interface = FCAnalyse()
                 returnData = interface.FCAnalyseMethodo(fields, userName)
             else:
+                LogHandle.writeLog(0, "path:{"+path+"}", 'anyone')
                 returnData = {"inforCode":-20003};
 
         except KeyError , ex:

@@ -24,29 +24,19 @@ class ScanInterFace(object):
             return returnDic
         method = getattr(self, mname)
         return method(data)
-    
+    '''
+    添加接口
+    '''
+    def do_addInterFace(self,data):
+        pymysqlHandle = PymysqlHandle() 
+        return pymysqlHandle.addInterFace(data["interFaceName"],data["interFaceNameStr"],data["interFacepath"])
     '''
     修改接口信息
     '''
     def do_replaceInteface(self, data):
-        try:    
-            data_Dic = {"interFaceName":data['interFaceName'],
-                    "interFaceNameStr":data['interFaceNameStr'],
-                    "interFaceBeginVersions":data['interFaceBeginVersions'],
-                    "interFaceEndVersions":data['interFaceEndVersions'],
-                    "interFaceBeginTime":data['interFaceBeginTime'],
-                    "interFaceEndTime":data['interFaceEndTime'],
-                    "interFacepath":data['interFacepath'],
-                    "interFaceDescribe":data['interFaceDescribe']
-                }
-        except BaseException, e:
-            LogHandle.writeLog(str(e.args[0]), str(e), self.userName)
-            returnDic = {"inforCode":-20002}
-            return returnDic
-        else:
-
-            pymysqlHandle = PymysqlHandle() 
-            return pymysqlHandle.replaceIntefaceInfo(data_Dic)
+       
+        pymysqlHandle = PymysqlHandle() 
+        return pymysqlHandle.replaceIntefaceInfo(data)
     '''
     获取接口列表
     '''

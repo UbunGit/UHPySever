@@ -128,7 +128,32 @@ class PymysqlHandle(object):
             except MySQLError, ex:
                 returnData = {"inforCode":ex.args[0]};
                 returnData['result'] = ex.args[1]  
-        
+                
+    '''
+    添加新接口  
+    -----------------------------
+     2016.10.28 xiaoqy
+     html:    1.0.0 
+     ios:     1.0.0
+     android  1.0.0
+    －－－－－－－－－－－－－－－－－   
+    '''     
+    def addInterFace(self,interFaceName,interFaceNameStr,interFacepath):  
+        try:
+            connection = SqlHabdleGlobal.connectionDb();
+            with connection.cursor() as cursor:
+                sql ='INSERT SmartHomeInterFace_Table (interFaceName,interFaceNameStr,interFacepath) VALUES (%s,%s,%s);'
+                cursor.execute(sql,(interFaceName,interFaceNameStr,interFacepath))
+                connection.commit()
+
+        except BaseException, e:
+            LogHandle.writeLog(str(e.args[0]), '数据库操作：replaceIntefaceInfo:' + str(e), "anyone")
+            returnDic = {"inforCode":-10000}
+            return returnDic
+        else:
+            connection.close() 
+            returnDic = {"inforCode":0}
+            return returnDic;
     '''
      修改接口数据
     -----------------------------
@@ -142,19 +167,10 @@ class PymysqlHandle(object):
         try:
             connection = SqlHabdleGlobal.connectionDb();
             with connection.cursor() as cursor:
-                # Create a new record
-                sql = 'call p_ReplaceInterFace(%s,%s,%s,%s,%s,%s,%s,%s)';
-                LogHandle.writeLog(0, '数据库操作：replaceIntefaceInfo:' + sql.encode('utf-8'), "anyone")
-                cursor.execute(sql, (interFaceDic['interFaceName'],
-                                    interFaceDic['interFaceNameStr'],
-                                    interFaceDic['interFaceDescribe'],
-                                    interFaceDic['interFacepath'],
-                                    interFaceDic['interFaceBeginTime'],
-                                    interFaceDic['interFaceEndTime'],
-                                    interFaceDic['interFaceBeginVersions'],
-                                    interFaceDic['interFaceEndVersions'])
-                               );
-                connection.commit()
+                sql ='SELECT COUNT(interFaceName) FROM SmartHomeInterFace_Table WHERE interFaceName = interFaceName_in'
+                cursor.execute(sql)
+                
+#                 connection.commit()
         except BaseException, e:
             LogHandle.writeLog(str(e.args[0]), '数据库操作：replaceIntefaceInfo:' + str(e), "anyone")
             returnDic = {"inforCode":-10000}

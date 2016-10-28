@@ -11,8 +11,11 @@ if (__get ( 'interFaceName' )) {
 }
 
 /* 输出头部信息*/
-$jsArr = array("AddNewInterFace.js","Tooltips.js");
-$cssArr = array('AddNewInterFace.css','header.css');
+$jsArr = array("AddNewInterFace.js",
+		"Tooltips.js",
+		"Cookie.js",);
+$cssArr = array('AddNewInterFace.css',
+				'header.css');
 
 $outPut = new OutPut();
 $outPut->outPutHead($jsArr,$cssArr,"添加接口信息");
@@ -46,32 +49,35 @@ function outIntefaceBasicInfofrom(){
 	                              基本信息
 	                          </header>
 	                          <div class="panel-body">
-	                              <form role="form" class="form-horizontal tasi-form"  method="get" action="" novalidate="novalidate">
+	                              <form role="form" class="form-horizontal tasi-form baseinfo-form">
+	                              
 	                                  <div class="form-group">
-	                                      <label class="col-lg-2 control-label">接口名称</label>
+	                                      <label class="col-lg-10  control-label">接口名称</label>
 	                                      <div class="col-lg-10">
-	                                          <input type="text" placeholder="" id="interFaceName" class="form-control">
-	                                      </div>
-	                                      
+	                                          <input type="text" placeholder="接口名称" name="interFaceName" class="form-control">
+	                                      </div> 
 	                                  </div>
+	                                  
 	                                  <div class="form-group">
-	                                      <label class="col-lg-2 control-label">功能描述</label>
+	                                      <label class="col-lg-2 control-label">接口中文名称</label>
 	                                      <div class="col-lg-10">
-	                                          <input type="text" placeholder="" id="interFaceDescribe" class="form-control">
+	                                          <input type="text" placeholder="接口中文名称" name="interFaceNameStr" class="form-control">
 	                                      </div>
 	                                  </div>
+	                                  
 	                                  <label class="col-lg-0 control-label">接口路径</label>
-	                                  <select class="form-control input-lg m-bot15"  id="interFacepath">
-	                                              <option>InterFace</option>
-	                                              <option>Option 2</option>
-	                                              <option>Option 3</option>
+	                                  <select class="form-control  m-bot15 "  name="interFacepath">
+	                                              <option>interface</option>
+	                                              <option>samrtHome</option>
+	                                              <option>FCAnalyse</option>
 	                                          </select>
 	
 	                                  <div class="form-group">
-	                                      <div class="col-lg-offset-2 col-lg-10">
-	                                          <button class="btn btn-danger" type="submit">保存</button>
+	                                      <div class="col-lg-offset-10 col-lg-2 col-sm-offset-10 col-sm-2">
+	                                          <button class="btn btn-primary saveinterface" type="submit">保存</button>
 	                                      </div>
 	                                  </div>
+	                                  
 	                              </form>
 	                          </div>
 	                      </section>
@@ -110,8 +116,8 @@ function outIntefaceOtherInfofrom(){
 	                                  </div>
 	                                  
 	                                  <div class="form-group">
-	                                      <div class="col-lg-offset-7 col-lg-4">
-	                                          <button class="btn btn-danger" type="submit">保存</button>
+	                                      <div class="col-lg-offset-5 col-lg-2 col-lg-offset-10 col-lg-2 col-sm-offset-10 col-sm-2">
+	                                          <button class="btn btn-primary " type="submit">保存</button>
 	                                      </div>
 	                                  </div>
 	                              </form>
@@ -119,6 +125,8 @@ function outIntefaceOtherInfofrom(){
 	                      </section>
 	                  </div>
 	              </div>
+	              
+	              
 	              <?php 
 }
 

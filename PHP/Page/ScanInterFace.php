@@ -2,129 +2,92 @@
 require_once ('../Public_php/Globle_sc_fns.php');
 $userName = __getCookies ( 'userName' );
 
+/* 输出头部信息*/
+$jsArr = array("ScanInterFace.js",
+		"Tooltips.js",
+		"Cookie.js",);
+$cssArr = array('ScanInterFace.css',
+		'header.css');
 
-if (__get ( 'interFaceName' )) {
-	$interFaceName = __get ( 'interFaceName' );
-}else {
-	$uri = $_SERVER['HTTP_HOST'];
-	header('Location:./AddNewInterFace.php');
-	exit;
-}
-/* 输出头部信息 */
-$jsArr = array (
-		"../../SmartHome_JS/ScanInterFace.js",
-		"../../SmartHome_JS/Tooltips.js",
-		"../../SmartHome_JS/MenuNav.js" 
-);
-$cssArr = array (
-		'../../SmartHome_JS/CSS/ScanInterFace.css',
-		'../../SmartHome_JS/CSS/MenuNav.css',
-		'../../SmartHome_JS/CSS/LeftNav.css' 
-);
+$interFaceList = getInterfaceList();
 
-$inPutArr = getInterFaceInputArr ( $interFaceName );
-$outPutArr = getInterFaceOutputArr ( $interFaceName );
-$interFaceInfo = getInterFaceInfo ( $interFaceName );
 $outPut = new OutPut();
 $outPut->outPutHead ( $jsArr, $cssArr, "接口查询" );
-echo '<div class="data" data_interFaceName ="' . $interFaceInfo ['interFaceName'] . '"/>';
+/* 输出顶部导航*/
+$userimg = __getCookies ( 'userImg' );
+$userName = __getCookies('userName');
+$userInfo = array(
+		"heardImg" =>"fc3d.jpg",
+		"userName"=>$userName,
+);
+$outPut->outPutHeader($userInfo);
+$outPut->outSider();
+outMainContent();
+$outPut->outputFoot();
 
-/* 输出顶部导航 */
-$outPut->outPutHeadoutputNav ( $userName );
-/* 输出侧边栏 */
-$outPut->outPutHeadoutputLeftNav ( $leftArr );
-$outPut->outPutHeadoutputInterface ( $inPutArr, $outPutArr, $interFaceInfo );
-$outPut->outPutHeadoutputFoot ();
-
-/**
- * 输出接口信息html
- */
-function outputInterface($inPutArr, $outPutArr, $interFaceInfo) {
-	echo '<div class="interfaceInfo">';
-	outputInterFaceHead_scan ();
-	outputInterFaceInfo_scan ( $inPutArr, $outPutArr, $interFaceInfo );
+function outMainContent(){
+	echo '<section id="main-content">';
+	echo '<section class="wrapper">';
+	echo '<div class="row">';
+	$interFaceList = getInterfaceList();
+	outInterFaceList($interFaceList);
+	
+	$firstInterface =$interFaceList[0];
+	outInterFacrBastInfo($firstInterface);
+	$firstintFaceName = $firstInterface['interFaceName'];
 	echo '</div>';
+	echo '</section></section>';
 }
 
 /**
- * 输出查看接口时头信息
+ *  输出接口列表
+ * @param unknown $interFaceList
  */
-function outputInterFaceHead_scan() {
-	echo '<div class="interfaceInfoHead">
-	<button class="addNewInterFace">添加新接口</button>
-	<button class="changeInterFace">修改接口</button>
-	</div>';
-}
-function outputInterFaceInfo_scan($inPutArr, $outPutArr, $interFaceInfo) {
-	echo '<div class="inteFaceInfoBody">
-	<h2>' . $interFaceInfo ['interFaceName'] . '(' . $interFaceInfo ['interFaceNameStr'] . ')</h2>
-	<scan>
-	<p>版本号: ' . $interFaceInfo ['interFaceBeginVersions'] . '~' . $interFaceInfo ['interFaceEndVersions'] . '</p>	
-	<p>时间: ' . $interFaceInfo ['interFaceBeginTime'] . '~' . $interFaceInfo ['interFaceEndTime'] . '</p>
-	<p>路径: ' . $interFaceInfo ['interFacepath'] . '</p>
-	<p>' . $interFaceInfo ['interFaceDescribe'] . '</p><br>';
+function outInterFaceList($interFaceList){
+	?> 
 	
-	if (! empty ( $inPutArr )) {
-		echo '<table class="inteFaceInputTable" >
-		<caption>输入参数</caption>';
-		echo '<tr>
-					<td>名称</td>
-					<td>描述</td>
-					<td>类型</td>
-					<td>开始版本</td>
-					<td>结束版本</td>
-		  		    <td>结束时间</td>
-					<td>是否可空</td>
-					</tr>';
-		foreach ( $inPutArr as $value ) {
-			echo '<tr>
-					<td>' . $value ['parameterName'] . '</td>
-					<td>' . $value ['parameterDescribe'] . '</td>
-					<td>' . $value ['parameterType'] . '</td>
-					<td>' . $value ['parameterBeginVersions'] . '</td>
-					<td>' . $value ['parameterEndVersions'] . '</td>
-					<td>' . $value ['parameterEndTime'] . '</td>	
-					<td>' . $value ['parameterCanNil'] . '</td>
-					</tr>';
-		}
-	}
-	echo '</table>';
-	
-	if (! empty ( $outPutArr )) {
+	<div class="col-md-3">
+	<section class="panel">
+                          <div class="panel-body">
+                              <input type="text" placeholder="Keyword Search" class="form-control">
+                          </div>
+                      </section>
+     <section class="panel">
+     <header class="panel-heading">接口列表</header>
+                          <div class="panel-body">
+                           <ul class="nav prod-cat">
+	<?php
+	foreach ($interFaceList as $value){
 		
-		echo '<table class="inteFaceOutputTable" ><tr>
-				<caption>输出参数</caption>';
-		echo '<tr>
-				  <td>名称</td>
-				  <td>描述</td>
-				  <td>类型</td>
-				  <td>开始版本</td>
-				  <td>结束版本</td>
-				  <td>结束时间</td>
-				  <td>是否可空</td>
-				  </tr>';
-		foreach ( $outPutArr as $value ) {
-			echo '<tr>
-						<td>' . $value ['parameterName'] . '</td>
-						<td>' . $value ['parameterDescribe'] . '</td>
-						<td>' . $value ['parameterType'] . '</td>
-						<td>' . $value ['parameterBeginVersions'] . '</td>
-						<td>' . $value ['parameterEndVersions'] . '</td>
-						<td>' . $value ['parameterEndTime'] . '</td>
-						<td>' . $value ['parameterCanNil'] . '</td>
-						</tr>';
-		}
+		echo '<li><a href="#"><i class=" fa fa-leaf"></i>  ' .$value['interFaceName'] .' <small>' .$value['interFaceNameStr'] .'</small></a> </li>';
 	}
-	echo '
-	</table>
-	<p class="outPutText"></p> 
-	</div>';
+	?>
+	 		</ul>
+     	</div>
+     	 </section>
+	</div>
+	<?php
 }
-
+function outInterFacrBastInfo($baseinfo){
+	?>
+	<div class="col-md-9">
+	<section class="panel">
+	<h4 class="panel-heading"> <?php echo $baseinfo['interFaceName'].' ('.$baseinfo['interFaceNameStr'].')'; ?> </h4>
+	<div class="panel-body text-left">
+	<ul class="nav prod-cat">
+		<li>  接口路径： <?php echo $baseinfo['interFacepath']; ?></li>
+		<li>  接口描述</li>
+		<li>  <?php echo $baseinfo['interFaceDescribe']; ?></li>
+	</ul>
+    </div>
+	</section>
+	</div>
+	<?php
+}
 /**
  * 获取接口列表数据
  */
-function getleftArr() {
+function getInterfaceList() {
 	$returnArr = array ();
 	$httpIntface = new Globle_HttpIntface ();
 	$request = $httpIntface->getInterfaceList ();
@@ -132,15 +95,11 @@ function getleftArr() {
 		
 		if ($request ['inforCode'] == 0) {
 			$temResu = $request ['result'];
-			if (is_array ( $temResu )) {
-				foreach ( $temResu as $value ) {
-					array_push ( $returnArr, $value ['interFaceName'] );
-				}
-			} else {
-				array_push ( $returnArr, $temResu ['interFaceName'] );
-			}
+			return $temResu;
 		} else {
-			__alert ( $request ['result'] );
+			$uri = $_SERVER['HTTP_HOST'];
+			header('Location:./AddNewInterFace.php');
+			exit;
 		}
 		return $returnArr;
 	} else {
