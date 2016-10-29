@@ -48,13 +48,15 @@ class Output {
  		echo '<link rel="stylesheet"  href='.$this->getCSS("slidebars.css").'>';
  		echo '<link rel="stylesheet"  href='.$this->getCSS("style.css").'>';
  		echo '<link rel="stylesheet"  href='.$this->getCSS("style-responsive.css").'>';
+ 		echo '<link rel="stylesheet"  href='.$this->getCSS("owl.carousel.css").'>';
+ 		echo '<link rel="stylesheet"  href='.$this->getCSS("bootstrap-reset.css").'>';
  		
  		if (! empty ( $cssarr )) {
  			foreach ( $cssarr as $value ) {
  				echo ('<link rel="stylesheet" type="text/css" media="screen" href="' .$this->getCSS ($value ). '"/>');
  			}
  		}
- 		echo '<script src='.$this->getCSS("assets/jquery-ui/jquery-ui-1.10.1.custom.min.js"). '></script>';
+
  		echo '<script src='.$this->getCSS("assets/jquery-easy-pie-chart/jquery.easy-pie-chart.js").' ></script>';
 		echo '<script class="include" src=' .$this->getjs("jquery/jquery.dcjqaccordion.2.7.js"). ' ></script>';
 		echo '<script src=' .$this->getjs("jquery/jquery.sparkline.js"). ' ></script>';
@@ -68,6 +70,7 @@ class Output {
 		echo '<script src=' .$this->getjs("owl.carousel.js"). '></script>';
 		echo '<script src=' .$this->getjs("sparkline-chart.js"). '></script>';
 		echo '<script src=' .$this->getjs("easy-pie-chart.js"). '></script>';
+		echo '<script src=' .$this->getjs("config.js"). '></script>';
 
 		if (! empty ( $jsarr )) {
 			foreach ( $jsarr as $value ) {
@@ -94,14 +97,11 @@ class Output {
           $(\'select.styled\').customSelect();
       });
 
-      $(window).on("resize",function(){
-          var owl = $("#owl-demo").data("owlCarousel");
-          owl.reinit();
-      });
 </script>
 				';
 		echo '</head>';
 		echo '<body>';
+		echo '<section id="container" >';
 	}
 	
 	/**
@@ -150,6 +150,7 @@ class Output {
 	 * 输出底部
 	 */
 	function outputFoot() {
+		echo '</section>';
 		echo '</body>';
 		echo '</html>';
 	}

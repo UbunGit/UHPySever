@@ -2,6 +2,7 @@
 
 #
 echo "=========================================================";
+
 OS=`uname`
 IO="" # store IP
 case $OS in
@@ -28,6 +29,14 @@ errorLogpath='../log'
 root_css=http://$IP/xiaoqy/UHPySever/CSS/
 root_js=http://$IP/xiaoqy/UHPySever/JS/
 root_image=http://$IP/xiaoqy/UHPySever/Image/" > config.conf
+
+cd ../JS
+
+echo "
+var httpURL_interFace= 'http://$IP:8889/interface';
+var httpURL_FCAnalyse= 'http://$IP:8889/FCAnalyse';
+var httpURL_samrtHome= 'http://$IP:8889:8889/samrtHome';
+" > config.js
 
 cd ../Sever 
 

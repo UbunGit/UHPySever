@@ -36,14 +36,13 @@ function  outputInterFaceInfo_edit(){
 	echo '<section class="wrapper">';
 	//接口基本信息from
 	outIntefaceBasicInfofrom();
-	outIntefaceOtherInfofrom();
 	echo '</section></section>';
 }
 
 
 function outIntefaceBasicInfofrom(){
 	?>  <div class="row">
-	                  <div class="col-lg-12">
+	                  <div class="col-lg-6">
 	                      <section class="panel">
 	                          <header class="panel-heading">
 	                              基本信息
@@ -52,28 +51,32 @@ function outIntefaceBasicInfofrom(){
 	                              <form role="form" class="form-horizontal tasi-form baseinfo-form">
 	                              
 	                                  <div class="form-group">
-	                                      <label class="col-lg-10  control-label">接口名称</label>
+	                                      <label class="col-lg-10 control-label"> 接口名称</label>
 	                                      <div class="col-lg-10">
 	                                          <input type="text" placeholder="接口名称" name="interFaceName" class="form-control">
 	                                      </div> 
 	                                  </div>
 	                                  
 	                                  <div class="form-group">
-	                                      <label class="col-lg-2 control-label">接口中文名称</label>
+	                                      <label class="col-lg-10 control-label">接口中文名称</label>
 	                                      <div class="col-lg-10">
 	                                          <input type="text" placeholder="接口中文名称" name="interFaceNameStr" class="form-control">
 	                                      </div>
 	                                  </div>
 	                                  
-	                                  <label class="col-lg-0 control-label">接口路径</label>
+	                                  <div class="form-group">
+	                                  <label class="col-lg-10 control-label">接口路径</label>
+	                                  <div class="col-lg-10">
 	                                  <select class="form-control  m-bot15 "  name="interFacepath">
 	                                              <option>interface</option>
 	                                              <option>samrtHome</option>
 	                                              <option>FCAnalyse</option>
-	                                          </select>
+	                                  </select>
+	                                  </div>
+	                                  </div>
 	
 	                                  <div class="form-group">
-	                                      <div class="col-lg-offset-10 col-lg-2 col-sm-offset-10 col-sm-2">
+	                                      <div class="col-lg-offset-9 col-lg-2 col-sm-2">
 	                                          <button class="btn btn-primary saveinterface" type="submit">保存</button>
 	                                      </div>
 	                                  </div>
@@ -82,13 +85,7 @@ function outIntefaceBasicInfofrom(){
 	                          </div>
 	                      </section>
 	                  </div>
-	              </div>
-	              <?php 
-}
-
-function outIntefaceOtherInfofrom(){
-	?>  <div class="row">
-	                  <div class="col-lg-12">
+	                  <div class="col-lg-6">
 	                      <section class="panel">
 	                          <header class="panel-heading">
 	                              版本控制
@@ -96,19 +93,19 @@ function outIntefaceOtherInfofrom(){
 	                          <div class="panel-body">
 	                              <form role="form" class="form-horizontal tasi-form">
 	                                  <div class="form-group">
-	                                      <label class="col-lg-2 control-label">开始版本号</label>
+	                                      <label class="col-lg-10 control-label">开始版本号</label>
 	                                      <div class="col-lg-10">
 	                                          <input type="text" placeholder="" id="f-name" class="form-control">
 	                                      </div>
-	                                      <label class="col-lg-2 control-label">结束版本号</label>
+	                                      <label class="col-lg-10 control-label">结束版本号</label>
 	                                      <div class="col-lg-10">
 	                                          <input type="text" placeholder="" id="l-name" class="form-control">
 	                                      </div>
-	                                      <label class="col-lg-2 control-label">开始时间</label>
+	                                      <label class="col-lg-10 control-label">开始时间</label>
 	                                      <div class="col-lg-10">
 	                                          <input type="text" placeholder="" id="l-name" class="form-control">
 	                                      </div>
-	                                      <label class="col-lg-2 control-label">结束时间</label>
+	                                      <label class="col-lg-10 control-label">结束时间</label>
 	                                      <div class="col-lg-10">
 	                                          <input type="text" placeholder="" id="l-name" class="form-control">
 	                                      </div>
@@ -116,7 +113,7 @@ function outIntefaceOtherInfofrom(){
 	                                  </div>
 	                                  
 	                                  <div class="form-group">
-	                                      <div class="col-lg-offset-5 col-lg-2 col-lg-offset-10 col-lg-2 col-sm-offset-10 col-sm-2">
+	                                      <div class="col-lg-2 col-lg-offset-9">
 	                                          <button class="btn btn-primary " type="submit">保存</button>
 	                                      </div>
 	                                  </div>
@@ -125,9 +122,8 @@ function outIntefaceOtherInfofrom(){
 	                      </section>
 	                  </div>
 	              </div>
-	              
-	              
-	              <?php 
+	 <?php 
 }
+
 
 ?>
