@@ -4,15 +4,12 @@ $userName = __getCookies ( 'userName' );
 
 /* 输出头部信息*/
 $jsArr = array("ScanInterFace.js",
-		"Tooltips.js",
-		"Cookie.js",);
+		"Tooltips.js",);
 $cssArr = array('ScanInterFace.css',
 		'header.css');
 
 $interFaceList = getInterfaceList();
 
-$outPut = new OutPut();
-$outPut->outPutHead ( $jsArr, $cssArr, "接口查询" );
 /* 输出顶部导航*/
 $userimg = __getCookies ( 'userImg' );
 $userName = __getCookies('userName');
@@ -20,9 +17,30 @@ $userInfo = array(
 		"heardImg" =>"fc3d.jpg",
 		"userName"=>$userName,
 );
+
+$interFaceList = getInterfaceList();
+if (!$interFaceList){
+	$uri = $_SERVER['HTTP_HOST'];
+	header('Location:./AddNewInterFace.php');
+	exit;
+}
+
+@$interFacename = __get(interFaceName);
+if ($interFacename){
+	$interFaceinfo = getInterFaceInfo($interFacename);
+}else {
+	$interFaceinfo =$interFaceList[0];
+	$interFacename =$interFaceinfo['interFaceName'];
+	$url ='./ScanInterFace.php?interFaceName='.$interFacename;
+	header('Location:'.$url);
+	exit;
+}
+$inputArr =getInterFaceInputArr($interFacename);
+$outPut = new OutPut();
+$outPut->outPutHead ( $jsArr, $cssArr, "接口查询" );
 $outPut->outPutHeader($userInfo);
 $outPut->outSider();
-outMainContent();
+outMainContent($interFaceList,$interFacename,$interFaceinfo,$inputArr);
 $outPut->outputFoot();
 
 /**
@@ -38,9 +56,7 @@ function getInterfaceList() {
 			$temResu = $request ['result'];
 			return $temResu;
 		} else {
-			$uri = $_SERVER['HTTP_HOST'];
-			header('Location:./AddNewInterFace.php');
-			exit;
+			return null;
 		}
 		return $returnArr;
 	} else {
@@ -66,6 +82,7 @@ function getInterFaceInfo($interFaceName) {
 		__alert ('服务器连接异常' );
 	}
 }
+
 /**
  * 获取接口入参列表
  */
@@ -85,6 +102,7 @@ function getInterFaceInputArr($interFaceName) {
 		__alert ( '服务器连接异常' );
 	}
 }
+
 /**
  * 获取接口出参列表
  */
@@ -105,29 +123,20 @@ function getInterFaceOutputArr($interFaceName) {
 /**
  * 输出main-content
  */
-function outMainContent(){
+function outMainContent($interFaceList,$interFacename,$interFaceinfo,$inputArr){
 	?>
 	<section id="main-content">
 		<section class="wrapper">
 			<div class="row">
 				<div class="col-md-3">
 	<?php
-	$interFaceList = getInterfaceList();
 	outInterFaceList($interFaceList);
 	?>
-				</div>
-
-				<div class="col-md-9">
+		</div>
+		<div class="col-md-9">
 	<?php
-	@$interFacename = __get(interFaceName);
-	if ($interFacename){
-		$interFaceinfo = getInterFaceInfo($interFacename);
-	}else {
-		$interFaceinfo =$interFaceList[0];
-		$interFacename =$interFaceinfo['interFaceName'];
-	}
+	
 	outInterFacrBastInfo($interFaceinfo);
-	$inputArr =getInterFaceInputArr($interFacename);
 	outInterFaceInput($inputArr);
 	?>
 				</div>
@@ -189,8 +198,6 @@ function outInterFacrBastInfo($baseinfo){
 	                                      	echo '<form role="form" class="form-horizontal tasi-form addinfo-form">';
 	                                      }
 	                            ?>
-	                             
-	                              
 	                                  <div class="form-group">
 	                                      <label class="col-lg-12 control-label"> 接口名称</label>
 	                                      <div class="col-lg-12">
@@ -225,14 +232,12 @@ function outInterFacrBastInfo($baseinfo){
 	                                      	echo '<button class="btn btn-primary saveinterface" type="submit">修改</button>';
 	                                      }
 	                                      else {
-	                                      	echo '<button class="btn btn-primary addinterface" type="submit">添加</button>';
+	                                      	echo '<button class="btn btn-primary saveinterface" type="submit">添加</button>';
 	                                      }
 	                                      ?>
 	                                          
 	                                      </div>
 	                                  </div>
-	                                  
-	                              </form>
 	                          </div>
 	                      </section>
 	                  </div>
@@ -245,38 +250,36 @@ function outInterFacrBastInfo($baseinfo){
 	                              <form role="form" class="form-horizontal tasi-form">
 	                                  <div class="form-group">
 	                                      <label class="col-lg-12 control-label">开始版本号</label>
-	                                      <div class="col-lg-12">
-	                                          <input type="text" placeholder="" id="f-name" class="form-control" value=<?php if($baseinfo) echo $baseinfo['interFaceBeginVersions'];?>>
-	                                      </div>
+	                                   <div class="col-lg-12">
+	                                      <input type="text" placeholder="" id="f-name" class="form-control" value=<?php if($baseinfo) echo $baseinfo['interFaceBeginVersions'];?>>
+	                                   </div>
 	                                      <label class="col-lg-12 control-label">结束版本号</label>
-	                                      <div class="col-lg-12">
-	                                          <input type="text" placeholder="" id="l-name" class="form-control" value=<?php if($baseinfo) echo $baseinfo['interFaceEndVersions'];?>>
-	                                      </div>
-	                                      <label class="col-lg-12 control-label">开始时间</label>
-	                                      <div class="col-lg-12">
-	                                          <input type="text" placeholder="" id="l-name" class="form-control" value=<?php if($baseinfo) echo $baseinfo['interFaceBeginTime'];?>>
-	                                      </div>
-	                                      <label class="col-lg-12 control-label">结束时间</label>
-	                                      <div class="col-lg-12">
-	                                          <input type="text" placeholder="" id="l-name" class="form-control" value=<?php if($baseinfo) echo $baseinfo['interFaceEndTime'];?>>
-	                                      </div>
-	                                      <label class="col-lg-12 control-label">接口描述</label>
-	                                      <div class="col-lg-12">
-	                                          <input type="text" placeholder="" id="l-name" class="form-control" value=<?php if($baseinfo) echo $baseinfo['interFaceDescribe'];?>>
-	                                      </div>
-	                                      
+	                                   <div class="col-lg-12">
+	                                      <input type="text" placeholder="" id="l-name" class="form-control" value=<?php if($baseinfo) echo $baseinfo['interFaceEndVersions'];?>>
+	                                   </div>
+	                                    <label class="col-lg-12 control-label">开始时间</label>
+	                                   <div class="col-lg-12">
+	                                      <input type="text" placeholder="" id="l-name" class="form-control" value=<?php if($baseinfo) echo $baseinfo['interFaceBeginTime'];?>>
+	                                   </div>
+	                                    <label class="col-lg-12 control-label">结束时间</label>
+	                                   <div class="col-lg-12">
+	                                     <input type="text" placeholder="" id="l-name" class="form-control" value=<?php if($baseinfo) echo $baseinfo['interFaceEndTime'];?>>
 	                                  </div>
-	                                  
-	                                  <div class="form-group">
-	                                      <div class="col-lg-2 col-lg-offset-9">
-	                                          <button class="btn btn-primary " type="submit">保存</button>
-	                                      </div>
+	                                    <label class="col-lg-12 control-label">接口描述</label>
+	                                  <div class="col-lg-12">
+	                                    <input type="text" placeholder="" id="l-name" class="form-control" value=<?php if($baseinfo) echo $baseinfo['interFaceDescribe'];?>>
 	                                  </div>
-	                              </form>
-	                          </div>
-	                      </section>
+	                              </div>
+	                             <div class="form-group">
+	                             <div class="col-lg-2 col-lg-offset-9">
+	                                  <button class="btn btn-primary " type="submit">保存</button>
+	                             </div>
+	                         </div>
+	                     </form>
 	                  </div>
-	              </div>
+	            </section>
+	       </div>
+	 </div>
 	 <?php 
 }
 

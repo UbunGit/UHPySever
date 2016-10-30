@@ -57,24 +57,26 @@ class Output {
  			}
  		}
 
- 		echo '<script src='.$this->getCSS("assets/jquery-easy-pie-chart/jquery.easy-pie-chart.js").' ></script>';
-		echo '<script class="include" src=' .$this->getjs("jquery/jquery.dcjqaccordion.2.7.js"). ' ></script>';
-		echo '<script src=' .$this->getjs("jquery/jquery.sparkline.js"). ' ></script>';
-		echo '<script src=' .$this->getjs("jquery/jquery.nicescroll.js"). '></script>';
-		echo '<script src=' .$this->getjs("jquery/jquery.customSelect.min.js"). '></script>';
-		echo '<script src=' .$this->getjs("slidebars.min.js"). '></script>';
-		echo '<script src=' .$this->getjs("common-scripts.js"). '></script>';
-		echo '<script src=' .$this->getjs("respond.min.js"). '></script>';
-		echo '<script src=' .$this->getjs("sliders.js"). '></script>';
-		echo '<script src=' .$this->getjs("count.js"). '></script>';
-		echo '<script src=' .$this->getjs("owl.carousel.js"). '></script>';
-		echo '<script src=' .$this->getjs("sparkline-chart.js"). '></script>';
-		echo '<script src=' .$this->getjs("easy-pie-chart.js"). '></script>';
-		echo '<script src=' .$this->getjs("config.js"). '></script>';
+ 		echo '<script charset="UTF-8" src='.$this->getCSS("assets/jquery-easy-pie-chart/jquery.easy-pie-chart.js").' ></script>';
+		echo '<script charset="UTF-8" src=' .$this->getjs("jquery/jquery.dcjqaccordion.2.7.js"). ' ></script>';
+		echo '<script charset="UTF-8" src=' .$this->getjs("jquery/jquery.sparkline.js"). ' ></script>';
+		echo '<script charset="UTF-8" src=' .$this->getjs("jquery/jquery.nicescroll.js"). '></script>';
+		echo '<script charset="UTF-8" src=' .$this->getjs("jquery/jquery.customSelect.min.js"). '></script>';
+		echo '<script charset="UTF-8" src=' .$this->getjs("slidebars.min.js"). '></script>';
+		echo '<script charset="UTF-8" src=' .$this->getjs("common-scripts.js"). '></script>';
+		echo '<script charset="UTF-8" src=' .$this->getjs("respond.min.js"). '></script>';
+		echo '<script charset="UTF-8" src=' .$this->getjs("sliders.js"). '></script>';
+		echo '<script charset="UTF-8" src=' .$this->getjs("count.js"). '></script>';
+		echo '<script charset="UTF-8" src=' .$this->getjs("owl.carousel.js"). '></script>';
+		echo '<script charset="UTF-8" src=' .$this->getjs("sparkline-chart.js"). '></script>';
+		echo '<script charset="UTF-8" src=' .$this->getjs("easy-pie-chart.js"). '></script>';
+		echo '<script charset="UTF-8" src=' .$this->getjs("config.js"). '></script>';
+		echo '<script charset="UTF-8" src=' .$this->getjs("Cookie.js"). '></script>';
+		
 
 		if (! empty ( $jsarr )) {
 			foreach ( $jsarr as $value ) {
-				echo ('<script src="' .$this->getjs($value). '"></script>');
+				echo ('<script charset="UTF-8" src="' .$this->getjs($value). '"></script>');
 			}
 		}
 		echo '

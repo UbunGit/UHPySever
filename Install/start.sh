@@ -35,7 +35,7 @@ cd ../JS
 echo "
 var httpURL_interFace= 'http://$IP:8889/interface';
 var httpURL_FCAnalyse= 'http://$IP:8889/FCAnalyse';
-var httpURL_samrtHome= 'http://$IP:8889:8889/samrtHome';
+var httpURL_samrtHome= 'http://$IP:8889/samrtHome';
 " > config.js
 
 cd ../Sever 

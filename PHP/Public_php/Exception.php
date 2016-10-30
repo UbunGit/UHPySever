@@ -12,7 +12,7 @@
         }
         
         function __toText(){
-            
+        	
             $str = $this->__toString();
             return $str;
         }

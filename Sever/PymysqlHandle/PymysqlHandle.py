@@ -15,6 +15,7 @@ SMARTHOMEUSER_TABLE = 'SmartHomeUser_Table'  # 智能家居用户信息表
 INTERFAVE_TABLE = 'SmartHomeInterFace_Table'  # 接口数据表
 INTERFAVEPARAMETER_TABLE = 'SmartHomeParameter_Table'
 from distutils.tests.setuptools_build_ext import if_dl
+from StdSuites.AppleScript_Suite import string
 
 class PymysqlHandle(object):
     '''
@@ -163,8 +164,15 @@ class PymysqlHandle(object):
      android  1.0.0
     －－－－－－－－－－－－－－－－－
     '''   
-    def replaceIntefaceInfo(self, interFaceDic):
+    def replaceIntefaceInfo(self, data):
         try:
+            interfaceName = data['repInteFaceName'];
+            setstr = 'set ';
+            for key in data.keys():
+                if(key != 'repInteFaceName'):
+                    setstr = setstr+key+'=' +data[key]+','
+                    
+            LogHandle.writeLog(0, 'key='+ str(setstr), "anyone")
             connection = SqlHabdleGlobal.connectionDb();
             with connection.cursor() as cursor:
                 sql ='SELECT COUNT(interFaceName) FROM SmartHomeInterFace_Table WHERE interFaceName = interFaceName_in'
