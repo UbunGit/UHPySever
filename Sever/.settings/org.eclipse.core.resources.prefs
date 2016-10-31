@@ -4,5 +4,6 @@ encoding//Interface/Interface.py=utf-8
 encoding//Interface/ScanInterFace.py=utf-8
 encoding//PymysqlHandle/PymysqlHandle.py=utf-8
 encoding//PymysqlHandle/SqlHandelGlobal.py=utf-8
+encoding//TOOL/LogHandle.py=utf-8
 encoding//TOOL/mod_config.py=utf-8
 encoding/setp.py=utf-8

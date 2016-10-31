@@ -15,7 +15,7 @@ $cssArr = array (
 		'header.css'
 );
 $outPut = new OutPut();
-$outPut->outPutHead ( $jsArr, $cssArr, "主页" );
+$outPut->outPutHead ($cssArr, "主页" );
 
 $userimg = __getCookies ( 'userImg' );
 $userName = __getCookies('userName');
@@ -25,7 +25,7 @@ $userInfo = array(
 );
 $outPut->outPutHeader($userInfo);
 $outPut->outSider();
-$outPut->outputFoot ();
+$outPut->outputFoot ($jsArr);
 
 
 ?>

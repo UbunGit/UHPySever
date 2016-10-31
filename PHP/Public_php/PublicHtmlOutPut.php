@@ -23,7 +23,7 @@ class Output {
 	/*
 	 * 输出头信息
 	 */
-	function outPutHead($jsarr, $cssarr, $headStr) {
+	function outPutHead($cssarr, $headStr) {
 		echo '<!DOCTYPE html>
 				<html lang="en">';
 		echo '<head>';
@@ -39,12 +39,11 @@ class Output {
  		<script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
  		<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
  		<script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>';
- 		
+ 		echo '<script charset="UTF-8" src=' .$this->getjs("slidebars.min.js"). '></script>';
+ 		echo '<script charset="UTF-8" src=' .$this->getjs("common-scripts.js"). '></script>';
  		echo ' <!--external css-->';
- 		
         echo '<link rel="stylesheet"  href='.$this->getCSS("assets/font-awesome/css/font-awesome.css").'></link>';
         echo '<link rel="stylesheet"  href="'.$this->getCSS("assets/jquery-easy-pie-chart/jquery.easy-pie-chart.css").'">';
-
  		echo '<link rel="stylesheet"  href='.$this->getCSS("slidebars.css").'>';
  		echo '<link rel="stylesheet"  href='.$this->getCSS("style.css").'>';
  		echo '<link rel="stylesheet"  href='.$this->getCSS("style-responsive.css").'>';
@@ -56,60 +55,15 @@ class Output {
  				echo ('<link rel="stylesheet" type="text/css" media="screen" href="' .$this->getCSS ($value ). '"/>');
  			}
  		}
-
- 		echo '<script charset="UTF-8" src='.$this->getCSS("assets/jquery-easy-pie-chart/jquery.easy-pie-chart.js").' ></script>';
-		echo '<script charset="UTF-8" src=' .$this->getjs("jquery/jquery.dcjqaccordion.2.7.js"). ' ></script>';
-		echo '<script charset="UTF-8" src=' .$this->getjs("jquery/jquery.sparkline.js"). ' ></script>';
-		echo '<script charset="UTF-8" src=' .$this->getjs("jquery/jquery.nicescroll.js"). '></script>';
-		echo '<script charset="UTF-8" src=' .$this->getjs("jquery/jquery.customSelect.min.js"). '></script>';
-		echo '<script charset="UTF-8" src=' .$this->getjs("slidebars.min.js"). '></script>';
-		echo '<script charset="UTF-8" src=' .$this->getjs("common-scripts.js"). '></script>';
-		echo '<script charset="UTF-8" src=' .$this->getjs("respond.min.js"). '></script>';
-		echo '<script charset="UTF-8" src=' .$this->getjs("sliders.js"). '></script>';
-		echo '<script charset="UTF-8" src=' .$this->getjs("count.js"). '></script>';
-		echo '<script charset="UTF-8" src=' .$this->getjs("owl.carousel.js"). '></script>';
-		echo '<script charset="UTF-8" src=' .$this->getjs("sparkline-chart.js"). '></script>';
-		echo '<script charset="UTF-8" src=' .$this->getjs("easy-pie-chart.js"). '></script>';
-		echo '<script charset="UTF-8" src=' .$this->getjs("config.js"). '></script>';
-		echo '<script charset="UTF-8" src=' .$this->getjs("Cookie.js"). '></script>';
-		
-
-		if (! empty ( $jsarr )) {
-			foreach ( $jsarr as $value ) {
-				echo ('<script charset="UTF-8" src="' .$this->getjs($value). '"></script>');
-			}
-		}
-		echo '
-<script> //owl carousel
-
-      $(document).ready(function() {
-          $("#owl-demo").owlCarousel({
-              navigation : true,
-              slideSpeed : 300,
-              paginationSpeed : 400,
-              singleItem : true,
-			  autoPlay:true
-
-          });
-      });
-
-      //custom select box
-
-      $(function(){
-          $(\'select.styled\').customSelect();
-      });
-
-</script>
-				';
-		echo '</head>';
-		echo '<body>';
-		echo '<section id="container" >';
 	}
 	
 	/**
 	 * 输出头部内容
 	 */
 	function outPutHeader($userInfo) {
+		echo '</head>';
+		echo '<body>';
+		echo '<section id="container" >';
 		echo '<header class="header white-bg">
     			<div class="sidebar-toggle-box">
                   <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
@@ -151,8 +105,50 @@ class Output {
 	/*
 	 * 输出底部
 	 */
-	function outputFoot() {
+	function outputFoot($jsarr) {
+
 		echo '</section>';
+		echo '<script charset="UTF-8" src=' .$this->getjs("slidebars.min.js"). '></script>';
+		echo '<script charset="UTF-8" src=' .$this->getjs("sliders.js"). '></script>';
+		echo '<script charset="UTF-8" src=' .$this->getjs("respond.min.js"). '></script>';
+		echo '<script charset="UTF-8" src='.$this->getCSS("assets/jquery-easy-pie-chart/jquery.easy-pie-chart.js").' ></script>';
+		echo '<script charset="UTF-8" src=' .$this->getjs("jquery/jquery.dcjqaccordion.2.7.js"). ' ></script>';
+		echo '<script charset="UTF-8" src=' .$this->getjs("jquery/jquery.sparkline.js"). ' ></script>';
+		echo '<script charset="UTF-8" src=' .$this->getjs("jquery/jquery.nicescroll.js"). '></script>';
+		echo '<script charset="UTF-8" src=' .$this->getjs("jquery/jquery.customSelect.min.js"). '></script>';
+		echo '<script charset="UTF-8" src=' .$this->getjs("count.js"). '></script>';
+		echo '<script charset="UTF-8" src=' .$this->getjs("owl.carousel.js"). '></script>';
+		echo '<script charset="UTF-8" src=' .$this->getjs("sparkline-chart.js"). '></script>';
+		echo '<script charset="UTF-8" src=' .$this->getjs("easy-pie-chart.js"). '></script>';
+		echo '<script charset="UTF-8" src=' .$this->getjs("config.js"). '></script>';
+		echo '<script charset="UTF-8" src=' .$this->getjs("Cookie.js"). '></script>';
+		if (! empty ( $jsarr )) {
+			foreach ( $jsarr as $value ) {
+				echo ('<script charset="UTF-8" src="' .$this->getjs($value). '"></script>');
+			}
+		}
+		echo '
+<script> //owl carousel
+		
+      $(document).ready(function() {
+          $("#owl-demo").owlCarousel({
+              navigation : true,
+              slideSpeed : 300,
+              paginationSpeed : 400,
+              singleItem : true,
+			  autoPlay:true
+		
+          });
+      });
+		
+      //custom select box
+		
+      $(function(){
+          $(\'select.styled\').customSelect();
+      });
+		
+</script>
+				';
 		echo '</body>';
 		echo '</html>';
 	}
@@ -175,7 +171,7 @@ class Output {
               <!-- sidebar menu start-->
               <ul class="sidebar-menu" id="nav-accordion">
                   <li>
-                      <a class="active" href="#">
+                      <a class="active" href="./index.php">
                           <i class="fa fa-home"></i>
                           <span>主页</span>
                       </a>
@@ -188,11 +184,7 @@ class Output {
                       </a>
                       <ul class="sub">
 						  <li><a  href="./ScanInterFace.php">接口查询</a></li>
-                          <li><a  href="./TestInterFace.php">接口测试</a></li>
                           <li><a  href="./AddNewInterFace.php">添加接口</a></li>
-                          <li><a  href="./EditInterFace.php">修改接口</a></li>
-                          <li><a  href="language_switch_bar.html">Language Switch Bar</a></li>
-                          <li><a  href="email_template.html" target="_blank">Email Template</a></li>
                       </ul>
                   </li>
 

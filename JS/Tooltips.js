@@ -51,11 +51,25 @@ function show_msg(msg,url){
 //显示加载动画
 function show_loading()
 {
-	var str='<div class="msg_bg" style="background:#000;opacity:0.5;filter:alpha(opacity=50);z-index:99998;width:100%;position:absolute;left:0;top:0"></div>';
-	str+='<div class="msg_bg" style="z-index:99999;width:100%;position:absolute;left:0;top:0;text-align:center;"><i class="fa fa-spinner" aria-hidden="true"></i></div>'
+	
+	var str='<div class="loading" style="z-index:99999;width:100%;position:absolute;left:0;top:0;text-align:center;">\
+		<span class="fangkuang">\
+		<i class="fa fa-spinner fa-spin fa-5x fa-fw" aria-hidden="true"></i>\
+		</span>\
+		</div>'
 	$('body').append(str);
 	var scroll_height=$(document).scrollTop(); 
-	$('.msg_bg').height($(document).height());
-	$('.loading').css('margin-top',scroll_height+240);
+	$('.loading').height($(document).height());
+	$('.fangkuang').animate({'top': scroll_height+80},500);
+	$('.fangkuang').css('width','200px');
+	$('.fangkuang').css('height','240px');
+	$('.fangkuang').css('background','rgba(0, 0, 0, 0.84)');
+	$('.loading').css('background','rgba(0, 0, 0, 0.24)');
+}
+
+//显示加载动画
+function hidddle_loading()
+{
+	$('.loading').remove();
 }
 

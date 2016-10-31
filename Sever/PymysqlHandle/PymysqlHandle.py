@@ -16,6 +16,7 @@ INTERFAVE_TABLE = 'SmartHomeInterFace_Table'  # 接口数据表
 INTERFAVEPARAMETER_TABLE = 'SmartHomeParameter_Table'
 from distutils.tests.setuptools_build_ext import if_dl
 from StdSuites.AppleScript_Suite import string
+from __builtin__ import str
 
 class PymysqlHandle(object):
     '''
@@ -169,16 +170,15 @@ class PymysqlHandle(object):
             interfaceName = data['repInteFaceName'];
             setstr = 'set ';
             for key in data.keys():
-                if(key != 'repInteFaceName'):
-                    setstr = setstr+key+'=' +data[key]+','
-                    
-            LogHandle.writeLog(0, 'key='+ str(setstr), "anyone")
+                keystr = str(key)  
+                if(keystr != str("repInteFaceName") and keystr != str("inefaceMode")):
+                    setstr = setstr+key+'="' +data[key]+'",'
+            setstr = setstr[:-1]
             connection = SqlHabdleGlobal.connectionDb();
             with connection.cursor() as cursor:
-                sql ='SELECT COUNT(interFaceName) FROM SmartHomeInterFace_Table WHERE interFaceName = interFaceName_in'
+                sql ='UPDATE   SmartHomeInterFace_Table  '+setstr+' WHERE interFaceName = "'+interfaceName+'"'
                 cursor.execute(sql)
-                
-#                 connection.commit()
+                connection.commit()
         except BaseException, e:
             LogHandle.writeLog(str(e.args[0]), '数据库操作：replaceIntefaceInfo:' + str(e), "anyone")
             returnDic = {"inforCode":-10000}
