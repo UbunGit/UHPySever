@@ -22,7 +22,7 @@ $cssArr = array (
 );
 
 $outPut = new OutPut ();
-$outPut->outPutHead ($cssArr, "添加接口信息" );
+$outPut->outPutHead ($cssArr,null, "添加接口信息" );
 /* 输出顶部导航 */
 $userimg = __getCookies ( 'userImg' );
 $userName = __getCookies ( 'userName' );
@@ -33,7 +33,7 @@ $userInfo = array (
 $outPut->outPutHeader ( $userInfo );
 $outPut->outSider ();
 outputInterFaceInfo_edit ();
-$outPut->outputFoot ($jsArr);
+$outPut->outputFoot ($jsArr,null);
 function outputInterFaceInfo_edit() {
 	echo '<section id="main-content">';
 	echo '<section class="wrapper">';

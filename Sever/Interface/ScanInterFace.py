@@ -47,6 +47,9 @@ class ScanInterFace(object):
         returnData = pymysqlHandle.getInterfaceList()
         return returnData
     
+    '''
+    获取信息
+    '''
     def do_getInterFaceInfo(self, data):
         LogHandle.writeLog(0, '查询接口列表：getInterFaceInfo：', self.userName)
         interFaceName = data['interFaceName']
@@ -75,6 +78,7 @@ class ScanInterFace(object):
         pymysqlHandle = PymysqlHandle() 
         returnData = pymysqlHandle.getInterfaceParameterList(interFaceName, parameterTypeuse)
         return returnData 
+    
     '''
     添加接口参数列表
     '''
@@ -83,7 +87,7 @@ class ScanInterFace(object):
         data_Dic = {
                     "parameterName":data['parameterName'],
                     "parameterDescribe":data['parameterDescribe'],
-                    "parameterEndTime":data['parameterEndTime'],
+                    "parameterEndTime":"--",
                     "parameterBeginVersions":data['parameterBeginVersions'],
                     "parameterEndVersions":data['parameterEndVersions'],
                     "parameterType":data['parameterType'],
@@ -94,7 +98,14 @@ class ScanInterFace(object):
 
         pymysqlHandle = PymysqlHandle() 
         return pymysqlHandle.addParametervalue(data_Dic)
-
+    
+    '''
+    根据参数id删除参数
+    '''
+    def do_deleteParameter(self,data):
+        pymysqlHandle = PymysqlHandle() 
+        return pymysqlHandle.deleteParameter(data)
+    
     '''
     获取会员列表
     '''

@@ -350,6 +350,27 @@ class PymysqlHandle(object):
             return returnDic;
         
     '''
+    根据参数id删除参数
+    '''   
+    def deleteParameter(self,data):
+        try:
+            connection = SqlHabdleGlobal.connectionDb();
+            with connection.cursor() as cursor:
+                # Create a new record
+                sql = 'DELETE FROM SmartHomeParameter_Table WHERE parameterId=%s;'; 
+                LogHandle.writeLog(0, '数据库操作：addParametervalue:' + sql.encode('utf-8'), "anyone")
+                cursor.execute(sql,(data['parameterId']));
+                connection.commit()
+        except BaseException, e:
+            LogHandle.writeLog(str(e.args[0]), '数据库操作：addParametervalue:' + str(e), "anyone")
+            returnDic = {"inforCode":-10000}
+            return returnDic
+        else:
+            connection.close() 
+            returnDic = {"inforCode":0}
+            return returnDic;
+                
+    '''
     获取会员列表
     '''
     def getMemberList(self, data):

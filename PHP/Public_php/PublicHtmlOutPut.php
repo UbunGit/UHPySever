@@ -1,130 +1,145 @@
 <?php
 class Output {
-	private  $imagePath;
-	private  $jsPath;
-	private  $cssPath;
+	private $imagePath;
+	private $jsPath;
+	private $cssPath;
 	function __construct() {
-		$config= new ConfigINI();
-		$this->imagePath = $config->get('URL.root_image');
-		$this->jsPath = $config->get('URL.root_js');
-		$this->cssPath = $config->get('URL.root_css');
+		$config = new ConfigINI ();
+		$this->imagePath = $config->get ( 'URL.root_image' );
+		$this->jsPath = $config->get ( 'URL.root_js' );
+		$this->cssPath = $config->get ( 'URL.root_css' );
 	}
-	function getImage($imageFile){
-		return $this->imagePath.$imageFile;
+	function getImage($imageFile) {
+		return $this->imagePath . $imageFile;
 	}
-	function getjs($jsFile){
-		
-		return $this->jsPath.$jsFile;
+	function getjs($jsFile) {
+		return $this->jsPath . $jsFile;
 	}
-	function getCSS($cssFile){
-		$path = $this->cssPath.$cssFile;
+	function getCSS($cssFile) {
+		$path = $this->cssPath . $cssFile;
 		return $path;
 	}
 	/*
 	 * 输出头信息
 	 */
-	function outPutHead($cssarr, $headStr) {
-		echo '<!DOCTYPE html>
-				<html lang="en">';
-		echo '<head>';
-		echo '<meta charset="UTF-8">';
-		echo '<title>' . $headStr . '</title>';
- 		echo '<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=3.0, user-scalable=no">';
- 		
- 		echo ' <!--bootstrap-->';
- 		echo '<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
- 		<!-- 可选的Bootstrap主题文件（一般不用引入） -->
- 		<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap-theme.min.css">
- 		<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
- 		<script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
- 		<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
- 		<script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>';
- 		echo '<script charset="UTF-8" src=' .$this->getjs("slidebars.min.js"). '></script>';
- 		echo '<script charset="UTF-8" src=' .$this->getjs("common-scripts.js"). '></script>';
- 		echo ' <!--external css-->';
-        echo '<link rel="stylesheet"  href='.$this->getCSS("assets/font-awesome/css/font-awesome.css").'></link>';
-        echo '<link rel="stylesheet"  href="'.$this->getCSS("assets/jquery-easy-pie-chart/jquery.easy-pie-chart.css").'">';
- 		echo '<link rel="stylesheet"  href='.$this->getCSS("slidebars.css").'>';
- 		echo '<link rel="stylesheet"  href='.$this->getCSS("style.css").'>';
- 		echo '<link rel="stylesheet"  href='.$this->getCSS("style-responsive.css").'>';
- 		echo '<link rel="stylesheet"  href='.$this->getCSS("owl.carousel.css").'>';
- 		echo '<link rel="stylesheet"  href='.$this->getCSS("bootstrap-reset.css").'>';
- 		
- 		if (! empty ( $cssarr )) {
- 			foreach ( $cssarr as $value ) {
- 				echo ('<link rel="stylesheet" type="text/css" media="screen" href="' .$this->getCSS ($value ). '"/>');
- 			}
- 		}
+	function outPutHead($cssarr,$cssabsArr, $headStr) {
+		?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title><?php echo $headStr; ?></title>
+<meta name="viewport"
+	content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=3.0, user-scalable=no">
+<!--bootstrap-->
+<link rel="stylesheet"
+	href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+<!-- 可选的Bootstrap主题文件（一般不用引入） -->
+<link rel="stylesheet"
+	href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap-theme.min.css">
+
+ 		<?php
+		echo ' <!--external css-->';
+		echo '<link rel="stylesheet"  href=' . $this->getCSS ( "assets/data-tables/DT_bootstrap.css" ) . '></link>';
+		echo '<link rel="stylesheet"  href=' . $this->getCSS ( "assets/font-awesome/css/font-awesome.css" ) . '></link>';
+		echo '<link rel="stylesheet"  href="' . $this->getCSS ( "assets/jquery-easy-pie-chart/jquery.easy-pie-chart.css" ) . '">';
+		echo '<link rel="stylesheet"  href=' . $this->getCSS ( "slidebars.css" ) . '>';
+		echo '<link rel="stylesheet"  href=' . $this->getCSS ( "style.css" ) . '>';
+		echo '<link rel="stylesheet"  href=' . $this->getCSS ( "style-responsive.css" ) . '>';
+		echo '<link rel="stylesheet"  href=' . $this->getCSS ( "owl.carousel.css" ) . '>';
+		echo '<link rel="stylesheet"  href=' . $this->getCSS ( "bootstrap-reset.css" ) . '>';
+		
+		if (! empty ( $cssarr )) {
+			foreach ( $cssarr as $value ) {
+				echo ('<link rel="stylesheet" type="text/css" media="screen" href="' . $this->getCSS ( $value ) . '"/>');
+			}
+		}
+		if (! empty ( $cssabsArr )) {
+			foreach ( $cssabsArr as $value ) {
+				echo ('<link rel="stylesheet" type="text/css" media="screen" href="' . $value . '"/>');
+			}
+		}
 	}
 	
 	/**
 	 * 输出头部内容
 	 */
 	function outPutHeader($userInfo) {
-		echo '</head>';
-		echo '<body>';
-		echo '<section id="container" >';
-		echo '<header class="header white-bg">
-    			<div class="sidebar-toggle-box">
-                  <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
-              	</div>
-    			<!--logo start-->
-            	<a href="index.php" class="logo">Ubun<span>Hub</span></a>
-            	<!--logo end-->
-				<div class="top-nav ">
-                <!--search & user info start-->
-                <ul class="nav pull-right top-menu">
-                    <li>
-                        <input type="text" class="form-control search" placeholder="Search">
-                    </li>
-                    <!-- user login dropdown start-->
-                    <li class="dropdown">
-                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                            <img alt="" src="' . $this->getImage($userInfo['heardImg']) . '">
-                            <span class="username">' . $userInfo['userName'] . '</span>
-                            <b class="caret"></b>
-                         </a>
-                        <ul class="dropdown-menu extended logout">
-                            <div class="log-arrow-up"></div>
-                            <li><a href="#"><i class=" fa fa-suitcase"></i>Profile</a></li>
-                            <li><a href="#"><i class="fa fa-cog"></i> Settings</a></li>
-                            <li><a href="#"><i class="fa fa-bell-o"></i> Notification</a></li>
-                            <li><a href="Login.php"><i class="fa fa-key"></i> 注销</a></li>
-                        </ul>
-                    </li>
-                    <li class="sb-toggle-right">
-                        <i class="fa  fa-align-right"></i>
-                    </li>
-                    <!-- user login dropdown end -->
-                </ul>
-                <!--search & user info end-->
-            </div>
-    			
-    			</header>';
+		?>
+		</head>
+<body>
+
+	<section id="container">
+
+		<header class="header white-bg">
+			<div class="sidebar-toggle-box">
+				<div class="fa fa-bars tooltips" data-placement="right"
+					data-original-title="Toggle Navigation"></div>
+			</div>
+			<!--logo start-->
+			<a href="index.php" class="logo">Ubun<span>Hub</span></a>
+			<!--logo end-->
+			<div class="top-nav ">
+				<!--search & user info start-->
+				<ul class="nav pull-right top-menu">
+					<li><input type="text" class="form-control search"
+						placeholder="Search"></li>
+					<!-- user login dropdown start-->
+					<li class="dropdown"><a data-toggle="dropdown"
+						class="dropdown-toggle" href="#"> <img alt=""
+							src=<?php echo $this->getImage ( $userInfo ['heardImg']); ?>> <span
+							class="username"><?php echo $userInfo ['userName'];?> </span> <b
+							class="caret"></b>
+					</a>
+						<ul class="dropdown-menu extended logout">
+							<div class="log-arrow-up"></div>
+							<li><a href="#"><i class=" fa fa-suitcase"></i>Profile</a></li>
+							<li><a href="#"><i class="fa fa-cog"></i> Settings</a></li>
+							<li><a href="#"><i class="fa fa-bell-o"></i> Notification</a></li>
+							<li><a href="Login.php"><i class="fa fa-key"></i> 注销</a></li>
+						</ul></li>
+					<li class="sb-toggle-right"><i class="fa  fa-align-right"></i></li>
+					<!-- user login dropdown end -->
+				</ul>
+				<!--search & user info end-->
+			</div>
+
+		</header>
+    			<?php
 	}
 	/*
 	 * 输出底部
 	 */
-	function outputFoot($jsarr) {
-
+	function outputFoot($jsarr,$jsabsArr) {
 		echo '</section>';
-		echo '<script charset="UTF-8" src=' .$this->getjs("slidebars.min.js"). '></script>';
-		echo '<script charset="UTF-8" src=' .$this->getjs("sliders.js"). '></script>';
-		echo '<script charset="UTF-8" src=' .$this->getjs("respond.min.js"). '></script>';
-		echo '<script charset="UTF-8" src='.$this->getCSS("assets/jquery-easy-pie-chart/jquery.easy-pie-chart.js").' ></script>';
-		echo '<script charset="UTF-8" src=' .$this->getjs("jquery/jquery.dcjqaccordion.2.7.js"). ' ></script>';
-		echo '<script charset="UTF-8" src=' .$this->getjs("jquery/jquery.sparkline.js"). ' ></script>';
-		echo '<script charset="UTF-8" src=' .$this->getjs("jquery/jquery.nicescroll.js"). '></script>';
-		echo '<script charset="UTF-8" src=' .$this->getjs("jquery/jquery.customSelect.min.js"). '></script>';
-		echo '<script charset="UTF-8" src=' .$this->getjs("count.js"). '></script>';
-		echo '<script charset="UTF-8" src=' .$this->getjs("owl.carousel.js"). '></script>';
-		echo '<script charset="UTF-8" src=' .$this->getjs("sparkline-chart.js"). '></script>';
-		echo '<script charset="UTF-8" src=' .$this->getjs("easy-pie-chart.js"). '></script>';
-		echo '<script charset="UTF-8" src=' .$this->getjs("config.js"). '></script>';
-		echo '<script charset="UTF-8" src=' .$this->getjs("Cookie.js"). '></script>';
+		echo '<script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>';
+		echo '<script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>';
+		echo '<script charset="UTF-8" src=' . $this->getjs ( "jquery/jquery.dcjqaccordion.2.7.js" ) . '></script>';
+		echo '<script charset="UTF-8" src=' . $this->getjs ( "jquery/jquery.scrollTo.min.js" ) . '></script>';
+		echo '<script charset="UTF-8" src=' . $this->getjs ( "jquery/jquery.nicescroll.js" ) . '></script>';
+		echo '<script charset="UTF-8" src=' . $this->getjs ( "jquery/jquery.sparkline.js" ) . ' ></script>';
+		echo '<script charset="UTF-8" src=' . $this->getCSS ( "assets/jquery-easy-pie-chart/jquery.easy-pie-chart.js" ) . ' ></script>';
+		echo '<script charset="UTF-8" src=' . $this->getjs ( "owl.carousel.js" ) . '></script>';
+		echo '<script charset="UTF-8" src=' . $this->getjs ( "jquery/jquery.customSelect.min.js" ) . '></script>';
+		echo '<script charset="UTF-8" src=' . $this->getjs ( "respond.min.js" ) . '></script>';
+		
+		echo '<script charset="UTF-8" src=' . $this->getjs ( "slidebars.min.js" ) . '></script>';
+		echo '<script charset="UTF-8" src=' . $this->getjs ( "sliders.js" ) . '></script>';
+		echo '<script charset="UTF-8" src=' . $this->getjs ( "common-scripts.js" ) . '></script>';
+		echo '<script charset="UTF-8" src=' . $this->getjs ( "count.js" ) . '></script>';
+		echo '<script charset="UTF-8" src=' . $this->getjs ( "sparkline-chart.js" ) . '></script>';
+		echo '<script charset="UTF-8" src=' . $this->getjs ( "easy-pie-chart.js" ) . '></script>';
+		echo '<script charset="UTF-8" src=' . $this->getjs ( "config.js" ) . '></script>';
+		echo '<script charset="UTF-8" src=' . $this->getjs ( "Cookie.js" ) . '></script>';
+		if (! empty ( $jsabsArr )) {
+			foreach ( $jsabsArr as $value ) {
+				echo ($value);
+			}
+		}
+		
 		if (! empty ( $jsarr )) {
 			foreach ( $jsarr as $value ) {
-				echo ('<script charset="UTF-8" src="' .$this->getjs($value). '"></script>');
+				echo ('<script charset="UTF-8" src="' . $this->getjs ( $value ) . '"></script>');
 			}
 		}
 		echo '
@@ -152,8 +167,6 @@ class Output {
 		echo '</body>';
 		echo '</html>';
 	}
-
-	
 	
 	/**
 	 * 输出<tr><td>
@@ -164,7 +177,7 @@ class Output {
     			<td>' . $value . '</td>
     		  </tr>';
 	}
-	function outSider(){
+	function outSider() {
 		echo '<!--sidebar start-->
       <aside>
           <div id="sidebar"  class="nav-collapse ">

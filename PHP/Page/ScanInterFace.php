@@ -4,17 +4,31 @@ $userName = __getCookies ( 'userName' );
 
 /* 输出头部信息 */
 $jsArr = array (
+		"jquery/jquery-migrate-1.2.1.min.js",
+		"../CSS/assets/data-tables/DT_bootstrap.js",
+		"editable-table.js",
 		"ScanInterFace.js",
 		"editable-table.js",
-		"../CSS/assets/data-tables/DT_bootstrap.js",
-		"../CSS/assets/data-tables/jquery.dataTables.js",
 		"Tooltips.js" 
+);
+/* 输出头部信息 */
+$jsabsArr = array (
+		'<script src="http://192.168.1.27/xiaoqy/UHPySever/JS/jquery/jquery-migrate-1.2.1.min.js"></script>
+                    <!-- DataTables -->
+                <script type="text/javascript" charset="utf8" src="http://cdn.datatables.net/1.10.12/js/jquery.dataTables.js"></script>
+                <script type="text/javascript" charset="utf8" src="http://192.168.1.27/xiaoqy/UHPySever/CSS/assets/data-tables/DT_bootstrap.js"></script>
+                <script src="http://192.168.1.27/xiaoqy/UHPySever/JS/editable-table.js"></script>',
+		'<script> jQuery(document).ready(function() {
+		EditinputableTable.init();
+		EditoutputableTable.init();
+}); </script>' 
 );
 $cssArr = array (
 		'ScanInterFace.css',
-		'ScanInterFace.css',
-		'./assets/data-tables/DT_bootstrap.css',
 		'header.css' 
+);
+$cssabsArr = array (
+		"http://cdn.datatables.net/1.10.12/css/jquery.dataTables.css" 
 );
 
 $interFaceList = getInterfaceList ();
@@ -45,17 +59,13 @@ if ($interFacename) {
 	exit ();
 }
 $inputArr = getInterFaceInputArr ( $interFacename );
+$outputArr = getInterFaceOutputArr ( $interFacename );
 $outPut = new OutPut ();
-$outPut->outPutHead ($cssArr, "接口查询" );
-echo '	<script>
- 		jQuery(document).ready(function() {
- 			EditableTable.init();
- 		});
- 			</script>';
+$outPut->outPutHead ( $cssArr, $cssabsArr, "接口查询" );
 $outPut->outPutHeader ( $userInfo );
 $outPut->outSider ();
-outMainContent ( $interFaceList, $interFacename, $interFaceinfo, $inputArr );
-$outPut->outputFoot ($jsArr);
+outMainContent ( $interFaceList, $interFacename, $interFaceinfo, $inputArr, $outputArr );
+$outPut->outputFoot ( $jsArr, $jsabsArr );
 
 /**
  * 获取接口列表数据
@@ -136,7 +146,7 @@ function getInterFaceOutputArr($interFaceName) {
 /**
  * 输出main-content
  */
-function outMainContent($interFaceList, $interFacename, $interFaceinfo, $inputArr) {
+function outMainContent($interFaceList, $interFacename, $interFaceinfo, $inputArr, $outputArr) {
 	?>
 <section id="main-content">
 	<section class="wrapper">
@@ -151,6 +161,7 @@ function outMainContent($interFaceList, $interFacename, $interFaceinfo, $inputAr
 	
 	outInterFacrBastInfo ( $interFaceinfo );
 	outInterFaceInput ( $inputArr );
+	outInterFaceOutput ( $outputArr );
 	?>
 				</div>
 		</div>
@@ -297,9 +308,9 @@ function outInterFaceInput($inputArr) {
 	?>
 <section class="panel">
 	<header class="panel-heading">
-		入参<span class="tools pull-right">
-		 <a id="editable-sample_new" class="fa fa-plus-square" href="javascript:;"> 添加</a>
-				</span>
+		入参<span class="tools pull-right"> <a id="editable-input_new"
+			class="fa fa-plus-square" href="javascript:;"> 添加</a>
+		</span>
 	</header>
 	<div class="panel-body">
 		<div class="adv-table editable-table ">
@@ -313,83 +324,140 @@ function outInterFaceInput($inputArr) {
 
 					<table
 						class="table table-striped table-hover table-bordered dataTable"
-						id="editable-sample" aria-describedby="editable-sample_info">
+						id="editable-input" aria-describedby="editable-sample_info">
 						<thead>
 							<tr role="row">
 								<th class="sorting_disabled" role="columnheader" rowspan="1"
-									colspan="1" aria-label="Username" style="width: 238px;">参数名</th>
+									colspan="1" aria-label="Username" style="width: 100px;">参数名</th>
 								<th class="sorting" role="columnheader" tabindex="0"
 									aria-controls="editable-sample" rowspan="1" colspan="1"
 									aria-label="Full Name: activate to sort column ascending"
-									style="width: 352px;">参数中文名</th>
+									style="width: 100px;">中文名</th>
 								<th class="sorting" role="columnheader" tabindex="0"
 									aria-controls="editable-sample" rowspan="1" colspan="1"
 									aria-label="Points: activate to sort column ascending"
-									style="width: 162px;">是否可为空</th>
+									style="width: 100px;">可为空</th>
 								<th class="sorting" role="columnheader" tabindex="0"
 									aria-controls="editable-sample" rowspan="1" colspan="1"
 									aria-label="Notes: activate to sort column ascending"
-									style="width: 227px;">开始版本</th>
+									style="width: 100px;">开始版本</th>
 								<th class="sorting" role="columnheader" tabindex="0"
 									aria-controls="editable-sample" rowspan="1" colspan="1"
 									aria-label="Notes: activate to sort column ascending"
-									style="width: 227px;">结束版本</th>
+									style="width: 100px;">结束版本</th>
 								<th class="sorting" role="columnheader" tabindex="0"
 									aria-controls="editable-sample" rowspan="1" colspan="1"
 									aria-label="Notes: activate to sort column ascending"
-									style="width: 227px;">参数类型</th>
+									style="width: 100px;">类型</th>
 								<th class="sorting" role="columnheader" tabindex="0"
 									aria-controls="editable-sample" rowspan="1" colspan="1"
 									aria-label="Edit: activate to sort column ascending"
-									style="width: 116px;">Edit</th>
+									style="width: 10px;">Edit</th>
 								<th class="sorting" role="columnheader" tabindex="0"
 									aria-controls="editable-sample" rowspan="1" colspan="1"
 									aria-label="Delete: activate to sort column ascending"
-									style="width: 159px;">Delete</th>
+									style="width: 10px;">Delete</th>
 							</tr>
 						</thead>
 
 						<tbody role="alert" aria-live="polite" aria-relevant="all">
-							<tr class="odd">
-								<td class="  sorting_1">Admin</td>
-								<td class=" ">Flat Lab</td>
-								<td class=" ">462</td>
-								<td class="center ">new user</td>
-								<td class=" "><a class="edit" href="javascript:;">Edit</a></td>
-								<td class=" "><a class="delete" href="javascript:;">Delete</a></td>
+						<?php
+	foreach ( $inputArr as $value ) {
+		echo '<tr class="odd" id=' . $value ["parameterId"] . '>';
+		echo '<td class=" ">' . $value ["parameterName"] . '</td>';
+		echo '<td class=" ">' . $value ["parameterDescribe"] . '</td>';
+		echo '<td class=" ">' . $value ["parameterCanNil"] . '</td>';
+		echo '<td class=" ">' . $value ["parameterBeginVersions"] . '</td>';
+		echo '<td class=" ">' . $value ["parameterEndVersions"] . '</td>';
+		echo '<td class=" ">' . $value ["parameterType"] . '</td>';
+		echo '<td class=" "><a class="edit" href="javascript:;">Edit</a></td>
+			<td class=" "><a class="delete" href="javascript:;">Delete</a></td>';
+		echo '</tr>';
+	}
+	?>
+						</tbody>
+					</table>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</section>
+<?php
+}
+function outInterFaceOutput($outputArr) {
+	?>
+<section class="panel">
+	<header class="panel-heading">
+		出参<span class="tools pull-right"> <a id="editable-output_new"
+			class="fa fa-plus-square" href="javascript:;"> 添加</a>
+		</span>
+	</header>
+	<div class="panel-body">
+		<div class="adv-table editable-table ">
+			<div class="space15"></div>
+
+			<div class="table-responsive" tabindex="1"
+				style="overflow: hidden; outline: none;">
+
+				<div id="editable-sample_wrapper"
+					class="dataTables_wrapper form-inline" role="grid">
+
+					<table
+						class="table table-striped table-hover table-bordered dataTable"
+						id="editable-output" aria-describedby="editable-sample_info">
+						<thead>
+							<tr role="row">
+								<th class="sorting_disabled" role="columnheader" rowspan="1"
+									colspan="1" aria-label="Username" style="width: 100px;">参数名</th>
+								<th class="sorting" role="columnheader" tabindex="0"
+									aria-controls="editable-sample" rowspan="1" colspan="1"
+									aria-label="Full Name: activate to sort column ascending"
+									style="width: 100px;">中文名</th>
+								<th class="sorting" role="columnheader" tabindex="0"
+									aria-controls="editable-sample" rowspan="1" colspan="1"
+									aria-label="Points: activate to sort column ascending"
+									style="width: 100px;">可为空</th>
+								<th class="sorting" role="columnheader" tabindex="0"
+									aria-controls="editable-sample" rowspan="1" colspan="1"
+									aria-label="Notes: activate to sort column ascending"
+									style="width: 100px;">开始版本</th>
+								<th class="sorting" role="columnheader" tabindex="0"
+									aria-controls="editable-sample" rowspan="1" colspan="1"
+									aria-label="Notes: activate to sort column ascending"
+									style="width: 100px;">结束版本</th>
+								<th class="sorting" role="columnheader" tabindex="0"
+									aria-controls="editable-sample" rowspan="1" colspan="1"
+									aria-label="Notes: activate to sort column ascending"
+									style="width: 100px;">类型</th>
+								<th class="sorting" role="columnheader" tabindex="0"
+									aria-controls="editable-sample" rowspan="1" colspan="1"
+									aria-label="Edit: activate to sort column ascending"
+									style="width: 10px;">Edit</th>
+								<th class="sorting" role="columnheader" tabindex="0"
+									aria-controls="editable-sample" rowspan="1" colspan="1"
+									aria-label="Delete: activate to sort column ascending"
+									style="width: 10px;">Delete</th>
 							</tr>
-							<tr class="even">
-								<td class="  sorting_1">Admin</td>
-								<td class=" ">Flat Lab</td>
-								<td class=" ">462</td>
-								<td class="center ">new user</td>
-								<td class=" "><a class="edit" href="javascript:;">Edit</a></td>
-								<td class=" "><a class="delete" href="javascript:;">Delete</a></td>
-							</tr>
-							<tr class="odd">
-								<td class="  sorting_1">Dulal</td>
-								<td class=" ">Jonathan Smith</td>
-								<td class=" ">434</td>
-								<td class="center ">new user</td>
-								<td class=" "><a class="edit" href="javascript:;">Edit</a></td>
-								<td class=" "><a class="delete" href="javascript:;">Delete</a></td>
-							</tr>
-							<tr class="even">
-								<td class="  sorting_1">Dulal</td>
-								<td class=" ">Jonathan Smith</td>
-								<td class=" ">434</td>
-								<td class="center ">new user</td>
-								<td class=" "><a class="edit" href="javascript:;">Edit</a></td>
-								<td class=" "><a class="delete" href="javascript:;">Delete</a></td>
-							</tr>
-							<tr class="odd">
-								<td class="  sorting_1">Jhon Doe</td>
-								<td class=" ">Jhon Doe</td>
-								<td class=" ">1234</td>
-								<td class="center ">super user</td>
-								<td class=" "><a class="edit" href="javascript:;">Edit</a></td>
-								<td class=" "><a class="delete" href="javascript:;">Delete</a></td>
-							</tr>
+						</thead>
+
+						<tbody role="alert" aria-live="polite" aria-relevant="all">
+						<?php
+	if ($outputArr) {
+		foreach ( $outputArr as $value ) {
+			echo '<tr class="odd" id=' . $value ["parameterId"] . '>';
+			echo '<td class=" ">' . $value ["parameterName"] . '</td>';
+			echo '<td class=" ">' . $value ["parameterDescribe"] . '</td>';
+			echo '<td class=" ">' . $value ["parameterCanNil"] . '</td>';
+			echo '<td class=" ">' . $value ["parameterBeginVersions"] . '</td>';
+			echo '<td class=" ">' . $value ["parameterEndVersions"] . '</td>';
+			echo '<td class=" ">' . $value ["parameterType"] . '</td>';
+			echo '<td class=" "><a class="edit" href="javascript:;">Edit</a></td>
+			<td class=" "><a class="delete" href="javascript:;">Delete</a></td>';
+			echo '</tr>';
+		}
+	}
+	?>
 						</tbody>
 					</table>
 				</div>

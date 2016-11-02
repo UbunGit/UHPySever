@@ -14,8 +14,10 @@ fi
 
 
 cd ./MySQL
-
 sh ./sql_Install.sh
+cd ../
+sh ./updata_1.sh
+
 
 cd ../../Sever 
 
