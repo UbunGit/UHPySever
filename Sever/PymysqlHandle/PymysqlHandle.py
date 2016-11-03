@@ -14,8 +14,7 @@ from TOOL import LogHandle
 SMARTHOMEUSER_TABLE = 'SmartHomeUser_Table'  # 智能家居用户信息表
 INTERFAVE_TABLE = 'SmartHomeInterFace_Table'  # 接口数据表
 INTERFAVEPARAMETER_TABLE = 'SmartHomeParameter_Table'
-from distutils.tests.setuptools_build_ext import if_dl
-from StdSuites.AppleScript_Suite import string
+
 from __builtin__ import str
 
 class PymysqlHandle(object):

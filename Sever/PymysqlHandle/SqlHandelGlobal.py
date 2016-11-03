@@ -41,7 +41,8 @@ class SqlHabdleGlobal(object):
                                          db=SMARTHOME_DB,
                                          charset='utf8',
                                          local_infile=1,
-                                         cursorclass=pymysql.cursors.DictCursor)
+                                         cursorclass=pymysql.cursors.DictCursor,
+                                         autocommit=True)
         return connection;
     '''
     判断表是否存在

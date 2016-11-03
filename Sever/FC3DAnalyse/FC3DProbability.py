@@ -325,7 +325,23 @@ class FC3DProbability(object):
             minlist.append(min(temList))
             temList.remove(min(temList))
         return minlist
-
-        
+    
+    '''
+     type out_ge个位 out_shi十位 out_bai 百位
+    '''
+    def getRecommendData(self, beginData, endData, probability, outtype):
+        connection = SqlHabdleGlobal.connectionDb()
+        with connection.cursor() as cursor: 
+            tableName = self.getTableName(probability)
+#             sql = 'select  '+outtype+' ,count(*) as count from '+tableName+' where outdate>'+beginData+' and outdate<'+endData+' group by '+outtype+';'
+#             cursor.execute(sql)
+            sql = 'select  %s ,count(*) as count from '+tableName+' where outdate>%s and outdate<%s group by %s;'
+            cursor.execute(sql,(outtype,beginData,endData,outtype))
+            tablerows = cursor.fetchall()
+            if(len(tablerows) > 0):
+                return tablerows;
+            else:
+                return None;
+        return None        
         
     

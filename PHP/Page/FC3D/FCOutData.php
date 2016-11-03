@@ -1,57 +1,52 @@
 <?php
-require_once('../../Public_php/Globle_sc_fns.php');
+require_once ('../../Public_php/Globle_sc_fns.php');
 require_once ('FCOutPutPage.php');
 /* 输出头部信息 */
 $jsArr = array (
-		"../../../SmartHome_JS/JS/FCOutData.js",
+		"FCOutData.js" 
 );
 $cssArr = array (
-		'../../../SmartHome_JS/CSS/FCOutData.css'
+		'header.css',
+		'FCOutData.css'
+		
+);
+$config = new ConfigINI ();
+$cssabsArr = array (
+// 		$config->get ( 'URL.root_assets' )	
+);
+$outPut = new OutPut ();
+$jsabsArr = array (
+		$outPut->getScriptStr($config->get ( 'URL.root_assets' ).'chart-master/Chart.js')
 );
 
-$dataArr = getFC3DData();
-$fcoutPut = new FCOutPutPage();
-$fcoutPut->outPutHead ( $jsArr, $cssArr, "场景列表" );
-showFC3DData($dataArr);
-$fcoutPut->outPutTabBar();
-$fcoutPut->outputFoot();
 
-/**
- *  获取会员信息
- * @param 会员账号 $userName
- */
-function getFC3DData(){
+/* 输出顶部导航 */
+$userimg = __getCookies ( 'userImg' );
+$userName = __getCookies ( 'userName' );
+$userInfo = array (
+		"heardImg" => "fc3d.jpg",
+		"userName" => $userName 
+);
 
-	$returnArr = array();
-	$httpIntface =new Globle_HttpIntface();
-	$request = $httpIntface->getFC3DData("100","0");
-	if( $request){
-		if ($request['inforCode']==0){
-			$returnArr = $request['result'];
-
-		}else {
-			__alert($request['result']);
-		}
-		return  $returnArr;
-	}else {
-		echo 'alert(请求接口失败)';
-	}
-}
-function showFC3DData($FC3DData){
-   echo '<div class="scroll" >';
-	foreach ($FC3DData as $data){	
-	echo '
-			<table class="DataTable" >
-			<tr>
-			<td width=100px>第'.$data["outNO"].'期</td>
-			<td width=100px>'.$data["outdate"].'</td>
-			<td>'.$data["out_bai"].'</td>
-			<td>'.$data["out_shi"].'</td>
-			<td>'.$data["out_ge"].'</td>
-			</tr>
-			</table>
-			';
-	}
-	echo '</div>';
+$outPut = new OutPut ();
+$outPut->outPutHead ( $cssArr, $cssabsArr, "接口查询" );
+$outPut->outPutHeader ( $userInfo );
+$outPut->outSider ();
+out ();
+$outPut->outputFoot ( $jsArr, $jsabsArr );
+function out() {
+	?>
+<section id="main-content">
+<section class="wrapper">
+<section class="panel">
+	<header class="panel-heading"> Bar </header>
+	<div class="panel-body text-center">
+		<canvas id="bar" height="600" width="1000"
+			style="width: 500px; height: 300px;"></canvas>
+	</div>
+</section>
+</section>
+</section>
+<?php
 }
 ?>

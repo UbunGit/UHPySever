@@ -6,13 +6,9 @@ Created on 2016年8月18日
 @author: xiaoqy
 '''
 
-import time;
-import datetime
-
 from FC3DAnalyse.FC3DProbability import FC3DProbability
 from PymysqlHandle.PymysqlHandle import PymysqlHandle
 from TOOL import LogHandle
-from TOOL.DownLoadFile import DownLoadFile
 
 
 class FCAnalyse(object):
@@ -49,7 +45,20 @@ class FCAnalyse(object):
         LogHandle.writeLog(0, '获取最后一期福彩3D数据', self.userName)
         pymysqlHandle = PymysqlHandle()
         return pymysqlHandle.getLastFCData()
-    
+    '''
+    2.5获取频率表归纳数据
+    '''  
+    def do_recommendData(self, data): 
+        LogHandle.writeLog(0, '获取频率表归纳数据', self.userName)
+        fc = FC3DProbability()
+        data = fc.getRecommendData(data["BeginOutNO"], data["EndOutNO"], data["Probability"], data["outtype"]) 
+        if len(data) <= 0:
+            returnDic = {"inforCode":1004}   
+            returnDic['result'] = data
+        else:
+            returnDic = {"inforCode":0}   
+            returnDic['result'] = data
+        return returnDic
     '''
     2.3获取推荐的号码
     '''
@@ -73,3 +82,4 @@ class FCAnalyse(object):
         pymysqlHandle = PymysqlHandle()
         returnDic = pymysqlHandle.getOmitData(data)
         return returnDic
+

@@ -1,9 +1,14 @@
 eclipse.preferences.version=1
+encoding//FC3DAnalyse/FC3DOmit.py=utf-8
+encoding//FC3DAnalyse/FC3DProbability.py=utf-8
 encoding//HttpSever/HttpSever.py=utf-8
+encoding//Interface/FCAnalyse.py=utf-8
 encoding//Interface/Interface.py=utf-8
 encoding//Interface/ScanInterFace.py=utf-8
 encoding//PymysqlHandle/PymysqlHandle.py=utf-8
 encoding//PymysqlHandle/SqlHandelGlobal.py=utf-8
 encoding//TOOL/LogHandle.py=utf-8
 encoding//TOOL/mod_config.py=utf-8
+encoding/FCTimer.py=utf-8
+encoding/Test.py=utf-8
 encoding/setp.py=utf-8

@@ -26,6 +26,8 @@ InterFaceIP=http://$IP:8889
 errorLogpath='../log'
 
 [URL]
+root_assets=http://$IP/xiaoqy/UHPySever/assets/
+root_page=http://$IP/xiaoqy/UHPySever/PHP/Page/
 root_css=http://$IP/xiaoqy/UHPySever/CSS/
 root_js=http://$IP/xiaoqy/UHPySever/JS/
 root_image=http://$IP/xiaoqy/UHPySever/Image/" > config.conf

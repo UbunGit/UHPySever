@@ -82,10 +82,12 @@ class FC3DOmit(object):
             while minData["lastData"] != None:
                  
                 sql = 'call pr_insterOneOmitDataToTable(%s,%s);'
-                cursor.execute(sql, (tableName, minData["lastData"]));   
+                cursor.execute(sql, (tableName, minData["lastData"]));
+                connection.commit()   
                 lastData = self.getLastOmitDatd(tableName)
                 minData = self.getlastNotAnalyseFC3DData(lastData["outNO"])
                 print("计算遗漏值:" + str(lastData["outNO"]));
+            connection.close()
             
         
         

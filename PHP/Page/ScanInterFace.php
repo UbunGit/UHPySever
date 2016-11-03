@@ -1,27 +1,25 @@
 <?php
 require_once ('../Public_php/Globle_sc_fns.php');
 $userName = __getCookies ( 'userName' );
-
+$config = new ConfigINI ();
+$outPut = new OutPut ();
 /* 输出头部信息 */
 $jsArr = array (
 		"jquery/jquery-migrate-1.2.1.min.js",
-		"../CSS/assets/data-tables/DT_bootstrap.js",
 		"editable-table.js",
 		"ScanInterFace.js",
-		"editable-table.js",
-		"Tooltips.js" 
+		"editable-table.js", 
 );
 /* 输出头部信息 */
 $jsabsArr = array (
 		'<script src="http://192.168.1.27/xiaoqy/UHPySever/JS/jquery/jquery-migrate-1.2.1.min.js"></script>
                     <!-- DataTables -->
-                <script type="text/javascript" charset="utf8" src="http://cdn.datatables.net/1.10.12/js/jquery.dataTables.js"></script>
-                <script type="text/javascript" charset="utf8" src="http://192.168.1.27/xiaoqy/UHPySever/CSS/assets/data-tables/DT_bootstrap.js"></script>
-                <script src="http://192.168.1.27/xiaoqy/UHPySever/JS/editable-table.js"></script>',
+                <script type="text/javascript" charset="utf8" src="http://cdn.datatables.net/1.10.12/js/jquery.dataTables.js"></script>',
 		'<script> jQuery(document).ready(function() {
 		EditinputableTable.init();
 		EditoutputableTable.init();
-}); </script>' 
+}); </script>' ,
+		$outPut->getScriptStr($config->get ( 'URL.root_assets' ).'data-tables/DT_bootstrap.js')
 );
 $cssArr = array (
 		'ScanInterFace.css',
@@ -60,7 +58,6 @@ if ($interFacename) {
 }
 $inputArr = getInterFaceInputArr ( $interFacename );
 $outputArr = getInterFaceOutputArr ( $interFacename );
-$outPut = new OutPut ();
 $outPut->outPutHead ( $cssArr, $cssabsArr, "接口查询" );
 $outPut->outPutHeader ( $userInfo );
 $outPut->outSider ();
@@ -362,17 +359,19 @@ function outInterFaceInput($inputArr) {
 
 						<tbody role="alert" aria-live="polite" aria-relevant="all">
 						<?php
-	foreach ( $inputArr as $value ) {
-		echo '<tr class="odd" id=' . $value ["parameterId"] . '>';
-		echo '<td class=" ">' . $value ["parameterName"] . '</td>';
-		echo '<td class=" ">' . $value ["parameterDescribe"] . '</td>';
-		echo '<td class=" ">' . $value ["parameterCanNil"] . '</td>';
-		echo '<td class=" ">' . $value ["parameterBeginVersions"] . '</td>';
-		echo '<td class=" ">' . $value ["parameterEndVersions"] . '</td>';
-		echo '<td class=" ">' . $value ["parameterType"] . '</td>';
-		echo '<td class=" "><a class="edit" href="javascript:;">Edit</a></td>
+	if ($inputArr) {
+		foreach ( $inputArr as $value ) {
+			echo '<tr class="odd" id=' . $value ["parameterId"] . '>';
+			echo '<td class=" ">' . $value ["parameterName"] . '</td>';
+			echo '<td class=" ">' . $value ["parameterDescribe"] . '</td>';
+			echo '<td class=" ">' . $value ["parameterCanNil"] . '</td>';
+			echo '<td class=" ">' . $value ["parameterBeginVersions"] . '</td>';
+			echo '<td class=" ">' . $value ["parameterEndVersions"] . '</td>';
+			echo '<td class=" ">' . $value ["parameterType"] . '</td>';
+			echo '<td class=" "><a class="edit" href="javascript:;">Edit</a></td>
 			<td class=" "><a class="delete" href="javascript:;">Delete</a></td>';
-		echo '</tr>';
+			echo '</tr>';
+		}
 	}
 	?>
 						</tbody>
