@@ -3,11 +3,9 @@
  */
 var Script = function () {
 
-
-    
     var barChartData = {
-    		 
-            labels : ["January","February","March","April","May","June","July"],
+      		 
+            labels : [],
             datasets : [
                 {
                     fillColor : "rgba(220,220,220,0.5)",
@@ -25,10 +23,7 @@ var Script = function () {
                     data : [28,48,40,19,96,27,500]
                 }
             ]
-
         };
-  
-
     function getData(type){
     	var options = new Object(); 
     	options['inefaceMode'] ='recommendData';
@@ -48,8 +43,16 @@ var Script = function () {
     		success : function(data) {
     			hidddle_loading();
     			if (data.inforCode == 0) {
+    				
+    				for(var i in data.result){  
+    					var value = data.result[i];
+    					barChartData.labels.push(value.count);
+    			    }
+    				barChartData.labels =sortnique(barChartData.labels);
+    				if(type=='out_ge'){
+    					 new Chart(document.getElementById("bar").getContext("2d")).Bar(barChartData);
+    				}
     			
-
     			} else {
     				var msg = data.result;
     				show_err_msg(msg);
@@ -63,7 +66,8 @@ var Script = function () {
     }
   
     var gedata = getData("out_ge");
-    new Chart(document.getElementById("bar").getContext("2d")).Bar(barChartData);
+ 
+   
 
 
 

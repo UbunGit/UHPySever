@@ -335,8 +335,8 @@ class FC3DProbability(object):
             tableName = self.getTableName(probability)
 #             sql = 'select  '+outtype+' ,count(*) as count from '+tableName+' where outdate>'+beginData+' and outdate<'+endData+' group by '+outtype+';'
 #             cursor.execute(sql)
-            sql = 'select  %s ,count(*) as count from '+tableName+' where outdate>%s and outdate<%s group by %s;'
-            cursor.execute(sql,(outtype,beginData,endData,outtype))
+            sql = 'select  '+outtype+' ,count(*) as count from '+tableName+' where outdate>%s and outdate<%s group by '+outtype+';'
+            cursor.execute(sql,(beginData,endData))
             tablerows = cursor.fetchall()
             if(len(tablerows) > 0):
                 return tablerows;

@@ -73,3 +73,21 @@ function hidddle_loading()
 	$('.loading').remove();
 }
 
+/**
+ * 去重排序
+ * @param arr
+ * @returns
+ */
+function sortnique(array){
+
+	var n = [];//临时数组
+    for(var i = 0;i < array.length; i++){
+        if(n.indexOf(array[i]) == -1) n.push(array[i]);
+    }
+    var sortedArr = n.sort();
+	return sortedArr;
+}
+
+
+
+
