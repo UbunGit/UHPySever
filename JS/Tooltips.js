@@ -84,8 +84,12 @@ function sortnique(array){
     for(var i = 0;i < array.length; i++){
         if(n.indexOf(array[i]) == -1) n.push(array[i]);
     }
-    var sortedArr = n.sort();
+    var sortedArr = n.sort(sortNumber);
 	return sortedArr;
+}
+function sortNumber(a,b)
+{
+return a - b
 }
 
 

@@ -1,31 +1,4 @@
-html,body{height:100%;
-}
-.tabBar{
-	position:absolute;
-	bottom:0;
-	width: 100%;
-	height:40px;
-    background:#ffffff
-}
-.DataTable{
-	width: 100%;
-	height:40px;
-	overflow:scroll; 
-	overflow-x:hidden;
-	background:#ffffff;
-	border: .5px solid #3b99fc;
-}
-.DataTable td{
-	text-align: center;
-}
-
-.tabBar td{
-	text-align: center;
-}
-
-.scroll{
+#bar{
 	width:100%; 
 	height:100%;
-	overflow:scroll;
-	border: 1px solid #3b99fc;
 	}

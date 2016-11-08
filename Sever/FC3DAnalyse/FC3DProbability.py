@@ -333,13 +333,14 @@ class FC3DProbability(object):
         connection = SqlHabdleGlobal.connectionDb()
         with connection.cursor() as cursor: 
             tableName = self.getTableName(probability)
-#             sql = 'select  '+outtype+' ,count(*) as count from '+tableName+' where outdate>'+beginData+' and outdate<'+endData+' group by '+outtype+';'
-#             cursor.execute(sql)
             sql = 'select  '+outtype+' ,count(*) as count from '+tableName+' where outdate>%s and outdate<%s group by '+outtype+';'
             cursor.execute(sql,(beginData,endData))
             tablerows = cursor.fetchall()
             if(len(tablerows) > 0):
-                return tablerows;
+                returnDic = {}
+                for row in tablerows:
+                    returnDic[row[outtype]] = row['count']
+                return returnDic;
             else:
                 return None;
         return None        
