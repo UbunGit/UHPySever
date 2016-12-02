@@ -8,7 +8,6 @@ Created on 2016年3月8日
 from PymysqlHandle.PymysqlHandle import PymysqlHandle
 from TOOL import LogHandle
 
-
 class InterfaceHandle(object):
     
     userName = "verstor";
@@ -37,7 +36,6 @@ class InterfaceHandle(object):
         else:
             tel = data['tel'] 
 
-        LogHandle.writeLog(0, '用户登录', userName)
         pymysqlHandle = PymysqlHandle() 
         return pymysqlHandle.selectUserInfo(userName, tel);
         
@@ -48,8 +46,6 @@ class InterfaceHandle(object):
     def do_log(self, data):
         
         passWord = data['passWord']
-        LogHandle.writeLog(0, '用户登录', self.userName)
-        
         returnData = self.getLogState(data)
         if returnData:
             
@@ -77,17 +73,24 @@ class InterfaceHandle(object):
         return returnData
     
     '''
-    1.3获取用户场景列表
+    1.3 获取错误码
     '''
-    def do_getfactionList(self, data):  
-        pymysqlHandle = PymysqlHandle() 
-        list = pymysqlHandle.getFactionList(data, self.userName)
-        if len(list) > 0:
-             returnDic = {"inforCode":0}
-             returnDic['result'] = list
+    def do_getLogList(self, data):  
+     
+        dataList =LogHandle.getLogList(data)
+        if len(dataList)>0:
+            returnDic = {"inforCode":0}
+            returnDic['result'] = dataList
         else:
-             returnDic = {"inforCode":-10004}
-        return returnDic;
+            returnDic = {"inforCode":-10004}
+        return returnDic
+    def do_deleteLog(self,data):
+        LogHandle.deleteLog()
+        returnDic = {"inforCode":0}
+        returnDic['result'] = "删除成功";
+        return returnDic
+        
+        
 
         
        

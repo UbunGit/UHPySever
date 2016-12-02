@@ -113,6 +113,24 @@ class Globle_HttpIntface {
 		return $this->requestInterface($options,'/FCAnalyse');
 	}
 	
+	/**
+	 * 获取日志记录
+	 * @return 会员信息dic
+	 */
+	function getLogList($memberNO,$beginTime,$endTime,$business,$levels){
+	
+		$funName = 'getLogList';
+		$options = array (
+				'inefaceMode' => $funName,
+				'memberNO' => $memberNO,
+				'beginTime' => $beginTime,
+				'endTime' => $endTime,
+				'business' => $business,
+				'levels' => $levels
+		);
+		return $this->requestInterface($options,'/interface');
+	}
+	
   
 }
 

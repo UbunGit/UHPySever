@@ -23,7 +23,7 @@ dbhost="$IP"
 [interFace]
 InterFaceIP=http://$IP:8889
 [path]
-errorLogpath='../log'
+errorLogpath="../../log/"
 
 [URL]
 root_assets=http://$IP/xiaoqy/UHPySever/assets/

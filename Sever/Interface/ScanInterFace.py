@@ -41,8 +41,8 @@ class ScanInterFace(object):
     获取接口列表
     '''
     def do_getInterFaceList(self, data):
-       
-        LogHandle.writeLog(0, '查询接口列表：getInterFaceList：', self.userName)
+        
+        LogHandle.log(0, 'Begin：getInterFaceList', self.userName, 0, 'getInterFaceList')  
         pymysqlHandle = PymysqlHandle() 
         returnData = pymysqlHandle.getInterfaceList()
         return returnData
@@ -51,7 +51,7 @@ class ScanInterFace(object):
     获取信息
     '''
     def do_getInterFaceInfo(self, data):
-        LogHandle.writeLog(0, '查询接口列表：getInterFaceInfo：', self.userName)
+       
         interFaceName = data['interFaceName']
         pymysqlHandle = PymysqlHandle() 
         returnData = pymysqlHandle.getInterFaceInfo(interFaceName)
@@ -63,7 +63,6 @@ class ScanInterFace(object):
     def do_getInputValueList(self, data): 
         interFaceName = data['interFaceName'].encode("utf-8")
         parameterTypeuse = "1001"
-        LogHandle.writeLog(0, '查询接口列表：getInputValueList：', self.userName)
         pymysqlHandle = PymysqlHandle() 
         returnData = pymysqlHandle.getInterfaceParameterList(interFaceName, parameterTypeuse)
         return returnData 
@@ -74,7 +73,6 @@ class ScanInterFace(object):
     def do_getOutputValueList(self, data): 
         interFaceName = data['interFaceName'].encode("utf-8")
         parameterTypeuse = "1002"
-        LogHandle.writeLog(0, '查询接口列表：getInputValueList：', self.userName)
         pymysqlHandle = PymysqlHandle() 
         returnData = pymysqlHandle.getInterfaceParameterList(interFaceName, parameterTypeuse)
         return returnData 

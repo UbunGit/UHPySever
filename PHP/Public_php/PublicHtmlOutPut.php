@@ -34,8 +34,11 @@ class Output {
 		return '<script src='.$script.'></script>';
 	}
 	
-	/*
-	 * 输出头信息
+	/**
+	 * 输出头部消息
+	 * @param 相对路径css路径 $cssarr
+	 * @param 觉对路径css路径 $cssabsArr
+	 * @param 标题 $headStr
 	 */
 	function outPutHead($cssarr,$cssabsArr, $headStr) {
 		?>
@@ -229,15 +232,10 @@ class Output {
 						</ul></li>
 
 					<li class="sub-menu"><a href="javascript:;"> <i class="fa fa-cogs"></i>
-							<span>Components</span>
+							<span>日志分析</span>
 					</a>
 						<ul class="sub">
-							<li><a href="grids.html">Grids</a></li>
-							<li><a href="calendar.html">Calendar</a></li>
-							<li><a href="gallery.html">Gallery</a></li>
-							<li><a href="todo_list.html">Todo List</a></li>
-							<li><a href="draggable_portlet.html">Draggable Portlet</a></li>
-							<li><a href="tree.html">Tree View</a></li>
+							<li><a href=<?php echo  $this->getPath( "./logoInfo.php" );?>>日志分析</a></li>
 						</ul></li>
 					<li class="sub-menu"><a href="javascript:;"> <i class="fa fa-tasks"></i>
 							<span>Form Stuff</span>

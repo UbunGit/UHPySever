@@ -6,7 +6,6 @@ Created on 2016年8月29日
 @author: xiaoqy
 '''
 import pymysql.cursors
-
 from TOOL import mod_config
 
 

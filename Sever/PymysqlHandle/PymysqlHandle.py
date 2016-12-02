@@ -6,10 +6,8 @@ Created on 2016年3月11日
 @author: xiaoqy
 '''
 from pymysql.err import MySQLError
-
-from SqlHandelGlobal import SqlHabdleGlobal
 from TOOL import LogHandle
-
+from SqlHandelGlobal import SqlHabdleGlobal
 
 SMARTHOMEUSER_TABLE = 'SmartHomeUser_Table'  # 智能家居用户信息表
 INTERFAVE_TABLE = 'SmartHomeInterFace_Table'  # 接口数据表
@@ -69,8 +67,7 @@ class PymysqlHandle(object):
                     userName = userTel;
                 sql = 'call p_GetUserInfo(%s)'
                 cursor.execute(sql, userName)
-                LogHandle.writeLog(0, '数据库操作：p_GetUserInfo:' + sql, userName)
-                    
+                  
                 for row in cursor:
                     if(not row["userLevel"]):
                         row["userLevel"] = "1001"
@@ -78,9 +75,6 @@ class PymysqlHandle(object):
                     return cursorData
                 
                 return 
-
-                    
-
 
 
     '''
@@ -92,7 +86,6 @@ class PymysqlHandle(object):
         with connection.cursor() as cursor:
             # Create a new record
             sql = 'call p_ReplaceUserInfo(%s,%s,%s,%s,%s)';
-            LogHandle.writeLog(0, '数据库操作：replaceIntefaceInfo:' + sql.encode('utf-8'), "anyone")
             
             if("userName"  in data.keys()):
                 userName = data['userName']
@@ -148,7 +141,7 @@ class PymysqlHandle(object):
                 connection.commit()
 
         except BaseException, e:
-            LogHandle.writeLog(str(e.args[0]), '数据库操作：replaceIntefaceInfo:' + str(e), "anyone")
+            
             returnDic = {"inforCode":-10000}
             return returnDic
         else:
@@ -179,7 +172,7 @@ class PymysqlHandle(object):
                 cursor.execute(sql)
                 connection.commit()
         except BaseException, e:
-            LogHandle.writeLog(str(e.args[0]), '数据库操作：replaceIntefaceInfo:' + str(e), "anyone")
+            
             returnDic = {"inforCode":-10000}
             return returnDic
         else:
@@ -197,35 +190,20 @@ class PymysqlHandle(object):
     －－－－－－－－－－－－－－－－－
     '''  
     def getInterfaceList(self):
-        try:
-            connection = SqlHabdleGlobal.connectionDb();
-            with connection.cursor() as cursor:
-                # Create a new record
-                sql = 'SELECT * FROM ' + INTERFAVE_TABLE + ' ;'
-                cursor.execute(sql)
-                LogHandle.writeLog(0, '数据库操作：getInterfaceList:' + sql, 'anyone')
-                list = []
-                for row in cursor:
-                    list.append(row)
-                if len(list) <= 0: 
-                    returnDic = {"inforCode":-10004}
-                else:
-                    returnDic = {"inforCode":0}   
-                    returnDic['result'] = list
-                
-                LogHandle.writeLog(returnDic['inforCode'], '数据库操作：getInterfaceList:', 'anyone')
-                return returnDic;
-                    
-        except BaseException, e:
 
-            returnDic = {"inforCode":-10000}
-            LogHandle.writeLog(str(e.args[0]),
-                               '数据库操作异常：getInterfaceList:' + str(e.args[1]),
-                               'anyone')
-            return returnDic
-        else:
-            connection.close() 
-            returnDic = {"inforCode":0}
+        connection = SqlHabdleGlobal.connectionDb();
+        with connection.cursor() as cursor:
+            # Create a new record
+            sql = 'SELECT * FROM ' + INTERFAVE_TABLE + ' ;'
+            cursor.execute(sql)
+            list = []
+            for row in cursor:
+                list.append(row)
+            if len(list) <= 0: 
+                returnDic = {"inforCode":-10004}
+            else:
+                returnDic = {"inforCode":0}   
+                returnDic['result'] = list
             return returnDic;
 
     
@@ -239,36 +217,24 @@ class PymysqlHandle(object):
     －－－－－－－－－－－－－－－－－
     '''  
     def getInterfaceParameterList(self, interFaceName, parameterTypeuse):
-        try:
-            connection = SqlHabdleGlobal.connectionDb();
-            with connection.cursor() as cursor:
-                # Create a new record
-                sql = 'SELECT * FROM ' + INTERFAVEPARAMETER_TABLE + ' where parameterFatherName=(select interFaceName from ' + INTERFAVE_TABLE + ' where  interFaceName=%s and parameterTypeuse=%s);'
-                cursor.execute(sql, (interFaceName, parameterTypeuse))
-                LogHandle.writeLog(0, '数据库操作：getInterfaceParameterList:' + sql, 'anyone')
-                list = []
-                for row in cursor:
-                    list.append(row)
-                if len(list) <= 0: 
-                    returnDic = {"inforCode":-10004}
-                else:
-                    returnDic = {"inforCode":0}   
-                    returnDic['result'] = list
-                
-                LogHandle.writeLog(returnDic['inforCode'], '数据库操作：getInterfaceList:', 'anyone')
-                return returnDic;
-                    
-        except BaseException, e:
 
-            returnDic = {"inforCode":-10000}
-            LogHandle.writeLog(str(e.args[0]),
-                               '数据库操作异常：getInterfaceList:' + str(e.args[1]),
-                               'anyone')
-            return returnDic
-        else:
-            connection.close() 
-            returnDic = {"inforCode":0}
+        connection = SqlHabdleGlobal.connectionDb();
+        with connection.cursor() as cursor:
+            # Create a new record
+            sql = 'SELECT * FROM ' + INTERFAVEPARAMETER_TABLE + ' where parameterFatherName=(select interFaceName from ' + INTERFAVE_TABLE + ' where  interFaceName=%s and parameterTypeuse=%s);'
+            cursor.execute(sql, (interFaceName, parameterTypeuse))
+            
+            list = []
+            for row in cursor:
+                list.append(row)
+            if len(list) <= 0: 
+                returnDic = {"inforCode":-10004}
+            else:
+                returnDic = {"inforCode":0}   
+                returnDic['result'] = list
+                
             return returnDic;
+
      
     ''' 
     查询接口信息
@@ -281,36 +247,22 @@ class PymysqlHandle(object):
     －－－－－－－－－－－－－－－－－
     '''    
     def getInterFaceInfo(self, interFaceName):
-        try:
-            connection = SqlHabdleGlobal.connectionDb();
-            with connection.cursor() as cursor:
-                # Create a new record
-                sql = 'SELECT * FROM ' + INTERFAVE_TABLE + ' where interFaceName=%s;'
-                cursor.execute(sql, interFaceName)
-                LogHandle.writeLog(0, '数据库操作：getInterFaceInfo:' + sql, 'anyone')
-                list = []
-                for row in cursor:
-                    list.append(row)
-                if len(list) <= 0: 
-                    returnDic = {"inforCode":-10004}
-                else:
-                    returnDic = {"inforCode":0}   
-                    returnDic['result'] = list
-                
-                LogHandle.writeLog(returnDic['inforCode'], '数据库操作：getInterFaceInfo:', 'anyone')
-                return returnDic;
-                    
-        except BaseException, e:
 
-            returnDic = {"inforCode":-10000}
-            LogHandle.writeLog(str(e.args[0]),
-                               '数据库操作异常：getInterFaceInfo:' + str(e.args[1]),
-                               'anyone')
-            return returnDic
-        else:
-            connection.close() 
-            returnDic = {"inforCode":0}
-            return returnDic;   
+        connection = SqlHabdleGlobal.connectionDb();
+        with connection.cursor() as cursor:
+            # Create a new record
+            sql = 'SELECT * FROM ' + INTERFAVE_TABLE + ' where interFaceName=%s;'
+            cursor.execute(sql, interFaceName)
+            list = []
+            for row in cursor:
+                list.append(row)
+            if len(list) <= 0: 
+                returnDic = {"inforCode":-10004}
+            else:
+                returnDic = {"inforCode":0}   
+                returnDic['result'] = list
+            return returnDic;
+   
     '''
     添加接口输入输出参数
     -----------------------------
@@ -327,7 +279,6 @@ class PymysqlHandle(object):
             with connection.cursor() as cursor:
                 # Create a new record
                 sql = 'call p_ReplaceInterFaceParameter(%s,%s,%s,%s,%s,%s,%s,%s,%s)'; 
-                LogHandle.writeLog(0, '数据库操作：addParametervalue:' + sql.encode('utf-8'), "anyone")
                 cursor.execute(sql,
                                (parameterDic['parameterName'],
                                parameterDic['parameterFatherName'],
@@ -340,7 +291,6 @@ class PymysqlHandle(object):
                                parameterDic['parameterTypeuse']));
                 connection.commit()
         except BaseException, e:
-            LogHandle.writeLog(str(e.args[0]), '数据库操作：addParametervalue:' + str(e), "anyone")
             returnDic = {"inforCode":-10000}
             return returnDic
         else:
@@ -357,11 +307,9 @@ class PymysqlHandle(object):
             with connection.cursor() as cursor:
                 # Create a new record
                 sql = 'DELETE FROM SmartHomeParameter_Table WHERE parameterId=%s;'; 
-                LogHandle.writeLog(0, '数据库操作：addParametervalue:' + sql.encode('utf-8'), "anyone")
                 cursor.execute(sql,(data['parameterId']));
                 connection.commit()
         except BaseException, e:
-            LogHandle.writeLog(str(e.args[0]), '数据库操作：addParametervalue:' + str(e), "anyone")
             returnDic = {"inforCode":-10000}
             return returnDic
         else:
@@ -377,7 +325,6 @@ class PymysqlHandle(object):
         with connection.cursor() as cursor:
             # Create a new record
             sql = 'call p_getUserList()'; 
-            LogHandle.writeLog(0, '数据库操作：p_getUserList:' + sql.encode('utf-8'), "anyone")
             cursor.execute(sql);
             connection.commit()
             list = []
@@ -399,7 +346,6 @@ class PymysqlHandle(object):
             # Create a new record
             beginNum = int(data["pageNum"]) * int(data["pageSize"])
             sql = 'select* from FC3DData_t   order by outNO desc limit ' + str(beginNum) + ',' + data["pageSize"] + ''; 
-            LogHandle.writeLog(0, '数据库操作：获取3d彩票数据' + sql.encode('utf-8'), "anyone")
             cursor.execute(sql);
             connection.commit()
             list = []
@@ -422,7 +368,6 @@ class PymysqlHandle(object):
         with connection.cursor() as cursor:
             # Create a new record
             sql = 'select* from FC3DData_t order by outNO desc limit 0,1'; 
-            LogHandle.writeLog(0, '数据库操作：获取3d彩票数据' + sql.encode('utf-8'), "anyone")
             cursor.execute(sql);
             connection.commit()
             list = []
@@ -446,7 +391,6 @@ class PymysqlHandle(object):
         with connection.cursor() as cursor:
             # Create a new record
             sql = 'LOAD DATA LOCAL INFILE "' + path + '" INTO TABLE FC3DData_t FIELDS TERMINATED BY " " LINES TERMINATED BY "\\n"';
-            LogHandle.writeLog(0, sql.encode('utf-8'), "anyone")
             cursor.execute(sql);
             connection.commit()
             connection.close() 
@@ -460,7 +404,6 @@ class PymysqlHandle(object):
             # Create a new record
             beginNum = int(data["pageNum"]) * int(data["pageSize"])
             sql = 'SELECT * FROM FC3DOmitData_table order by outNO desc limit ' + str(beginNum) + ',' + data["pageSize"] + ''; 
-            LogHandle.writeLog(0, '数据库操作：获取3d彩票数据' + sql.encode('utf-8'), "anyone")
             cursor.execute(sql);
             connection.commit()
             list = []
@@ -482,14 +425,12 @@ class PymysqlHandle(object):
             # Create a new record
             fatherID = data["fatherId"]
             sql = 'SELECT * FROM FunctionData_t where fatherID=' + str(fatherID) 
-            LogHandle.writeLog(0, '数据库操作：获取3d彩票数据' + sql.encode('utf-8'), userName)
             cursor.execute(sql);
             connection.commit()
             list = []
             for row in cursor:
                 list.append(row)
             connection.close() 
-            return list
-        
-            
+            return list  
+  
         

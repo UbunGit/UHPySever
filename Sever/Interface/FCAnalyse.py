@@ -34,7 +34,7 @@ class FCAnalyse(object):
     2.1获取3D数据
     '''
     def do_getFC3DData(self, data):
-        LogHandle.writeLog(0, '获取3D数据', self.userName)
+      
         pymysqlHandle = PymysqlHandle()
         return pymysqlHandle.getFC3dData(data)
     
@@ -42,14 +42,14 @@ class FCAnalyse(object):
     2.2获取最后一期福彩3D数据
     '''
     def do_getLastFCData(self, data): 
-        LogHandle.writeLog(0, '获取最后一期福彩3D数据', self.userName)
+       
         pymysqlHandle = PymysqlHandle()
         return pymysqlHandle.getLastFCData()
     '''
     2.5获取频率表归纳数据
     '''  
     def do_recommendData(self, data): 
-        LogHandle.writeLog(0, '获取频率表归纳数据', self.userName)
+      
         fc = FC3DProbability()
         data = fc.getRecommendData(data["BeginOutNO"], data["EndOutNO"], data["Probability"], data["outtype"]) 
         if len(data) <= 0:
@@ -64,7 +64,7 @@ class FCAnalyse(object):
     '''
     def do_getRecommendCode(self, data):
         
-        LogHandle.writeLog(0, '获取推荐的号码', self.userName)
+       
         fc = FC3DProbability()
         data = fc.getRecommend(data["BeginOutNO"], data["EndOutNO"], data["Probability"], data["RecommendOutON"]) 
         if len(data) <= 0:
@@ -78,7 +78,7 @@ class FCAnalyse(object):
     2.4获取遗漏数据
     '''  
     def do_getOmitData(self, data): 
-        LogHandle.writeLog(0, '获取遗漏数据', self.userName)
+       
         pymysqlHandle = PymysqlHandle()
         returnDic = pymysqlHandle.getOmitData(data)
         return returnDic

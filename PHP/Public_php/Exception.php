@@ -22,7 +22,7 @@
         	$errorLogpath=$config->get('path.errorLogpath');
             if($this->dir_($errorLogpath)){
                 $str = $this->__toString();
-                error_log($str, 3, $errorLogpath."/C_error.log");
+                error_log($str, 3, $errorLogpath."C_error.log");
             }
         }
         
@@ -30,17 +30,11 @@
          * 检查目录是否存在或是否可创建
          */
         private function dir_($dir) {
-  
-            if (is_dir($dir)) return true;
-            try {
-                mkdir($dir,0777);
-            }
-            catch (Exception $e) {
-                
-                $err = new myException ( "所设定错误描述文件创建失败!请检查目录权限! ", - 10001 );
-                $err->__errorlog ();
-                return false;
-            }
+        	if(!file_exists($dir)){
+        		if (!mkdir($dir, 0777, true)) {//0777
+        			die('Failed to create folders...'.$dir);
+        		}
+        	}
             return true;
         }
     }

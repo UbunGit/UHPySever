@@ -5,6 +5,7 @@ Created on 2016年6月30日
 
 @author: xiaoqy
 '''
+from pymysql.err import MySQLError
 
 '''
 开启服务器
@@ -27,7 +28,7 @@ def start_server(port):
     # 获取本机ip
     myaddr = socket.gethostbyname(myname)
     http_server = HTTPServer((myaddr, int(port)), TestHTTPHandle)  
-    LogHandle.writeLog(0, '服务器已开启' + myaddr, 'anyone')
+    LogHandle.log(0, '服务器已开启'+myaddr , 'anyone',0,'start_server')
     http_server.serve_forever()  # 设置一直监听并接收请求 
     
     
@@ -66,7 +67,7 @@ class TestHTTPHandle(BaseHTTPRequestHandler):
     def parse_POST(self):
         try:
         
-            LogHandle.writeLog(0, 'POSTbegin', 'anyone')
+           
             path = self.path
             self.send_response(200, "ok")
             self.send_header("Access-Control-Allow-Origin", "*"); 
@@ -92,9 +93,14 @@ class TestHTTPHandle(BaseHTTPRequestHandler):
                 userName = fields["userName"]
             else:
                 userName = "verstor"
+            
             if("userTel"  in fields.keys()):
                 userTel = fields["userTel"];
-
+            
+            interFaceMetho = fields['inefaceMode']   
+            LogHandle.log(0, path+' '+str(fields), userName, 0, interFaceMetho)   
+            
+            
             if(path == '/interface'): 
                 interface = InterfaceHandle()
                 returnData = interface.interfaceMethodo(fields, userName) 
@@ -105,17 +111,19 @@ class TestHTTPHandle(BaseHTTPRequestHandler):
                 interface = FCAnalyse()
                 returnData = interface.FCAnalyseMethodo(fields, userName)
             else:
-                LogHandle.writeLog(0, "path:{"+path+"}", 'anyone')
                 returnData = {"inforCode":-20003};
 
         except KeyError , ex:
             returnData = {"inforCode":-10006}
-            LogHandle.writeLog(returnData["inforCode"], ex, userName)
+            returnData['result'] = 'sever get map value is not key:'+ex.message
             
+        except MySQLError , ex:
+            returnData = {"inforCode":-10000}
 
         except BaseException , ex:
             returnData = {"inforCode":-20000}
-            print ex;
+            returnData['result'] = ex.message
+           
 
         finally:
             if returnData['inforCode'] != 0:
@@ -129,9 +137,10 @@ class TestHTTPHandle(BaseHTTPRequestHandler):
 
             returnJson = PythonString.jsonUnPase(returnData)   
             self.wfile.write(returnJson)
-            LogHandle.writeLog(0, returnData, 'anyone')
-            LogHandle.writeLog(0, '===POSTEND==', 'anyone')  
-        
+            if returnData['inforCode'] != 0:
+                LogHandle.log(returnData['inforCode'], returnData['result'] , userName,2, interFaceMetho) 
+            else:   
+                LogHandle.log(returnData['inforCode'], returnData['result'] , userName,0, interFaceMetho) 
         
     errResponses = {
         - 20000:('sever is error'),

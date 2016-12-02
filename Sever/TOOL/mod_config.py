@@ -15,7 +15,6 @@ def getConfig(section, key):
     path= os.path.join(path,"../")
     path= os.path.abspath(path)
     path = path+"/Install/config.conf"
-    print path;
     config.read(path)
     return config.get(section, key)
 

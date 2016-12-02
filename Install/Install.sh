@@ -16,10 +16,11 @@ fi
 cd ./MySQL
 sh ./sql_Install.sh
 cd ../
+
 sh ./updata_1.sh
+echo "install  updata_1 ok";
 
-
-cd ../../Sever 
+cd ../Sever 
 
 python <<EOF
 
