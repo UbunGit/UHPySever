@@ -62,7 +62,7 @@ $(function() {
 	});
 
 	$(".register").click(function() {
-		window.location.href = "./Register.php";
+		go ("./Register.php");
 		return;
 	});
 });

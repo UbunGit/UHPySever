@@ -7,9 +7,9 @@ $jsArr = array("Register.js","Tooltips.js","Cookie.js");
 $cssArr = array('Register.css');
 $outPut = new OutPut();
 echoRegister();
-$outPut->outPutHead($jsArr,$cssArr,"注册");
+$outPut->outPutHead($cssArr,null,"注册");
 
-$outPut-> outputFoot();
+$outPut-> outputFoot($jsArr,null);
 function echoRegister(){
 	$config= new ConfigINI();
 	$imagePath = $config->get('URL.root_image');

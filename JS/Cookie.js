@@ -55,6 +55,23 @@ function GetRequest(url) {
         theRequest[strs[i].split("=")[0]]=strs[i].split("=")[1];   
     } 
     return theRequest;   
-}   
+}  
+
+function go(url) {   
+	
+	$.ajax({
+        type: "GET",
+        cache: false,
+        url: page+url,
+        data: "",
+        success: function() {
+        	window.location.href = page+url;
+        },
+        error: function() {
+        	window.location.href = page+"404.php";
+        }
+    });
+	return; 
+} 
   
 

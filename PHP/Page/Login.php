@@ -5,7 +5,7 @@
     $jsArr = array("Login.js","Tooltips.js","Cookie.js");
     $cssArr = array('Globle.css','Login.css');
     $outPut = new OutPut();
-    $outPut->outPutHead($jsArr,$cssArr,"登录");
+    $outPut->outPutHead($cssArr,null,"登录");
     
     $userName = __getCookies('userName');
     $config= new ConfigINI();
@@ -28,5 +28,5 @@
 </table>
 </div>
 <?php
-$outPut->outputFoot();
+$outPut->outputFoot($jsArr,null);
     ?>

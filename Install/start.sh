@@ -38,6 +38,11 @@ echo "
 var httpURL_interFace= 'http://$IP:8889/interface';
 var httpURL_FCAnalyse= 'http://$IP:8889/FCAnalyse';
 var httpURL_samrtHome= 'http://$IP:8889/samrtHome';
+
+var image= 'http://$IP/xiaoqy/UHPySever/Image/';
+var page=  'http://$IP/xiaoqy/UHPySever/PHP/Page/';
+var css=   'http://$IP/xiaoqy/UHPySever/CSS/';
+var js=    'http://$IP/xiaoqy/UHPySever/JS/';
 " > config.js
 
 cd ../Sever 
