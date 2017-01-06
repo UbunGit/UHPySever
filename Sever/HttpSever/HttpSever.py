@@ -5,14 +5,14 @@ Created on 2016年6月30日
 
 @author: xiaoqy
 '''
-from pymysql.err import MySQLError
-
 '''
 开启服务器
 '''
 
 from BaseHTTPServer import HTTPServer, BaseHTTPRequestHandler
 import socket
+
+from pymysql.err import MySQLError
 
 from Interface.FCAnalyse  import FCAnalyse
 from Interface.Interface import InterfaceHandle
@@ -28,7 +28,7 @@ def start_server(port):
     # 获取本机ip
     myaddr = socket.gethostbyname(myname)
     http_server = HTTPServer((myaddr, int(port)), TestHTTPHandle)  
-    LogHandle.log(0, '服务器已开启'+myaddr , 'anyone',0,'start_server')
+    LogHandle.log(0, '服务器已开启' + myaddr , 'anyone', 0, 'start_server')
     http_server.serve_forever()  # 设置一直监听并接收请求 
     
     
@@ -98,7 +98,7 @@ class TestHTTPHandle(BaseHTTPRequestHandler):
                 userTel = fields["userTel"];
             
             interFaceMetho = fields['inefaceMode']   
-            LogHandle.log(0, path+' '+str(fields), userName, 0, interFaceMetho)   
+            LogHandle.log(0, path + ' ' + str(fields), userName, 0, interFaceMetho)   
             
             
             if(path == '/interface'): 
@@ -115,7 +115,7 @@ class TestHTTPHandle(BaseHTTPRequestHandler):
 
         except KeyError , ex:
             returnData = {"inforCode":-10006}
-            returnData['result'] = 'sever get map value is not key:'+ex.message
+            returnData['result'] = 'sever get map value is not key:' + ex.message
             
         except MySQLError , ex:
             returnData = {"inforCode":-10000}
@@ -138,9 +138,9 @@ class TestHTTPHandle(BaseHTTPRequestHandler):
             returnJson = PythonString.jsonUnPase(returnData)   
             self.wfile.write(returnJson)
             if returnData['inforCode'] != 0:
-                LogHandle.log(returnData['inforCode'], returnData['result'] , userName,2, interFaceMetho) 
+                LogHandle.log(returnData['inforCode'], returnData['result'] , userName, 2, interFaceMetho) 
             else:   
-                LogHandle.log(returnData['inforCode'], returnData['result'] , userName,0, interFaceMetho) 
+                LogHandle.log(returnData['inforCode'], returnData['result'] , userName, 0, interFaceMetho) 
         
     errResponses = {
         - 20000:('sever is error'),

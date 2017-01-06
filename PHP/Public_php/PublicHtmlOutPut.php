@@ -91,8 +91,7 @@ class Output {
 
 		<header class="header white-bg">
 			<div class="sidebar-toggle-box">
-				<div class="fa fa-bars tooltips" data-placement="right"
-					data-original-title="Toggle Navigation"></div>
+				<div class="fa fa-bars tooltips"></div>
 			</div>
 			<!--logo start-->
 			<a href="index.php" class="logo">Ubun<span>Hub</span></a>
@@ -221,8 +220,9 @@ class Output {
 							<span>3D彩票</span>
 					</a>
 						<ul class="sub">
+							
+							<li><a href=<?php echo  $this->getPath( "./FC3D/History3d.php" );?>>历史出球</a></li>
 							<li><a href=<?php echo  $this->getPath( "./FC3D/FCOutData.php" );?>>概率统计</a></li>
-							<li><a href="buttons.html">Buttons</a></li>
 							<li><a href="modal.html">Modal</a></li>
 							<li><a href="toastr.html">Toastr Notifications</a></li>
 							<li><a href="widget.html">Widget</a></li>

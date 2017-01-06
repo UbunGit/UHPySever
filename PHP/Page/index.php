@@ -17,8 +17,17 @@ $cssArr = array (
 $outPut = new OutPut();
 $outPut->outPutHead ($cssArr, null,"主页" );
 
+print "CONTENT_TYPE: " . $_SERVER['CONTENT_TYPE'] . "<BR />";
+$data = file_get_contents('php://input');
+print "DATA: <pre>";
+var_dump($data);
+var_dump($_POST);
+print "</pre>";
+
+$userName = isset($_POST['userName']) ? $_POST['userName'] : __getCookies('userName');
 $userimg = __getCookies ( 'userImg' );
-$userName = __getCookies('userName');
+
+
 $userInfo = array(
 		"heardImg" =>"fc3d.jpg",
 		"userName"=>$userName,
@@ -28,3 +37,10 @@ $outPut->outSider();
 $outPut->outputFoot ($jsArr);
 
 ?>
+
+<form method="post">
+
+    <input type="text" name="name" value="ok" />
+    <input type="submit" name="submit" value="submit" />
+
+</form>

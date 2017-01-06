@@ -8,6 +8,7 @@ Created on 2016年3月8日
 from PymysqlHandle.PymysqlHandle import PymysqlHandle
 from TOOL import LogHandle
 
+
 class InterfaceHandle(object):
     
     userName = "verstor";

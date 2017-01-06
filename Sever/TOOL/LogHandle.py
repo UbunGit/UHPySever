@@ -6,9 +6,13 @@ Created on 2016年3月8日
 @author: xiaoqy
 '''
 import logging
-import time;
+
 import pymysql.cursors
+
 from TOOL import mod_config
+
+
+import time;
 
 
 DBHOST = '45.78.9.162'  # 数据库地址

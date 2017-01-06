@@ -1,6 +1,5 @@
 <?php
 require_once ('../../Public_php/Globle_sc_fns.php');
-require_once ('FCOutPutPage.php');
 /* 输出头部信息 */
 $jsArr = array (
 		"FCOutData.js" 
