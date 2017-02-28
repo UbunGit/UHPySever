@@ -10,12 +10,13 @@ from __builtin__ import str
 from pymysql.err import MySQLError
 
 from SqlHandelGlobal import SqlHabdleGlobal
-from TOOL import LogHandle
+
 
 
 SMARTHOMEUSER_TABLE = 'SmartHomeUser_Table'  # 智能家居用户信息表
 INTERFAVE_TABLE = 'SmartHomeInterFace_Table'  # 接口数据表
 INTERFAVEPARAMETER_TABLE = 'SmartHomeParameter_Table'
+
 
 
 class PymysqlHandle(object):
@@ -384,7 +385,30 @@ class PymysqlHandle(object):
                 returnDic['result'] = list
             connection.close() 
             return returnDic
-        
+     
+    def getFCDatabyOutData (self,data):  
+                
+        connection = SqlHabdleGlobal.connectionDb();
+        with connection.cursor() as cursor:
+            outdata = None
+            if("outNO"  in data.keys()):
+                outdata =data["outNO"];
+            elif ("outdate"  in data.keys()):  
+                outdata =data["outdate"];
+            else:
+                return None
+            sql = 'SELECT * FROM FC3DData_t where outNO = "'+outdata +'" or outdate= "'+outdata+'"' 
+            cursor.execute(sql);
+            tablerows = cursor.fetchall()
+            if(len(tablerows) == 1):
+                result = tablerows[0];
+                result["outdate"] = str(result["outdate"])
+                returnDic = {"inforCode":0}   
+                returnDic['result'] = result
+            else:
+                returnDic = {"inforCode":-10004}   
+            connection.close() 
+            return returnDic  
     '''
     加载福彩3d数据到数据库中
     '''       

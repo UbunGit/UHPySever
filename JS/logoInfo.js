@@ -120,7 +120,7 @@ $(function() {
 				if(data["inforCode"]==0){
 					hidddle_loading();
 					alert('删除成功');
-					document.URL="./LogoInfo.php";
+					location.reload(); 
 				}else{
 					hidddle_loading();
 					show_err_msg(data["result"]);

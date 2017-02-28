@@ -92,6 +92,13 @@ function sortNumber(a,b)
 return a - b
 }
 
-
+function getElement(key,value){
+	
+	var element = document.createElement(key);
+	for(var data in value ){
+		element[data] =  value[data];
+	}
+	return element;
+}
 
 

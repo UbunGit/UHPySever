@@ -64,5 +64,3 @@ def reloadData():
     zuf.loadProbabilityData(100)
     LogHandle.log(0, '录入组选FC3D频率表100数据完成' , 'SYSROOT',0, 'getData')
 
-
-reloadData()

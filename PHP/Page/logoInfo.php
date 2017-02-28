@@ -43,7 +43,7 @@ $userInfo = array (
 		"heardImg" => "fc3d.jpg",
 		"userName" => $userName 
 );
-$logList = getLogList ( null, '2016-11-28', '2016-11-28', "", "0" );
+$logList = getLogList ( null, '', '', "", "0" );
 $outPut->outPutHeader ( $userInfo );
 $outPut->outSider ();
 outMainContent ( $logList );

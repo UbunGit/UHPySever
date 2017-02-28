@@ -20,8 +20,8 @@ class FC3DProbability(object):
     '''
     获取概率表表名
     '''
-    def getRecommendtableName(self, beginData, endData, probability):
-        return "FC3DRec_" + str(probability) + "_" + str(beginData) + "_" + str(endData) + "_Table"
+    def getRecommendtableName(self,  probability):
+        return "FC3DRecResult_" + str(probability) + "_"  + "_Table"
     
     '''
     创建频率表
@@ -327,7 +327,8 @@ class FC3DProbability(object):
         return minlist
     
     '''
-     type out_ge个位 out_shi十位 out_bai 百位
+    获取出球频率统计结果
+    type out_ge个位 out_shi十位 out_bai 百位
     '''
     def getRecommendData(self, beginData, endData, probability, outtype):
         connection = SqlHabdleGlobal.connectionDb()
@@ -343,6 +344,99 @@ class FC3DProbability(object):
                 return returnDic;
             else:
                 return None;
-        return None        
+        return None 
+        '''
+    2.8 根据频率值获取对应比重数据
+    fatherType 频率值
+    '''
+    def getFC3DDataBalance(self):
+        connection = SqlHabdleGlobal.connectionDb();
+        with connection.cursor() as cursor:
+            sql = " select * from FC3DDataBalance_t order by fatherType , fatherCout"
+            cursor.execute(sql)  
+            tablerows = cursor.fetchall()
+            return tablerows 
+    '''
+    获取当前有数据的fatherType
+    '''
+    def getFC3DDataBalanceFatherType(self):
+        connection = SqlHabdleGlobal.connectionDb();
+        with connection.cursor() as cursor:
+            sql = " select * from FC3DDataBalance_t group by fatherType"
+            cursor.execute(sql)  
+            tablerows = cursor.fetchall()
+            return tablerows 
+    '''
+    判断频率值对应比重值是否已存在
+    ''' 
+    def isHaveBalanceData(self,data):
+        connection = SqlHabdleGlobal.connectionDb();
+        with connection.cursor() as cursor:
+            sql = 'select * from FC3DDataBalance_t WHERE fatherType='+data["fatherType"]+' and fatherCout='+data["fatherCout"]
+            cursor.execute(sql)  
+            tablerows = cursor.fetchall()
+            return len(tablerows) > 0
+    '''
+    设置频率值对应比重值
+    '''    
+    def replaceFC3DDataBalance(self,data):
+        connection = SqlHabdleGlobal.connectionDb();
+        with connection.cursor() as cursor:
+            sql= "";
+            if(self.isHaveBalanceData(data)):
+                sql = 'UPDATE   FC3DDataBalance_t set balance ='+data["balance"]+' WHERE fatherType='+data["fatherType"]+' and fatherCout='+data["fatherCout"]
+            else:
+                sql = 'INSERT FC3DDataBalance_t values ('+data["fatherType"]+','+data["fatherCout"]+','+data["balance"]+');'
+            cursor.execute(sql)  
+            tablerows = cursor.rowcount
+            return tablerows
+     
+       
         
-    
+    '''
+    2.5 获取对应出球时间的频率
+    outdate 出球时间
+    outType 出球位 1001个位 1002十位 1003 百位
+    probability 频率
+    '''       
+    def getFrequencyData(self,outdate,probability): 
+        endDate = "00000000";
+        beginDate = "00000000"; 
+        balancedata = self.getFC3DDataBalance();
+        balanceDic ={};
+        for key, value in enumerate(balancedata):
+            balanceKey = str(value["fatherType"]) + "_" + str(value["fatherCout"])
+            balanceDic[balanceKey] = value["balance"]
+            
+        probabilityTableName = self.getTableName(probability)
+        recommendTableName = self.getRecommendtableName(probability)
+        ishave = SqlHabdleGlobal.isHaveTable(recommendTableName)
+        if(not ishave):
+            ishave = self.createRecommendTable(recommendTableName)
+        if(ishave):
+            connection = SqlHabdleGlobal.connectionDb();
+            with connection.cursor() as cursor:
+                sql = "call pr_getRecommendData( " + str(probability) + ",'" + probabilityTableName + "' ,'" + recommendTableName + "'," + str(outdate) + "," + str(beginDate) + "," + str(endDate) + ");"
+                cursor.execute(sql)  
+                tablerows = cursor.fetchall()
+                if(len(tablerows) == 1):
+                    result = tablerows[0];
+                    result["outdate"] = str(result["outdate"])
+                    for key, value in enumerate(result.keys()):
+                        if(type(result[value]) != float):continue
+                        blancekey = str(probability)+"_"+str((int)(result[value]))
+                        if(blancekey not in balanceDic.keys()) :
+                            result["balance"+value] = 0.0
+                        else:
+                            result["balance"+value] =balanceDic[blancekey] 
+                        
+                    return result
+                else:
+                    return None;
+               
+        else:
+            print "创建概率表失败！"
+            return 
+
+            
+        

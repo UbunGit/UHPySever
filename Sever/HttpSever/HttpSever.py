@@ -5,6 +5,7 @@ Created on 2016年6月30日
 
 @author: xiaoqy
 '''
+
 '''
 开启服务器
 '''
@@ -20,42 +21,21 @@ from Interface.ScanInterFace import ScanInterFace
 from PyString import PythonString
 from TOOL import LogHandle
 
-
-def start_server(port):
-    
-    # 获取本机电脑名
-    myname = socket.getfqdn(socket.gethostname())
-    # 获取本机ip
-    myaddr = socket.gethostbyname(myname)
-    http_server = HTTPServer((myaddr, int(port)), TestHTTPHandle)  
-    LogHandle.log(0, '服务器已开启' + myaddr , 'anyone', 0, 'start_server')
-    http_server.serve_forever()  # 设置一直监听并接收请求 
-    
-    
-'''
-关闭服务器
-'''
-def stop_server(server):
-    server.sorket.close()
- 
 '''
 服务器操作类
 '''   
-class TestHTTPHandle(BaseHTTPRequestHandler):  
+class HTTPSeverHandle(BaseHTTPRequestHandler):  
     
     userName = None  # 用户名
     userTel = None  # 用户绑定电话号码
     userId = None  # 用户id
-    
+
     def do_OPTIONS(self):
-        self.send_response(200, "ok")
-        self.send_header("Access-Control-Allow-Origin", "*"); 
+        self.send_response(200, "ok")       
+        self.send_header('Access-Control-Allow-Origin', '*')                
         self.send_header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS')
         self.send_header("Access-Control-Allow-Headers", "X-Requested-With")
-        self.send_header("Access-Control-Allow-Headers", "X-Requested-With, Content-Type")  
-        self.send_error(400,
-                                "Bad HTTP/0.9 request type (%r)" % 'OPTIONS') 
-        return;
+        self.send_header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept")
         
     def do_POST(self):
         self.parse_POST() 
@@ -66,8 +46,6 @@ class TestHTTPHandle(BaseHTTPRequestHandler):
           
     def parse_POST(self):
         try:
-        
-           
             path = self.path
             self.send_response(200, "ok")
             self.send_header("Access-Control-Allow-Origin", "*"); 
@@ -138,9 +116,9 @@ class TestHTTPHandle(BaseHTTPRequestHandler):
             returnJson = PythonString.jsonUnPase(returnData)   
             self.wfile.write(returnJson)
             if returnData['inforCode'] != 0:
-                LogHandle.log(returnData['inforCode'], returnData['result'] , userName, 2, interFaceMetho) 
+                LogHandle.log(returnData['inforCode'], "["+path+" "+fields['inefaceMode'] +" ]"+str(returnData['result']) , userName, 2, interFaceMetho) 
             else:   
-                LogHandle.log(returnData['inforCode'], returnData['result'] , userName, 0, interFaceMetho) 
+                LogHandle.log(returnData['inforCode'], "["+path+" "+fields['inefaceMode'] +" ]"+str(returnData['result']) , userName, 0, interFaceMetho) 
         
     errResponses = {
         - 20000:('sever is error'),
@@ -148,7 +126,7 @@ class TestHTTPHandle(BaseHTTPRequestHandler):
         - 20002:('input value has nil'),
         - 20003:('interface not define'),
         - 20004:('user not login'),
-        - 10000:('select sql error'),
+        - 10000:('sql error'),
         
         - 10001: ('member is not reginst'),
         - 10002:('member is not reginst or passWord is error'),
@@ -157,7 +135,25 @@ class TestHTTPHandle(BaseHTTPRequestHandler):
         - 10005:("interface is has in data"),
         - 10006:('sever get map value is not key')
         }  
+def star_httpSever():
        
+        # 获取本机电脑名
+        myname = socket.getfqdn(socket.gethostname())
+        # 获取本机ip
+        myaddr = socket.gethostbyname(myname)
+        http_server = HTTPServer((myaddr, int(8889)), HTTPSeverHandle)  
+        LogHandle.log(0, 'http服务器已开启' + myaddr+":8889" , 'anyone', 0, 'start_Httpserver')
+        http_server.serve_forever()  # 设置一直监听并接收请求 
+
+'''
+关闭服务器
+'''
+def stop_server(server):
+        server.sorket.close()  
+
+
+        
+     
 
         
 

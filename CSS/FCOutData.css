@@ -2,3 +2,13 @@
 	width:100%; 
 	height:100%;
 	}
+	
+.outData{
+	left: 90px;
+}
+.selectCell{
+	 background-color: #ffff00;
+} 
+.recommendation{
+	 background: red;
+}

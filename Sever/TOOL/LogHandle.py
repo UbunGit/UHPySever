@@ -92,7 +92,7 @@ def getLogList(data):
         if(data['beginTime']==data['endTime']):
             sql = sql+' and logTime>'+data['beginTime'] +' order by logTime desc limit 0,100 '
         else:
-            sql = sql+' and logTime>='+data['beginTime']+' and logTime<'+data['endTime']+' order by logTime desc limit 0,100 '
+            sql = sql+' and logTime>='+data['beginTime']+' and substring(logTime,0,10)<'+data['endTime']+' order by logTime desc limit 0,100 '
         cursor.execute(sql)
         connection.commit()    
     datalist = []
@@ -117,8 +117,8 @@ def log_date_time_string():
     """Return the current time formatted for logging."""
     now = time.time()
     year, month, day, hh, mm, ss, x, y, z = time.localtime(now)
-    s = "%04d-%2s-%02d %02d:%02d:%02d %02d %02d %02d" % (
-                year,month,day, hh, mm, ss,x,y,z)
+    s = "%04d-%s-%d %d:%d:%d" % (
+                year,month,day, hh, mm, ss)
     return s
 
 

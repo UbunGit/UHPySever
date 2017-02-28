@@ -204,7 +204,7 @@ class Output {
 			<div id="sidebar" class="nav-collapse ">
 				<!-- sidebar menu start-->
 				<ul class="sidebar-menu" id="nav-accordion">
-					<li><a class="active" href="./index.php"> <i class="fa fa-home"></i>
+					<li><a class="active" <?php echo  $this->getPath( "./index.php" );?> ><i class="fa fa-home"></i>
 							<span>主页</span>
 					</a></li>
 
@@ -220,10 +220,10 @@ class Output {
 							<span>3D彩票</span>
 					</a>
 						<ul class="sub">
-							
+							<li><a href=<?php echo  $this->getPath( "./FC3D/UpdateData.php" );?>>更新数据</a></li>
 							<li><a href=<?php echo  $this->getPath( "./FC3D/History3d.php" );?>>历史出球</a></li>
-							<li><a href=<?php echo  $this->getPath( "./FC3D/FCOutData.php" );?>>概率统计</a></li>
-							<li><a href="modal.html">Modal</a></li>
+							<li><a href=<?php echo  $this->getPath( "./FC3D/Predictor3D.php" );?>>概率统计</a></li>
+							<li><a href=<?php echo  $this->getPath( "./FC3D/FCOutData.php" );?>>彩票预测</a></li>
 							<li><a href="toastr.html">Toastr Notifications</a></li>
 							<li><a href="widget.html">Widget</a></li>
 							<li><a href="slider.html">Slider</a></li>

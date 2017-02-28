@@ -35,6 +35,8 @@ root_image=http://$IP/xiaoqy/UHPySever/Image/" > config.conf
 cd ../JS
 
 echo "
+var SocketIP='$IP';
+var SocketPORD=8888;
 var httpURL_interFace= 'http://$IP:8889/interface';
 var httpURL_FCAnalyse= 'http://$IP:8889/FCAnalyse';
 var httpURL_samrtHome= 'http://$IP:8889/samrtHome';

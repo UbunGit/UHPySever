@@ -16,31 +16,21 @@ $cssArr = array (
 );
 $outPut = new OutPut();
 $outPut->outPutHead ($cssArr, null,"主页" );
-
-print "CONTENT_TYPE: " . $_SERVER['CONTENT_TYPE'] . "<BR />";
-$data = file_get_contents('php://input');
-print "DATA: <pre>";
-var_dump($data);
-var_dump($_POST);
-print "</pre>";
-
-$userName = isset($_POST['userName']) ? $_POST['userName'] : __getCookies('userName');
-$userimg = __getCookies ( 'userImg' );
+if (isset($_POST['userName'])){
+	 __setCookies('userName', $_POST['userName'], null) ;
+}
+	
+$userName =__getCookies('userName');
+$userimg = isset($_POST['userImg']) ? $_POST['userImg'] :__getCookies ( 'userImg' );
 
 
 $userInfo = array(
-		"heardImg" =>"fc3d.jpg",
+		"heardImg" =>empty($userimg)? "fc3d.jpg":$userimg,
 		"userName"=>$userName,
 );
 $outPut->outPutHeader($userInfo);
 $outPut->outSider();
-$outPut->outputFoot ($jsArr);
+$outPut->outputFoot ($jsArr,null);
 
 ?>
 
-<form method="post">
-
-    <input type="text" name="name" value="ok" />
-    <input type="submit" name="submit" value="submit" />
-
-</form>
