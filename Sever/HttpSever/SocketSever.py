@@ -54,11 +54,15 @@ def generate_token(msg):
     return base64.b64encode(ser_key)
             
 def startSocketSever():
+     # 获取本机电脑名
+    myname = socket.getfqdn(socket.gethostname())
+    # 获取本机ip
+    myaddr = socket.gethostbyname(myname)
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-    sock.bind(('192.168.1.27', 8888))
+    sock.bind((myaddr, 8888))
     sock.listen(5)
-    print 'websocket sever 已开启!'
+    print 'websocket sever '+myaddr+':8888已开启!'
     while True:
         connection, address = sock.accept()
         try:
