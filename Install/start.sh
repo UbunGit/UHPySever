@@ -49,21 +49,7 @@ var js=    'http://$IP/xiaoqy/UHPySever/JS/';
 
 cd ../Sever 
 
-python <<EOF
-
-import thread
-from HttpSever import HttpSever
-from HttpSever import SocketSever
-
-# 创建两个线程
-try:
-thread.start_new_thread( HttpSever.star_httpSever )
-thread.start_new_thread( SocketSever.startSocketSever)
-except:
-print "Error: unable to start thread"
-
-while 1:
-pass
+python setp.py
 
 EOF
 
