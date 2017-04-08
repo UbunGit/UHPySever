@@ -144,7 +144,7 @@ class PymysqlHandle(object):
                 cursor.execute(sql,(interFaceName,interFaceNameStr,interFacepath))
                 connection.commit()
 
-        except BaseException, e:
+        except BaseException:
             
             returnDic = {"inforCode":-10000}
             return returnDic
@@ -175,7 +175,7 @@ class PymysqlHandle(object):
                 sql ='UPDATE   SmartHomeInterFace_Table  '+setstr+' WHERE interFaceName = "'+interfaceName+'"'
                 cursor.execute(sql)
                 connection.commit()
-        except BaseException, e:
+        except BaseException:
             
             returnDic = {"inforCode":-10000}
             return returnDic

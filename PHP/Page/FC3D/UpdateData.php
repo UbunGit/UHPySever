@@ -45,14 +45,14 @@ function outmain() {
  <div id="login">
         
         <div>
-            <input id="sendText" type="text" placeholder="发送文本" value="I'm WebSocket Client!" />
-            <input id="btnSend" type="button" value="发送" onclick="send()" />
+            <input id="sendText" type="text" placeholder="发送文本" value="更新数据" />
+            <input id="btnSend"  type="button" value="发送" onclick="send()" />
         </div>
         <div>
             <div>
                 来自服务端的消息
             </div>
-            <textarea id="txtContent" cols="50" rows="10" readonly="readonly">jj</textarea>
+            <textarea id="txtContent" cols="150" rows="10" readonly="readonly" class="comments"></textarea>
         </div>
     </div>
 

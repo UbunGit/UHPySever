@@ -12,6 +12,8 @@ SunOS) IP=`ifconfig -a | grep inet | grep -v '127.0.0.1' | awk '{ print $2} '` ;
 Darwin) IP=`ifconfig | grep 'inet.*netmask.*broadcast' | awk '{ print $2} '`;;
 *) IP="Unknown";;
 esac
+IP=${IP%
+*}
 echo "$OS"
 echo "$IP"
 

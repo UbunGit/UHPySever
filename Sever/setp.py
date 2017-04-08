@@ -21,7 +21,7 @@ try:
    thread.start_new_thread( HttpSever.star_httpSever ,())
    thread.start_new_thread( SocketSever.startSocketSever,())
 except BaseException , ex:
-   print "Error: unable to start thread"
+   print ("Error: unable to start thread")
    print ex.message
    
 while 1:

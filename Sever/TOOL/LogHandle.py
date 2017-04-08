@@ -46,6 +46,28 @@ def connectionDb():
                                          autocommit=True)
         return connection;
     
+def logs(code, msg , userName,leve,logBusiness,connection):
+    if(len(userName) <= 0):
+        userName = "anyOne"
+    if code != 0:
+        msgInfo = ("\n[%s] code:%s msg:%s\n" % (log_date_time_string(),
+                          code,
+                          str(msg)
+                          )
+              )
+    else:
+        msgInfo = ("[%s] code:%s msg:%s\n" % (log_date_time_string(),
+                          code,
+                          str(msg)
+                          )
+              )
+    
+    logging.info(msgInfo.decode('utf8'));
+    
+    length = len(msgInfo)
+    connection.send('%c%c%s' % (0x81, length, msgInfo))
+    addlogInfo(leve,code,str(msg),logBusiness,userName,log_date_time_string())
+    
 def log(code, msg , userName,leve,logBusiness):
     if(len(userName) <= 0):
         userName = "anyOne"

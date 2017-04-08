@@ -15,7 +15,10 @@ fi
 
 cd ./MySQL
 sh ./sql_Install.sh
-sh ./sql_updata_1.sh
+cd ../
+
+sh ./updata_1.sh
+echo "install  updata_1 ok";
 
 cd ../Sever 
 

@@ -28,7 +28,7 @@ class SocketInterFace(object):
     2.1 更新3D数据
     '''
     def do_upLoadData(self, data):
-        FCTimer.reloadData()
-        reply = "更新数据成功"
+        FCTimer.reloadData(self.connection)
+        reply = '更新数据成功\n'
         length = len(reply)
         self.connection.send('%c%c%s' % (0x81, length, reply))

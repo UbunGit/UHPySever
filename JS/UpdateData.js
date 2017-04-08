@@ -11,7 +11,7 @@ $(document).ready(function() {
 		try {
 
 			socket.onopen = function(msg) {
-				$("btnConnect").disabled = true;
+				$("btnSend").disabled = false;
 				alert("连接成功！");
 			};
 
@@ -24,6 +24,7 @@ $(document).ready(function() {
 			};
 
 			socket.onclose = function(msg) {
+				$("btnSend").disabled = true;
 				alert("socket closed!")
 			};
 		} catch (ex) {
@@ -44,7 +45,7 @@ function send() {
 	socket.send(json);
 }
 function displayContent(msg) {
-    $("#txtContent").val($("#txtContent").val()+ "\r\n"+msg); 
+    $("#txtContent").val(msg+$("#txtContent").val()+ "\r\n"); 
    
 }
 window.onbeforeunload = function() {
