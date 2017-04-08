@@ -13,7 +13,7 @@ from TOOL import mod_config
 
 
 import time;
-
+import json
 
 DBHOST = '45.78.9.162'  # 数据库地址
 PORT = 3306
@@ -62,7 +62,7 @@ def logs(code, msg , userName,leve,logBusiness,connection):
                           )
               )
     
-    logging.info(msgInfo.decode('utf8'));
+    logging.info(json.dumps(msgInfo.decode('utf8'), sort_keys=True, indent=2));
     
     length = len(msgInfo)
     connection.send('%c%c%s' % (0x81, length, msgInfo))
@@ -72,19 +72,29 @@ def log(code, msg , userName,leve,logBusiness):
     if(len(userName) <= 0):
         userName = "anyOne"
     if code != 0:
-        msgInfo = ("\n[%s] code:%s msg:%s\n" % (log_date_time_string(),
-                          code,
-                          str(msg)
+        msgInfo = ("[%s]   code:%s \n"
+                        "\t\t\t       userName:%s \n"
+                        "\t\t\t       logBusiness:%s \n"
+                        "\t\t\t       msg:%s\n" % (log_date_time_string(),
+                            code,
+                            userName,
+                            logBusiness,
+                            str(msg)
                           )
               )
     else:
-        msgInfo = ("[%s] code:%s msg:%s\n" % (log_date_time_string(),
-                          code,
-                          str(msg)
+        msgInfo = ("[%s]   code:%s \n"
+                        "\t\t\t       userName:%s \n"
+                        "\t\t\t       logBusiness:%s \n"
+                        "\t\t\t       msg:%s \n" % (log_date_time_string(),
+                            code,
+                            userName,
+                            logBusiness,
+                            str(msg)
                           )
               )
     
-    logging.info(msgInfo.decode('utf8'));
+    logging.info(msgInfo)
     addlogInfo(leve,code,str(msg),logBusiness,userName,log_date_time_string())
 
 def addlogInfo (leve,code,msg,logBusiness,userName,time):   

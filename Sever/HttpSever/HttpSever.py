@@ -116,9 +116,9 @@ class HTTPSeverHandle(BaseHTTPRequestHandler):
             returnJson = PythonString.jsonUnPase(returnData)   
             self.wfile.write(returnJson)
             if returnData['inforCode'] != 0:
-                LogHandle.log(returnData['inforCode'], "["+path+" "+fields['inefaceMode'] +" ]"+str(returnData['result']) , userName, 2, interFaceMetho) 
+                LogHandle.log(returnData['inforCode'], returnData['result'] , userName, 2, "["+path+" "+fields['inefaceMode'] +" ]"+interFaceMetho) 
             else:   
-                LogHandle.log(returnData['inforCode'], "["+path+" "+fields['inefaceMode'] +" ]"+str(returnData['result']) , userName, 0, interFaceMetho) 
+                LogHandle.log(returnData['inforCode'], returnData['result'] , userName, 0, "["+path+" "+fields['inefaceMode'] +" ]"+interFaceMetho) 
         
     errResponses = {
         - 20000:('sever is error'),
