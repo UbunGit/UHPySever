@@ -117,8 +117,9 @@ class FCAnalyse(object):
                             dataAll[datavalue] =  0.0; 
                         proValue = dataAll[datavalue]+daraResult[datavalue];
                         dataAll[datavalue] = proValue;
-                
-            dices["all"] = dataAll;
+                        
+            if len(dataAll)>0 :
+                dices["all"] = dataAll;
             returnDic['result'] = dices
         return returnDic
     '''

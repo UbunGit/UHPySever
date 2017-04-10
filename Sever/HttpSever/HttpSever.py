@@ -97,6 +97,7 @@ class HTTPSeverHandle(BaseHTTPRequestHandler):
             
         except MySQLError , ex:
             returnData = {"inforCode":-10000}
+            returnData['result'] = 'sql error:' + ex[1]
 
         except BaseException , ex:
             returnData = {"inforCode":-20000}
