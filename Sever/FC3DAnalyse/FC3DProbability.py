@@ -7,7 +7,7 @@ Created on 2016年8月18日
 @author: xiaoqy
 '''
 from PymysqlHandle.SqlHandelGlobal import SqlHabdleGlobal
-from _sqlite3 import sqlite_version
+
 
 
 class FC3DProbability(object):
