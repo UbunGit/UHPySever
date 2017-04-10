@@ -7,6 +7,7 @@ Created on 2016年8月18日
 @author: xiaoqy
 '''
 from PymysqlHandle.SqlHandelGlobal import SqlHabdleGlobal
+from _sqlite3 import sqlite_version
 
 
 class FC3DProbability(object):
@@ -417,6 +418,7 @@ class FC3DProbability(object):
             connection = SqlHabdleGlobal.connectionDb();
             with connection.cursor() as cursor:
                 sql = "call pr_getRecommendData( " + str(probability) + ",'" + probabilityTableName + "' ,'" + recommendTableName + "'," + str(outdate) + "," + str(beginDate) + "," + str(endDate) + ");"
+                print "debug:=="+sql
                 cursor.execute(sql)  
                 tablerows = cursor.fetchall()
                 if(len(tablerows) == 1):
