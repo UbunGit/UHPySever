@@ -269,7 +269,8 @@ $(function() {
 			for ( var j in datas) {
 				var data = datas[j];
 				redType = (i=="all")?0.6:0.5;
-				balancestr =count["balance" + data].toFixed(2);
+				balancekey = "balance" + data;
+				balancestr =count[balancekey].toFixed(2);
 				balanceresult =  (i=="all")?(balancestr/(frequencyDataResultlength-1)).toFixed(2):balancestr;
 				
 				if(balanceresult>redType){

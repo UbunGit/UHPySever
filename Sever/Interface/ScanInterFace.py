@@ -25,20 +25,20 @@ class ScanInterFace(object):
         method = getattr(self, mname)
         return method(data)
     '''
-    添加接口
+    2.1添加接口
     '''
     def do_addInterFace(self,data):
         pymysqlHandle = PymysqlHandle() 
         return pymysqlHandle.addInterFace(data["interFaceName"],data["interFaceNameStr"],data["interFacepath"])
     '''
-    修改接口信息
+    2.2修改接口信息
     '''
     def do_replaceInteface(self, data):
        
         pymysqlHandle = PymysqlHandle() 
         return pymysqlHandle.replaceIntefaceInfo(data)
     '''
-    获取接口列表
+    2.3获取接口列表
     '''
     def do_getInterFaceList(self, data):
         
@@ -48,7 +48,7 @@ class ScanInterFace(object):
         return returnData
     
     '''
-    获取信息
+    2.4 获取接口信息
     '''
     def do_getInterFaceInfo(self, data):
        
@@ -58,7 +58,7 @@ class ScanInterFace(object):
         return returnData
     
     '''
-    获取接口入参数列表
+    2.5获取接口入参数列表
     '''
     def do_getInputValueList(self, data): 
         interFaceName = data['interFaceName'].encode("utf-8")
@@ -68,7 +68,7 @@ class ScanInterFace(object):
         return returnData 
 
     '''
-    获取接口出参数列表
+    2.6获取接口出参数列表
     '''
     def do_getOutputValueList(self, data): 
         interFaceName = data['interFaceName'].encode("utf-8")
@@ -78,7 +78,7 @@ class ScanInterFace(object):
         return returnData 
     
     '''
-    添加接口参数列表
+    2.7添加接口参数列表
     '''
     def do_addParametervalue(self, data):
           
@@ -98,14 +98,14 @@ class ScanInterFace(object):
         return pymysqlHandle.addParametervalue(data_Dic)
     
     '''
-    根据参数id删除参数
+    2.8根据参数id删除参数
     '''
     def do_deleteParameter(self,data):
         pymysqlHandle = PymysqlHandle() 
         return pymysqlHandle.deleteParameter(data)
     
     '''
-    获取会员列表
+    2.9获取会员列表
     '''
     def do_getMemberList(self, data): 
         data_Dic = {
@@ -115,8 +115,8 @@ class ScanInterFace(object):
         pymysqlHandle = PymysqlHandle() 
         return pymysqlHandle.getMemberList(data_Dic)  
     
-        '''
-    获取会员信息
+    '''
+    2.10 获取会员信息
     '''
     def do_getMemberInfo(self, data): 
        
@@ -127,7 +127,7 @@ class ScanInterFace(object):
         return returnDic;
     
     '''
-    修改会员信息
+    2.11 修改会员信息
     '''
     def do_replaceMemberInfo(self, data):
         data_Dic = {

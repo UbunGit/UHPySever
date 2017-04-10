@@ -21,7 +21,7 @@ class FC3DProbability(object):
     获取概率表表名
     '''
     def getRecommendtableName(self,  probability):
-        return "FC3DRecResult_" + str(probability) + "_"  + "_Table"
+        return "FC3DRecResult_" + str(probability) + "Table"
     
     '''
     创建频率表
@@ -400,7 +400,7 @@ class FC3DProbability(object):
     probability 频率
     '''       
     def getFrequencyData(self,outdate,probability): 
-        endDate = "00000000";
+        endDate = "90000000";
         beginDate = "00000000"; 
         balancedata = self.getFC3DDataBalance();
         balanceDic ={};
@@ -424,7 +424,7 @@ class FC3DProbability(object):
                     result["outdate"] = str(result["outdate"])
                     for key, value in enumerate(result.keys()):
                         if(type(result[value]) != float):continue
-                        blancekey = str(probability)+"_"+str((int)(result[value]))
+                        blancekey = str(probability) + '_' +str((int)(result[value]))
                         if(blancekey not in balanceDic.keys()) :
                             result["balance"+value] = 0.0
                         else:

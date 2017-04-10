@@ -29,7 +29,7 @@ class FCAnalyse(object):
         return method(data)
 
     '''
-    2.1获取3D数据
+    3.1获取3D数据
     '''
     def do_getFC3DData(self, data):
       
@@ -37,7 +37,7 @@ class FCAnalyse(object):
         return pymysqlHandle.getFC3dData(data)
     
     '''
-    2.2获取最后一期福彩3D数据
+    3.2获取最后一期福彩3D数据
     '''
     def do_getLastFCData(self, data): 
        
@@ -45,14 +45,14 @@ class FCAnalyse(object):
         return pymysqlHandle.getLastFCData()
     
     '''
-    2.3根据出球号或时间获取福彩3D数据
+    3.3根据出球号或时间获取福彩3D数据
     '''
     def do_getFCDatabyOutData(self, data): 
        
         pymysqlHandle = PymysqlHandle()
         return pymysqlHandle.getFCDatabyOutData(data)
     '''
-    2.4获取频率表归纳数据
+    3.4获取频率表归纳数据
     '''  
     def do_recommendData(self, data): 
       
@@ -66,7 +66,7 @@ class FCAnalyse(object):
             returnDic['result'] = data
         return returnDic
     '''
-    2.5获取推荐的号码
+    3.5获取推荐的号码
     '''
     def do_getRecommendCode(self, data):
 
@@ -80,7 +80,7 @@ class FCAnalyse(object):
             returnDic['result'] = data
         return returnDic
     '''
-    2.6获取遗漏数据
+    3.6获取遗漏数据
     '''  
     def do_getOmitData(self, data): 
        
@@ -89,7 +89,7 @@ class FCAnalyse(object):
         return returnDic
     
     '''
-    2.7 获取对应出球时间的频率
+    3.7 获取对应出球时间的频率
     outdate 出球时间
     outType 出球位 1001个位 1002十位 1003 百位
     '''
@@ -122,7 +122,7 @@ class FCAnalyse(object):
             returnDic['result'] = dices
         return returnDic
     '''
-    2.8 根据频率值获取对应比重数据
+    3.8 根据频率值获取对应比重数据
     fatherType 频率值
     '''
     def do_getFC3DDataBalance(self,data):
@@ -134,7 +134,7 @@ class FCAnalyse(object):
         return returnDic;
     
     '''
-    2.9 设置频率比重
+    3.9 设置频率比重
     fatherType 频率值
     fatherCount 频率
     balance 比重

@@ -25,7 +25,7 @@ class SocketInterFace(object):
         method = getattr(self, mname)
         return method(data)
     '''
-    2.1 更新3D数据
+    4.1 更新3D数据
     '''
     def do_upLoadData(self, data):
         FCTimer.reloadData(self.connection)

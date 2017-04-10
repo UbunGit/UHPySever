@@ -74,7 +74,7 @@ class InterfaceHandle(object):
         return returnData
     
     '''
-    1.3 获取错误码
+    1.3 获取错误码列表
     '''
     def do_getLogList(self, data):  
      
@@ -85,6 +85,9 @@ class InterfaceHandle(object):
         else:
             returnDic = {"inforCode":-10004}
         return returnDic
+    '''
+    1.4 删除错误码
+    '''
     def do_deleteLog(self,data):
         LogHandle.deleteLog()
         returnDic = {"inforCode":0}
