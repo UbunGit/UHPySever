@@ -106,21 +106,9 @@ class FCAnalyse(object):
             returnDic['result'] = data
         else:
             returnDic = {"inforCode":0} 
-            dataAll = {};
-            for key, value in enumerate(dices):
-                daraResult = dices[value];
-                for datakey, datavalue in enumerate(daraResult.keys()):
-                    if(type(daraResult[datavalue]) != float):
-                        dataAll[datavalue] = datakey;
-                    else:
-                        if(not dataAll.has_key(datavalue)):
-                            dataAll[datavalue] =  0.0; 
-                        proValue = dataAll[datavalue]+daraResult[datavalue];
-                        dataAll[datavalue] = proValue;
-                        
-            if len(dataAll)>0 :
-                dices["all"] = dataAll;
-            returnDic['result'] = dices
+            returnDic['result'] ={}
+            returnDic['result']['blanceData'] = dices
+            returnDic['result']['endData'] = fc.deleteOutNum(dices)
         return returnDic
     '''
     3.8 根据频率值获取对应比重数据

@@ -7,6 +7,9 @@ Created on 2016年8月18日
 @author: xiaoqy
 '''
 from PymysqlHandle.SqlHandelGlobal import SqlHabdleGlobal
+from __builtin__ import str
+from TOOL import mod_config
+from TOOL import Cookie
 
 
 
@@ -418,7 +421,6 @@ class FC3DProbability(object):
             connection = SqlHabdleGlobal.connectionDb();
             with connection.cursor() as cursor:
                 sql = "call pr_getRecommendData( " + str(probability) + ",'" + probabilityTableName + "' ,'" + recommendTableName + "'," + str(outdate) + "," + str(beginDate) + "," + str(endDate) + ");"
-                print "debug:=="+sql
                 cursor.execute(sql)  
                 tablerows = cursor.fetchall()
                 if(len(tablerows) == 1):
@@ -439,6 +441,70 @@ class FC3DProbability(object):
         else:
             print "创建概率表失败！"
             return 
+        
+    def deleteOutNum(self,blanceData):
+        
+        numberData = {'0':'Zero',
+                  '1':'One',
+                  '2':'Two',
+                  '3':'Three',
+                  '4':'Four',
+                  '5':'Five',
+                  '6':'Six',
+                  '7':'Seven',
+                  '8':'Eight',
+                  '9':'Nine',
+        }
+        mydata=Cookie.getCookie('mydata')
+        if not mydata:
+            mydata = {
+                '5':'0.3',
+                '10':'0.2',
+                '15':'0.2',
+                '20':'0.2',
+                '25':'0.2', 
+                '30':'0.2',
+                '50':'0.2',
+                '100':'0.1'
+            }
+            Cookie.setCookie('mydata',mydata)
+        
+    
+        endNum = [];
+        for i in range(0,1000):
+        
+            numstr = "%03d" % i
+            endNum.append(numstr)
+            gebalanceStr = 'balanceGe'+'_'+numberData[numstr[0]]
+            shibalanceStr = 'balanceShi'+'_'+numberData[numstr[1]]
+            baibalanceStr = 'balanceBai'+'_'+numberData[numstr[2]]
+    
+            for key in mydata.keys():
+                keydata = blanceData[key]
+                temmydata=Cookie.getCookie('temmydata')
+                if not temmydata:
+                    temmydata = {}
+                if float(keydata[gebalanceStr]) < float(mydata[key]):
+                    temmydata[key] = str(min(keydata[gebalanceStr],mydata[key]))
+                    Cookie.setCookie('temmydata',temmydata)
+                    endNum.remove(numstr)
+                    break;
+                if float(keydata[shibalanceStr]) < float(mydata[key]):
+                    temmydata[key] = str(min(keydata[shibalanceStr],mydata[key]))
+                    Cookie.setCookie('temmydata',temmydata)
+                    endNum.remove(numstr)
+                    break;
+                if float(keydata[baibalanceStr]) < float(mydata[key]):
+                    
+                    temmydata[key] = str(min(keydata[baibalanceStr],mydata[key]))
+                    Cookie.setCookie('temmydata',temmydata)
+                    endNum.remove(numstr)
+                    break;
+                if key == '100' or key == '50':
+                    if float(keydata[baibalanceStr])==float(keydata[shibalanceStr])==float(keydata[gebalanceStr]):
+                        endNum.remove(numstr)
+                        break;
+        return endNum;
 
             
         

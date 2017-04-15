@@ -65,13 +65,22 @@ $(function() {
 	function reloadPageData() {
 		outData = getoutData($("#outDate").val());
 		if (outData) {
-			$(".outdataNum").html(
-					"当期出球 个：" + outData["out_ge"] + "十：" + outData["out_shi"]
-							+ " 百：" + outData["out_bai"]);
-			frequencyDataResult = getfrequencyData(outData["outNO"]);
+			result = getfrequencyData(outData["outNO"]);
+			frequencyDataResult  = result.blanceData;
+			var outNum = ""+outData["out_ge"]+outData["out_shi"]+outData["out_bai"];
+			if($.inArray(outNum, result.endData)>0){
+				$(".outdataNum").html(
+						"当期出球：" + outNum);
+			}else{
+				$(".outdataNum").html(
+						"当期出球：" + outNum+"error");
+			}
+			
+			
 		} else {
 			$(".outdataNum").html("当期出球 未知");
-			frequencyDataResult = getfrequencyData("99999999");
+			result = getfrequencyData("99999999");
+			frequencyDataResult  = result.blanceData;
 		}
 
 		reloadFrequency();
@@ -112,6 +121,7 @@ $(function() {
 				hidddle_loading();
 				if (data.inforCode == 0) {
 					result = data.result;
+					endData = data.endData;
 				} else {
 					var msg = data.result;
 					show_err_msg(msg);
