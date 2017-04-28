@@ -12,14 +12,16 @@ Created on 2017年4月8日
 import shutil
 import os
 
-# os.mkdir("/Users/UbunGit/Desktop/UntitledImage") 
-feedlist = [line for line in file('/Users/UbunGit/Desktop/UntitledImage.txt')]
 
-for loop in feedlist:
-    loop = loop.replace('\r','').replace('\n','').replace('\t','')
-    print ('The value is:'+loop)
-    if os.path.isfile(loop):
-        shutil.move(loop,"/Users/UbunGit/Desktop/UntitledImage")
-    else:
-        print "is not file"+loop
-#     os.remove(loop) 
+def moveFile(filelist,movePath):
+    feedlist = [line for line in file(filelist)]
+    
+    for loop in feedlist:
+        loop = loop.replace('\r','').replace('\n','').replace('\t','')
+        print ('The value is:'+loop)
+        if os.path.isfile(loop):
+            shutil.move(loop,movePath)
+        else:
+            print "is not file"+loop
+
+moveFile('/Users/UbunGit/Desktop/UntitledImage.txt', "/Users/UbunGit/Desktop/UntitledImage")

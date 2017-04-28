@@ -456,54 +456,19 @@ class FC3DProbability(object):
                   '9':'Nine',
         }
         mydata=Cookie.getCookie('mydata')
-        if not mydata:
-            mydata = {
-                '5':'0.3',
-                '10':'0.2',
-                '15':'0.2',
-                '20':'0.2',
-                '25':'0.2', 
-                '30':'0.2',
-                '50':'0.2',
-                '100':'0.1'
-            }
-            Cookie.setCookie('mydata',mydata)
-        
-    
-        endNum = [];
+
+        endNum = {};
         for i in range(0,1000):
-        
+            
             numstr = "%03d" % i
-            endNum.append(numstr)
             gebalanceStr = 'balanceGe'+'_'+numberData[numstr[0]]
             shibalanceStr = 'balanceShi'+'_'+numberData[numstr[1]]
             baibalanceStr = 'balanceBai'+'_'+numberData[numstr[2]]
-    
-            for key in mydata.keys():
+            allblance = 0.00
+            for key in blanceData.keys():
                 keydata = blanceData[key]
-                temmydata=Cookie.getCookie('temmydata')
-                if not temmydata:
-                    temmydata = {}
-                if float(keydata[gebalanceStr]) < float(mydata[key]):
-                    temmydata[key] = str(min(keydata[gebalanceStr],mydata[key]))
-                    Cookie.setCookie('temmydata',temmydata)
-                    endNum.remove(numstr)
-                    break;
-                if float(keydata[shibalanceStr]) < float(mydata[key]):
-                    temmydata[key] = str(min(keydata[shibalanceStr],mydata[key]))
-                    Cookie.setCookie('temmydata',temmydata)
-                    endNum.remove(numstr)
-                    break;
-                if float(keydata[baibalanceStr]) < float(mydata[key]):
-                    
-                    temmydata[key] = str(min(keydata[baibalanceStr],mydata[key]))
-                    Cookie.setCookie('temmydata',temmydata)
-                    endNum.remove(numstr)
-                    break;
-                if key == '100' or key == '50':
-                    if float(keydata[baibalanceStr])==float(keydata[shibalanceStr])==float(keydata[gebalanceStr]):
-                        endNum.remove(numstr)
-                        break;
+                allblance =allblance+keydata[gebalanceStr]+keydata[shibalanceStr]+keydata[baibalanceStr]
+            endNum[numstr] = str(allblance);
         return endNum;
 
             

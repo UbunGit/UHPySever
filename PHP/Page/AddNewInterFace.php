@@ -31,7 +31,7 @@ $userInfo = array (
 		"userName" => $userName 
 );
 $outPut->outPutHeader ( $userInfo );
-$outPut->outSider ();
+$outPut->outSider ("接口管理");
 outputInterFaceInfo_edit ();
 $outPut->outputFoot ($jsArr,null);
 function outputInterFaceInfo_edit() {

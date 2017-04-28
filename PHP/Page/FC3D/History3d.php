@@ -32,7 +32,7 @@ $userInfo = array (
 $outPut = new OutPut ();
 $outPut->outPutHead ( $cssArr, $cssabsArr, "历史出球" );
 $outPut->outPutHeader ( $userInfo );
-$outPut->outSider ();
+$outPut->outSider ("3D彩票");
 outmain ();
 $outPut->outputFoot ( $jsArr, $jsabsArr );
 function outmain() {

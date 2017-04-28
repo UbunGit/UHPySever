@@ -28,7 +28,7 @@ $userInfo = array (
 $outPut = new OutPut ();
 $outPut->outPutHead ( $cssArr, $cssabsArr, "接口查询" );
 $outPut->outPutHeader ( $userInfo );
-$outPut->outSider ();
+$outPut->outSider ("3D彩票");
 outmain ();
 $outPut->outputFoot ( $jsArr, $jsabsArr );
 function outmain() {

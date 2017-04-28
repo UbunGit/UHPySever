@@ -30,17 +30,18 @@ class Output {
 		$path = $this->assets . $file;
 		return $path;
 	}
-	function getScriptStr($script){
-		return '<script src='.$script.'></script>';
+	function getScriptStr($script) {
+		return '<script src=' . $script . '></script>';
 	}
 	
 	/**
 	 * 输出头部消息
-	 * @param 相对路径css路径 $cssarr
-	 * @param 觉对路径css路径 $cssabsArr
-	 * @param 标题 $headStr
+	 *
+	 * @param 相对路径css路径 $cssarr        	
+	 * @param 觉对路径css路径 $cssabsArr        	
+	 * @param 标题 $headStr        	
 	 */
-	function outPutHead($cssarr,$cssabsArr, $headStr) {
+	function outPutHead($cssarr, $cssabsArr, $headStr) {
 		?>
 <!DOCTYPE html>
 <html lang="en">
@@ -127,7 +128,7 @@ class Output {
 	/*
 	 * 输出底部
 	 */
-	function outputFoot($jsarr,$jsabsArr) {
+	function outputFoot($jsarr, $jsabsArr) {
 		echo '</section>';
 		echo '<script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>';
 		echo '<script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>';
@@ -135,7 +136,7 @@ class Output {
 		echo '<script charset="UTF-8" src=' . $this->getjs ( "jquery/jquery.scrollTo.min.js" ) . '></script>';
 		echo '<script charset="UTF-8" src=' . $this->getjs ( "jquery/jquery.nicescroll.js" ) . '></script>';
 		echo '<script charset="UTF-8" src=' . $this->getjs ( "jquery/jquery.sparkline.js" ) . ' ></script>';
-		echo '<script charset="UTF-8" src=' . $this->getAssets( "jquery-easy-pie-chart/jquery.easy-pie-chart.js" ) . ' ></script>';
+		echo '<script charset="UTF-8" src=' . $this->getAssets ( "jquery-easy-pie-chart/jquery.easy-pie-chart.js" ) . ' ></script>';
 		echo '<script charset="UTF-8" src=' . $this->getjs ( "owl.carousel.js" ) . '></script>';
 		echo '<script charset="UTF-8" src=' . $this->getjs ( "jquery/jquery.customSelect.min.js" ) . '></script>';
 		echo '<script charset="UTF-8" src=' . $this->getjs ( "respond.min.js" ) . '></script>';
@@ -149,7 +150,7 @@ class Output {
 		echo '<script charset="UTF-8" src=' . $this->getjs ( "config.js" ) . '></script>';
 		echo '<script charset="UTF-8" src=' . $this->getjs ( "Cookie.js" ) . '></script>';
 		echo '<script charset="UTF-8" src=' . $this->getjs ( "Tooltips.js" ) . '></script>';
-
+		
 		if (! empty ( $jsabsArr )) {
 			foreach ( $jsabsArr as $value ) {
 				echo ($value);
@@ -197,33 +198,58 @@ class Output {
     		  </tr>';
 	}
 	
-	function outSider() {
+	/**
+	 * 输出siderbar li
+	 */
+	function outSilerbarli($path, $text) {
+		$locatonUrl = 'http://' . $_SERVER ['SERVER_NAME'] . $_SERVER ["REQUEST_URI"];
+		if (strcmp ( $path, $locatonUrl ) == 0) {
+			return '<li class="active"><a href=' . $path . '>' . $text . '</a></li>';
+		} else {
+			return '<li ><a href=' . $path . '>' . $text . '</a></li>';
+		}
+	}
+	
+	/**
+	 * 输出siderbar li
+	 */
+	function outsidebarTitle($text,$sidebarTitle,$herf,$faName) {
+	
+		if (strcmp ( $text, $sidebarTitle) == 0) {
+			return "<a herf =".$herf.' class="active"><i class="'.$faName.'"></i> <span>'.$text.'</span> </a>
+					';
+		} else {
+			return '<a herf ='.$herf.'>
+						<i class="'.$faName.'"></i> <span>'.$text.'</span> </a>';
+		}
+	}
+
+	function outSider($sidebarTitle) {
 		?>
 		<!--sidebar start-->
 		<aside>
 			<div id="sidebar" class="nav-collapse ">
 				<!-- sidebar menu start-->
 				<ul class="sidebar-menu" id="nav-accordion">
-					<li><a class="active" <?php echo  $this->getPath( "./index.php" );?> ><i class="fa fa-home"></i>
-							<span>主页</span>
-					</a></li>
-
-					<li class="sub-menu"><a href="javascript:;"> <i
-							class="fa fa-laptop"></i> <span>接口管理</span>
-					</a>
+				   	<li><?php echo  $this->outsidebarTitle( "主页",$sidebarTitle,"/index.php","fa fa-home");?></li>
+					<li class="sub-menu"><?php echo  $this->outsidebarTitle( "接口管理",$sidebarTitle,"javascript:;",'fa fa-laptop');?>
+					
 						<ul class="sub">
-							<li><a href=<?php echo  $this->getPath( "./ScanInterFace.php" );?> >接口查询</a></li>
-							<li><a href=<?php echo  $this->getPath( "./AddNewInterFace.php" );?>>添加接口</a></li>
+						<?php
+		echo $this->outSilerbarli ( $this->getPath ( "ScanInterFace.php" ), "接口查询" );
+		echo $this->outSilerbarli ( $this->getPath ( "AddNewInterFace.php" ), "添加接口" );
+		?>
 						</ul></li>
 
-					<li class="sub-menu"><a href="javascript:;"> <i class="fa fa-book"></i>
-							<span>3D彩票</span>
-					</a>
+					<li class="sub-menu"><li class="sub-menu"><?php echo  $this->outsidebarTitle( "3D彩票",$sidebarTitle,"javascript:;","fa fa-book");?>
 						<ul class="sub">
-							<li><a href=<?php echo  $this->getPath( "./FC3D/UpdateData.php" );?>>更新数据</a></li>
-							<li><a href=<?php echo  $this->getPath( "./FC3D/History3d.php" );?>>历史出球</a></li>
-							<li><a href=<?php echo  $this->getPath( "./FC3D/Predictor3D.php" );?>>概率统计</a></li>
-							<li><a href=<?php echo  $this->getPath( "./FC3D/FCOutData.php" );?>>彩票预测</a></li>
+							<?php
+		echo $this->outSilerbarli ( $this->getPath ( "FC3D/UpdateData.php" ), "更新数据" );
+		echo $this->outSilerbarli ( $this->getPath ( "FC3D/History3d.php" ), "历史出球" );
+		echo $this->outSilerbarli ( $this->getPath ( "FC3D/Predictor3D.php" ), "概率统计" );
+		echo $this->outSilerbarli ( $this->getPath ( "FC3D/FCOutData.php" ), "频率查询" );
+		?>
+						
 							<li><a href="toastr.html">Toastr Notifications</a></li>
 							<li><a href="widget.html">Widget</a></li>
 							<li><a href="slider.html">Slider</a></li>
