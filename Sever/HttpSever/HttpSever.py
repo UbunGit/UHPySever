@@ -17,7 +17,7 @@ from pymysql.err import MySQLError
 
 from Interface.FCAnalyse  import FCAnalyse
 from Interface.Interface import InterfaceHandle
-from Interface.ScanInterFace import ScanInterFace
+from Interface.SamrtHome import SamrtHome
 from PyString import PythonString
 from TOOL import LogHandle
 
@@ -83,8 +83,8 @@ class HTTPSeverHandle(BaseHTTPRequestHandler):
                 interface = InterfaceHandle()
                 returnData = interface.interfaceMethodo(fields, userName) 
             elif (path == '/samrtHome'):
-                interface = ScanInterFace()
-                returnData = interface.scanInterFaceMethodo(fields, userName)
+                interface = SamrtHome()
+                returnData = interface.samrtHomeMethodo(fields, userName)
             elif (path == '/FCAnalyse'):
                 interface = FCAnalyse()
                 returnData = interface.FCAnalyseMethodo(fields, userName)

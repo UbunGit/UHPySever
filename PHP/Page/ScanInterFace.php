@@ -12,9 +12,9 @@ $jsArr = array (
 );
 /* 输出头部信息 */
 $jsabsArr = array (
-		'<script src="http://192.168.1.27/xiaoqy/UHPySever/JS/jquery/jquery-migrate-1.2.1.min.js"></script>
-                    <!-- DataTables -->
-                <script type="text/javascript" charset="utf8" src="http://cdn.datatables.net/1.10.12/js/jquery.dataTables.js"></script>',
+		'<script src="../JS/jquery/jquery-migrate-1.2.1.min.js"></script>
+         <!-- DataTables -->
+       <script type="text/javascript" charset="utf8" src="http://cdn.datatables.net/1.10.12/js/jquery.dataTables.js"></script>',
 		'<script> jQuery(document).ready(function() {
 		EditinputableTable.init();
 		EditoutputableTable.init();
@@ -39,7 +39,6 @@ $userInfo = array (
 		"userName" => $userName 
 );
 
-$interFaceList = getInterfaceList ();
 if (! $interFaceList) {
 	$uri = $_SERVER ['HTTP_HOST'];
 	header ( 'Location:./AddNewInterFace.php' );
@@ -60,7 +59,7 @@ $inputArr = getInterFaceInputArr ( $interFacename );
 $outputArr = getInterFaceOutputArr ( $interFacename );
 $outPut->outPutHead ( $cssArr, $cssabsArr, "接口查询" );
 $outPut->outPutHeader ( $userInfo );
-$outPut->outSider ();
+$outPut->outSider ('接口查询');
 outMainContent ( $interFaceList, $interFacename, $interFaceinfo, $inputArr, $outputArr );
 $outPut->outputFoot ( $jsArr, $jsabsArr );
 
@@ -181,7 +180,7 @@ function outInterFaceList($interFaceList) {
 </section>
 <section class="panel">
 	<header class="panel-heading">
-		接口列表 <span class="tools pull-right"> <a class="fa fa-plus"> </a>
+		接口列表 <span class="tools pull-right"> <a class="fa fa-plus addInterFace"> </a>
 		</span>
 	</header>
 	<div class="panel-body">

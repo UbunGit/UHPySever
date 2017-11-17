@@ -1,0 +1,30 @@
+@CHARSET "UTF-8";
+.user-head {
+    background: #00A8B3;
+    border-radius: 4px 0 0;
+    -webkit-border-radius: 4px 0 0;
+    color: #FFFFFF;
+    min-height: 70px;
+    padding: 15px;
+}
+
+.user-head i {
+   float: left;
+   font-size: 35px;
+   margin-right: 10px;
+}
+
+.user-head h3 {
+    margin: 6px 0 0 0;
+    font-weight: 100;
+    letter-spacing: 1px;
+}
+
+.text-right {
+    text-align: right;
+}
+
+ul li input{
+	width: 100%;
+	background: #00A8B3;
+}

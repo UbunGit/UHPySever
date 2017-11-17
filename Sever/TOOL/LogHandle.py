@@ -9,13 +9,11 @@ import logging
 
 import pymysql.cursors
 
-from TOOL import mod_config
-
+import  mod_config
 
 import time;
 import json
 
-DBHOST = '45.78.9.162'  # 数据库地址
 PORT = 3306
 DBUSER = 'SmartHome'  # 数据库用户名
 DBPASSWORD = 'SmartHome'  # 数据库密码

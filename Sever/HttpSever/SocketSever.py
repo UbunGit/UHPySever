@@ -23,8 +23,11 @@ class websocket_thread(threading.Thread):
         while True:
             data = self.connection.recv(1024)
             socketInterFace = SocketInterFace(self.connection)
-            inputdata = json.loads(parse_data(data))
-            socketInterFace.socketInterFace(inputdata)
+            inputdata = parse_data(data);
+            print "socket接受到数据："+inputdata;
+            if len(inputdata)>0:
+                inputdata = json.loads(parse_data(data))
+                socketInterFace.socketInterFace(inputdata)
             
 def parse_data(msg):
     v = ord(msg[1]) & 0x7f

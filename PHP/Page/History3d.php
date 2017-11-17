@@ -1,5 +1,5 @@
 <?php
-require_once ('../../Public_php/Globle_sc_fns.php');
+require_once ('../Public_php/Globle_sc_fns.php');
 /* 输出头部信息 */
 
 $cssArr = array (

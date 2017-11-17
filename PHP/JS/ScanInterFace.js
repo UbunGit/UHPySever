@@ -5,7 +5,7 @@
 $(function() {
 	
 	/**
-	 * 保存接口信息
+	 * 修改接口信息
 	 */
 	$(".exitinfo-form" ).submit(function(e) {
 		
@@ -40,6 +40,10 @@ $(function() {
 		replaceInteface(options);
 		return false;
 	});
+	$(".addInterFace" ).click(function(e) {
+		window.location.href="./AddNewInterFace.php"; 
+	});
+	
 	
 /**
  *  修改接口基本信息

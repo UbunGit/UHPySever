@@ -6,7 +6,7 @@ $(function() {
 	/**
 	 * 保存接口信息
 	 */
-	$(".baseinfo-form").submit(function(e) {
+	$(".saveIneface").click(function(e) {
 		var interFaceName = document.getElementsByName("interFaceName")[0].value;
 		var interFaceDescribe = document.getElementsByName("interFaceNameStr")[0].value;
 		if(interFaceName == ""){

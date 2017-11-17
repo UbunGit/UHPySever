@@ -3,13 +3,15 @@
 #
 echo "=========================================================";
 
+
+/* 获取ip地址 */
 OS=`uname`
 IO="" # store IP
 case $OS in
 Linux) IP=`ifconfig  | grep 'inet addr:'| grep -v '127.0.0.1' | cut -d: -f2 | awk '{ print $1}'`;;
 FreeBSD|OpenBSD) IP=`ifconfig  | grep -E 'inet.[0-9]' | grep -v '127.0.0.1' | awk '{ print $2}'` ;;
 SunOS) IP=`ifconfig -a | grep inet | grep -v '127.0.0.1' | awk '{ print $2} '` ;;
-Darwin) IP=`ifconfig | grep 'inet.*netmask.*broadcast' | awk '{ print $2} '`;;
+Darwin) IP=`ifconfig | grep 'inet.*netmask.*broadcast' |head -1| awk '{ print $2} '`;;
 *) IP="Unknown";;
 esac
 IP=${IP%
@@ -24,17 +26,22 @@ dbhost="$IP"
 
 [interFace]
 InterFaceIP=http://$IP:8889
+
 [path]
 errorLogpath="../../log/"
 
 [URL]
-root_assets=http://$IP/xiaoqy/UHPySever/assets/
+root_assets=http://$IP/xiaoqy/UHPySever/PHP/assets/
 root_page=http://$IP/xiaoqy/UHPySever/PHP/Page/
-root_css=http://$IP/xiaoqy/UHPySever/CSS/
-root_js=http://$IP/xiaoqy/UHPySever/JS/
-root_image=http://$IP/xiaoqy/UHPySever/Image/" > config.conf
+root_js=http://$IP/xiaoqy/UHPySever/PHP/JS/
+root_css=http://$IP/xiaoqy/UHPySever/PHP/CSS/
 
-cd ../JS
+root_image=http://$IP/xiaoqy/UHPySever/PHP/Image/" > config.conf
+
+cd ../
+chmod 777 log/*.*
+
+cd PHP/JS/
 
 echo "
 var SocketIP='$IP';
@@ -43,13 +50,15 @@ var httpURL_interFace= 'http://$IP:8889/interface';
 var httpURL_FCAnalyse= 'http://$IP:8889/FCAnalyse';
 var httpURL_samrtHome= 'http://$IP:8889/samrtHome';
 
-var image= 'http://$IP/xiaoqy/UHPySever/Image/';
-var page=  'http://$IP/xiaoqy/UHPySever/PHP/Page/';
-var css=   'http://$IP/xiaoqy/UHPySever/CSS/';
-var js=    'http://$IP/xiaoqy/UHPySever/JS/';
+var image= '../Image/';
+var page=  '../Page/';
+var css=   '../CSS/';
+var js=    '../JS/';
 " > config.js
 
-cd ../Sever 
+cd ../../
+
+cd Sever
 
 python setp.py
 

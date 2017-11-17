@@ -17,47 +17,47 @@ $jsArr = array (
 
 /* 输出头部信息 */
 $jsabsArr = array (
-		'<script src="http://192.168.1.27/xiaoqy/UHPySever/JS/jquery/jquery-migrate-1.2.1.min.js"></script>
-         <!-- DataTables -->
-         <script type="text/javascript" charset="utf8" src="http://cdn.datatables.net/1.10.12/js/jquery.dataTables.js"></script>',
-		'<script> jQuery(document).ready(function() {
-		EditinputableTable.init();
-		}); </script>',
-		$outPut->getScriptStr ( $config->get ( 'URL.root_assets' ) . 'data-tables/DT_bootstrap.js' ) 
+		'<script src="../JS/jquery/jquery-migrate-1.2.1.min.js"></script>
+          </script>' 
 );
 
 $cssabsArr = array (
-		"http://cdn.datatables.net/1.10.12/css/jquery.dataTables.css" 
 );
 $cssArr = array (
 		
-		'header.css' 
+		'header.css',
+		'LogoInfo.css' 
 );
 
-$outPut->outPutHead ( $cssArr, null, "主页" );
+$outPut->outPutHead ( $cssArr, null, "日志管理" );
 
 $userimg = __getCookies ( 'userImg' );
 $userName = __getCookies ( 'userName' );
+$logType = $_GET['logType']; 
 
 $userInfo = array (
 		"heardImg" => "fc3d.jpg",
 		"userName" => $userName 
 );
+
 $logList = getLogList ( null, '', '', "", "0" );
 $outPut->outPutHeader ( $userInfo );
-$outPut->outSider ();
-outMainContent ( $logList );
+$outPut->outSider ( '日志分析' );
+outMainContent ( $logList ,$logType);
 $outPut->outputFoot ( $jsArr, $jsabsArr );
 
 /**
  * 输出main-content
  */
-function outMainContent($infoList) {
+function outMainContent($infoList,$logType) {
 	?>
 <section id="main-content">
 	<section class="wrapper">
-		<div class="col-md-12">
+		<div class="col-md-8">
 	<?php outinfo($infoList); ?>
+	</div>
+		<div class="col-md-4">
+	<?php outrightTab($logType) ?>
 	</div>
 	</section>
 </section>
@@ -67,87 +67,67 @@ function outinfo($infoList) {
 	?>
 <section class="panel">
 	<header class="panel-heading">
-		日志分析<span class="tools pull-right"> 
-		<a class="fa fa-refresh reload" href="javascript:;"> 删除</a>
+		日志分析<span class="tools pull-right"> <a class="fa fa-refresh reload"
+			href="javascript:;"> 删除</a>
 		</span>
 	</header>
 	<div class="panel-body">
-		<div class="adv-table editable-table ">
-			<div class="space15"></div>
-
-			<div class="table-responsive" tabindex="1"
-				style="overflow: hidden; outline: none;">
-
-				<div id="editable-sample_wrapper"
-					class="dataTables_wrapper form-inline" role="grid">
-
-					<table
-						class="table table-striped table-hover table-bordered dataTable"
-						id="editable-input" aria-describedby="editable-sample_info">
-						<thead>
-							<tr role="row">
-								<th class="sorting_disabled" role="columnheader" rowspan="1"
-									colspan="1" aria-label="Username" style="width: 100px;">等级</th>
-								<th class="sorting" role="columnheader" tabindex="0"
-									aria-controls="editable-sample" rowspan="1" colspan="1"
-									aria-label="Full Name: activate to sort column ascending"
-									style="width: 100px;">错误码</th>
-								<th class="sorting" role="columnheader" tabindex="0"
-									aria-controls="editable-sample" rowspan="1" colspan="1"
-									aria-label="Points: activate to sort column ascending"
-									style="width: 100px;">错误描述</th>
-								<th class="sorting" role="columnheader" tabindex="0"
-									aria-controls="editable-sample" rowspan="1" colspan="1"
-									aria-label="Notes: activate to sort column ascending"
-									style="width: 100px;">业务名称</th>
-								<th class="sorting" role="columnheader" tabindex="0"
-									aria-controls="editable-sample" rowspan="1" colspan="1"
-									aria-label="Notes: activate to sort column ascending"
-									style="width: 100px;">会员账号</th>
-								<th class="sorting" role="columnheader" tabindex="0"
-									aria-controls="editable-sample" rowspan="1" colspan="1"
-									aria-label="Notes: activate to sort column ascending"
-									style="width: 100px;">时间</th>
-								<th class="sorting" role="columnheader" tabindex="0"
-									aria-controls="editable-sample" rowspan="1" colspan="1"
-									aria-label="Delete: activate to sort column ascending"
-									style="width: 10px;">Delete</th>
-							</tr>
-						</thead>
-
-						<tbody class="info_tbody" role="alert" aria-live="polite" aria-relevant="all">
-						<?php
+<?php
 	
 	if ($infoList != null) {
 		foreach ( $infoList as $value ) {
-			echo '<tr class="odd" id=' . $value ["logId"] . '>';
-			echo '<td class=" ">' . $value ["logLevels"] . '</td>';
-			echo '<td class=" ">' . $value ["logCode"] . '</td>';
-			echo '<td class=" "> 
-				<div class="fa fa-eye tooltips" data-placement="right"
-					data-original-title="' . $value ["logDescription"] . '">点击查看详情
- 
-</div>
-         		</td>';
-			echo '<td class=" ">' . $value ["logBusiness"] . '</td>';
-			echo '<td class=" ">' . $value ["logMember"] . '</td>';
-			echo '<td class=" ">' . $value ["logTime"] . '</td>';
-			echo '<td class=" "><a class="delete" href="javascript:;">delete</a></td>';
-			echo '</tr>';
+			echo '<div class="room-box">';
+			echo '<h5 class="text-primary">' . $value ["logLevels"] . '</h5>';
+			echo '<p>
+					<span class="text-muted">Member :</span> ' . $value ["logMember"] . ' |
+					<span class="text-muted">Business :</span> ' . $value ["logBusiness"] . ' | 
+					<span class="text-right">Time :</span> ' . $value ["logTime"] . '
+				</p>';
+			
+			
+			$logDescription = $value ["logDescription"];
+			if (strlen ( $logDescription ) >= 250) {
+				echo '<p class="logDescription">
+						<a  href="javascript:;">[More]</a>
+						<span> ' . substr ( $logDescription, 0, 250 ) . '</span>
+						<span style="display:none;">' . $logDescription . '</span>
+					 </p>';
+			} else {
+				echo '<p><span>' . $logDescription . '</span></p>';
+			}
+			echo '</div>';
 		}
 	}
 	?>
-						</tbody>
-					</table>
-				</div>
 
-			</div>
-		</div>
 	</div>
 </section>
 <?php
 }
+function outrightTab($logType) {
+	?>
+<aside class="left-side">
+	<div class="user-head">
+		<i class="fa fa-files-o"></i>
+		<h3>日志类型</h3>
+	</div>
+	<ul class="chat-list">
+		<li <?php if($logType == 1001) echo 'class="active"'?>><a href="?logType=1001";"> <i class="fa fa-rocket"></i> <span>用户操作日志</span>
+		</a></li>
+		<li <?php if($logType == 1002) echo 'class="active"'?> ><a href="?logType=1002"> <i class="fa fa-rocket"></i> <span>服务错误日志</span>
+		</a></li>
+	</ul>
+	<div class="user-head">
+		<i class="fa fa-files-o"></i>
+		<h3>日志等级</h3>
+	</div>
+	<ul class="logLevels-input">
+	<li> <input  type="text"  placeholder="Email Address"></input> </li>
+	</ul>
 
+</aside>
+<?php
+}
 /**
  * 获取会员信息
  *

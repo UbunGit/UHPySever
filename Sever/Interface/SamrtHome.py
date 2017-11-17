@@ -9,12 +9,12 @@ from PymysqlHandle.PymysqlHandle import PymysqlHandle
 from TOOL import LogHandle
 
 
-class ScanInterFace(object):
+class SamrtHome(object):
     userName = "verstor";
     '''
     接口文档相关的查询
     '''
-    def scanInterFaceMethodo(self, data, user):
+    def samrtHomeMethodo(self, data, user):
         self.userName = user;
         interFaceMetho = data['inefaceMode']
         mname = 'do_' + interFaceMetho
@@ -42,7 +42,6 @@ class ScanInterFace(object):
     '''
     def do_getInterFaceList(self, data):
         
-        LogHandle.log(0, 'Begin：getInterFaceList', self.userName, 0, 'getInterFaceList')  
         pymysqlHandle = PymysqlHandle() 
         returnData = pymysqlHandle.getInterfaceList()
         return returnData
