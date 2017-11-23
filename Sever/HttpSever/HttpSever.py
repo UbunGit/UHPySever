@@ -142,6 +142,7 @@ def star_httpSever():
         myname = socket.getfqdn(socket.gethostname())
         # 获取本机ip
         myaddr = socket.gethostbyname(myname)
+        myaddr = "192.168.1.27";
         http_server = HTTPServer((myaddr, int(8889)), HTTPSeverHandle)  
         LogHandle.log(0, 'http服务器已开启' + myaddr+":8889" , 'anyone', 0, 'start_Httpserver')
         http_server.serve_forever()  # 设置一直监听并接收请求 

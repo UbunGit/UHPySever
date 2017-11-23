@@ -102,18 +102,38 @@ def addlogInfo (leve,code,msg,logBusiness,userName,time):
             cursor.execute(sql,(leve,code,msg,logBusiness,userName,time))
             connection.commit()
         connection.close() 
-
+        
+"""
+        入参：
+        levels 日志等级
+        memberNO 会员账号
+        business 业务名称
+        beginTime 开始时间
+        endTime 结束时间
+        search 搜索关键词
+        pageIndex 页数
+        pageNum 每页大小
+"""
 def getLogList(data):
     
     connection = connectionDb();
     with connection.cursor() as cursor:
         
-        sql = 'select * from Log_Table  where logLevels>='+data['levels']    
+        sql = 'select * from Log_Table  where'
+        limbegin =  0
+        pageNum = 10
+        if(data.has_key("pageIndex")):
+            limbegin = data['pageIndex']
+        if(data.has_key("pageNum")):
+            pageNum = data['pageNum']
+              
+        if(data['levels']):
+            sql = sql+' logLevels>='+data['levels'] 
         if(data['memberNO']):
             sql = sql+' and logMember='+"'"+data['memberNO']+"'"
     
         if(data['business']):
-            sql = sql+' and logBusiness='+data['business']
+            sql = sql+' and logBusiness LIKE "%'+ data['business'] +'%"'
         
         if(not data['beginTime']):
             data['beginTime']='0000-00-00'
@@ -122,7 +142,7 @@ def getLogList(data):
         if(data['beginTime']==data['endTime']):
             sql = sql+' and logTime>'+data['beginTime'] +' order by logTime desc limit 0,100 '
         else:
-            sql = sql+' and logTime>='+data['beginTime']+' and substring(logTime,0,10)<'+data['endTime']+' order by logTime desc limit 0,100 '
+            sql = sql+' and logTime>='+data['beginTime']+' and substring(logTime,0,10)<'+data['endTime']+' order by logTime desc limit '+str(limbegin) +' , ' + str(pageNum) 
         cursor.execute(sql)
         connection.commit()    
     datalist = []

@@ -7,7 +7,7 @@ $(function() {
 	
 	$('.reload').click(function (e) {
 
-		getInfoList();
+		deleteLog();
 	});
 	
 	$('.logDescription a').click(function (e) {
@@ -28,11 +28,35 @@ $(function() {
 		}else{
 			this.innerHTML="[More]";
 		}
-		 
-		
 	});
 	
-	function getInfoList(){
+	$(".search-text").blur(function(){
+		
+		var url =changeURL(location.href,"search",this.value) ;
+		location.replace(url)
+	});
+	
+	$(".loglevel-text").blur(function(){
+
+		var url =changeURL(location.href,"logLevels",this.value) ;
+		location.replace(url)
+	});
+	
+	$(".userName-text").blur(function(){
+		
+		var url =changeURL(location.href,"userName",this.value) ;
+		location.replace(url)
+	});
+	
+	$(".business-text").blur(function(){
+		
+		var url =changeURL(location.href,"business",this.value) ;
+		location.replace(url)
+	});
+	
+
+	
+	function deleteLog(){
 		var options = new Object(); 
 		options['inefaceMode'] ='deleteLog';
 

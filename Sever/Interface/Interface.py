@@ -75,9 +75,18 @@ class InterfaceHandle(object):
     
     '''
     1.3 获取错误码列表
+        入参：
+        levels 日志等级
+        memberNO 会员账号
+        business 业务名称
+        beginTime 开始时间
+        endTime 结束时间
+        search 搜索关键词
+        pageIndex 页数
+        pageNum 每页大小
     '''
     def do_getLogList(self, data):  
-     
+
         dataList =LogHandle.getLogList(data)
         if len(dataList)>0:
             returnDic = {"inforCode":0}
