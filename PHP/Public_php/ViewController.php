@@ -103,6 +103,7 @@ abstract class ViewController{
 	}
 	function viewLoadbody(){
 		echo "</head>";
+		
 		echo "<body>";
 	}
 

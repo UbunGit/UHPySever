@@ -95,7 +95,8 @@ def log(code, msg , userName,leve,logBusiness):
     logging.info(msgInfo)
     addlogInfo(leve,code,str(msg),logBusiness,userName,log_date_time_string())
 
-def addlogInfo (leve,code,msg,logBusiness,userName,time):   
+def addlogInfo (leve,code,msg,logBusiness,userName,time):
+    if (logBusiness !='getLogList' and logBusiness !='[/interface getLogList ]getLogList'):  
         connection = connectionDb();
         with connection.cursor() as cursor:
             sql ='REPLACE   Log_Table  set logLevels=%s,logCode=%s,logDescription=%s,logBusiness=%s,logMember=%s,logTime=%s'
@@ -118,31 +119,43 @@ def getLogList(data):
     
     connection = connectionDb();
     with connection.cursor() as cursor:
-        
-        sql = 'select * from Log_Table  where'
-        limbegin =  0
-        pageNum = 10
-        if(data.has_key("pageIndex")):
-            limbegin = data['pageIndex']
-        if(data.has_key("pageNum")):
-            pageNum = data['pageNum']
-              
+ 
+        sqladdStr = ""
         if(data['levels']):
-            sql = sql+' logLevels>='+data['levels'] 
+            sqladdStr = ' logLevels>='+data['levels'] 
         if(data['memberNO']):
-            sql = sql+' and logMember='+"'"+data['memberNO']+"'"
+            sqladdStr =' logMember='+"'"+data['memberNO']+"'"
     
         if(data['business']):
-            sql = sql+' and logBusiness LIKE "%'+ data['business'] +'%"'
+            sqladdStr = sqladdStr+' and logBusiness LIKE "%'+ data['business'] +'%"'
+            
+        if(data['search']):
+            sqladdStr = sqladdStr+' and ( logBusiness LIKE "%'+ data['search'] +'%" or logMember LIKE "%'+ data['search'] +'%"  or logDescription LIKE "%'+ data['search'] +'%")'
         
         if(not data['beginTime']):
             data['beginTime']='0000-00-00'
         if(not data['endTime']):
             data['endTime']='9999-99-99'
+            
         if(data['beginTime']==data['endTime']):
-            sql = sql+' and logTime>'+data['beginTime'] +' order by logTime desc limit 0,100 '
+            sqladdStr = sqladdStr+' and logTime>'+data['beginTime'] +' order by logTime'
         else:
-            sql = sql+' and logTime>='+data['beginTime']+' and substring(logTime,0,10)<'+data['endTime']+' order by logTime desc limit '+str(limbegin) +' , ' + str(pageNum) 
+            sqladdStr = sqladdStr+' and logTime>='+data['beginTime']+' and substring(logTime,0,10)<'+data['endTime']+' order by logTime'
+        allcountSql =   'select count(*) as allCount from Log_Table  where' +  sqladdStr
+        
+        cursor.execute(allcountSql)
+        connection.commit() 
+        allcount = cursor.fetchone()
+        
+        limbegin =  0
+        pageNum = 10
+        if(data.has_key("pageIndex")):
+            limbegin = data['pageIndex']
+            limbegin = limbegin*pageNum
+        if(data.has_key("pageNum")):
+            pageNum = data['pageNum']   
+        sql = 'select * from Log_Table  where '+ sqladdStr+ ' desc limit '+str(limbegin) +' , ' + str(pageNum)
+        
         cursor.execute(sql)
         connection.commit()    
     datalist = []
@@ -150,7 +163,10 @@ def getLogList(data):
         row["logTime"] = str(row["logTime"])
         datalist.append(row)
     connection.close()
-    return datalist;
+    returnData = {}
+    returnData.update(allcount)
+    returnData["datalist"]=datalist;
+    return returnData;
 
 def deleteLog ():   
         connection = connectionDb();

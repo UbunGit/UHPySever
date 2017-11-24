@@ -30,27 +30,38 @@ $(function() {
 		}
 	});
 	
+	$(".pageNum-a").click(function(){
+
+		var url =changeURL(location.href,"pageNum",this.innerHTML) ;
+		location.replace(url)
+	});
+	
+	
 	$(".search-text").blur(function(){
 		
 		var url =changeURL(location.href,"search",this.value) ;
+		url =changeURL(url,"pageNum",0) ;
 		location.replace(url)
 	});
 	
 	$(".loglevel-text").blur(function(){
 
 		var url =changeURL(location.href,"logLevels",this.value) ;
+		url =changeURL(url,"pageNum",0) ;
 		location.replace(url)
 	});
 	
 	$(".userName-text").blur(function(){
 		
 		var url =changeURL(location.href,"userName",this.value) ;
+		url =changeURL(url,"pageNum",0) ;
 		location.replace(url)
 	});
 	
 	$(".business-text").blur(function(){
 		
 		var url =changeURL(location.href,"business",this.value) ;
+		url =changeURL(url,"pageNum",0) ;
 		location.replace(url)
 	});
 	

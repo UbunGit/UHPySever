@@ -1,13 +1,12 @@
 <?php
 require_once ('./BaseViewController.php');
-
-class LogViewController extends BaseViewController{
-	
+class LogViewController extends BaseViewController {
 	var $logLevels;
 	var $loguserName;
 	var $business;
 	var $search;
-	
+	var $logType;
+	var $allcount;
 	function viewwillLoad() {
 		/* 输出头部信息 */
 		$this->jsArr = array (
@@ -27,30 +26,28 @@ class LogViewController extends BaseViewController{
 		);
 		
 		$this->title = "日志分析";
-		
 	}
-	function getuserInfo(){
-		
+	function getuserInfo() {
 		$userimg = __getCookies ( 'userImg' );
 		$userName = __getCookies ( 'userName' );
 		
-		$this->userInfo= array (
+		$this->userInfo = array (
 				"heardImg" => "fc3d.jpg",
-				"userName" => $userName
+				"userName" => $userName 
 		);
 	}
-	function viewLoadbody(){
-		parent::viewLoadbody();
-		$this->loguserName= isset($_GET["userName"]) ? $_GET ['userName'] : '';
-		$this->business= isset($_GET["business"]) ? $_GET ['business'] : '';
-		$this->logLevels= isset($_GET["logLevels"]) ? $_GET ['logLevels'] : '0';
-		$this->search=  isset($_GET["search"]) ? $_GET ['search'] : '';
-		
-		$logList = $this->getLogList ( $this->loguserName, '', '', $this->business, $this->logLevels);
-		$this->outMainContent ( $logList, $this->logType );
+	function viewLoadbody() {
+		parent::viewLoadbody ();
+		$this->loguserName = isset ( $_GET ["userName"] ) ? $_GET ['userName'] : '';
+		$this->business = isset ( $_GET ["business"] ) ? $_GET ['business'] : '';
+		$this->logLevels = isset ( $_GET ["logLevels"] ) ? $_GET ['logLevels'] : '0';
+		$this->search = isset ( $_GET ["search"] ) ? $_GET ['search'] : '';
+		$this->logType = isset ( $_GET ["logType"] ) ? $_GET ['logType'] : '1001';
+		$this->pageNum = isset ( $_GET ["pageNum"] ) ? $_GET ['pageNum'] : '1';
+		$logList = $this->getLogList ( $this->loguserName, '', '', $this->business, $this->logLevels, $this->search);
+		$this->allcount = $logList ["allCount"];
+		$this->outMainContent ( $logList ["datalist"], $this->logType );
 	}
-
-
 	
 	/**
 	 * 输出main-content
@@ -128,45 +125,52 @@ class LogViewController extends BaseViewController{
 		<i class="fa fa-filter"></i>
 		<h3>筛选</h3>
 	</div>
-	<ul class="logLevels-input">
-	    <li>
-	    <div class="filter-cell">
-		<label class="control-label">模糊搜索</label>
-		<input type="text" class="search-text"   placeholder="Search" value="<?php  echo $this->search?> "></input>
-		</div>
+	<ul class="chat-list">
+		<li>
+			<div class="filter-cell">
+				<label class="control-label">模糊搜索</label> <input type="text"
+					class="search-text" placeholder="Search"
+					value="<?php  echo $this->search?> "></input>
+			</div>
 		
 		<li>
-		<div class="filter-cell">
-		<label class="control-label">错误等级</label>
-		<input type="text" class="loglevel-text"  placeholder="0"     value="<?php  echo $this->logLevels ?> "></input>
-		</div>
+			<div class="filter-cell">
+				<label class="control-label">错误等级</label> <input type="text"
+					class="loglevel-text" placeholder="0"
+					value="<?php  echo $this->logLevels ?> "></input>
+			</div>
 		</li>
-		
+
 		<li>
-		<div class="filter-cell">
-		<label class="control-label">用户名称</label>
-		<input type="text"  class="userName-text" placeholder="userName" value="<?php  echo $this->loguserName?>"></input>
-		</div>
+			<div class="filter-cell">
+				<label class="control-label">用户名称</label> <input type="text"
+					class="userName-text" placeholder="userName"
+					value="<?php  echo $this->loguserName?>"></input>
+			</div>
 		</li>
-		
+
 		<li>
-		<div class="filter-cell">
-		<label class="control-label" >业务名称</label>
-		<input type="text" class="business-text" placeholder="" value="<?php  echo $this->business  ?> "></input>
-		</div>
+			<div class="filter-cell">
+				<label class="control-label">业务名称</label> <input type="text"
+					class="business-text" placeholder=""
+					value="<?php  echo $this->business  ?> "></input>
+			</div>
 		</li>
 	</ul>
-	<div>
-                                  <ul class="pagination pagination-sm pull-right">
-                                      <li><a href="#">«</a></li>
-                                      <li><a href="#">1</a></li>
-                                      <li><a href="#">2</a></li>
-                                      <li><a href="#">3</a></li>
-                                      <li><a href="#">4</a></li>
-                                      <li><a href="#">5</a></li>
-                                      <li><a href="#">»</a></li>
-                                  </ul>
-                              </div>
+
+	<ul class="chat-list pagination pull-right">
+
+	<?php
+		$pagecount = $this->allcount / 10 + ($this->allcount % 10 > 0 ? 1 : 0);
+		for($x = 1; $x <= $pagecount; $x ++) {
+			if ($this->pageNum == $x) {
+				echo '<li class="active"><a class="pageNum-a" href="javascript:;">' . $x . '</a></li>';
+			} else {
+				echo '<li><a class="pageNum-a" href="javascript:;">' . $x . '</a></li>';
+			}
+		}
+		?>
+	</ul>
 
 </aside>
 <?php
@@ -176,18 +180,18 @@ class LogViewController extends BaseViewController{
 	 *
 	 * @param 会员账号 $userName        	
 	 */
-	function getLogList($memberNO, $beginTime, $endTime, $business, $levels) {
-		$returnArr = array ();
+	function getLogList($memberNO, $beginTime, $endTime, $business, $levels,$search) {
+		$returndata = [ ];
 		$httpIntface = new Globle_HttpIntface ();
-		$request = $httpIntface->getLogList ( $memberNO, $beginTime, $endTime, $business, $levels );
+		$request = $httpIntface->getLogList ( $memberNO, $beginTime, $endTime, $business, $levels ,$search);
 		if ($request) {
 			if ($request ['inforCode'] == 0) {
 				
-				$returnArr = $request ['result'];
+				$returndata = $request ['result'];
 			} else {
 				__alert ( $request ['result'] );
 			}
-			return $returnArr;
+			return $returndata;
 		} else {
 			echo 'alert(请求接口失败)';
 		}

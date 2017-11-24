@@ -1,67 +1,71 @@
 <?php
-require_once ('../Public_php/Globle_sc_fns.php');
-$userName = __getCookies ( 'userName' );
-$config = new ConfigINI ();
-$outPut = new OutPut ();
-/* 输出头部信息 */
-$jsArr = array (
+require_once ('./BaseViewController.php');
+
+class InterfaceManageVC extends BaseViewController {
+
+function viewwillLoad() {
+	$outPut = new OutPut ();
+	$config = new ConfigINI ();
+	
+	$this->jsArr = array (
 		"jquery/jquery-migrate-1.2.1.min.js",
 		"editable-table.js",
 		"ScanInterFace.js",
 		"editable-table.js", 
 );
-/* 输出头部信息 */
-$jsabsArr = array (
+
+	$this->absjsArr = array (
 		'<script src="../JS/jquery/jquery-migrate-1.2.1.min.js"></script>
          <!-- DataTables -->
        <script type="text/javascript" charset="utf8" src="http://cdn.datatables.net/1.10.12/js/jquery.dataTables.js"></script>',
 		'<script> jQuery(document).ready(function() {
 		EditinputableTable.init();
 		EditoutputableTable.init();
-}); </script>' ,
+		}); </script>' ,
 		$outPut->getScriptStr($config->get ( 'URL.root_assets' ).'data-tables/DT_bootstrap.js')
 );
-$cssArr = array (
+	$this->cssArr = array (
 		'ScanInterFace.css',
 		'header.css' 
 );
-$cssabsArr = array (
+	$this->abscssArr = array (
 		"http://cdn.datatables.net/1.10.12/css/jquery.dataTables.css" 
 );
 
-$interFaceList = getInterfaceList ();
+	$this->title = "接口管理系统";
+}
+function getuserInfo() {
+	
+	$userimg = __getCookies ( 'userImg' );
+	$userName = __getCookies ( 'userName' );
+	
+	$this->userInfo = array (
+			"heardImg" => "fc3d.jpg",
+			"userName" => $userName
+	);
+}
+function viewLoadbody() {
+	parent::viewLoadbody ();
 
-/* 输出顶部导航 */
-$userimg = __getCookies ( 'userImg' );
-$userName = __getCookies ( 'userName' );
-$userInfo = array (
-		"heardImg" => "fc3d.jpg",
-		"userName" => $userName 
-);
+	$interFaceName= isset ( $_GET ["interFaceName"] ) ? $_GET ['interFaceName'] : 'log';
 
-if (! $interFaceList) {
-	$uri = $_SERVER ['HTTP_HOST'];
-	header ( 'Location:./AddNewInterFace.php' );
-	exit ();
+// 	if ($interFacename) {
+// 		$interFaceinfo = getInterFaceInfo ( $interFacename );
+// 	} else {
+// 		$interFaceinfo = $interFaceList [0];
+// 		$interFacename = $interFaceinfo ['interFaceName'];
+// 		$url = './index.php?classNmae=' . $interFacename;
+// 		header ( $url);
+// 		exit ();
+// 	}
+	$interFaceinfo = $this->getInterFaceInfo ( $interFaceName);
+	$inPutArr = $this->getInterFaceInputArr( $interFaceName );
+	$outPutArr = $this->getInterFaceOutputArr( $interFaceName );
+	$interFaceList =$this->getInterfaceList ();
+	$this->outMainContent ( $interFaceList, $interFaceName, $interFaceinfo, $inPutArr, $outPutArr);
+
 }
 
-@$interFacename = __get ( interFaceName );
-if ($interFacename) {
-	$interFaceinfo = getInterFaceInfo ( $interFacename );
-} else {
-	$interFaceinfo = $interFaceList [0];
-	$interFacename = $interFaceinfo ['interFaceName'];
-	$url = './ScanInterFace.php?interFaceName=' . $interFacename;
-	header ( 'Location:' . $url );
-	exit ();
-}
-$inputArr = getInterFaceInputArr ( $interFacename );
-$outputArr = getInterFaceOutputArr ( $interFacename );
-$outPut->outPutHead ( $cssArr, $cssabsArr, "接口查询" );
-$outPut->outPutHeader ( $userInfo );
-$outPut->outSider ('接口查询');
-outMainContent ( $interFaceList, $interFacename, $interFaceinfo, $inputArr, $outputArr );
-$outPut->outputFoot ( $jsArr, $jsabsArr );
 
 /**
  * 获取接口列表数据
@@ -149,15 +153,15 @@ function outMainContent($interFaceList, $interFacename, $interFaceinfo, $inputAr
 		<div class="row">
 			<div class="col-md-3">
 	<?php
-	outInterFaceList ( $interFaceList );
+	$this->outInterFaceList ( $interFaceList );
 	?>
 		</div>
 			<div class="col-md-9">
 	<?php
 	
-	outInterFacrBastInfo ( $interFaceinfo );
-	outInterFaceInput ( $inputArr );
-	outInterFaceOutput ( $outputArr );
+	$this->outInterFacrBastInfo ( $interFaceinfo );
+	$this->outInterFaceInput ( $inputArr );
+	$this->outInterFaceOutput ( $outputArr );
 	?>
 				</div>
 		</div>
@@ -188,7 +192,7 @@ function outInterFaceList($interFaceList) {
 	<?php
 	foreach ( $interFaceList as $value ) {
 		
-		echo '<li><a href=./ScanInterFace.php?interFaceName=' . $value ['interFaceName'] . '><i class=" fa fa-leaf"></i>  ' . $value ['interFaceName'] . ' <small>' . $value ['interFaceNameStr'] . '</small></a> </li>';
+		echo '<li><a href=./index.php?className=InterfaceManageVC&interFaceName=' . $value ['interFaceName'] . '><i class=" fa fa-leaf"></i>  ' . $value ['interFaceName'] . ' <small>' . $value ['interFaceNameStr'] . '</small></a> </li>';
 	}
 	?>
 	 		</ul>
@@ -209,7 +213,7 @@ function outInterFacrBastInfo($baseinfo) {
 			</header>
 			<div class="panel-body">
 				<form role="form" class="form-horizontal tasi-form exitinfo-form">
-					';
+					
 					<div class="form-group">
 						<label class="col-lg-12 control-label"> 接口名称</label>
 						<div class="col-lg-12">
@@ -465,5 +469,6 @@ function outInterFaceOutput($outputArr) {
 	</div>
 </section>
 <?php
+}
 }
 ?>

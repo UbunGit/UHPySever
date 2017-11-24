@@ -68,7 +68,7 @@ abstract class BaseViewController extends ViewController{
 					
 						<ul class="sub">
 						<?php
-		echo $this->outSilerbarli ( $this->getPath ( "ScanInterFace.php" ), "接口查询" );
+		echo $this->outSilerbarli ( $this->getPath ( "InterfaceManageVC" ), "接口查询" );
 		echo $this->outSilerbarli ( $this->getPath ( "AddNewInterFace.php" ), "添加接口" );
 		?>
 						</ul></li>

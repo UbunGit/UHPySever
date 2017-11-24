@@ -18,7 +18,7 @@ $(function() {
 		options =  {
 				'inefaceMode' :'addInterFace'
 			};
-		var baseinfo = $(".baseinfo-form").serializeArray();
+		var baseinfo = $(".form-horizontal").serializeArray();
 		$.each(baseinfo, function(i, field){
 			options[field.name]=field.value;
 		    });

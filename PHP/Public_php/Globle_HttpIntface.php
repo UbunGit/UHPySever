@@ -117,7 +117,7 @@ class Globle_HttpIntface {
 	 * 获取日志记录
 	 * @return 会员信息dic
 	 */
-	function getLogList($memberNO,$beginTime,$endTime,$business,$levels){
+	function getLogList($memberNO,$beginTime,$endTime,$business,$levels,$search){
 	
 		$funName = 'getLogList';
 		$options = array (
@@ -126,7 +126,8 @@ class Globle_HttpIntface {
 				'beginTime' => $beginTime,
 				'endTime' => $endTime,
 				'business' => $business,
-				'levels' => $levels
+				'levels' => $levels,
+				'search' => $search
 		);
 		return $this->requestInterface($options,'/interface');
 	}
