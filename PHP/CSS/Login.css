@@ -33,7 +33,7 @@ body {
 	margin-top: 10%; 
 	vertical-align: middle;
 	width: 100%;
-	height: 80%;
+	height: auto;
 }
 td {
 	color: rgba(0, 255, 255, 1);
