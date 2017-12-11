@@ -28,7 +28,7 @@ abstract class BaseViewController extends ViewController
     function bodyLoadHead()
     {
         ?>
-        <header class="header dark-bg">
+        <header class="header white-bg">
             <div class="sidebar-toggle-box">
                 <div class="fa fa-bars tooltips"></div>
             </div>
@@ -71,7 +71,7 @@ abstract class BaseViewController extends ViewController
         ?>
         <!--sidebar start-->
         <aside>
-            <div id="sidebar" class="nav-collapse white-bg">
+            <div id="sidebar" class="nav-collapse ">
                 <!-- sidebar menu start-->
                 <ul class="sidebar-menu" id="nav-accordion">
                     <?php
