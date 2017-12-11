@@ -31,7 +31,7 @@
          */
         private function dir_($dir) {
         	if(!file_exists($dir)){
-        		if (!mkdir($dir, 0777, true)) {//0777
+        		if (!mkdir($dir, 777, true)) {//0777
         			die('Failed to create folders...'.$dir);
         		}
         	}

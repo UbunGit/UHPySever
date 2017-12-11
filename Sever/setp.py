@@ -20,9 +20,9 @@ from HttpSever import SocketSever
 try:
    thread.start_new_thread( HttpSever.star_httpSever ,())
    thread.start_new_thread( SocketSever.startSocketSever,())
-except BaseException , ex:
+except BaseException as ex:
    print ("Error: unable to start thread")
-   print ex.message
+   print (ex.message)
    
 while 1:
    pass

@@ -7,7 +7,6 @@ Created on 2016年8月18日
 @author: xiaoqy
 '''
 from PymysqlHandle.SqlHandelGlobal import SqlHabdleGlobal
-from __builtin__ import str
 from TOOL import mod_config
 from TOOL import Cookie
 
@@ -91,15 +90,16 @@ class FC3DProbability(object):
     录入频率表数据
     '''
     def loadProbabilityData(self, probability):
+
         tableName = self.getTableName(probability)
-        print tableName;
+        print (tableName)
         ishave = SqlHabdleGlobal.isHaveTable(tableName)
         if(not ishave):
             ishave = self.createTable(tableName);
         if(ishave):
             lastData = self.getLastData(tableName)
         else:
-            print "创建频率表失败！"
+            print ("创建频率表失败！")
             return 
         
         if(lastData):
@@ -190,7 +190,7 @@ class FC3DProbability(object):
                 else:
                     return None;
         else:
-            print "创建概率表失败！"
+            print ("创建概率表失败！")
             return
         
         
@@ -439,7 +439,7 @@ class FC3DProbability(object):
                     return None;
                
         else:
-            print "创建概率表失败！"
+            print ("创建概率表失败！")
             return 
         
     def deleteOutNum(self,blanceData):

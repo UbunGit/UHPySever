@@ -30,6 +30,13 @@ class SamrtHome(object):
     def do_addInterFace(self,data):
         pymysqlHandle = PymysqlHandle() 
         return pymysqlHandle.addInterFace(data["interFaceName"],data["interFaceNameStr"],data["interFacepath"])
+
+    '''
+    删除接口
+    '''
+    def do_deleteInterFace(self,data):
+        pymysqiHandle = PymysqlHandle()
+        return pymysqiHandle.deleteInterFace(data)
     '''
     2.2修改接口信息
     '''

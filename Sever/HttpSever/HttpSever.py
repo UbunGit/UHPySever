@@ -102,9 +102,9 @@ class HTTPSeverHandle(BaseHTTPRequestHandler):
         except BaseException , ex:
             returnData = {"inforCode":-20000}
             returnData['result'] = ex.message
-           
 
         finally:
+
             if returnData['inforCode'] != 0:
                     inforCode = returnData['inforCode']
                     if("result" not in returnData.keys()) :
@@ -127,8 +127,9 @@ class HTTPSeverHandle(BaseHTTPRequestHandler):
         - 20002:('input value has nil'),
         - 20003:('interface not define'),
         - 20004:('user not login'),
+        - 20005:('unkonw'),
+
         - 10000:('sql error'),
-        
         - 10001: ('member is not reginst'),
         - 10002:('member is not reginst or passWord is error'),
         - 10003:('member NO is reginsted or telNO is reginsted'),

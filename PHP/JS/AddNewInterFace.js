@@ -34,7 +34,8 @@ $(function() {
 
 						if (data.inforCode == 0) {
 							show_err_msg('添加成功');
-							document.URL="./ScanInterFace.php";
+                            var url =changeURL(location.href,"className","InterfaceManageVC") ;
+                            location.replace(url)
 							
 						} else {
 							var msg = data.result;

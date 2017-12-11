@@ -43,10 +43,10 @@ abstract class ViewController{
 		return $this->imagePath . $imageFile;
 	}
 	function getjs($jsFile) {
-		return $this->jsPath . $jsFile;
+		return '../JS/'. $jsFile;
 	}
 	function getCSS($cssFile) {
-		$path = $this->cssPath . $cssFile;
+		$path = '../CSS/' . $cssFile;
 		return $path;
 	}
 	function getAssets($file) {

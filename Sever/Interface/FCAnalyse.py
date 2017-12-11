@@ -23,7 +23,7 @@ class FCAnalyse(object):
         mname = 'do_' + interFaceMetho
         if not hasattr(self, mname):
             returnDic = {"inforCode":-20001}
-            print "interFaceMetho=" + mname;
+            print ("interFaceMetho=" + mname)
             return returnDic
         method = getattr(self, mname)
         return method(data)

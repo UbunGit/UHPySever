@@ -22,11 +22,12 @@ $(function() {
 		replaceInteface(options);
 		return false;
 	});
-	
-	/**
+
+    /**
 	 * 保存接口信息
-	 */
+     */
 	$(".versions-form" ).submit(function(e) {
+
 		var req = GetRequest(location.search);   
 		var repInteFaceName = req['interFaceName']; 
 		
@@ -40,9 +41,23 @@ $(function() {
 		replaceInteface(options);
 		return false;
 	});
+
 	$(".addInterFace" ).click(function(e) {
-		window.location.href="./AddNewInterFace.php"; 
+        var url =changeURL(location.href,"className","AddInterfaceVC") ;
+        location.replace(url)
+
 	});
+
+	$(".deleteInterface-a").click(function (e){
+        var req = GetRequest(location.search);
+        var repInteFaceName = req['interFaceName'];
+        var options = new Object();
+        options['inefaceMode'] ='deleteInterFace';
+        options['inteFaceName'] = repInteFaceName;
+        Object.assign(options, req);
+        deleteInterFace(options);
+        alert(repInteFaceName);
+    });
 	
 	
 /**
@@ -64,7 +79,7 @@ $(function() {
 				hidddle_loading();
 				if (data.inforCode == 0) {
 					show_err_msg('添加成功');
-					document.URL="./ScanInterFace.php";
+                    location.reload()
 
 				} else {
 					var msg = data.result;
@@ -77,13 +92,50 @@ $(function() {
 			}
 		});
 	};
+
+    /**
+	 *
+     */
+    function deleteInterFace(options) {
+        var json = JSON.stringify(options);
+        show_loading()
+        $.ajax({
+            type : 'POST',
+            url : httpURL_samrtHome,
+            data : json,
+            dataType : "json",//jsonp数据类型
+            contentType : "json",
+            success : function(data) {
+                hidddle_loading();
+                if (data.inforCode == 0) {
+                    show_err_msg('删除成功');
+                    var url =changeURL(location.href,"interFaceName",null) ;
+                    location.replace(url)
+
+                } else {
+                    var msg = data.result;
+                    show_err_msg(msg);
+                }
+            },
+            error : function(e) {
+                hidddle_loading();
+                show_err_msg(e.statusText);
+            }
+        });
+    }
 });
 
+/**
+ * 修改参数
+ * @param row
+ * @param type
+ */
 function parameterChange(row,type){
 
 	var jqInputs = $('input', row);
 	var req = GetRequest(location.search);   
-	var repInteFaceName = req['interFaceName']; 
+	var repInteFaceName = req['interFaceName'];
+	alert(repInteFaceName);
 	var options = new Object(); 
 	options['inefaceMode'] ='addParametervalue';
 	options['parameterFatherName'] = repInteFaceName;

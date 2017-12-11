@@ -81,11 +81,14 @@ function changeURL(url,arg,arg_val){
 	    var replaceText=arg+'='+arg_val;
 	
 	    if(url.match(pattern)){
+
 	
 	        var tmp='/('+ arg+'=)([^&]*)/gi';
-	
-	        tmp=url.replace(eval(tmp),replaceText);
-	
+            if (arg_val == null){
+                tmp=url.replace(eval(tmp),null);
+            }else {
+                tmp=url.replace(eval(tmp),replaceText);
+            }
 	        return tmp;
 
 	    }else{
@@ -95,6 +98,7 @@ function changeURL(url,arg,arg_val){
 	            return url+'?'+replaceText;
 	        }
 	    }
+
 	    return url+'\n'+arg+'\n'+arg_val;
 	}
 

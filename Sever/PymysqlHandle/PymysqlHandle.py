@@ -5,12 +5,10 @@ Created on 2016年3月11日
 
 @author: xiaoqy
 '''
-from __builtin__ import str
 
 from pymysql.err import MySQLError
 
 from SqlHandelGlobal import SqlHabdleGlobal
-
 
 
 SMARTHOMEUSER_TABLE = 'SmartHomeUser_Table'  # 智能家居用户信息表
@@ -42,7 +40,7 @@ class PymysqlHandle(object):
                 sql = 'INSERT INTO ' + SMARTHOMEUSER_TABLE + ' (userName, userPassWord, userTel) VALUES (%s, %s,%s)'
                 cursor.execute(sql, (userName, userPassWord, userTel))
                 connection.commit()
-        except BaseException, e:
+        except BaseException as e:
             if e.args[0]:
                 returnDic = {"inforCode":-10003}
             else:
@@ -123,7 +121,7 @@ class PymysqlHandle(object):
                 connection.close() 
                 returnDic = {"inforCode":0}
                 return returnDic;
-            except MySQLError, ex:
+            except MySQLError as ex:
                 returnData = {"inforCode":ex.args[0]};
                 returnData['result'] = ex.args[1]  
                 
@@ -152,6 +150,28 @@ class PymysqlHandle(object):
             connection.close() 
             returnDic = {"inforCode":0}
             return returnDic;
+
+    '''
+    '''
+    def deleteInterFace(self,data):
+
+        try:
+            interfaceName = data['inteFaceName']
+            connection = SqlHabdleGlobal.connectionDb()
+            with connection.cursor() as cursor:
+                sql ='delete from SmartHomeInterFace_Table where interFaceName=(%s);'
+                cursor.execute(sql,(interfaceName))
+                connection.commit()
+
+        except BaseException:
+
+            returnDic = {"inforCode":-10000}
+            return returnDic
+        else:
+            connection.close()
+            returnDic = {"inforCode":0}
+            return returnDic;
+
     '''
      修改接口数据
     -----------------------------
@@ -294,7 +314,7 @@ class PymysqlHandle(object):
                                parameterDic['parameterType'],
                                parameterDic['parameterTypeuse']));
                 connection.commit()
-        except BaseException, e:
+        except BaseException as e:
             returnDic = {"inforCode":-10000}
             return returnDic
         else:
@@ -313,7 +333,7 @@ class PymysqlHandle(object):
                 sql = 'DELETE FROM SmartHomeParameter_Table WHERE parameterId=%s;'; 
                 cursor.execute(sql,(data['parameterId']));
                 connection.commit()
-        except BaseException, e:
+        except BaseException as e:
             returnDic = {"inforCode":-10000}
             return returnDic
         else:

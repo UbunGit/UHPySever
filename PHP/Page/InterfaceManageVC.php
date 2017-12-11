@@ -4,7 +4,7 @@ require_once ('./BaseViewController.php');
 class InterfaceManageVC extends BaseViewController {
 
 function viewwillLoad() {
-	$outPut = new OutPut ();
+
 	$config = new ConfigINI ();
 	
 	$this->jsArr = array (
@@ -22,7 +22,7 @@ function viewwillLoad() {
 		EditinputableTable.init();
 		EditoutputableTable.init();
 		}); </script>' ,
-		$outPut->getScriptStr($config->get ( 'URL.root_assets' ).'data-tables/DT_bootstrap.js')
+        '<script src=' . $this->getAssets('data-tables/DT_bootstrap.js') . '></script>'
 );
 	$this->cssArr = array (
 		'ScanInterFace.css',
@@ -206,9 +206,9 @@ function outInterFacrBastInfo($baseinfo) {
 	<div class="col-lg-6">
 		<section class="panel" style="height: 450px">
 			<header class="panel-heading">
-				基本信息 <span class="tools pull-right"> <a class="fa fa-plus-square"
-					href="javascript:;"> 测试</a> <a class="fa  fa-trash-o"
-					href="javascript:;"> 删除</a>
+				基本信息 <span class="tools pull-right">
+                    <a class="fa fa-plus-square"  href="javascript:;"> 测试</a>
+                    <a class="fa  fa-trash-o deleteInterface-a" href="javascript:;"> 删除</a>
 				</span>
 			</header>
 			<div class="panel-body">

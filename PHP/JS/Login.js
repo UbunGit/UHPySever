@@ -43,12 +43,8 @@ $(function() {
 					setCookie('userName', userInfo.userName, 20, "");
 					setCookie('userId', userInfo.userId, 20, "");
 					setCookie('userImg', userInfo.userImg, 20, "");
+					window.location.href = "./index.php";
 
-					if (userInfo.userLevel == 1002) {
-						window.location.href = "./ScanInterFace.php";
-					} else {
-						window.location.href = "./index.php";
-					}
 				} else {
 					var msg = data.result;
 					show_err_msg(msg);
