@@ -4,7 +4,7 @@ require_once('./BaseViewController.php');
 
 class History3dVC extends BaseViewController
 {
-
+    public $pageNum;
     function viewwillLoad()
     {
         /* 输出头部信息 */
@@ -25,7 +25,8 @@ class History3dVC extends BaseViewController
             'History3d.css'
         );
 
-        $this->title = "日志分析";
+        $this->title = "3D历史数据";
+        $this->pageNum = isset ( $_GET ["pageNum"] ) ? $_GET ['pageNum'] : 1;
     }
 
     function getuserInfo()
@@ -60,7 +61,7 @@ class History3dVC extends BaseViewController
                         >
                             <thead className="cf">
                             <tr>
-                                <th class="outType selectType" colSpan="3">个位</th>
+                                <th class="outType selectType" colSpan="4">个位</th>
                                 <th class="outType" colSpan="4">十位</th>
                                 <th class="outType" colSpan="4">百位</th>
                             </tr>
@@ -73,13 +74,20 @@ class History3dVC extends BaseViewController
                             <div class="span6">
                                 <div class="dataTables_paginate paging_bootstrap pagination">
                                     <ul>
-                                        <li class="prev disabled">
-                                            <a href="#">← Previous</a>
-                                        </li>
-                                        <li class="active"><a href="#">1</a></li>
-                                        <li><a href="#">2</a></li>
 
-                                        <li class="next"><a href="#">Next → </a></li>
+                                        <?php
+
+                                        $begin = ($this->pageNum-5>0)?$this->pageNum-5:1;
+
+                                        for ($x=$begin; $x <= $begin+9; $x++ ){
+                                            if ($x == $this->pageNum){
+                                                echo '<li><a class="pageNum-a">'.$x.'</a></li>';
+                                            }else{
+                                                echo '<li  class="active"><a class="pageNum-a">'.$x.'</a></li>';
+                                            }
+                                        }
+                                        ?>
+
                                     </ul>
                                 </div>
                             </div>

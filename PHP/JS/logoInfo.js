@@ -16,7 +16,7 @@ $(function() {
 			var el = els[i];
 			var hiddendiv = el.getElementsByTagName("span");
 			hiddendiv[0].style.display="";//显示  
-			hiddendiv[1].style.display="none";//隐藏  
+			hiddendiv[1].style.display="none";//隐藏
 			el.getElementsByTagName("a").innerHTML=" pack up";
 		}
 		if(this.innerHTML == "[More]"){

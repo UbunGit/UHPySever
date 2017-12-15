@@ -37,7 +37,7 @@ $(function() {
 		var options = new Object(); 
 		options['inefaceMode'] ='replaceInteface';
 		options['repInteFaceName'] = repInteFaceName;
-		Object.assign(options, req); 
+		Object.assign(options, req);
 		replaceInteface(options);
 		return false;
 	});
@@ -49,14 +49,18 @@ $(function() {
 	});
 
 	$(".deleteInterface-a").click(function (e){
-        var req = GetRequest(location.search);
-        var repInteFaceName = req['interFaceName'];
+
+        var repInteFaceName = GetRequest(location.search,"interFaceName");
         var options = new Object();
         options['inefaceMode'] ='deleteInterFace';
         options['inteFaceName'] = repInteFaceName;
-        Object.assign(options, req);
         deleteInterFace(options);
         alert(repInteFaceName);
+    });
+
+    $(".search-text").blur(function(){
+        var url =changeURL(location.href,"searchKey",this.value) ;
+        location.replace(url)
     });
 	
 	

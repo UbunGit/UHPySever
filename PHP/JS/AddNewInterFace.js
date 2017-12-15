@@ -23,7 +23,7 @@ $(function() {
 			options[field.name]=field.value;
 		    });
 		var json = JSON.stringify(options);
-				alert(httpURL_samrtHome+json);
+
 				$.ajax({
 					type : 'POST',
 					url : httpURL_samrtHome,

@@ -103,4 +103,61 @@ function __log($e) {
 function __alert($msg){
 	echo "<script> alert('{$msg}') </script>";
 }
+
+
+
+/** Json数据格式化
+* @param  Mixed  $data   数据
+* @param  String $indent 缩进字符，默认4个空格
+* @return JSON
+*/
+function __jsonFormat($data, $indent=null)
+{
+
+    // json encode
+    $data = json_encode($data, JSON_UNESCAPED_UNICODE);  //php5.4版本以上,如果低版本只能先urlencode然后再urldecode，保护中文
+
+    // 缩进处理
+    $ret = '';
+    $pos = 0;
+    $length = strlen($data);
+    $indent = isset($indent) ? $indent : '--- ';
+    $newline = "</br>";
+    $prevchar = '';
+    $outofquotes = true;
+
+    for ($i = 0; $i <= $length; $i++) {
+
+        $char = substr($data, $i, 1);
+
+        if ($char == '"' && $prevchar != '\\') {
+            $outofquotes = !$outofquotes;
+        } elseif (($char == '}' || $char == ']') && $outofquotes) {
+            $ret .= $newline;
+            $pos--;
+            for ($j = 0; $j < $pos; $j++) {
+                $ret .= $indent;
+            }
+        }
+
+        $ret .= $char;
+
+        if (($char == ',' || $char == '{' || $char == '[') && $outofquotes) {
+            $ret .= $newline;
+            if ($char == '{' || $char == '[') {
+                $pos++;
+            }
+
+            for ($j = 0; $j < $pos; $j++) {
+                $ret .= $indent;
+            }
+        }
+
+        $prevchar = $char;
+    }
+
+    return $ret;
+}
+
+
 ?>

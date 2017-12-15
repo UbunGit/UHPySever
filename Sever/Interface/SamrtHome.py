@@ -47,10 +47,10 @@ class SamrtHome(object):
     '''
     2.3获取接口列表
     '''
-    def do_getInterFaceList(self, data):
+    def do_(self, data):
         
         pymysqlHandle = PymysqlHandle() 
-        returnData = pymysqlHandle.getInterfaceList()
+        returnData = pymysqlHandle.getInterfaceList(data)
         return returnData
     
     '''

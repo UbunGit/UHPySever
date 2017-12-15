@@ -18,6 +18,7 @@ abstract class BaseViewController extends ViewController
     function viewLoadbody()
     {
         parent::viewLoadbody();
+        $this->getuserInfo();
         echo '<section id="container">';
         $this->bodyLoadHead();
 
@@ -53,7 +54,7 @@ abstract class BaseViewController extends ViewController
                             <li><a href="#"><i class=" fa fa-suitcase"></i>Profile</a></li>
                             <li><a href="#"><i class="fa fa-cog"></i> Settings</a></li>
                             <li><a href="#"><i class="fa fa-bell-o"></i> Notification</a></li>
-                            <li><a href="Login.php"><i class="fa fa-key"></i> 注销</a></li>
+                            <li><a class="logout-a"><i class="fa fa-key"></i> 注销</a></li>
                         </ul>
                     </li>
                     <li class="sb-toggle-right"><i class="fa  fa-align-right"></i></li>
@@ -156,6 +157,17 @@ abstract class BaseViewController extends ViewController
                     ),
                     "频率查询" => array(
                         "classNmae" => "FCOutDataVC"
+                    )
+                )
+            ),
+            "双色球" => array(
+                "faname" => "fa fa-book",
+                "item" => array(
+                    "更新数据" => array(
+                        "classNmae" => "UpdateData3dVC"
+                    ),
+                    "历史出球" => array(
+                        "classNmae" => "History3dVC"
                     )
                 )
             ),

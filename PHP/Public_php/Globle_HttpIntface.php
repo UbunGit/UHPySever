@@ -26,11 +26,14 @@ class Globle_HttpIntface {
 	/**
 	 * 获取接口列表
 	 */
-	function getInterfaceList(){
+	function getInterfaceList($searchKey){
 		$funName = 'getInterFaceList';
 		$options = array (
-				'inefaceMode' => $funName,
+				'inefaceMode' => $funName
 		);
+		if (!empty($searchKey)){
+		   $options["searchKey"] = $searchKey;
+        }
 		return $this->requestInterface($options,'/samrtHome');
 	}
 	

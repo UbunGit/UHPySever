@@ -39,7 +39,7 @@ function show_msg(msg,url){
 		   setTimeout(function(){
 			   $('.msg_bg').remove();
 			   $('.sub_err').remove();
-			   if(url!='')
+			   if(url != '')
 			   {	     
 				  location.href=url;
 			   }		   

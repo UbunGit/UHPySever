@@ -110,6 +110,7 @@ var Sliders = function () {
         }
     });
 
+
     $("#slider-range-vertical-amount").text("$" + $("#slider-range-vertical").slider("values", 0) + " - $" + $("#slider-range-vertical").slider("values", 1));
 
 

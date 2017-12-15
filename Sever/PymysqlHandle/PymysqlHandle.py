@@ -213,12 +213,15 @@ class PymysqlHandle(object):
      android  1.0.0
     －－－－－－－－－－－－－－－－－
     '''  
-    def getInterfaceList(self):
+    def getInterfaceList(self,data):
 
         connection = SqlHabdleGlobal.connectionDb();
         with connection.cursor() as cursor:
             # Create a new record
-            sql = 'SELECT * FROM ' + INTERFAVE_TABLE + ' ;'
+            sql = 'SELECT * FROM ' + INTERFAVE_TABLE
+            if("searchKey"  in data.keys()):
+                sql = sql + ' where interFaceName  LIKE "%' + data['searchKey'] + '%" or interFaceNameStr  LIKE "%' + data['searchKey'] + '%"'
+            sql = sql + ' ;'
             cursor.execute(sql)
             list = []
             for row in cursor:
@@ -449,7 +452,7 @@ class PymysqlHandle(object):
         connection = SqlHabdleGlobal.connectionDb();
         with connection.cursor() as cursor:
             # Create a new record
-            beginNum = int(data["pageNum"]) * int(data["pageSize"])
+            beginNum = (int(data["pageNum"])-1) * int(data["pageSize"])
             sql = 'SELECT * FROM FC3DOmitData_table order by outNO desc limit ' + str(beginNum) + ',' + data["pageSize"] + ''; 
             cursor.execute(sql);
             connection.commit()

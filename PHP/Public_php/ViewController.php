@@ -40,7 +40,7 @@ abstract class ViewController{
 		return $file;
 	}
 	function getImage($imageFile) {
-		return $this->imagePath . $imageFile;
+        return '../Image/'. $imageFile;
 	}
 	function getjs($jsFile) {
 		return '../JS/'. $jsFile;

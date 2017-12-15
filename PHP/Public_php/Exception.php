@@ -22,6 +22,7 @@
         	$errorLogpath=$config->get('path.errorLogpath');
             if($this->dir_($errorLogpath)){
                 $str = $this->__toString();
+                echo ($errorLogpath);
                 error_log($str, 3, $errorLogpath."C_error.log");
             }
         }

@@ -4,10 +4,11 @@
 $(function() {
 
 	function getHistoryData(pageSize,pageNum){
+		var pageNum = (GetRequest(location.href,"pageNum"))?GetRequest(location.href,"pageNum"):1;
 		var options = new Object(); 
 		options['inefaceMode'] ='getOmitData';
-		options['pageNum'] = pageNum;
-		options['pageSize'] = pageSize;
+		options['pageNum'] = pageNum.toString();
+        options['pageSize'] = pageSize;
 		var json = JSON.stringify(options);
 		show_loading()
 		$.ajax({
@@ -42,8 +43,9 @@ $(function() {
 		var thead= $("table thead");
 		var tr1 = getElement('tr',null);
 		var th4 = getElement('th',{"innerHTML":"期数",});
+        var th6 = getElement('th',{"innerHTML":"出球",});
 		tr1.append(th4);
-
+        tr1.append(th6);
 		for(i=0;i<10;i++){
 			var istr= i.toString()
 			var th5 =getElement('th',{"className":"numeric","innerHTML":istr});
@@ -74,6 +76,9 @@ $(function() {
 			var tr =getElement('tr',null);
 			var datatd = getElement('td',{"className":"cell","data-title":"outdate","innerHTML":count['outdate']});
 			tr.append(datatd);
+
+            var datatd1 = getElement('td',{"className":"cell","data-title":"outdate","innerHTML":count['outdata']});
+            tr.append(datatd1);
 			for(var j in datas){
 				var data = datas[j];
 				var td =  returnCell(count,j,data)
@@ -104,10 +109,16 @@ $(function() {
 	      tbody.remove();
 	      table.append(getHistoryTbodyElement($(this).text()));
 	});
+    $(".pageNum-a").click(function(){
 
-	
+    	endPageNum = this.innerHTML;
+        var url =changeURL(location.href,"pageNum",endPageNum);
+        location.replace(url)
+
+    });
+
 	if(!result){
-		var result = getHistoryData('10','0');
+		var result = getHistoryData('10','1');
 	}
 	showhistorydata("个位");
 });

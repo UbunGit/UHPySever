@@ -89,10 +89,11 @@ class LogViewController extends BaseViewController {
 				
 				$logDescription = $value ["logDescription"];
 				if (strlen ( $logDescription ) >= 250) {
+
 					echo '<p class="logDescription">
-						<a  href="javascript:;">[More]</a>
+						<a  href="javascript:;">[More]</a></br>
 						<span> ' . substr ( $logDescription, 0, 250 ) . '</span>
-						<span style="display:none;">' . $logDescription . '</span>
+						<span style="display:none;">' . __jsonFormat(json_decode($logDescription))   . '</span>
 					 </p>';
 				} else {
 					echo '<p><span>' . $logDescription . '</span></p>';
@@ -189,7 +190,7 @@ class LogViewController extends BaseViewController {
 				
 				$returndata = $request ['result'];
 			} else {
-				__alert ( $request ['result'] );
+
 			}
 			return $returndata;
 		} else {

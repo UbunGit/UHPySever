@@ -42,7 +42,7 @@ function deleteCookie(name,path){
    document.cookie = name + "="+ ";expires=" + expires.toUTCString() + path;
 }
 
-function GetRequest(url) {   
+function GetRequest(url,key) {
       
     var theRequest = new Object();   
     if (url.indexOf("?") != -1) {  
@@ -54,7 +54,7 @@ function GetRequest(url) {
     for(var i = 0; i < strs.length; i ++) {  
         theRequest[strs[i].split("=")[0]]=strs[i].split("=")[1];   
     } 
-    return theRequest;   
+    return decodeURIComponent(theRequest[key]);
 }  
 
 function go(url) {   
