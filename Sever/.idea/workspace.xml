@@ -2,22 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7e88522f-2e2b-495d-9d49-cf6e366693fa" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/MySQL" />
-      <change beforePath="$PROJECT_DIR$/../Install/Install.sh" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/../Install/Install1.0.0.sh" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/../Install/config.conf" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/../Install/start.sh" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/../Install/unInstall.sh" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/../Install/updata_1.0.1.sh" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/../PHP/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../PHP/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/../PHP/Public_php/ViewController.php" afterPath="$PROJECT_DIR$/../PHP/Public_php/ViewController.php" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a7f4c972-4c05-49f2-ae7c-96d61944ba13.xml" afterPath="$PROJECT_DIR$/.idea/dataSources/a7f4c972-4c05-49f2-ae7c-96d61944ba13.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a7f4c972-4c05-49f2-ae7c-96d61944ba13/storage_v2/_src_/schema/SmartHomeDb.xjAeMw.zip" afterPath="$PROJECT_DIR$/.idea/dataSources/a7f4c972-4c05-49f2-ae7c-96d61944ba13/storage_v2/_src_/schema/SmartHomeDb.xjAeMw.zip" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/TOOL/mod_config.py" afterPath="$PROJECT_DIR$/TOOL/mod_config.py" />
+      <change beforePath="$PROJECT_DIR$/MySQL" afterPath="$PROJECT_DIR$/MySQL" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -111,8 +96,8 @@
       <file leaf-file-name="socket.py" pinned="false" current-in-tab="true">
         <entry file="file:///System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/socket.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2599">
-              <caret line="227" column="0" lean-forward="false" selection-start-line="227" selection-start-column="0" selection-end-line="227" selection-end-column="0" />
+            <state relative-caret-position="79">
+              <caret line="87" column="4" lean-forward="true" selection-start-line="87" selection-start-column="4" selection-end-line="87" selection-end-column="4" />
               <folding />
             </state>
           </provider>
@@ -261,7 +246,7 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="1280" />
+    <option name="x" value="691" />
     <option name="y" value="23" />
     <option name="width" value="1671" />
     <option name="height" value="1325" />
@@ -317,6 +302,24 @@
               <item name="Sever" type="b2602c69:ProjectViewProjectNode" />
               <item name="Sever" type="462c0819:PsiDirectoryNode" />
               <item name="HttpSever" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Sever" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Sever" type="462c0819:PsiDirectoryNode" />
+              <item name="MySQL" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Sever" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Sever" type="462c0819:PsiDirectoryNode" />
+              <item name="MySQL" type="462c0819:PsiDirectoryNode" />
+              <item name="relese1_0_0" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Sever" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Sever" type="462c0819:PsiDirectoryNode" />
+              <item name="MySQL" type="462c0819:PsiDirectoryNode" />
+              <item name="relese1_0_0" type="462c0819:PsiDirectoryNode" />
+              <item name="CREATETABLE" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -522,12 +525,12 @@
       <workItem from="1513404084881" duration="961000" />
       <workItem from="1513405107159" duration="2491000" />
       <workItem from="1513408366845" duration="5547000" />
-      <workItem from="1513415667477" duration="8776000" />
+      <workItem from="1513415667477" duration="9430000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="54096000" />
+    <option name="totallyTimeSpent" value="54750000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -539,7 +542,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1280" y="23" width="1671" height="1325" extended-state="0" />
+    <frame x="691" y="23" width="1671" height="1325" extended-state="0" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3284553" sideWeight="0.5451197" order="8" side_tool="false" content_ui="tabs" />
@@ -553,7 +556,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36422765" sideWeight="0.59116024" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27685696" sideWeight="0.69559586" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27685696" sideWeight="0.69559586" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28176796" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="541" y="306" width="501" height="968" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3292683" sideWeight="0.4923266" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="SciView" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32957458" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -562,7 +565,7 @@
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27685696" sideWeight="0.30440414" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.37235773" sideWeight="0.44874156" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.37235773" sideWeight="0.44874156" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -988,8 +991,8 @@
     </entry>
     <entry file="file:///System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/socket.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2599">
-          <caret line="227" column="0" lean-forward="false" selection-start-line="227" selection-start-column="0" selection-end-line="227" selection-end-column="0" />
+        <state relative-caret-position="79">
+          <caret line="87" column="4" lean-forward="true" selection-start-line="87" selection-start-column="4" selection-end-line="87" selection-end-column="4" />
           <folding />
         </state>
       </provider>
