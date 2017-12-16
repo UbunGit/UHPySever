@@ -9,21 +9,10 @@ abstract class ViewController{
 	public $absjsArr;
 	public $title;
 	
-	private $imagePath;
-	private $jsPath;
-	private $cssPath;
-	private $assets;
+
 	
 	function __construct() {
 
-		$config = new ConfigINI ();
-		
-		$this->imagePath = $config->get ( 'URL.root_image' );
-		$this->jsPath = $config->get ( 'URL.root_js' );
-		$this->cssPath = $config->get ( 'URL.root_css' );
-		$this->pagePath = $config->get ( 'URL.root_page' );
-		$this->assets = $config->get ( 'URL.root_assets' );
-		
 		$this->viewwillLoad();
 		$this->viewLoadhead();
 		$this->viewLoadcss();
@@ -50,7 +39,7 @@ abstract class ViewController{
 		return $path;
 	}
 	function getAssets($file) {
-		$path = $this->assets . $file;
+		$path = '../assets/'. $file;
 		return $path;
 	}
 	function getScriptStr($script) {

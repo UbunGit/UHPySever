@@ -111,7 +111,7 @@ abstract class BaseViewController extends ViewController
      */
     function outSilerbarli($path, $text)
     {
-        $locatonUrl = 'http://' . $_SERVER ['SERVER_NAME'] . $_SERVER ["REQUEST_URI"];
+
         $url = './index.php?className=' . $path;
         if (strcmp($path, $this->className) == 0) {
 

@@ -8,8 +8,6 @@ class InterfaceManageVC extends BaseViewController
     function viewwillLoad()
     {
 
-        $config = new ConfigINI ();
-
         $this->jsArr = array(
             "jquery/jquery-migrate-1.2.1.min.js",
             "editable-table.js",
