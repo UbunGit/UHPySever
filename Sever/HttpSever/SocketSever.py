@@ -11,6 +11,7 @@ import socket
 import base64
 import json
 from Interface.SocketInterFace import SocketInterFace
+from TOOL import mod_config
 
 class websocket_thread(threading.Thread):
     def __init__(self, connection):
@@ -57,15 +58,14 @@ def generate_token(msg):
     return base64.b64encode(ser_key)
             
 def startSocketSever():
-     # 获取本机电脑名
-    myname = socket.getfqdn(socket.gethostname())
-    # 获取本机ip
-    myaddr = socket.gethostbyname(myname)
+    severIP = mod_config.getConfig("SOCKETSEVER", "IP")
+    severPort = mod_config.getConfig("SOCKETSEVER", "PORT")
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-    sock.bind((myaddr, 8888))
+
+    sock.bind((severIP, int(severPort)))
     sock.listen(5)
-    print 'websocket sever '+myaddr+':8888已开启!'
+    print 'websocket sever '+severIP+severPort+':已开启!'
     while True:
         connection, address = sock.accept()
         try:

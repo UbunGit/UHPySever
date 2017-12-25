@@ -474,13 +474,30 @@ class PymysqlHandle(object):
         with connection.cursor() as cursor:
             # Create a new record
             fatherID = data["fatherId"]
-            sql = 'SELECT * FROM FunctionData_t where fatherID=' + str(fatherID) 
+            sql = 'SELECT * FROM FunctionData_t where fatherID=' + str(fatherID)
+            print(sql)
             cursor.execute(sql);
             connection.commit()
             list = []
             for row in cursor:
                 list.append(row)
             connection.close() 
-            return list  
+            return list
+
+    '''
+    生成接口列表txt
+    '''
+    def createInterFacetxt(self,savepath):
+
+        connection = SqlHabdleGlobal.connectionDb();
+        with connection.cursor() as cursor:
+
+            sql = 'select * from SmartHomeInterFace_Table into  outfile "'+ savepath +'"';
+            cursor.execute(sql);
+            connection.commit()
+            connection.close()
+            return True
+
+
   
         

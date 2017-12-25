@@ -55,7 +55,23 @@ function GetRequest(url,key) {
         theRequest[strs[i].split("=")[0]]=strs[i].split("=")[1];   
     } 
     return decodeURIComponent(theRequest[key]);
-}  
+}
+
+function GetRequestmap(url) {
+
+    var theRequest = new Object();
+    if (url.indexOf("?") != -1) {
+        var str = url.substr(1);
+    }else{
+        var str = url;
+    }
+    strs = str.split("&");
+    for(var i = 0; i < strs.length; i ++) {
+        theRequest[strs[i].split("=")[0]]=strs[i].split("=")[1];
+    }
+    return theRequest;
+}
+
 
 function go(url) {   
 	

@@ -2,7 +2,27 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7e88522f-2e2b-495d-9d49-cf6e366693fa" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/MySQL" afterPath="$PROJECT_DIR$/MySQL" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/Interface/UPAndDown.py" />
+      <change beforePath="$PROJECT_DIR$/../PHP/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../PHP/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/../PHP/JS/AddNewInterFace.js" afterPath="$PROJECT_DIR$/../PHP/JS/AddNewInterFace.js" />
+      <change beforePath="$PROJECT_DIR$/../PHP/JS/config.js" afterPath="$PROJECT_DIR$/../PHP/JS/config.js" />
+      <change beforePath="$PROJECT_DIR$/../PHP/Page/AddInterfaceVC.php" afterPath="$PROJECT_DIR$/../PHP/Page/AddInterfaceVC.php" />
+      <change beforePath="$PROJECT_DIR$/../PHP/Public_php/Globle_Constants.php" afterPath="$PROJECT_DIR$/../PHP/Public_php/Globle_Constants.php" />
+      <change beforePath="$PROJECT_DIR$/../PHP/Public_php/ViewController.php" afterPath="$PROJECT_DIR$/../PHP/Public_php/ViewController.php" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/HttpSever/HttpSever.py" afterPath="$PROJECT_DIR$/HttpSever/HttpSever.py" />
+      <change beforePath="$PROJECT_DIR$/HttpSever/SocketSever.py" afterPath="$PROJECT_DIR$/HttpSever/SocketSever.py" />
+      <change beforePath="$PROJECT_DIR$/Install/Install.sh" afterPath="$PROJECT_DIR$/Install/Install.sh" />
+      <change beforePath="$PROJECT_DIR$/Install/config.conf" afterPath="$PROJECT_DIR$/Install/config.conf" />
+      <change beforePath="$PROJECT_DIR$/Install/start.sh" afterPath="$PROJECT_DIR$/Install/start.sh" />
+      <change beforePath="$PROJECT_DIR$/Interface/Interface.py" afterPath="$PROJECT_DIR$/Interface/Interface.py" />
+      <change beforePath="$PROJECT_DIR$/Interface/SamrtHome.py" afterPath="$PROJECT_DIR$/Interface/SamrtHome.py" />
+      <change beforePath="$PROJECT_DIR$/PymysqlHandle/PymysqlHandle.py" afterPath="$PROJECT_DIR$/PymysqlHandle/PymysqlHandle.py" />
+      <change beforePath="$PROJECT_DIR$/SQLManage/relese1_0_0/CREATETABLE/SmartHomeDb.sql" afterPath="$PROJECT_DIR$/SQLManage/relese1_0_0/CREATETABLE/SmartHomeDb.sql" />
+      <change beforePath="$PROJECT_DIR$/SQLManage/sql_Install.sh" afterPath="$PROJECT_DIR$/SQLManage/sql_Install.sh" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -13,6 +33,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/Sever$python.coverage" NAME="python Coverage Results" MODIFIED="1514191977774" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Sever$python3_6.coverage" NAME="python2.7 Coverage Results" MODIFIED="1513408462267" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Sever$Unnamed.coverage" NAME="Unnamed Coverage Results" MODIFIED="1513424082120" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
@@ -25,12 +46,7 @@
     <option name="SHOW_TABLE_DETAILS" value="true" />
     <option name="SHOW_EMPTY_GROUPS" value="true" />
     <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
-    <expand>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="SmartHomeDb" type="feb32156:DbDataSourceImpl" />
-      </path>
-    </expand>
+    <expand />
     <select />
   </component>
   <component name="FavoritesManager">
@@ -38,42 +54,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="setp.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/setp.py">
+      <file leaf-file-name="PymysqlHandle.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/PymysqlHandle/PymysqlHandle.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ConfigParser.py" pinned="false" current-in-tab="false">
-        <entry file="file:///System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/ConfigParser.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="10908">
-              <caret line="606" column="0" lean-forward="false" selection-start-line="606" selection-start-column="0" selection-end-line="606" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="mod_config.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/TOOL/mod_config.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="socket.py" pinned="false" current-in-tab="true">
-        <entry file="file:///System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/socket.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="25">
-              <caret line="84" column="0" lean-forward="false" selection-start-line="84" selection-start-column="0" selection-end-line="84" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="434">
+              <caret line="190" column="60" lean-forward="true" selection-start-line="190" selection-start-column="60" selection-end-line="190" selection-end-column="60" />
+              <folding>
+                <marker date="1514186839000" expanded="true" signature="4899:4960" ph="delete from SmartHomeInterFace_Table... " />
+                <marker date="1514186839000" expanded="true" signature="10735:10792" ph="DELETE FROM SmartHomeParameter_Table... " />
+                <marker date="1514186839000" expanded="true" signature="13743:13822" ph="SELECT * FRO... FC3DData_t" />
+                <marker date="1514186839000" expanded="true" signature="15010:15091" ph="SELECT * FRO... FC3DOmitData_table" />
+                <marker date="1514186839000" expanded="true" signature="15828:15872" ph="SELECT * FRO... FunctionData_t" />
+                <marker date="1514186839000" expanded="true" signature="16312:16357" ph="select * fro... SmartHomeInterFace_Table" />
+                <marker date="1514186839000" expanded="true" signature="16312:16365" ph="select * fro... table" />
+                <marker date="1514186839000" expanded="true" signature="16312:16377" ph="select * fro... SmartHomeInterFace_Table" />
+                <marker date="1514186839000" expanded="true" signature="16312:16381" ph="select * fro... SmartHomeInterFace_Table" />
+                <marker date="1514186839000" expanded="true" signature="16312:16383" ph="select * fro... SmartHomeInterFace_Table" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -81,64 +78,64 @@
       <file leaf-file-name="SocketInterFace.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Interface/SocketInterFace.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+            <state relative-caret-position="396">
+              <caret line="22" column="44" lean-forward="true" selection-start-line="22" selection-start-column="44" selection-end-line="22" selection-end-column="44" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="sql_Install.sh" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MySQL/sql_Install.sh">
+      <file leaf-file-name="SamrtHome.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Interface/SamrtHome.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1242">
-              <caret line="69" column="2" lean-forward="false" selection-start-line="69" selection-start-column="2" selection-end-line="69" selection-end-column="2" />
+            <state relative-caret-position="488">
+              <caret line="144" column="21" lean-forward="true" selection-start-line="144" selection-start-column="21" selection-end-line="144" selection-end-column="21" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="p_ReplaceInterFaceParameter.sql" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MySQL/relese1_0_0/PROCEDURE/p_ReplaceInterFaceParameter.sql">
+      <file leaf-file-name="Interface.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Interface/Interface.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1080">
-              <caret line="60" column="0" lean-forward="false" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
+            <state relative-caret-position="468">
+              <caret line="27" column="9" lean-forward="true" selection-start-line="27" selection-start-column="9" selection-end-line="27" selection-end-column="9" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FCTimer.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/FCTimer.py">
+      <file leaf-file-name="FCAnalyse.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Interface/FCAnalyse.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="234">
-              <caret line="18" column="4" lean-forward="false" selection-start-line="18" selection-start-column="4" selection-end-line="18" selection-end-column="4" />
+            <state relative-caret-position="666">
+              <caret line="38" column="7" lean-forward="true" selection-start-line="38" selection-start-column="7" selection-end-line="38" selection-end-column="7" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="p_creatFC3DRecommendTable.sql" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MySQL/relese1_0_0/PROCEDURE/p_creatFC3DRecommendTable.sql">
+      <file leaf-file-name="SqlHandelGlobal.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/PymysqlHandle/SqlHandelGlobal.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1062">
-              <caret line="59" column="0" lean-forward="false" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="p_insterOneOmitDataToTable.sql" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/MySQL/relese1_0_0/PROCEDURE/p_insterOneOmitDataToTable.sql">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="10080">
-              <caret line="560" column="0" lean-forward="false" selection-start-line="560" selection-start-column="0" selection-end-line="560" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="1017">
+              <caret line="60" column="8" lean-forward="true" selection-start-line="60" selection-start-column="8" selection-end-line="60" selection-end-column="20" />
+              <folding>
+                <element signature="e#87#109#0" expanded="true" />
+                <marker date="1513426278000" expanded="true" signature="1411:1520" ph="select * fro... tables" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -150,6 +147,9 @@
       <find>deleteinterface</find>
       <find>RecommendData</find>
       <find>创建福彩3d频率表创建福彩3d频率表</find>
+      <find>getInterFaceInfo</find>
+      <find>getInterFaceList</find>
+      <find>EOF</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$</dir>
@@ -166,16 +166,12 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Interface/FCAnalyse.py" />
         <option value="$PROJECT_DIR$/FC3DAnalyse/FC3DProbability.py" />
         <option value="$PROJECT_DIR$/PymysqlHandle/SqlHandelGlobal.py" />
         <option value="$PROJECT_DIR$/setp.py" />
         <option value="$PROJECT_DIR$/TOOL/LogHandle.py" />
-        <option value="$PROJECT_DIR$/HttpSever/HttpSever.py" />
         <option value="$PROJECT_DIR$/MySQL/FC3D_sql/p_insterOneOmitDataToTable.sql" />
-        <option value="$PROJECT_DIR$/PymysqlHandle/PymysqlHandle.py" />
         <option value="$PROJECT_DIR$/MySQL/FC3D_sql/p_creatFC3DOmitTable.sql" />
-        <option value="$PROJECT_DIR$/Interface/SamrtHome.py" />
         <option value="$PROJECT_DIR$/Install/MySQL/FC3D_sql/CreatdFC3DTable_p.sql" />
         <option value="$PROJECT_DIR$/Install/MySQL/SmartHome_sql/SmartHomeDb.sql" />
         <option value="$PROJECT_DIR$/Install/MySQL/sql_Install.sh" />
@@ -188,7 +184,6 @@
         <option value="$PROJECT_DIR$/MySQL/relese1_0_0/ROUTINES/p_getUserInfo.sql" />
         <option value="$PROJECT_DIR$/MySQL/relese1_0_0/PROCEDURE/p_ReplaceInterFace.sql" />
         <option value="$PROJECT_DIR$/MySQL/relese1_0_0/PROCEDURE/p_ReplaceUserInfo.sql" />
-        <option value="$PROJECT_DIR$/Install/Install.sh" />
         <option value="$PROJECT_DIR$/MySQL/relese1_0_0/PROCEDURE/p_creatFC3DOmitTable.sql" />
         <option value="$PROJECT_DIR$/MySQL/relese1_0_0/PROCEDURE/p_creatFC3DStatisticsCountTable.sql" />
         <option value="$PROJECT_DIR$/MySQL/relese1_0_0/PROCEDURE/p_getRecommendData.sql" />
@@ -200,6 +195,20 @@
         <option value="$PROJECT_DIR$/MySQL/sql_Install.sh" />
         <option value="$PROJECT_DIR$/FCTimer.py" />
         <option value="$PROJECT_DIR$/TOOL/mod_config.py" />
+        <option value="$PROJECT_DIR$/Install/Install.sh" />
+        <option value="$PROJECT_DIR$/SQLManage/sql_Install.sh" />
+        <option value="$PROJECT_DIR$/Interface/SamrtHome.py" />
+        <option value="$PROJECT_DIR$/Interface/Interface.py" />
+        <option value="$PROJECT_DIR$/HttpSever/SocketSever.py" />
+        <option value="$PROJECT_DIR$/Install/config.conf" />
+        <option value="$PROJECT_DIR$/Install/start.sh" />
+        <option value="$PROJECT_DIR$/HttpSever/HttpSever.py" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/6e6ac5b7-fecd-4ba2-80e1-c2d02a9eab6a/console.sql" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/a7f4c972-4c05-49f2-ae7c-96d61944ba13/console.sql" />
+        <option value="$PROJECT_DIR$/SQLManage/relese1_0_0/CREATETABLE/SmartHomeDb.sql" />
+        <option value="$PROJECT_DIR$/PymysqlHandle/PymysqlHandle.py" />
+        <option value="$PROJECT_DIR$/Interface/UPAndDown.py" />
+        <option value="$PROJECT_DIR$/Interface/FCAnalyse.py" />
       </list>
     </option>
   </component>
@@ -221,9 +230,9 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="691" />
+    <option name="x" value="410" />
     <option name="y" value="23" />
-    <option name="width" value="1671" />
+    <option name="width" value="1984" />
     <option name="height" value="1325" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -242,6 +251,38 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="Sever" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Sever" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Sever" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Sever" type="462c0819:PsiDirectoryNode" />
+              <item name="Data" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Sever" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Sever" type="462c0819:PsiDirectoryNode" />
+              <item name="Interface" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Sever" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Sever" type="462c0819:PsiDirectoryNode" />
+              <item name="PymysqlHandle" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Sever" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Sever" type="462c0819:PsiDirectoryNode" />
+              <item name="TOOL" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="AndroidView" />
       <pane id="Scope">
         <subPane subId="Project Files">
           <expand>
@@ -258,43 +299,8 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="Sever" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Sever" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Sever" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Sever" type="462c0819:PsiDirectoryNode" />
-              <item name="HttpSever" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Sever" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Sever" type="462c0819:PsiDirectoryNode" />
-              <item name="MySQL" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Sever" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Sever" type="462c0819:PsiDirectoryNode" />
-              <item name="MySQL" type="462c0819:PsiDirectoryNode" />
-              <item name="relese1_0_0" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Sever" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Sever" type="462c0819:PsiDirectoryNode" />
-              <item name="MySQL" type="462c0819:PsiDirectoryNode" />
-              <item name="relese1_0_0" type="462c0819:PsiDirectoryNode" />
-              <item name="CREATETABLE" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
       <pane id="PackagesPane" />
-      <pane id="AndroidView" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -306,7 +312,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
     <property name="database.console.AUTO_SCROLL_FROM_SOURCE" value="false" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Color Scheme Font" />
+    <property name="settings.editor.selected.configurable" value="database.main" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -327,7 +333,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.Unnamed">
+  <component name="RunManager" selected="Python.python">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="HTML_USED" value="false" />
       <option name="WIDTH" value="400" />
@@ -379,13 +385,13 @@
       <envs />
       <patterns />
     </configuration>
-    <configuration name="Unnamed" type="PythonConfigurationType" factoryName="Python">
+    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="/usr/bin/python2.7" />
+      <option name="SDK_HOME" value="$USER_HOME$/idea/bin/python" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
@@ -398,13 +404,13 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
-    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
+    <configuration name="python" type="PythonConfigurationType" factoryName="Python">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="$USER_HOME$/idea/bin/python" />
+      <option name="SDK_HOME" value="/usr/bin/python2.7" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
@@ -458,7 +464,7 @@
       <predefined_log_file id="idea.log" enabled="true" />
     </configuration>
     <list size="2">
-      <item index="0" class="java.lang.String" itemvalue="Python.Unnamed" />
+      <item index="0" class="java.lang.String" itemvalue="Python.python" />
       <item index="1" class="java.lang.String" itemvalue="Bash.sql_Install.sh" />
     </list>
     <recent_temporary>
@@ -466,6 +472,11 @@
         <item index="0" class="java.lang.String" itemvalue="Bash.sql_Install.sh" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="SbtLocalSettings">
+    <option name="externalProjectsViewState">
+      <projects_view />
+    </option>
   </component>
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
@@ -496,12 +507,13 @@
       <workItem from="1513405107159" duration="2491000" />
       <workItem from="1513408366845" duration="5547000" />
       <workItem from="1513415667477" duration="9430000" />
-      <workItem from="1513426398991" duration="554000" />
+      <workItem from="1513426398991" duration="9157000" />
+      <workItem from="1513935242796" duration="20801000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="55304000" />
+    <option name="totallyTimeSpent" value="84708000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -513,29 +525,31 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="691" y="23" width="1671" height="1325" extended-state="0" />
+    <frame x="410" y="23" width="1984" height="1325" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3284553" sideWeight="0.5451197" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.37235773" sideWeight="0.55125844" order="9" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3284553" sideWeight="0.54266423" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.37235773" sideWeight="0.26273787" order="9" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3292683" sideWeight="0.48987108" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2674797" sideWeight="0.49539596" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3292683" sideWeight="0.49466193" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36422765" sideWeight="0.59116024" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.49512196" sideWeight="0.57888275" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27992633" sideWeight="0.69559586" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Database" active="true" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28176796" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="541" y="306" width="501" height="968" />
-      <window_info id="SciView" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32957458" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23738414" sideWeight="0.68907565" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.12564367" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" x="541" y="306" width="501" height="968" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3292683" sideWeight="0.4923266" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="SciView" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32957458" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24861878" sideWeight="0.47835737" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24961558" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.37235773" sideWeight="0.44874156" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27685696" sideWeight="0.30440414" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27992633" sideWeight="0.31092438" order="5" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.37235773" sideWeight="0.7372621" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -543,13 +557,71 @@
       <window_info id="SQL Generator" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32876712" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31506848" sideWeight="0.49824387" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3292683" sideWeight="0.4923266" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31463414" sideWeight="0.49824387" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Concurrent Activities Diagram" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32957292" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
     </layout>
+    <layout-to-restore>
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.37235773" sideWeight="0.26273787" order="9" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="SQL Generator" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32876712" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12564367" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" x="541" y="306" width="501" height="968" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24861878" sideWeight="0.47835737" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24961558" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.37235773" sideWeight="0.7372621" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3284553" sideWeight="0.54266423" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3292683" sideWeight="0.48987108" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2674797" sideWeight="0.49539596" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.36422765" sideWeight="0.57888275" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31463414" sideWeight="0.49824387" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23738414" sideWeight="0.68907565" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3292683" sideWeight="0.4923266" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="SciView" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32957458" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Concurrent Activities Diagram" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32957292" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27992633" sideWeight="0.31092438" order="5" side_tool="true" content_ui="tabs" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
@@ -561,10 +633,24 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/PymysqlHandle/PymysqlHandle.py</url>
+          <line>477</line>
+          <option name="timeStamp" value="40" />
+        </line-breakpoint>
+      </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="25" />
+      <default-breakpoints>
+        <breakpoint type="python-exception">
+          <properties notifyOnTerminate="true" exception="BaseException">
+            <option name="notifyOnTerminate" value="true" />
+          </properties>
+        </breakpoint>
+      </default-breakpoints>
+      <option name="time" value="52" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="PythonConfigurationType">
@@ -585,131 +671,22 @@
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
     </expressions>
+    <expressions id="evaluateExpression">
+      <expression>
+        <expression-string>method</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/MySQL/FC3D_sql/p_getRecommendData.sql" />
-    <entry file="file://$PROJECT_DIR$/MySQL/FC3D_sql/CreatdFC3DTable_p.sql" />
-    <entry file="file://$PROJECT_DIR$/MySQL/FC3D_sql/creatFC3DDataBalance_t.sql" />
-    <entry file="file://$PROJECT_DIR$/MySQL/FC3D_sql/p_creatFC3DOmitTable.sql" />
-    <entry file="file://$PROJECT_DIR$/Interface/SamrtHome.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="436">
-          <caret line="38" column="34" lean-forward="true" selection-start-line="38" selection-start-column="34" selection-end-line="38" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/PymysqlHandle/PymysqlHandle.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="152" column="0" lean-forward="false" selection-start-line="152" selection-start-column="0" selection-end-line="152" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/SocketServer.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="213">
-          <caret line="433" column="0" lean-forward="false" selection-start-line="433" selection-start-column="0" selection-end-line="433" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/BaseHTTPServer.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="213">
-          <caret line="107" column="0" lean-forward="false" selection-start-line="107" selection-start-column="0" selection-end-line="107" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/HttpSever/HttpSever.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="311">
-          <caret line="146" column="0" lean-forward="false" selection-start-line="146" selection-start-column="0" selection-end-line="146" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TOOL/LogHandle.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="511">
-          <caret line="75" column="25" lean-forward="false" selection-start-line="75" selection-start-column="25" selection-end-line="75" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///Library/Python/2.7/site-packages/PyMySQL-0.7.11-py2.7.egg/pymysql/err.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="106" column="35" lean-forward="false" selection-start-line="106" selection-start-column="35" selection-end-line="106" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/HttpSever/SocketSever.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="24" column="39" lean-forward="false" selection-start-line="24" selection-start-column="39" selection-end-line="24" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TOOL/DownLoadFile.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="855">
-          <caret line="59" column="50" lean-forward="false" selection-start-line="59" selection-start-column="42" selection-end-line="59" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Data/3d.TXT" />
-    <entry file="das://table:/8170bc7e/a7f4c972-4c05-49f2-ae7c-96d61944ba13/SmartHomeDb.FC3DData_t" />
-    <entry file="file://$PROJECT_DIR$/Install/MySQL/sql_updata_1.sh" />
-    <entry file="file://$PROJECT_DIR$/Install/MySQL/SmartHome_sql/SmartHomeDb.sql" />
-    <entry file="file://$PROJECT_DIR$/Install/MySQL/SmartHome_sql/CreatSmartHomeUserTable.sql" />
-    <entry file="file://$PROJECT_DIR$/Install/MySQL/sql_Install.sh" />
-    <entry file="file://$PROJECT_DIR$/Install/MySQL/FC3D_sql/CreatdFC3DTable.sql" />
-    <entry file="file://$PROJECT_DIR$/MySQL/FC3D_sql/p_creatFC3DRecommendTable.sql" />
-    <entry file="file://$PROJECT_DIR$/MySQL/FC3D_sql/p_insterOneProbabilityDataToTable.sql" />
-    <entry file="file://$PROJECT_DIR$/Install/config.conf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MySQL/relese1_0_0/CreateLog_Table.sql" />
-    <entry file="file://$PROJECT_DIR$/MySQL/relese1_0_0/creatFC3DDataBalance_t.sql" />
-    <entry file="file://$PROJECT_DIR$/MySQL/relese1_0_0/CREATETABLE/SmartHomeDb.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/MySQL/relese1_0_0/p_AddUserScenario.sql" />
     <entry file="file://$PROJECT_DIR$/MySQL/relese1_0_0/p_getUserScenarioList.sql" />
     <entry file="file://$PROJECT_DIR$/MySQL/sql_updata_1.sh" />
-    <entry file="file://$PROJECT_DIR$/MySQL/relese1_0_0/ROUTINES/p_getUserInfo.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MySQL/relese1_0_0/CREATETABLE/CreatdFC3DTable.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="760">
-          <caret line="115" column="3" lean-forward="false" selection-start-line="115" selection-start-column="3" selection-end-line="115" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MySQL/relese1_0_0/ROUTINES/InsterBlanceData.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2360">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MySQL/relese1_0_0/PROCEDURE/p_ReplaceUserInfo.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="928">
-          <caret line="62" column="0" lean-forward="true" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/MySQL/relese1_0_0/ROUTINES/p_getUserInfo.sql" />
+    <entry file="file://$PROJECT_DIR$/MySQL/relese1_0_0/CREATETABLE/CreatdFC3DTable.sql" />
+    <entry file="file://$PROJECT_DIR$/MySQL/relese1_0_0/ROUTINES/InsterBlanceData.sql" />
+    <entry file="file://$PROJECT_DIR$/MySQL/relese1_0_0/PROCEDURE/p_ReplaceUserInfo.sql" />
     <entry file="file://$PROJECT_DIR$/Install/updata_1.0.1.sh">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -717,132 +694,297 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Install/Install.sh">
+    <entry file="file://$PROJECT_DIR$/MySQL/relese1_0_0/PROCEDURE/p_creatFC3DOmitTable.sql" />
+    <entry file="file://$PROJECT_DIR$/MySQL/relese1_0_0/PROCEDURE/p_creatFC3DStatisticsCountTable.sql" />
+    <entry file="file://$PROJECT_DIR$/MySQL/relese1_0_0/PROCEDURE/p_getRecommendData.sql" />
+    <entry file="file://$PROJECT_DIR$/MySQL/relese1_0_0/PROCEDURE/p_insterOneProbabilityDataToTable.sql" />
+    <entry file="file://$PROJECT_DIR$/MySQL/relese1_0_0/PROCEDURE/p_insterOneZUProbabilityDataToTable.sql" />
+    <entry file="file://$PROJECT_DIR$/MySQL/relese1_0_0/PROCEDURE/p_ReplaceInterFace.sql" />
+    <entry file="file://$PROJECT_DIR$/MySQL/relese1_0_0/PROCEDURE/p_insterOneOmitDataToTable.sql" />
+    <entry file="file://$PROJECT_DIR$/MySQL/relese1_0_0/PROCEDURE/p_creatFC3DRecommendTable.sql" />
+    <entry file="file://$PROJECT_DIR$/MySQL/relese1_0_0/PROCEDURE/p_ReplaceInterFaceParameter.sql" />
+    <entry file="file://$PROJECT_DIR$/MySQL/sql_Install.sh" />
+    <entry file="file:///System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/socket.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="4" lean-forward="false" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
+        <state relative-caret-position="25">
+          <caret line="84" column="0" lean-forward="false" selection-start-line="84" selection-start-column="0" selection-end-line="84" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MySQL/relese1_0_0/PROCEDURE/p_creatFC3DOmitTable.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4">
-          <caret line="2" column="2" lean-forward="false" selection-start-line="2" selection-start-column="2" selection-end-line="2" selection-end-column="11" />
+    <entry file="das://table:/64ebb621/a7f4c972-4c05-49f2-ae7c-96d61944ba13/SmartHomeDb.SmartHomeInterFace_Table">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MySQL/relese1_0_0/PROCEDURE/p_creatFC3DStatisticsCountTable.sql">
+    <entry file="file://$PROJECT_DIR$/HttpSever/SocketSever.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="32" column="0" lean-forward="true" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+        <state relative-caret-position="1170">
+          <caret line="71" column="40" lean-forward="false" selection-start-line="71" selection-start-column="40" selection-end-line="71" selection-end-column="40" />
+          <folding>
+            <element signature="e#85#101#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MySQL/relese1_0_0/PROCEDURE/p_getRecommendData.sql">
+    <entry file="file://$PROJECT_DIR$/TOOL/LogHandle.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="547">
-          <caret line="219" column="11" lean-forward="false" selection-start-line="219" selection-start-column="11" selection-end-line="219" selection-end-column="11" />
+        <state relative-caret-position="-1016">
+          <caret line="75" column="25" lean-forward="false" selection-start-line="75" selection-start-column="25" selection-end-line="75" selection-end-column="25" />
+          <folding>
+            <marker date="1513426278000" expanded="true" signature="4769:4818" ph="select count... Log_Table" />
+            <marker date="1513426278000" expanded="true" signature="5209:5288" ph="select * fro... Log_Table" />
+            <marker date="1513426278000" expanded="true" signature="5745:5780" ph="DELETE FROM Log_Table... " />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MySQL/relese1_0_0/PROCEDURE/p_insterOneProbabilityDataToTable.sql">
+    <entry file="das://src:table:/64ebb621/a7f4c972-4c05-49f2-ae7c-96d61944ba13/SmartHomeDb.SmartHomeInterFace_Table">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="577">
-          <caret line="64" column="0" lean-forward="true" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MySQL/relese1_0_0/PROCEDURE/p_insterOneZUProbabilityDataToTable.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="547">
-          <caret line="72" column="0" lean-forward="true" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MySQL/relese1_0_0/PROCEDURE/p_ReplaceInterFace.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="2" lean-forward="true" selection-start-line="2" selection-start-column="2" selection-end-line="2" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/MySQL/relese1_0_0/PROCEDURE/p_insterOneOmitDataToTable.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="10080">
-          <caret line="560" column="0" lean-forward="false" selection-start-line="560" selection-start-column="0" selection-end-line="560" selection-end-column="0" />
+        <state relative-caret-position="18">
+          <caret line="1" column="13" lean-forward="false" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MySQL/relese1_0_0/PROCEDURE/p_creatFC3DRecommendTable.sql">
+    <entry file="file://$PROJECT_DIR$/SQLManage/sql_Install.sh">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1062">
-          <caret line="59" column="0" lean-forward="false" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
+        <state relative-caret-position="623">
+          <caret line="35" column="0" lean-forward="true" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MySQL/relese1_0_0/PROCEDURE/p_ReplaceInterFaceParameter.sql">
+    <entry file="file://$PROJECT_DIR$/Install/config.conf">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1080">
-          <caret line="60" column="0" lean-forward="false" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
+        <state relative-caret-position="180">
+          <caret line="10" column="9" lean-forward="true" selection-start-line="10" selection-start-column="9" selection-end-line="10" selection-end-column="9" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MySQL/sql_Install.sh">
+    <entry file="file://$PROJECT_DIR$/Install/start.sh">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1242">
-          <caret line="69" column="2" lean-forward="false" selection-start-line="69" selection-start-column="2" selection-end-line="69" selection-end-column="2" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Interface/SocketInterFace.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FCTimer.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="18" column="4" lean-forward="false" selection-start-line="18" selection-start-column="4" selection-end-line="18" selection-end-column="4" />
+        <state relative-caret-position="270">
+          <caret line="15" column="4" lean-forward="true" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="4" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/setp.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+        <state relative-caret-position="450">
+          <caret line="27" column="7" lean-forward="true" selection-start-line="27" selection-start-column="7" selection-end-line="27" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/collections.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="482">
+          <caret line="56" column="0" lean-forward="false" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file:///System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/ConfigParser.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="10908">
-          <caret line="606" column="0" lean-forward="false" selection-start-line="606" selection-start-column="0" selection-end-line="606" selection-end-column="0" />
+        <state relative-caret-position="374">
+          <caret line="240" column="0" lean-forward="false" selection-start-line="240" selection-start-column="0" selection-end-line="240" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/TOOL/mod_config.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+        <state relative-caret-position="288">
+          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file:///System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/socket.py">
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/f463fa85-1050-4fee-96d1-4fd46a467117/console.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="25">
-          <caret line="84" column="0" lean-forward="false" selection-start-line="84" selection-start-column="0" selection-end-line="84" selection-end-column="0" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/6e6ac5b7-fecd-4ba2-80e1-c2d02a9eab6a/console.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SQLManage/relese1_0_0/CREATETABLE/CreatdFC3DTable.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-12">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/a7f4c972-4c05-49f2-ae7c-96d61944ba13/console.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="64" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Install/Install.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="178">
+          <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FCTimer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="18" column="30" lean-forward="false" selection-start-line="18" selection-start-column="30" selection-end-line="18" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Data/InterFace.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SQLManage/relese1_0_0/ROUTINES/InsterBlanceData.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TOOL/DownLoadFile.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="49" column="19" lean-forward="true" selection-start-line="49" selection-start-column="19" selection-end-line="49" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Library/Python/2.7/site-packages/PyMySQL-0.7.11-py2.7.egg/pymysql/connections.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="785" column="8" lean-forward="false" selection-start-line="785" selection-start-column="8" selection-end-line="785" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Library/Python/2.7/site-packages/PyMySQL-0.7.11-py2.7.egg/pymysql/cursors.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="638">
+          <caret line="173" column="70" lean-forward="false" selection-start-line="173" selection-start-column="70" selection-end-line="173" selection-end-column="70" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Library/Caches/IntelliJIdea2017.3/python_stubs/-1247972723/__builtin__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-701">
+          <caret line="1074" column="6" lean-forward="false" selection-start-line="1074" selection-start-column="6" selection-end-line="1074" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SQLManage/relese1_0_0/CREATETABLE/SmartHomeDb.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="22" column="0" lean-forward="true" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/HttpSever/HttpSever.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-875">
+          <caret line="103" column="0" lean-forward="false" selection-start-line="103" selection-start-column="0" selection-end-line="103" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Interface/UPAndDown.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="25" column="44" lean-forward="true" selection-start-line="25" selection-start-column="44" selection-end-line="25" selection-end-column="44" />
+          <folding>
+            <element signature="e#88#141#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Interface/SocketInterFace.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="22" column="44" lean-forward="true" selection-start-line="22" selection-start-column="44" selection-end-line="22" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Interface/SamrtHome.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="488">
+          <caret line="144" column="21" lean-forward="true" selection-start-line="144" selection-start-column="21" selection-end-line="144" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Interface/Interface.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="468">
+          <caret line="27" column="9" lean-forward="true" selection-start-line="27" selection-start-column="9" selection-end-line="27" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Interface/FCAnalyse.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="666">
+          <caret line="38" column="7" lean-forward="true" selection-start-line="38" selection-start-column="7" selection-end-line="38" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PymysqlHandle/SqlHandelGlobal.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1017">
+          <caret line="60" column="8" lean-forward="true" selection-start-line="60" selection-start-column="8" selection-end-line="60" selection-end-column="20" />
+          <folding>
+            <element signature="e#87#109#0" expanded="true" />
+            <marker date="1513426278000" expanded="true" signature="1411:1520" ph="select * fro... tables" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PymysqlHandle/PymysqlHandle.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="434">
+          <caret line="190" column="60" lean-forward="true" selection-start-line="190" selection-start-column="60" selection-end-line="190" selection-end-column="60" />
+          <folding>
+            <marker date="1514186839000" expanded="true" signature="4899:4960" ph="delete from SmartHomeInterFace_Table... " />
+            <marker date="1514186839000" expanded="true" signature="10735:10792" ph="DELETE FROM SmartHomeParameter_Table... " />
+            <marker date="1514186839000" expanded="true" signature="13743:13822" ph="SELECT * FRO... FC3DData_t" />
+            <marker date="1514186839000" expanded="true" signature="15010:15091" ph="SELECT * FRO... FC3DOmitData_table" />
+            <marker date="1514186839000" expanded="true" signature="15828:15872" ph="SELECT * FRO... FunctionData_t" />
+            <marker date="1514186839000" expanded="true" signature="16312:16357" ph="select * fro... SmartHomeInterFace_Table" />
+            <marker date="1514186839000" expanded="true" signature="16312:16365" ph="select * fro... table" />
+            <marker date="1514186839000" expanded="true" signature="16312:16377" ph="select * fro... SmartHomeInterFace_Table" />
+            <marker date="1514186839000" expanded="true" signature="16312:16381" ph="select * fro... SmartHomeInterFace_Table" />
+            <marker date="1514186839000" expanded="true" signature="16312:16383" ph="select * fro... SmartHomeInterFace_Table" />
+          </folding>
         </state>
       </provider>
     </entry>

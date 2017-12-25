@@ -31,7 +31,7 @@ class AddInterfaceVC extends BaseViewController
             'header.css'
         );
 
-        $this->title = "日志分析";
+        $this->title = "新增接口";
     }
 
     function getuserInfo()
@@ -93,19 +93,22 @@ class AddInterfaceVC extends BaseViewController
                                     <option>interface</option>
                                     <option>samrtHome</option>
                                     <option>FCAnalyse</option>
+                                    <option>UPAndDown</option>
+                                    <option>SocketInterFace</option>
+
                                 </select>
                             </div>
                         </div>
                         <div class="panel-foot">
                             <ul class="summary-list">
-                                <li><a href="javascript:;"> <i class="fa fa-cloud text-primary saveIneface"></i>
+                                <li><a class="saveIneface-a" href="javascript:;"> <i class="fa fa-cloud text-primary "></i>
                                         保存
                                     </a></li>
-                                <li><a href="javascript:;"> <i
-                                                class="fa fa-cloud-download text-primary"></i> 导入
+                                <li><a class="uploadInterface-a" href="javascript:;"> <i
+                                                class="fa fa-cloud-upload text-primary"></i> 导入
                                     </a></li>
-                                <li><a href="javascript:;"> <i
-                                                class="fa fa-cloud-upload text-primary"></i> 导出
+                                <li><a class="downInterface-a" href="javascript:;"> <i
+                                                class="fa fa-cloud-download text-primary"></i> 导出
                                     </a></li>
                             </ul>
                         </div>

@@ -9,16 +9,14 @@ $(function() {
 	 */
 	$(".exitinfo-form" ).submit(function(e) {
 		
-		var req = GetRequest(location.search);   
-		var repInteFaceName = req['interFaceName']; 
-
-		var params = $(".exitinfo-form").serialize();  // http request parameters.   
-		params = decodeURIComponent(params, true ); 
-		var req = GetRequest(params); 
+		var repInteFaceName = GetRequest(location.search,"interFaceName");
+		var params = $(".exitinfo-form").serialize();  // http request parameters.
+        params = decodeURIComponent(params, true );
+		var req = GetRequestmap(params);
 		var options = new Object(); 
 		options['inefaceMode'] ='replaceInteface';
 		options['repInteFaceName'] = repInteFaceName;
-		Object.assign(options, req); 
+		Object.assign(options,req)
 		replaceInteface(options);
 		return false;
 	});
@@ -28,12 +26,10 @@ $(function() {
      */
 	$(".versions-form" ).submit(function(e) {
 
-		var req = GetRequest(location.search);   
-		var repInteFaceName = req['interFaceName']; 
-		
+		var repInteFaceName = GetRequest(location.search,"interFaceName");
 		var params = $(".versions-form").serialize();  // http request parameters.   
 		params = decodeURIComponent(params, true ); 
-		var req = GetRequest(params); 
+		var req = GetRequestmap(params);
 		var options = new Object(); 
 		options['inefaceMode'] ='replaceInteface';
 		options['repInteFaceName'] = repInteFaceName;

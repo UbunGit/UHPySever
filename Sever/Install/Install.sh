@@ -1,5 +1,5 @@
 #!/bin/bash
-source ../MySQL/sql_Install.sh
+source ../SQLManage/sql_Install.sh
 echo "=========================================================";
 echo "star install";
 

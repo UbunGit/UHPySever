@@ -70,7 +70,7 @@ abstract class ViewController{
  		<?php
 		echo ' <!--external css-->';
 		echo '<link rel="stylesheet"  href=' . $this->getAssets ( "data-tables/DT_bootstrap.css" ) . '></link>';
-		echo '<link rel="stylesheet"  href=' . $this->getAssets ( "font-awesome/css/font-awesome.css" ) . '></link>';
+		echo '<link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">';
 		echo '<link rel="stylesheet"  href="' . $this->getAssets ( "jquery-easy-pie-chart/jquery.easy-pie-chart.css" ) . '">';
 		echo '<link rel="stylesheet"  href=' . $this->getCSS ( "slidebars.css" ) . '>';
 		echo '<link rel="stylesheet"  href=' . $this->getCSS ( "style.css" ) . '>';

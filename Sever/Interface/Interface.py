@@ -102,6 +102,8 @@ class InterfaceHandle(object):
         returnDic = {"inforCode":0}
         returnDic['result'] = "删除成功";
         return returnDic
+
+
         
         
 

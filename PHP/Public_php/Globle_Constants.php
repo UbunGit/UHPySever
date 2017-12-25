@@ -53,8 +53,8 @@ class Config {
  */
 class ConfigINI extends Config {
 	function __construct() {
-		
-		$real =realpath(dirname(__file__).'/../../Install');
+
+		$real ='../config';
 		$this->load ($real.'/config.conf');
 	}
 	/**
