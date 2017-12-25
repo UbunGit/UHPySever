@@ -2,29 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3085fc49-454e-4a4b-9b1b-b1be0ea694ce" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/../Sever/.idea/sqldialects.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../Sever/Interface/UPAndDown.py" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/JS/AddNewInterFace.js" afterPath="$PROJECT_DIR$/JS/AddNewInterFace.js" />
-      <change beforePath="$PROJECT_DIR$/JS/Cookie.js" afterPath="$PROJECT_DIR$/JS/Cookie.js" />
-      <change beforePath="$PROJECT_DIR$/JS/ScanInterFace.js" afterPath="$PROJECT_DIR$/JS/ScanInterFace.js" />
-      <change beforePath="$PROJECT_DIR$/JS/config.js" afterPath="$PROJECT_DIR$/JS/config.js" />
-      <change beforePath="$PROJECT_DIR$/Page/AddInterfaceVC.php" afterPath="$PROJECT_DIR$/Page/AddInterfaceVC.php" />
-      <change beforePath="$PROJECT_DIR$/Public_php/Globle_Constants.php" afterPath="$PROJECT_DIR$/Public_php/Globle_Constants.php" />
-      <change beforePath="$PROJECT_DIR$/Public_php/ViewController.php" afterPath="$PROJECT_DIR$/Public_php/ViewController.php" />
-      <change beforePath="$PROJECT_DIR$/../Sever/.idea/dataSources.local.xml" afterPath="$PROJECT_DIR$/../Sever/.idea/dataSources.local.xml" />
-      <change beforePath="$PROJECT_DIR$/../Sever/.idea/dataSources.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/../Sever/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../Sever/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/../Sever/HttpSever/HttpSever.py" afterPath="$PROJECT_DIR$/../Sever/HttpSever/HttpSever.py" />
-      <change beforePath="$PROJECT_DIR$/../Sever/HttpSever/SocketSever.py" afterPath="$PROJECT_DIR$/../Sever/HttpSever/SocketSever.py" />
-      <change beforePath="$PROJECT_DIR$/../Sever/Install/Install.sh" afterPath="$PROJECT_DIR$/../Sever/Install/Install.sh" />
-      <change beforePath="$PROJECT_DIR$/../Sever/Install/config.conf" afterPath="$PROJECT_DIR$/../Sever/Install/config.conf" />
-      <change beforePath="$PROJECT_DIR$/../Sever/Install/start.sh" afterPath="$PROJECT_DIR$/../Sever/Install/start.sh" />
-      <change beforePath="$PROJECT_DIR$/../Sever/Interface/Interface.py" afterPath="$PROJECT_DIR$/../Sever/Interface/Interface.py" />
-      <change beforePath="$PROJECT_DIR$/../Sever/Interface/SamrtHome.py" afterPath="$PROJECT_DIR$/../Sever/Interface/SamrtHome.py" />
-      <change beforePath="$PROJECT_DIR$/../Sever/PymysqlHandle/PymysqlHandle.py" afterPath="$PROJECT_DIR$/../Sever/PymysqlHandle/PymysqlHandle.py" />
-      <change beforePath="$PROJECT_DIR$/../Sever/SQLManage/relese1_0_0/CREATETABLE/SmartHomeDb.sql" afterPath="$PROJECT_DIR$/../Sever/SQLManage/relese1_0_0/CREATETABLE/SmartHomeDb.sql" />
-      <change beforePath="$PROJECT_DIR$/../Sever/SQLManage/sql_Install.sh" afterPath="$PROJECT_DIR$/../Sever/SQLManage/sql_Install.sh" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -393,8 +371,16 @@
       <workItem from="1513242729929" duration="6859000" />
       <workItem from="1513404170914" duration="3380000" />
       <workItem from="1513426385922" duration="7525000" />
-      <workItem from="1513936268287" duration="4655000" />
+      <workItem from="1513936268287" duration="4706000" />
     </task>
+    <task id="LOCAL-00001" summary="更新">
+      <created>1514193918768</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1514193918768</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -430,7 +416,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="65451000" />
+    <option name="totallyTimeSpent" value="65502000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -507,6 +493,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="更新" />
+    <option name="LAST_COMMIT_MESSAGE" value="更新" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
