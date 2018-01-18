@@ -1,8 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3085fc49-454e-4a4b-9b1b-b1be0ea694ce" name="Default" comment="">
+    <list default="true" id="3085fc49-454e-4a4b-9b1b-b1be0ea694ce" name="Default" comment="更新">
+      <change beforePath="" afterPath="$PROJECT_DIR$/../Sever/.idea/dataSources.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/JS/AddNewInterFace.js" afterPath="$PROJECT_DIR$/JS/AddNewInterFace.js" />
+      <change beforePath="$PROJECT_DIR$/JS/RecommendOutNO.js" afterPath="$PROJECT_DIR$/JS/RecommendOutNO.js" />
+      <change beforePath="$PROJECT_DIR$/Page/AddInterfaceVC.php" afterPath="$PROJECT_DIR$/Page/AddInterfaceVC.php" />
+      <change beforePath="$PROJECT_DIR$/Page/BaseViewController.php" afterPath="$PROJECT_DIR$/Page/BaseViewController.php" />
+      <change beforePath="$PROJECT_DIR$/Page/RecommendOutNO.php" afterPath="$PROJECT_DIR$/Page/RecommendOutNOVC.php" />
+      <change beforePath="$PROJECT_DIR$/Page/UpdateData3dVC.php" afterPath="$PROJECT_DIR$/Page/UpdateData3dVC.php" />
+      <change beforePath="$PROJECT_DIR$/Page/index.php" afterPath="$PROJECT_DIR$/Page/index.php" />
+      <change beforePath="$PROJECT_DIR$/../Sever/.idea/dataSources.local.xml" afterPath="$PROJECT_DIR$/../Sever/.idea/dataSources.local.xml" />
+      <change beforePath="$PROJECT_DIR$/../Sever/.idea/sqldialects.xml" afterPath="$PROJECT_DIR$/../Sever/.idea/sqldialects.xml" />
+      <change beforePath="$PROJECT_DIR$/../Sever/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../Sever/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/../Sever/Data/InterFace.cvs" afterPath="$PROJECT_DIR$/../Sever/Data/InterFace.cvs" />
+      <change beforePath="$PROJECT_DIR$/../Sever/HttpSever/HttpSever.py" afterPath="$PROJECT_DIR$/../Sever/HttpSever/HttpSever.py" />
+      <change beforePath="$PROJECT_DIR$/../Sever/Interface/UPAndDown.py" afterPath="$PROJECT_DIR$/../Sever/Interface/UPAndDown.py" />
+      <change beforePath="$PROJECT_DIR$/../Sever/PymysqlHandle/PymysqlHandle.py" afterPath="$PROJECT_DIR$/../Sever/PymysqlHandle/PymysqlHandle.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -26,6 +41,11 @@
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
         <item name="@localhost" type="feb32156:DbDataSourceImpl" />
       </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="collations" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
     </expand>
     <select />
   </component>
@@ -34,18 +54,8 @@
       <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Page/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="38" lean-forward="false" selection-start-line="5" selection-start-column="38" selection-end-line="5" selection-end-column="38" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ViewController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Public_php/ViewController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1320">
-              <caret line="88" column="13" lean-forward="false" selection-start-line="88" selection-start-column="13" selection-end-line="88" selection-end-column="13" />
+            <state relative-caret-position="240">
+              <caret line="16" column="90" lean-forward="true" selection-start-line="16" selection-start-column="90" selection-end-line="16" selection-end-column="90" />
               <folding />
             </state>
           </provider>
@@ -54,18 +64,8 @@
       <file leaf-file-name="AddInterfaceVC.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Page/AddInterfaceVC.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="264">
-              <caret line="84" column="60" lean-forward="true" selection-start-line="84" selection-start-column="60" selection-end-line="84" selection-end-column="60" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ScanInterFace.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/JS/ScanInterFace.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-690">
-              <caret line="65" column="11" lean-forward="true" selection-start-line="65" selection-start-column="11" selection-end-line="65" selection-end-column="11" />
+            <state relative-caret-position="97">
+              <caret line="60" column="36" lean-forward="true" selection-start-line="60" selection-start-column="36" selection-end-line="60" selection-end-column="36" />
               <folding />
             </state>
           </provider>
@@ -74,58 +74,82 @@
       <file leaf-file-name="Cookie.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/JS/Cookie.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="433">
-              <caret line="59" column="22" lean-forward="false" selection-start-line="59" selection-start-column="9" selection-end-line="59" selection-end-column="22" />
+            <state relative-caret-position="673">
+              <caret line="75" column="21" lean-forward="false" selection-start-line="75" selection-start-column="21" selection-end-line="75" selection-end-column="21" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AddNewInterFace.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/JS/AddNewInterFace.js">
+      <file leaf-file-name="RecommendOutNOVC.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Page/RecommendOutNOVC.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="870">
-              <caret line="58" column="48" lean-forward="true" selection-start-line="58" selection-start-column="48" selection-end-line="58" selection-end-column="48" />
+            <state relative-caret-position="607">
+              <caret line="73" column="114" lean-forward="false" selection-start-line="73" selection-start-column="114" selection-end-line="73" selection-end-column="114" />
+              <folding>
+                <element signature="e#3195#3251#0#HTML" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RecommendOutNO.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/JS/RecommendOutNO.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="445">
+              <caret line="75" column="37" lean-forward="false" selection-start-line="75" selection-start-column="37" selection-end-line="75" selection-end-column="37" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/JS/index.js">
+      <file leaf-file-name="UpdateData.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/JS/UpdateData.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
+            <state relative-caret-position="-128">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AddParameter.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/JS/AddParameter.js">
+      <file leaf-file-name="History3d.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/JS/History3d.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="225">
+              <caret line="15" column="36" lean-forward="true" selection-start-line="15" selection-start-column="36" selection-end-line="15" selection-end-column="36" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UpdateData3dVC.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Page/UpdateData3dVC.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="538">
+              <caret line="67" column="26" lean-forward="true" selection-start-line="67" selection-start-column="26" selection-end-line="67" selection-end-column="26" />
+              <folding>
+                <marker date="1516260596000" expanded="true" signature="3216:3284" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BaseViewController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Page/BaseViewController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="166">
+              <caret line="12" column="5" lean-forward="true" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Predictor3DVC.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Page/Predictor3DVC.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Login.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/JS/Login.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="675">
-              <caret line="45" column="20" lean-forward="false" selection-start-line="45" selection-start-column="20" selection-end-line="45" selection-end-column="57" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="config.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/JS/config.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" column="21" lean-forward="false" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="21" />
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="44" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -142,7 +166,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>\&lt;\?php\n\/\*\*\n \* Created by IntelliJ IDEA\.\n \* User\: UbunGit\n \* Date\: 2017\/12\/8\n \* Time\: 下午2\:22\n \*\/\nrequire_once \(\'\.\/BaseViewController\.php\'\)\;\n\n\/\*\*\n \* 添加新接口信息\n \*\/\nclass AddInterfaceVC extends BaseViewController \{\n\n    function viewwillLoad\(\) \{\n        \/\* 输出头部信息 \*\/\n        \$this\-\&gt;jsArr \= array \(\n            \&quot;AddNewInterFace\.js\&quot;\,\n            \&quot;Tooltips\.js\&quot;\,\n            \&quot;Cookie\.js\&quot;\n        \)\;\n\n        \/\* 输出头部信息 \*\/\n        \$this\-\&gt;absjsArr \= array \(\)\;\n\n        \$this\-\&gt;abscssArr \= array \(\)\;\n        \$this\-\&gt;cssArr \= array \(\n            \'AddNewInterFace\.css\'\,\n            \'header\.css\'\n        \)\;\n\n        \$this\-\&gt;title \= \&quot;日志分析\&quot;\;\n    \}\n    function getuserInfo\(\) \{\n        \$userimg \= __getCookies \( \'userImg\' \)\;\n        \$userName \= __getCookies \( \'userName\' \)\;\n\n        \$this\-\&gt;userInfo \= array \(\n            \&quot;heardImg\&quot; \=\&gt; \&quot;fc3d\.jpg\&quot;\,\n            \&quot;userName\&quot; \=\&gt; \$userName\n        \)\;\n    \}\n    function viewLoadbody\(\) \{\n        parent\:\:viewLoadbody \(\)\;\n\n        \$this\-\&gt;outputInterFaceInfo_edit\(\)\;\n    \}\n\nfunction outputInterFaceInfo_edit\(\) \{\n    echo \'\&lt;section id\=\&quot;main\-content\&quot;\&gt;\'\;\n    echo \'\&lt;section class\=\&quot;wrapper\&quot;\&gt;\'\;\n    \/\/ 接口基本信息from\n    outIntefaceBasicInfofrom \(\)\;\n    echo \'\&lt;\/section\&gt;\&lt;\/section\&gt;\'\;\n\}\nfunction outIntefaceBasicInfofrom\(\) \{\n    \?\&gt;\n\n    \&lt;div class\=\&quot;col\-lg\-12\&quot;\&gt;\n        \&lt;section class\=\&quot;panel\&quot;\&gt;\n            \&lt;header class\=\&quot;panel\-heading\&quot;\&gt; 基本信息 \&lt;\/header\&gt;\n            \&lt;div class\=\&quot;panel\-body\&quot;\&gt;\n                \&lt;form  class\=\&quot;form\-horizontal\&quot; role\=\&quot;form\&quot;\&gt;\n                    \&lt;div class\=\&quot;form\-group\&quot;\&gt;\n                        \&lt;label class\=\&quot;col\-lg\-3 control\-label\&quot;\&gt; 接口名称\&lt;\/label\&gt;\n                        \&lt;div class\=\&quot;col\-lg\-9\&quot;\&gt;\n                            \&lt;input type\=\&quot;text\&quot; placeholder\=\&quot;接口名称\&quot; name\=\&quot;interFaceName\&quot;\n                                   class\=\&quot;form\-control\&quot;\&gt;\n                        \&lt;\/div\&gt;\n                    \&lt;\/div\&gt;\n\n                    \&lt;div class\=\&quot;form\-group\&quot;\&gt;\n                        \&lt;label class\=\&quot;col\-lg\-3 control\-label\&quot;\&gt;接口中文名称\&lt;\/label\&gt;\n                        \&lt;div class\=\&quot;col\-lg\-9\&quot;\&gt;\n                            \&lt;input type\=\&quot;text\&quot; placeholder\=\&quot;接口中文名称\&quot; name\=\&quot;interFaceNameStr\&quot;\n                                   class\=\&quot;form\-control\&quot;\&gt;\n                        \&lt;\/div\&gt;\n                    \&lt;\/div\&gt;\n\n                    \&lt;div class\=\&quot;form\-group\&quot;\&gt;\n                        \&lt;label class\=\&quot;col\-lg\-3 control\-label\&quot;\&gt;接口路径\&lt;\/label\&gt;\n                        \&lt;div class\=\&quot;col\-lg\-9\&quot;\&gt;\n                            \&lt;select class\=\&quot;form\-control  m\-bot15 \&quot; name\=\&quot;interFacepath\&quot;\&gt;\n                                \&lt;option\&gt;interface\&lt;\/option\&gt;\n                                \&lt;option\&gt;samrtHome\&lt;\/option\&gt;\n                                \&lt;option\&gt;FCAnalyse\&lt;\/option\&gt;\n                            \&lt;\/select\&gt;\n                        \&lt;\/div\&gt;\n                    \&lt;\/div\&gt;\n                    \&lt;div class\=\&quot;panel\-foot\&quot;\&gt;\n                        \&lt;ul class\=\&quot;summary\-list\&quot;\&gt;\n                            \&lt;li\&gt;\&lt;a href\=\&quot;javascript\:\;\&quot;\&gt; \&lt;i class\=\&quot;fa fa\-cloud text\-primary saveIneface\&quot;\&gt;\&lt;\/i\&gt;\n                                    保存\n                                \&lt;\/a\&gt;\&lt;\/li\&gt;\n                            \&lt;li\&gt;\&lt;a href\=\&quot;javascript\:\;\&quot;\&gt; \&lt;i\n                                        class\=\&quot;fa fa\-cloud\-download text\-primary\&quot;\&gt;\&lt;\/i\&gt; 导入\n                                \&lt;\/a\&gt;\&lt;\/li\&gt;\n                            \&lt;li\&gt;\&lt;a href\=\&quot;javascript\:\;\&quot;\&gt; \&lt;i\n                                        class\=\&quot;fa fa\-cloud\-upload text\-primary\&quot;\&gt;\&lt;\/i\&gt; 导出\n                                \&lt;\/a\&gt;\&lt;\/li\&gt;\n                        \&lt;\/ul\&gt;\n                    \&lt;\/div\&gt;\n            \&lt;\/div\&gt;\n            \&lt;\/form\&gt;\n        \&lt;\/section\&gt;\n    \&lt;\/div\&gt;\n    \&lt;\?php\n\}\n\n\n\}</find>
       <find>replaceText</find>
       <find>getOutputValueList</find>
       <find>parameterFatherName</find>
@@ -169,6 +192,10 @@
       <find>$locatonUrl</find>
       <find>path</find>
       <find>font</find>
+      <find>upload-button</find>
+      <find>getleftbarData</find>
+      <find>outSilerbarli</find>
+      <find>easyPieChart</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/Page</dir>
@@ -186,9 +213,7 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/JS/Login.js" />
-        <option value="$PROJECT_DIR$/Page/UpdateData3dVC.php" />
         <option value="$PROJECT_DIR$/Page/Predictor3DVC.php" />
-        <option value="$PROJECT_DIR$/Page/index.php" />
         <option value="$PROJECT_DIR$/JS/sliders.js" />
         <option value="$PROJECT_DIR$/JS/BaseViewController.js" />
         <option value="$PROJECT_DIR$/JS/Tooltips.js" />
@@ -199,16 +224,20 @@
         <option value="$PROJECT_DIR$/Public_php/Globle_HttpIntface.php" />
         <option value="$PROJECT_DIR$/Page/LogViewController.php" />
         <option value="$PROJECT_DIR$/Public_php/Globle_Method.php" />
-        <option value="$PROJECT_DIR$/Page/BaseViewController.php" />
         <option value="$PROJECT_DIR$/Page/InterfaceManageVC.php" />
         <option value="$PROJECT_DIR$/Public_php/Exception.php" />
         <option value="$PROJECT_DIR$/Public_php/Globle_Constants.php" />
         <option value="$PROJECT_DIR$/Public_php/ViewController.php" />
         <option value="$PROJECT_DIR$/JS/config.js" />
-        <option value="$PROJECT_DIR$/JS/AddNewInterFace.js" />
-        <option value="$PROJECT_DIR$/Page/AddInterfaceVC.php" />
         <option value="$PROJECT_DIR$/JS/Cookie.js" />
         <option value="$PROJECT_DIR$/JS/ScanInterFace.js" />
+        <option value="$PROJECT_DIR$/JS/AddNewInterFace.js" />
+        <option value="$PROJECT_DIR$/Page/AddInterfaceVC.php" />
+        <option value="$PROJECT_DIR$/Page/BaseViewController.php" />
+        <option value="$PROJECT_DIR$/Page/index.php" />
+        <option value="$PROJECT_DIR$/Page/UpdateData3dVC.php" />
+        <option value="$PROJECT_DIR$/Page/RecommendOutNOVC.php" />
+        <option value="$PROJECT_DIR$/JS/RecommendOutNO.js" />
       </list>
     </option>
   </component>
@@ -234,8 +263,7 @@
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" interpreter_name="PHP 7.1" />
   <component name="PhpXdebugProxy" ide_key="PHPSTORM" host="localhost" port="63343" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="644" />
-    <option name="y" value="23" />
+    <option name="y" value="135" />
     <option name="width" value="1855" />
     <option name="height" value="1337" />
   </component>
@@ -275,13 +303,17 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="PHP" type="b2602c69:ProjectViewProjectNode" />
               <item name="PHP" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="PHP" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PHP" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="CSS" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="PHP" type="b2602c69:ProjectViewProjectNode" />
@@ -302,6 +334,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="AndroidView" />
     </panes>
@@ -371,7 +404,9 @@
       <workItem from="1513242729929" duration="6859000" />
       <workItem from="1513404170914" duration="3380000" />
       <workItem from="1513426385922" duration="7525000" />
-      <workItem from="1513936268287" duration="4706000" />
+      <workItem from="1513936268287" duration="18566000" />
+      <workItem from="1515998036568" duration="5555000" />
+      <workItem from="1516244026091" duration="6080000" />
     </task>
     <task id="LOCAL-00001" summary="更新">
       <created>1514193918768</created>
@@ -416,7 +451,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="65502000" />
+    <option name="totallyTimeSpent" value="90997000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -428,19 +463,19 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="644" y="23" width="1855" height="1337" extended-state="0" />
+    <frame x="0" y="135" width="1855" height="1337" extended-state="0" />
+    <editor active="true" />
     <layout>
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.283508" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32850242" sideWeight="0.49145064" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="PHP-CGI Server" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32850242" sideWeight="0.48703805" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.49677938" sideWeight="0.51516825" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.49677938" sideWeight="0.48483178" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4137645" sideWeight="0.47545505" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3291874" sideWeight="0.48483178" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27799228" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="PHP-CGI Server" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32850242" sideWeight="0.48703805" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17552336" sideWeight="0.51516825" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.1638814" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3283582" sideWeight="0.49476007" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17552336" sideWeight="0.48483178" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.11191627" sideWeight="0.47545505" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2498621" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3291874" sideWeight="0.48483178" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35737976" sideWeight="0.7385549" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -458,6 +493,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33582088" sideWeight="0.4958632" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3283582" sideWeight="0.49476007" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="SciView" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
     </layout>
@@ -504,39 +540,20 @@
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/JS/Cookie.js</url>
           <line>56</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="7" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/JS/RecommendOutNO.js</url>
+          <line>78</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="8" />
+      <option name="time" value="11" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/CSS/slidebars.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1817">
-          <caret line="38" column="18" lean-forward="false" selection-start-line="38" selection-start-column="18" selection-end-line="38" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/JS/count.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_PLUGINS_DIR$/php/lib/php.jar!/stubs/standard/standard_8.php" />
-    <entry file="file://$PROJECT_DIR$/JS/BaseViewController.js" />
-    <entry file="file://$PROJECT_DIR$/JS/UpdateData.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="521">
-          <caret line="81" column="0" lean-forward="true" selection-start-line="81" selection-start-column="0" selection-end-line="81" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_PLUGINS_DIR$/php/lib/php.jar!/stubs/standard/_types.php" />
     <entry file="file://$PROJECT_DIR$/Page/500.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="36">
@@ -617,13 +634,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/JS/RecommendOutNO.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-517">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/JS/MemberManagement.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -680,13 +690,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/JS/History3d.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="30" column="14" lean-forward="false" selection-start-line="30" selection-start-column="14" selection-end-line="30" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///Applications/XAMPP/xamppfiles/etc/php.ini" />
     <entry file="file://$PROJECT_DIR$/Page/LoginViewController.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -718,14 +721,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Page/BaseViewController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1620">
-          <caret line="108" column="7" lean-forward="false" selection-start-line="108" selection-start-column="7" selection-end-line="108" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Public_php/Exception.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
@@ -744,7 +739,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="15" column="25" lean-forward="false" selection-start-line="15" selection-start-column="25" selection-end-line="15" selection-end-column="25" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -752,7 +746,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="10410">
           <caret line="694" column="11" lean-forward="false" selection-start-line="694" selection-start-column="7" selection-end-line="694" selection-end-column="11" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -760,7 +753,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="525">
           <caret line="35" column="13" lean-forward="false" selection-start-line="35" selection-start-column="13" selection-end-line="35" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -768,14 +760,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1320">
           <caret line="88" column="13" lean-forward="false" selection-start-line="88" selection-start-column="13" selection-end-line="88" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/JS/config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="21" lean-forward="false" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="21" />
           <folding />
         </state>
       </provider>
@@ -790,32 +774,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/JS/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Page/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="38" lean-forward="false" selection-start-line="5" selection-start-column="38" selection-end-line="5" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Page/AddInterfaceVC.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="84" column="60" lean-forward="true" selection-start-line="84" selection-start-column="60" selection-end-line="84" selection-end-column="60" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/JS/Cookie.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="433">
-          <caret line="59" column="22" lean-forward="false" selection-start-line="59" selection-start-column="9" selection-end-line="59" selection-end-column="22" />
+        <state relative-caret-position="105">
+          <caret line="7" column="6" lean-forward="false" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
           <folding />
         </state>
       </provider>
@@ -824,22 +784,129 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JS/ScanInterFace.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" column="21" lean-forward="false" selection-start-line="20" selection-start-column="21" selection-end-line="20" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external/lib.dom.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="56910">
+          <caret line="3807" column="22" lean-forward="false" selection-start-line="3807" selection-start-column="22" selection-end-line="3807" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JS/config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="21" lean-forward="false" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external/lib.webworker.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="335">
+          <caret line="478" column="12" lean-forward="false" selection-start-line="478" selection-start-column="12" selection-end-line="478" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Page/Predictor3DVC.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="44" selection-end-column="5" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/JS/AddNewInterFace.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="870">
-          <caret line="58" column="48" lean-forward="true" selection-start-line="58" selection-start-column="48" selection-end-line="58" selection-end-column="48" />
+        <state relative-caret-position="-23">
+          <caret line="68" column="33" lean-forward="false" selection-start-line="68" selection-start-column="33" selection-end-line="68" selection-end-column="33" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/JS/ScanInterFace.js">
+    <entry file="file://$PROJECT_DIR$/JS/Cookie.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-690">
-          <caret line="65" column="11" lean-forward="true" selection-start-line="65" selection-start-column="11" selection-end-line="65" selection-end-column="11" />
+        <state relative-caret-position="673">
+          <caret line="75" column="21" lean-forward="false" selection-start-line="75" selection-start-column="21" selection-end-line="75" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Page/AddInterfaceVC.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="97">
+          <caret line="60" column="36" lean-forward="true" selection-start-line="60" selection-start-column="36" selection-end-line="60" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Page/BaseViewController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="166">
+          <caret line="12" column="5" lean-forward="true" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Page/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="90" lean-forward="true" selection-start-line="16" selection-start-column="90" selection-end-line="16" selection-end-column="90" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Page/UpdateData3dVC.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="538">
+          <caret line="67" column="26" lean-forward="true" selection-start-line="67" selection-start-column="26" selection-end-line="67" selection-end-column="26" />
+          <folding>
+            <marker date="1516260596000" expanded="true" signature="3216:3284" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JS/UpdateData.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-128">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JS/History3d.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="36" lean-forward="true" selection-start-line="15" selection-start-column="36" selection-end-line="15" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Page/RecommendOutNOVC.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="607">
+          <caret line="73" column="114" lean-forward="false" selection-start-line="73" selection-start-column="114" selection-end-line="73" selection-end-column="114" />
+          <folding>
+            <element signature="e#3195#3251#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JS/RecommendOutNO.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="445">
+          <caret line="75" column="37" lean-forward="false" selection-start-line="75" selection-start-column="37" selection-end-line="75" selection-end-column="37" />
           <folding />
         </state>
       </provider>

@@ -492,11 +492,44 @@ class PymysqlHandle(object):
         connection = SqlHabdleGlobal.connectionDb();
         with connection.cursor() as cursor:
 
-            sql = 'select * from SmartHomeInterFace_Table into  outfile "'+ savepath +'"';
+            sql = 'select interFaceName,interFaceNameStr,' \
+                  'interFaceDescribe,interFacepath,' \
+                  'interFaceBeginTime,interFaceEndTime,' \
+                  'interFaceBeginVersions,interFaceEndVersions from SmartHomeInterFace_Table into  outfile "'+ savepath +'"';
             cursor.execute(sql);
             connection.commit()
             connection.close()
-            return True
+            return
+
+    '''
+    导入接口txt文件到数据库
+    '''
+    def insterInterfaceData(self,savePath):
+        connection = SqlHabdleGlobal.connectionDb();
+        with connection.cursor() as cursor:
+
+            sql = 'DROP TABLE IF  EXISTS tmp_x;' \
+                  'CREATE TEMPORARY TABLE tmp_x (interFaceName varchar(255),' \
+                  ' interFaceNameStr varchar(255) ,' \
+                  ' interFaceDescribe text,' \
+                  ' interFacepath text,' \
+                  ' interFaceBeginTime text,' \
+                  ' interFaceEndTime text,' \
+                  ' interFaceBeginVersions text,' \
+                  ' interFaceEndVersions text);' \
+                  'LOAD DATA LOCAL INFILE ' \
+                  '"/Users/ubungit/Git/UHPySever/Sever/Data/InterFace.txt" ' \
+                  'INTO TABLE tmp_x FIELDS TERMINATED BY "\t" LINES TERMINATED BY "\n"; ' \
+                  'REPLACE  SmartHomeInterFace_Table (interFaceName,interFaceNameStr,interFaceDescribe,interFacepath,' \
+                  'interFaceBeginTime,interFaceEndTime,interFaceBeginVersions,interFaceEndVersions)' \
+                  'SELECT interFaceName,interFaceNameStr,interFaceDescribe,interFacepath,' \
+                  'interFaceBeginTime,interFaceEndTime,interFaceBeginVersions,interFaceEndVersions FROM tmp_x;' \
+                  'DROP TABLE IF  EXISTS tmp_x';
+            cursor.execute(sql);
+            connection.commit()
+            connection.close()
+            return
+
 
 
   

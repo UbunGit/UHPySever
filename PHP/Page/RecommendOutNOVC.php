@@ -1,19 +1,18 @@
 <?php
 require_once('./BaseViewController.php');
 
-class UpdateData3dVC extends BaseViewController
+class RecommendOutNOVC extends BaseViewController
 {
 
     function viewwillLoad()
     {
         /* 输出头部信息 */
         $this->jsArr = array(
-            "UpdateData.js"
+            "RecommendOutNO.js"
         );
 
         /* 输出头部信息 */
         $this->absjsArr = array(
-
             "<script src=https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.2/socket.io.js></script>",
             '<script src=' . $this->getAssets('chart-master/Chart.js') . '></script>'
         );
@@ -24,7 +23,7 @@ class UpdateData3dVC extends BaseViewController
             'UpdateData.css'
         );
 
-        $this->title = "更新数据";
+        $this->title = "频率统计";
     }
 
     function getuserInfo()
@@ -44,7 +43,6 @@ class UpdateData3dVC extends BaseViewController
 
         $this->outmain();
     }
-
 
     function outmain()
     {
@@ -67,40 +65,43 @@ class UpdateData3dVC extends BaseViewController
 
                     </div>
                     <div class="col-lg-9 col-sm-9 col-md-9">
-                        <section class="panel">
-                            <header class="panel-heading">
-                                更新福彩3D数据
-                                <span class="tools pull-right">
-                                <input id="btnSend" type="button" value="更新"/>
-                            </span>
-                            </header>
-                            <div>
+                        <div class="row">
 
+                            <div class="col-lg-9 col-sm-9 col-md-9">
+                                <section class="panel">
+                                    <header class="panel-heading">
+                                        来自服务端的消息 <span class="tools pull-right"> <input id="btnSend"
+                                                                                        type="button" value="开始"/></span>
+                                    </header>
+                                    <div class="panel-body">
+						<textarea id="txtContent" cols="150" rows="10" readonly="readonly"
+                                  class="comments"></textarea>
+                                    </div>
+                                </section>
                             </div>
-                        </section>
+                            <div class="col-lg-3 col-sm-3 col-md-3">
+                                <section class="panel">
+                                    <header class="panel-heading">
+                                        正确率评估<span class="tools pull-right">  </span>
+                                    </header>
 
+                                    <div class="chart">
+                                        <div class="pie-chart" data-percent="50"
+                                             style="width: 135px; height: 135px; line-height: 135px;">
+                                            <span>50</span>%
 
-                    </div>
-                    <div class="col-lg-9 col-sm-9 col-md-9">
-                        <section class="panel">
-                            <header class="panel-heading">
-                                来自服务端的消息
-                                <span class="tools pull-right">
-                                <a href="javascript:;" class="fa fa-chevron-down"></a>
-                                <a href="javascript:;" class="fa fa-remove"></a>
-                            </span>
-                            </header>
-                            <div class="panel-body">
-                              <textarea id="txtContent" cols="150" rows="10" readonly="readonly"
-                                        class="comments"></textarea>
+                                        </div>
+                                    </div>
+
+                                </section>
                             </div>
-                        </section>
+                        </div>
                     </div>
-                    <div>
 
             </section>
         </section>
         <?php
     }
 }
+
 ?>

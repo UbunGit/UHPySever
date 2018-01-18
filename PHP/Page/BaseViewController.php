@@ -1,5 +1,5 @@
 <?php
-require_once ('../Public_php/ViewController.php');
+require_once('../Public_php/ViewController.php');
 
 abstract class BaseViewController extends ViewController
 {
@@ -24,6 +24,21 @@ abstract class BaseViewController extends ViewController
 
         $this->className = __get("className");
         $this->bodyLoadleftBar();
+    }
+
+    /**
+     * 输出siderbar li
+     */
+    public function outSilerbarli($path, $text)
+    {
+
+        $url = './index.php?className=' . $path;
+        if (strcmp($path, $this->className) == 0) {
+
+            return '<li class="active"><a href=' . $url . '>' . $text . '</a></li>';
+        } else {
+            return '<li ><a href=' . $url . '>' . $text . '</a></li>';
+        }
     }
 
     function bodyLoadHead()
@@ -77,10 +92,10 @@ abstract class BaseViewController extends ViewController
                 <ul class="sidebar-menu" id="nav-accordion">
                     <?php
                     foreach ($this->getleftbarData() as $key => $value) {
-                        if (empty($value["item"])){
+                        if (empty($value["item"])) {
                             echo '<li >' . '<a ><i class="' . $value["faname"] . '"></i> <span>' . $key . '</span> </a><ul>';
-                        }else{
-                            echo '<li class="sub-menu">' .'<a ><i class="' .  $value["faname"] . '"></i> <span>' . $key . '</span> </a><ul class="sub">';
+                        } else {
+                            echo '<li class="sub-menu">' . '<a ><i class="' . $value["faname"] . '"></i> <span>' . $key . '</span> </a><ul class="sub">';
                             foreach ($value["item"] as $itemkey => $itemValue) {
                                 echo $this->outSilerbarli($itemValue["classNmae"], $itemkey);
                             }
@@ -106,20 +121,6 @@ abstract class BaseViewController extends ViewController
         echo '</section>';
     }
 
-    /**
-     * 输出siderbar li
-     */
-    function outSilerbarli($path, $text)
-    {
-
-        $url = './index.php?className=' . $path;
-        if (strcmp($path, $this->className) == 0) {
-
-            return '<li class="active"><a href=' . $url . '>' . $text . '</a></li>';
-        } else {
-            return '<li ><a href=' . $url . '>' . $text . '</a></li>';
-        }
-    }
 
 
 

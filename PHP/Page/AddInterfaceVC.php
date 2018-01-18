@@ -65,6 +65,7 @@ class AddInterfaceVC extends BaseViewController
     {
         ?>
 
+
         <div class="col-lg-12">
             <section class="panel">
                 <header class="panel-heading"> 基本信息</header>
@@ -99,21 +100,35 @@ class AddInterfaceVC extends BaseViewController
                                 </select>
                             </div>
                         </div>
-                        <div class="panel-foot">
-                            <ul class="summary-list">
-                                <li><a class="saveIneface-a" href="javascript:;"> <i class="fa fa-cloud text-primary "></i>
-                                        保存
-                                    </a></li>
-                                <li><a class="uploadInterface-a" href="javascript:;"> <i
-                                                class="fa fa-cloud-upload text-primary"></i> 导入
-                                    </a></li>
-                                <li><a class="downInterface-a" href="javascript:;"> <i
-                                                class="fa fa-cloud-download text-primary"></i> 导出
-                                    </a></li>
-                            </ul>
-                        </div>
+                    </form>
+                    <div class="panel-foot">
+                        <ul class="summary-list">
+                            <li>
+                                <a class="saveIneface-a" href="javascript:;">
+                                    <i class="fa fa-cloud text-primary "></i>
+                                    保存
+                                </a>
+                            </li>
+                            <li>
+                                <form id="uploadForm">
+
+                                    <input type="file" name="file" id="upload-input"/>
+
+                                </form>
+                                <a class="upload-a" href="javascript:;">
+                                    <i class="fa fa-cloud-upload text-primary"></i>导入
+                                </a>
+
+                            </li>
+                            <li>
+                                <a class="downInterface-a" href="javascript:;">
+                                    <i class="fa fa-cloud-download text-primary"></i> 导出
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-                </form>
+
             </section>
         </div>
         <?php
@@ -121,3 +136,4 @@ class AddInterfaceVC extends BaseViewController
 
 
 }
+?>

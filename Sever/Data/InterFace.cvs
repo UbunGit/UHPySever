@@ -1,28 +1,28 @@
-2	getfileUrl	生成对应下载文件并返回路径		UPAndDown			1.0.0	
-3	SocketInterFace	更新3D数据	\N	SocketInterFace	\N	\N	\N	\N
-4	addInterFace	添加接口	\N	samrtHome	\N	\N	\N	\N
-5	deleteInterFace	删除接口	\N	interface	\N	\N	\N	\N
-6	replaceInteface	修改接口信息	\N	samrtHome	\N	\N	\N	\N
-7	getInterFaceList	获取接口列表	\N	samrtHome	\N	\N	\N	\N
-8	getInterFaceInfo	获取接口信息	\N	samrtHome	\N	\N	\N	\N
-9	getInputValueList	获取接口入参数列表	\N	interface	\N	\N	\N	\N
-10	getOutputValueList	获取接口出参数列表	\N	samrtHome	\N	\N	\N	\N
-11	addParametervalue	添加接口参数列表	\N	interface	\N	\N	\N	\N
-12	deleteParameter	根据参数id删除参数	\N	samrtHome	\N	\N	\N	\N
-13	getMemberList	获取会员列表	\N	samrtHome	\N	\N	\N	\N
-14	getMemberInfo	获取会员信息	\N	samrtHome	\N	\N	\N	\N
-15	replaceMemberInfo	修改会员信息	\N	samrtHome	\N	\N	\N	\N
-16	deleteLog	删除错误码	\N	interface	\N	\N	\N	\N
-17	getLogList	获取错误码列表	\N	interface	\N	\N	\N	\N
-18	register	注册	\N	interface	\N	\N	\N	\N
-19	log	登录	\N	interface	\N	\N	\N	\N
-20	getLogState	查询会员是否登录	\N	interface	\N	\N	\N	\N
-21	replaceFC3DDataBalance	设置频率比重	\N	FCAnalyse	\N	\N	\N	\N
-22	getFC3DDataBalance	根据频率值获取对应比重数据	\N	interface	\N	\N	\N	\N
-23	getFrequencyData	获取对应出球时间的频率	\N	interface	\N	\N	\N	\N
-24	getOmitData	获取遗漏数据	\N	FCAnalyse	\N	\N	\N	\N
-25	getRecommendCode	获取推荐的号码	\N	interface	\N	\N	\N	\N
-26	recommendData	获取频率表归纳数据	\N	interface	\N	\N	\N	\N
-27	getFCDatabyOutData	根据出球号或时间获取福彩3D数据	\N	interface	\N	\N	\N	\N
-28	getLastFCData	获取最后一期福彩3D数据	\N	FCAnalyse	\N	\N	\N	\N
-29	getFC3DData	获取3D数据	\N	FCAnalyse	\N	\N	\N	\N
+getfileUrl	生成对应下载文件并返回路径		UPAndDown			1.0.0	
+SocketInterFace	更新3D数据	\N	SocketInterFace	\N	\N	\N	\N
+addInterFace	添加接口	\N	samrtHome	\N	\N	\N	\N
+deleteInterFace	删除接口	\N	interface	\N	\N	\N	\N
+replaceInteface	修改接口信息	\N	samrtHome	\N	\N	\N	\N
+getInterFaceList	获取接口列表	\N	samrtHome	\N	\N	\N	\N
+getInterFaceInfo	获取接口信息	\N	samrtHome	\N	\N	\N	\N
+getInputValueList	获取接口入参数列表	\N	interface	\N	\N	\N	\N
+getOutputValueList	获取接口出参数列表	\N	samrtHome	\N	\N	\N	\N
+addParametervalue	添加接口参数列表	\N	interface	\N	\N	\N	\N
+deleteParameter	根据参数id删除参数	\N	samrtHome	\N	\N	\N	\N
+getMemberList	获取会员列表	\N	samrtHome	\N	\N	\N	\N
+getMemberInfo	获取会员信息	\N	samrtHome	\N	\N	\N	\N
+replaceMemberInfo	修改会员信息	\N	samrtHome	\N	\N	\N	\N
+deleteLog	删除错误码	\N	interface	\N	\N	\N	\N
+getLogList	获取错误码列表	\N	interface	\N	\N	\N	\N
+register	注册	\N	interface	\N	\N	\N	\N
+log	登录	\N	interface	\N	\N	\N	\N
+getLogState	查询会员是否登录	\N	interface	\N	\N	\N	\N
+replaceFC3DDataBalance	设置频率比重	\N	FCAnalyse	\N	\N	\N	\N
+getFC3DDataBalance	根据频率值获取对应比重数据	\N	interface	\N	\N	\N	\N
+getFrequencyData	获取对应出球时间的频率	\N	interface	\N	\N	\N	\N
+getOmitData	获取遗漏数据	\N	FCAnalyse	\N	\N	\N	\N
+getRecommendCode	获取推荐的号码	\N	interface	\N	\N	\N	\N
+recommendData	获取频率表归纳数据	\N	interface	\N	\N	\N	\N
+getFCDatabyOutData	根据出球号或时间获取福彩3D数据	\N	interface	\N	\N	\N	\N
+getLastFCData	获取最后一期福彩3D数据	\N	FCAnalyse	\N	\N	\N	\N
+getFC3DData	获取3D数据	\N	FCAnalyse	\N	\N	\N	\N

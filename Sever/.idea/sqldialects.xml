@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="SqlDialectMappings">
+    <file url="file://$PROJECT_DIR$/SQLManage/relese1_0_0/CREATETABLE/CreatdFC3DTable.sql" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/SQLManage/relese1_0_0/CREATETABLE/SmartHomeDb.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/SQLManage/relese1_0_0/ROUTINES/InsterBlanceData.sql" dialect="TSQL" />
   </component>
 </project>

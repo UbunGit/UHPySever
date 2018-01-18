@@ -467,11 +467,8 @@ class FC3DProbability(object):
             allblance = 0.00
             for key in blanceData.keys():
                 keydata = blanceData[key]
-                if key>=20 and keydata[gebalanceStr]==keydata[shibalanceStr]==keydata[baibalanceStr]:
-                    break
-                else:
-                    allblance =allblance+keydata[gebalanceStr]+keydata[shibalanceStr]+keydata[baibalanceStr]
-            if allblance!= 0.00: endNum[numstr] = str(allblance);
+                allblance =allblance+keydata[baibalanceStr]+keydata[shibalanceStr]+keydata[gebalanceStr]
+            endNum[numstr] = str(allblance);
         return endNum;
 
             

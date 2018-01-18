@@ -5,6 +5,8 @@
 var socket;
 var _isConnect = false;
 $(document).ready(function() {
+    var truecount = 0;
+    var flasecount = 0;
 
 	function connect() {
 		var host = "ws://" + SocketIP + ":" + SocketPORD + "/"
@@ -52,19 +54,53 @@ $(document).ready(function() {
 	
 	function send() {
 		var inputArr = {
-				"inefaceMode" : "upLoadData",
+				"inefaceMode" : "test",
 				"userName" : "test",
 				"passWord" : "passWord",
 				"telNO":"telNO"
 		};
 		var json = JSON.stringify(inputArr);
+        $("#txtContent").val("");
+        truecount = 0;
+        flasecount = 0;
 		socket.send(json);
 	}
-	
+
+
 	function displayContent(msg) {
-		
-		$("#txtContent").val(msg+$("#txtContent").val()+ "\r\n"); 
+		if (msg == '\n') {
+            $("#txtContent").val("-----end------"+"\r\n"+$("#txtContent").val());
+            return;
+		}
+        var returnData = JSON.parse(msg);
+		if (returnData["Balance"]>2.4){
+            truecount++;
+		}else {
+            flasecount++;
+		}
+
+		$("#txtContent").val(msg+"\r\n"+$("#txtContent").val());
+
+        $(".pie-chart").sparkline([truecount,flasecount], {
+            type: 'pie',
+            width: '100',
+            height: '100',
+            borderColor: '#00bf00',
+            sliceColors: ['#ef6f66', '#a8d76f']
+
+        });
 	}
+
+
+    $(".pie-chart").sparkline([1,1], {
+        type: 'pie',
+        width: '100',
+        height: '100',
+        borderColor: '#00bf00',
+        sliceColors: ['#ef6f66', '#a8d76f']
+
+    });
+
 	connect();
 });
 

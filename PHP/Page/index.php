@@ -8,6 +8,7 @@ require_once ('./History3dVC.php');
 require_once ('./UpdateData3dVC.php');
 require_once ('./Predictor3DVC.php');
 require_once ("FCOutDataVC.php");
+require_once ("RecommendOutNOVC.php");
 try{
 
     if (empty(__getCookies("userName"))){

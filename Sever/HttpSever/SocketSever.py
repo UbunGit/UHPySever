@@ -29,6 +29,9 @@ class websocket_thread(threading.Thread):
             if len(inputdata)>0:
                 inputdata = json.loads(parse_data(data))
                 socketInterFace.socketInterFace(inputdata)
+                reply = '\n'
+                length = len(reply)
+                self.connection.send('%c%c%s' % (0x81, length, reply))
             
 def parse_data(msg):
     v = ord(msg[1]) & 0x7f

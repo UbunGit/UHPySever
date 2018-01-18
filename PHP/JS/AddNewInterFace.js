@@ -1,6 +1,4 @@
-/**
- *
- */
+
 $(function () {
 
     /**
@@ -53,12 +51,57 @@ $(function () {
         return false;
     });
 
+
+    // /**
+    //  * 上传
+    //  */
+    // $('input[id=upload-input]').change(function() {
+    //
+    //     var formData = new FormData(); // 当前为空
+    //     formData.append('username', 'Chris');
+    //     formData.append('username1', 'Chri2s');
+    //     $.ajax({
+    //         url: httpURL_UPAndDown,
+    //         type: 'POST',
+    //         cache: false,
+    //         data: formData,
+    //         processData: false,
+    //         contentType: false
+    //     }).done(function(res) {
+    //     }).fail(function(res) {});
+    //
+    // });
+
     /**
      * 上传
      */
-    $(".uploadInterface-a").click(function (e) {
-        alert("uploadInterface");
+    $(".upload-a").click(function (e) {
+
+        var formData = new FormData($("#uploadForm")[0]);
+
+        formData.append("upType","1001")
+        formData.append("inefaceMode","saveUpFile")
+
+
+        $.ajax({
+            url: httpURL_UPAndDown,
+            type: 'POST',
+            data: formData,
+            async: false,
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function (returndata) {
+                alert(returndata);
+            },
+            error: function (returndata) {
+                alert(returndata);
+            }
+        });
+
     });
+
+
 
     /**
      * 下载
