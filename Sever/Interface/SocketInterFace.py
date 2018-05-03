@@ -7,7 +7,7 @@ Created on 2017年2月10日
 '''
 import FCTimer
 
-from FC3DAnalyse.FC3DProbability import FC3DProbability
+from FC3DAnalyse import FC3DProbability
 from PymysqlHandle.PymysqlHandle import PymysqlHandle
 from PyString import PythonString
 

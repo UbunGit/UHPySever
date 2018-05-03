@@ -2,22 +2,41 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3085fc49-454e-4a4b-9b1b-b1be0ea694ce" name="Default" comment="更新">
-      <change beforePath="" afterPath="$PROJECT_DIR$/../Sever/.idea/dataSources.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/Page/Test.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/Test" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/TestHtml/ClickJacking.html" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/../Sever/QiangPiao/12306.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/../Sever/QiangPiao/Damai.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/../Sever/QiangPiao/__init__.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/../Sever/Test/UnittestConfig.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/../Sever/Test/__init__.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/../Sever/XianYu/DataBase/OperateDB.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/../Sever/XianYu/DataBase/__init__.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/../Sever/XianYu/Main.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/../Sever/XianYu/Spider/__init__.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/../Sever/XianYu/__init__.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/../Sever/XianYu/my2.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/../Sever/setup.py" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/JS/AddNewInterFace.js" afterPath="$PROJECT_DIR$/JS/AddNewInterFace.js" />
-      <change beforePath="$PROJECT_DIR$/JS/RecommendOutNO.js" afterPath="$PROJECT_DIR$/JS/RecommendOutNO.js" />
-      <change beforePath="$PROJECT_DIR$/Page/AddInterfaceVC.php" afterPath="$PROJECT_DIR$/Page/AddInterfaceVC.php" />
-      <change beforePath="$PROJECT_DIR$/Page/BaseViewController.php" afterPath="$PROJECT_DIR$/Page/BaseViewController.php" />
-      <change beforePath="$PROJECT_DIR$/Page/RecommendOutNO.php" afterPath="$PROJECT_DIR$/Page/RecommendOutNOVC.php" />
-      <change beforePath="$PROJECT_DIR$/Page/UpdateData3dVC.php" afterPath="$PROJECT_DIR$/Page/UpdateData3dVC.php" />
-      <change beforePath="$PROJECT_DIR$/Page/index.php" afterPath="$PROJECT_DIR$/Page/index.php" />
-      <change beforePath="$PROJECT_DIR$/../Sever/.idea/dataSources.local.xml" afterPath="$PROJECT_DIR$/../Sever/.idea/dataSources.local.xml" />
-      <change beforePath="$PROJECT_DIR$/../Sever/.idea/sqldialects.xml" afterPath="$PROJECT_DIR$/../Sever/.idea/sqldialects.xml" />
+      <change beforePath="$PROJECT_DIR$/../Sever/.idea/dataSources/6e6ac5b7-fecd-4ba2-80e1-c2d02a9eab6a.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Sever/.idea/dataSources/a7f4c972-4c05-49f2-ae7c-96d61944ba13.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Sever/.idea/dataSources/f463fa85-1050-4fee-96d1-4fd46a467117.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Sever/.idea/inspectionProfiles/Project_Default.xml" afterPath="$PROJECT_DIR$/../Sever/.idea/inspectionProfiles/Project_Default.xml" />
+      <change beforePath="$PROJECT_DIR$/../Sever/.idea/sqldialects.xml" afterPath="" />
       <change beforePath="$PROJECT_DIR$/../Sever/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../Sever/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/../Sever/Data/InterFace.cvs" afterPath="$PROJECT_DIR$/../Sever/Data/InterFace.cvs" />
-      <change beforePath="$PROJECT_DIR$/../Sever/HttpSever/HttpSever.py" afterPath="$PROJECT_DIR$/../Sever/HttpSever/HttpSever.py" />
-      <change beforePath="$PROJECT_DIR$/../Sever/Interface/UPAndDown.py" afterPath="$PROJECT_DIR$/../Sever/Interface/UPAndDown.py" />
-      <change beforePath="$PROJECT_DIR$/../Sever/PymysqlHandle/PymysqlHandle.py" afterPath="$PROJECT_DIR$/../Sever/PymysqlHandle/PymysqlHandle.py" />
+      <change beforePath="$PROJECT_DIR$/../Sever/Cookie.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Sever/FC3DAnalyse/FC3DOmit.py" afterPath="$PROJECT_DIR$/../Sever/FC3DAnalyse/FC3DOmit.py" />
+      <change beforePath="$PROJECT_DIR$/../Sever/FC3DTimer.sh" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Sever/Install/config.conf" afterPath="$PROJECT_DIR$/../Sever/Install/config.conf" />
+      <change beforePath="$PROJECT_DIR$/../Sever/Install/start.sh" afterPath="$PROJECT_DIR$/../Sever/Install/start.sh" />
+      <change beforePath="$PROJECT_DIR$/../Sever/Interface/SocketInterFace.py" afterPath="$PROJECT_DIR$/../Sever/Interface/SocketInterFace.py" />
+      <change beforePath="$PROJECT_DIR$/../Sever/Sever.iml" afterPath="$PROJECT_DIR$/../Sever/Sever.iml" />
+      <change beforePath="$PROJECT_DIR$/../Sever/Sever/FCTimer.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Sever/Sever/setp.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Sever/TOOL/data.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Sever/TOOL/mod_config.py" afterPath="$PROJECT_DIR$/../Sever/TOOL/mod_config.py" />
+      <change beforePath="$PROJECT_DIR$/../Sever/Test.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/../Sever/err.py" afterPath="" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -54,28 +73,38 @@
       <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Page/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="16" column="90" lean-forward="true" selection-start-line="16" selection-start-column="90" selection-end-line="16" selection-end-column="90" />
+            <state relative-caret-position="90">
+              <caret line="6" column="35" lean-forward="false" selection-start-line="6" selection-start-column="35" selection-end-line="6" selection-end-column="35" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AddInterfaceVC.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Page/AddInterfaceVC.php">
+      <file leaf-file-name="Test.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Page/Test.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="97">
-              <caret line="60" column="36" lean-forward="true" selection-start-line="60" selection-start-column="36" selection-end-line="60" selection-end-column="36" />
+            <state relative-caret-position="375">
+              <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Cookie.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/JS/Cookie.js">
+      <file leaf-file-name="Test" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Test">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="673">
-              <caret line="75" column="21" lean-forward="false" selection-start-line="75" selection-start-column="21" selection-end-line="75" selection-end-column="21" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ClickJacking.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/TestHtml/ClickJacking.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="133">
+              <caret line="95" column="35" lean-forward="false" selection-start-line="95" selection-start-column="35" selection-end-line="95" selection-end-column="35" />
               <folding />
             </state>
           </provider>
@@ -84,30 +113,28 @@
       <file leaf-file-name="RecommendOutNOVC.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Page/RecommendOutNOVC.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="607">
+            <state relative-caret-position="1095">
               <caret line="73" column="114" lean-forward="false" selection-start-line="73" selection-start-column="114" selection-end-line="73" selection-end-column="114" />
-              <folding>
-                <element signature="e#3195#3251#0#HTML" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RecommendOutNO.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/JS/RecommendOutNO.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="445">
-              <caret line="75" column="37" lean-forward="false" selection-start-line="75" selection-start-column="37" selection-end-line="75" selection-end-column="37" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UpdateData.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="RecommendOutNO.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/JS/RecommendOutNO.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="795">
+              <caret line="53" column="4" lean-forward="false" selection-start-line="53" selection-start-column="4" selection-end-line="53" selection-end-column="4" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UpdateData.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/JS/UpdateData.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-128">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="90">
+              <caret line="6" column="30" lean-forward="false" selection-start-line="6" selection-start-column="30" selection-end-line="6" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -117,7 +144,7 @@
         <entry file="file://$PROJECT_DIR$/JS/History3d.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="225">
-              <caret line="15" column="36" lean-forward="true" selection-start-line="15" selection-start-column="36" selection-end-line="15" selection-end-column="36" />
+              <caret line="15" column="36" lean-forward="false" selection-start-line="15" selection-start-column="36" selection-end-line="15" selection-end-column="36" />
               <folding />
             </state>
           </provider>
@@ -126,11 +153,9 @@
       <file leaf-file-name="UpdateData3dVC.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Page/UpdateData3dVC.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="538">
-              <caret line="67" column="26" lean-forward="true" selection-start-line="67" selection-start-column="26" selection-end-line="67" selection-end-column="26" />
-              <folding>
-                <marker date="1516260596000" expanded="true" signature="3216:3284" ph="..." />
-              </folding>
+            <state relative-caret-position="478">
+              <caret line="67" column="26" lean-forward="false" selection-start-line="67" selection-start-column="26" selection-end-line="67" selection-end-column="26" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -138,18 +163,8 @@
       <file leaf-file-name="BaseViewController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Page/BaseViewController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="166">
-              <caret line="12" column="5" lean-forward="true" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Predictor3DVC.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Page/Predictor3DVC.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="44" selection-end-column="5" />
+            <state relative-caret-position="180">
+              <caret line="12" column="5" lean-forward="false" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -161,6 +176,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JavaScript File" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -238,6 +254,8 @@
         <option value="$PROJECT_DIR$/Page/UpdateData3dVC.php" />
         <option value="$PROJECT_DIR$/Page/RecommendOutNOVC.php" />
         <option value="$PROJECT_DIR$/JS/RecommendOutNO.js" />
+        <option value="$PROJECT_DIR$/Page/Test.html" />
+        <option value="$PROJECT_DIR$/TestHtml/ClickJacking.html" />
       </list>
     </option>
   </component>
@@ -263,9 +281,10 @@
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" interpreter_name="PHP 7.1" />
   <component name="PhpXdebugProxy" ide_key="PHPSTORM" host="localhost" port="63343" />
   <component name="ProjectFrameBounds">
-    <option name="y" value="135" />
+    <option name="x" value="279" />
+    <option name="y" value="143" />
     <option name="width" value="1855" />
-    <option name="height" value="1337" />
+    <option name="height" value="1283" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -303,17 +322,13 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="PHP" type="b2602c69:ProjectViewProjectNode" />
               <item name="PHP" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="PHP" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PHP" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="CSS" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="PHP" type="b2602c69:ProjectViewProjectNode" />
@@ -330,11 +345,15 @@
               <item name="PHP" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="Public_php" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
+            <path>
+              <item name="PHP" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PHP" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="TestHtml" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="AndroidView" />
     </panes>
@@ -349,6 +368,7 @@
     <property name="project.structure.side.proportion" value="0.3" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$2/SQL Dialects" value="MySQL" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -406,7 +426,11 @@
       <workItem from="1513426385922" duration="7525000" />
       <workItem from="1513936268287" duration="18566000" />
       <workItem from="1515998036568" duration="5555000" />
-      <workItem from="1516244026091" duration="6080000" />
+      <workItem from="1516244026091" duration="7306000" />
+      <workItem from="1516947227643" duration="326000" />
+      <workItem from="1517473562332" duration="319000" />
+      <workItem from="1524018552665" duration="7968000" />
+      <workItem from="1525341909461" duration="238000" />
     </task>
     <task id="LOCAL-00001" summary="更新">
       <created>1514193918768</created>
@@ -451,7 +475,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="90997000" />
+    <option name="totallyTimeSpent" value="101074000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -463,10 +487,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="135" width="1855" height="1337" extended-state="0" />
+    <frame x="279" y="143" width="1855" height="1283" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.283508" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29619417" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32850242" sideWeight="0.49145064" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="PHP-CGI Server" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32850242" sideWeight="0.48703805" order="0" side_tool="false" content_ui="tabs" />
@@ -493,7 +517,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33582088" sideWeight="0.4958632" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3283582" sideWeight="0.49476007" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3425926" sideWeight="0.49476007" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="SciView" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
     </layout>
@@ -545,30 +569,14 @@
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/JS/RecommendOutNO.js</url>
           <line>78</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="10" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="11" />
+      <option name="time" value="12" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Page/500.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="2" column="6" lean-forward="true" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Public_php/CacheData.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_PLUGINS_DIR$/php/lib/php.jar!/stubs/json/json.php" />
     <entry file="file://$PROJECT_DIR$/Public_php/PublicHtmlOutPut.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1754">
@@ -702,7 +710,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="585">
           <caret line="39" column="4" lean-forward="false" selection-start-line="39" selection-start-column="4" selection-end-line="44" selection-end-column="7" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -760,7 +767,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1320">
           <caret line="88" column="13" lean-forward="false" selection-start-line="88" selection-start-column="13" selection-end-line="88" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -768,7 +774,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="675">
           <caret line="45" column="20" lean-forward="false" selection-start-line="45" selection-start-column="20" selection-end-line="45" selection-end-column="57" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -776,7 +781,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="7" column="6" lean-forward="false" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -791,7 +795,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
           <caret line="20" column="21" lean-forward="false" selection-start-line="20" selection-start-column="21" selection-end-line="20" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -799,7 +802,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="56910">
           <caret line="3807" column="22" lean-forward="false" selection-start-line="3807" selection-start-column="22" selection-end-line="3807" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -807,7 +809,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="6" column="21" lean-forward="false" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -815,7 +816,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="335">
           <caret line="478" column="12" lean-forward="false" selection-start-line="478" selection-start-column="12" selection-end-line="478" selection-end-column="12" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -823,7 +823,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="44" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -831,13 +830,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-23">
           <caret line="68" column="33" lean-forward="false" selection-start-line="68" selection-start-column="33" selection-end-line="68" selection-end-column="33" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/JS/Cookie.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="673">
+        <state relative-caret-position="1125">
           <caret line="75" column="21" lean-forward="false" selection-start-line="75" selection-start-column="21" selection-end-line="75" selection-end-column="21" />
           <folding />
         </state>
@@ -845,42 +843,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Page/AddInterfaceVC.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="97">
-          <caret line="60" column="36" lean-forward="true" selection-start-line="60" selection-start-column="36" selection-end-line="60" selection-end-column="36" />
-          <folding />
+        <state relative-caret-position="900">
+          <caret line="60" column="36" lean-forward="false" selection-start-line="60" selection-start-column="36" selection-end-line="60" selection-end-column="36" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Page/BaseViewController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="166">
-          <caret line="12" column="5" lean-forward="true" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Page/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="90" lean-forward="true" selection-start-line="16" selection-start-column="90" selection-end-line="16" selection-end-column="90" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Page/UpdateData3dVC.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="538">
-          <caret line="67" column="26" lean-forward="true" selection-start-line="67" selection-start-column="26" selection-end-line="67" selection-end-column="26" />
-          <folding>
-            <marker date="1516260596000" expanded="true" signature="3216:3284" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/JS/UpdateData.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-128">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="180">
+          <caret line="12" column="5" lean-forward="false" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
           <folding />
         </state>
       </provider>
@@ -888,25 +859,71 @@
     <entry file="file://$PROJECT_DIR$/JS/History3d.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
-          <caret line="15" column="36" lean-forward="true" selection-start-line="15" selection-start-column="36" selection-end-line="15" selection-end-column="36" />
+          <caret line="15" column="36" lean-forward="false" selection-start-line="15" selection-start-column="36" selection-end-line="15" selection-end-column="36" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Page/RecommendOutNOVC.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="607">
+        <state relative-caret-position="1095">
           <caret line="73" column="114" lean-forward="false" selection-start-line="73" selection-start-column="114" selection-end-line="73" selection-end-column="114" />
-          <folding>
-            <element signature="e#3195#3251#0#HTML" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/JS/RecommendOutNO.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="445">
-          <caret line="75" column="37" lean-forward="false" selection-start-line="75" selection-start-column="37" selection-end-line="75" selection-end-column="37" />
+        <state relative-caret-position="795">
+          <caret line="53" column="4" lean-forward="false" selection-start-line="53" selection-start-column="4" selection-end-line="53" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Page/Test.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Test">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TestHtml/ClickJacking.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="95" column="35" lean-forward="false" selection-start-line="95" selection-start-column="35" selection-end-line="95" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Page/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="35" lean-forward="false" selection-start-line="6" selection-start-column="35" selection-end-line="6" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Page/UpdateData3dVC.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="478">
+          <caret line="67" column="26" lean-forward="false" selection-start-line="67" selection-start-column="26" selection-end-line="67" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/JS/UpdateData.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="30" lean-forward="false" selection-start-line="6" selection-start-column="30" selection-end-line="6" selection-end-column="30" />
           <folding />
         </state>
       </provider>

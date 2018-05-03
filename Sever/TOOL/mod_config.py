@@ -10,9 +10,9 @@ import os, sys
 
 # 获取config配置文件
 def getConfig(section, key):
+
     config = ConfigParser.ConfigParser(allow_no_value=True)
-    path, filename = os.path.split(os.path.abspath(sys.argv[0]))
-    path= os.path.abspath(path)
+    path= os.getcwd()
     path = path+"/Install/config.conf"
     config.read(path)
     return config.get(section, key)

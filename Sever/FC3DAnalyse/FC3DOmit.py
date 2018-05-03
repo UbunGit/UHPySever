@@ -7,7 +7,7 @@ Created on 2016年8月28日
 @author: xiaoqy
 '''
 from PymysqlHandle.SqlHandelGlobal import SqlHabdleGlobal
-from err import MyError
+
 
 
 class FC3DOmit(object):
@@ -68,7 +68,7 @@ class FC3DOmit(object):
         # 查看表是否存在，不存在就创建
         if(not SqlHabdleGlobal.isHaveTable(tableName)):
             if(not self.createTable(tableName)):
-                raise MyError('创建表' + tableName + "失败")
+                print('创建表' + tableName + "失败")
                 return;
         lastData = self.getLastOmitDatd(tableName)
         

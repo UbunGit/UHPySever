@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ch">
+<head>
+    <meta charset="UTF-8">
+    <title>测试输入框注入<a/>标签</title>
+</head>
+
+<xmp>
+ 正常填入后点击与在输入框输入对比：
+
+ <a  href='' onclick=alert(/xss/)//'>testLink</a>
+
+    <a  href='' onclick=testFunction()>testLink</a>
+    <script>
+    function testFunction()
+    {
+        alert('ooo');
+    }
+</script>
+
+
+ 防止办法：
+ 提交时替换字符为
+ &lt;a  href='' onclick=alert(/xss/)//'&gt;testLink&lt;/a&gt;
+</xmp>
+
+<input type="text" id="testInput"/>
+<button type="button" onclick="myFunction()">Click Me!</button>
+
+
+
+
+
+<p id="demo"></p>
+<script>
+    function myFunction()
+    {
+        var carname= document.getElementById("testInput").value;
+        document.getElementById("demo").innerHTML=carname;
+    }
+</script>
+</body>
+</html>
+
+
+<textarea placeholder="填写你的个人简介">1+1&amp;lt;&lt;&amp;lt;3</textarea>

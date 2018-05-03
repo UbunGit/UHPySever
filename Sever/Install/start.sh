@@ -33,6 +33,10 @@ PORT=8889
 IP=$IP
 PORT=8888
 
+[DATAPATH]
+TESTPATH="/Data"
+
+
 " > config.conf
 
 

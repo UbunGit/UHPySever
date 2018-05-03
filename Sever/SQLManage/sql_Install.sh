@@ -1,5 +1,7 @@
 #!/bin/bash
 
+git clone https://github.com/UbunGit/MySQL
+
 function install()
 {
 #创建数据库
