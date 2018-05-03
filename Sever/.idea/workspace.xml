@@ -2,42 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7e88522f-2e2b-495d-9d49-cf6e366693fa" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/../PHP/Page/Test.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../PHP/Test" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/../PHP/TestHtml/ClickJacking.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/QiangPiao/12306.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/QiangPiao/Damai.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/QiangPiao/__init__.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Test/UnittestConfig.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Test/__init__.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/XianYu/DataBase/OperateDB.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/XianYu/DataBase/__init__.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/XianYu/Main.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/XianYu/Spider/__init__.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/XianYu/__init__.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/XianYu/my2.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/setup.py" />
-      <change beforePath="$PROJECT_DIR$/../PHP/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../PHP/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/6e6ac5b7-fecd-4ba2-80e1-c2d02a9eab6a.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a7f4c972-4c05-49f2-ae7c-96d61944ba13.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/f463fa85-1050-4fee-96d1-4fd46a467117.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/Cookie.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/FC3DAnalyse/FC3DOmit.py" afterPath="$PROJECT_DIR$/FC3DAnalyse/FC3DOmit.py" />
-      <change beforePath="$PROJECT_DIR$/FC3DTimer.sh" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Install/config.conf" afterPath="$PROJECT_DIR$/Install/config.conf" />
-      <change beforePath="$PROJECT_DIR$/Install/start.sh" afterPath="$PROJECT_DIR$/Install/start.sh" />
-      <change beforePath="$PROJECT_DIR$/Interface/SocketInterFace.py" afterPath="$PROJECT_DIR$/Interface/SocketInterFace.py" />
       <change beforePath="$PROJECT_DIR$/SQLManage/sql_Install.sh" afterPath="$PROJECT_DIR$/SQLManage/sql_Install.sh" />
-      <change beforePath="$PROJECT_DIR$/Sever.iml" afterPath="$PROJECT_DIR$/Sever.iml" />
-      <change beforePath="$PROJECT_DIR$/Sever/FCTimer.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/Sever/setp.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/TOOL/data.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/TOOL/mod_config.py" afterPath="$PROJECT_DIR$/TOOL/mod_config.py" />
-      <change beforePath="$PROJECT_DIR$/Test.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/err.py" afterPath="" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -142,8 +107,8 @@
       <file leaf-file-name="sql_Install.sh" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/SQLManage/sql_Install.sh">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="54">
-              <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+            <state relative-caret-position="180">
+              <caret line="10" column="35" lean-forward="false" selection-start-line="10" selection-start-column="26" selection-end-line="10" selection-end-column="35" />
               <folding />
             </state>
           </provider>
@@ -395,11 +360,6 @@
               <item name="Sever" type="b2602c69:ProjectViewProjectNode" />
               <item name="Sever" type="462c0819:PsiDirectoryNode" />
               <item name="Data" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Sever" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Sever" type="462c0819:PsiDirectoryNode" />
-              <item name="Install" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Sever" type="b2602c69:ProjectViewProjectNode" />
@@ -704,7 +664,7 @@
       <workItem from="1523602977417" duration="1000" />
       <workItem from="1523859714819" duration="17792000" />
       <workItem from="1525252353214" duration="8993000" />
-      <workItem from="1525341376025" duration="2643000" />
+      <workItem from="1525341376025" duration="3594000" />
     </task>
     <servers />
   </component>
@@ -741,7 +701,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="191758000" />
+    <option name="totallyTimeSpent" value="192709000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1112,7 +1072,7 @@
         <state relative-caret-position="180">
           <caret line="11" column="4" lean-forward="false" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="4" />
           <folding>
-            <element signature="e#66#85#0" expanded="true" />
+            <element signature="e#66#85#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1245,8 +1205,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/SQLManage/sql_Install.sh">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+        <state relative-caret-position="180">
+          <caret line="10" column="35" lean-forward="false" selection-start-line="10" selection-start-column="26" selection-end-line="10" selection-end-column="35" />
           <folding />
         </state>
       </provider>
