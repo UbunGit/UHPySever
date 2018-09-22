@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/UHPySever.iml" filepath="$PROJECT_DIR$/.idea/UHPySever.iml" />
+      <module fileurl="file://$PROJECT_DIR$/UHPySever.iml" filepath="$PROJECT_DIR$/UHPySever.iml" />
     </modules>
   </component>
 </project>

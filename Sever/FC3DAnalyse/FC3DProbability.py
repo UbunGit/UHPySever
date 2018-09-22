@@ -114,7 +114,7 @@ class FC3DProbability(object):
                 cursor.execute(sql, (str(probability), tableName, minData["lastData"]));   
                 lastData = self.getLastData(tableName)
                 minData = self.getlastNotAnalyseFC3DData(lastData["outNO"], probability)
-                print(lastData["outNO"]);
+                print("计算频率："+str(lastData["outNO"])+tableName);
             
         print("===>频率：%d 频率表：%s 更新完毕" % (probability, tableName))
            

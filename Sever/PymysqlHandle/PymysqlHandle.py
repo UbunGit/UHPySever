@@ -1,17 +1,22 @@
 #!/usr/bin/env python
-# encoding: utf-8 a = '中文' 
+# encoding: utf-8 a = '中文'
 '''
 Created on 2016年3月11日
 
 @author: xiaoqy
 '''
 
-from pymysql.err import MySQLError
+import sys ,os
+sys.path.append(os.path.dirname(os.path.dirname(__file__)))
+from TOOL.CustomError import CustomError
 
+from pymysql.err import MySQLError
 from SqlHandelGlobal import SqlHabdleGlobal
 
 
-SMARTHOMEUSER_TABLE = 'SmartHomeUser_Table'  # 智能家居用户信息表
+
+
+SMARTHOMEUSER_TABLE = 'USER_T'  # 智能家居用户信息表
 INTERFAVE_TABLE = 'SmartHomeInterFace_Table'  # 接口数据表
 INTERFAVEPARAMETER_TABLE = 'SmartHomeParameter_Table'
 
@@ -32,27 +37,45 @@ class PymysqlHandle(object):
     －－－－－－－－－－－－－－－－－
     '''
     def insetUserInfo(self, userName, userTel, userPassWord):
-
         try:
             connection = SqlHabdleGlobal.connectionDb();
             with connection.cursor() as cursor:
                 # Create a new record
-                sql = 'INSERT INTO ' + SMARTHOMEUSER_TABLE + ' (userName, userPassWord, userTel) VALUES (%s, %s,%s)'
+                sql = 'INSERT INTO USER_T (userName, passWord, phone) VALUES (%s, %s,%s)'
                 cursor.execute(sql, (userName, userPassWord, userTel))
                 connection.commit()
-        except BaseException as e:
-            if e.args[0]:
-                returnDic = {"inforCode":-10003}
+
+        except MySQLError as e:
+            if e.args[0] == 1062:
+                raise CustomError(-10003);
             else:
-                returnDic = {"inforCode":-10000}
-            return returnDic
-        else:
-            connection.close() 
-            returnDic = {"inforCode":0}
-            return returnDic;
-    
+                raise e;
+
+    def insetUser(self, data):
+        try:
+            connection = SqlHabdleGlobal.connectionDb();
+            with connection.cursor() as cursor:
+                # Create a new record
+                keystr = ''
+                valuestr=''
+                for item in data.keys():
+                    keystr = keystr+item+','
+                    valuestr = valuestr+'"'+data[item]+'",'
+                keystr = keystr[0:-1]
+                valuestr = valuestr[0:-1]
+                sql = 'INSERT INTO USER_T ('+keystr+') VALUES ('+valuestr+')'
+                cursor.execute(sql)
+                connection.commit()
+
+        except MySQLError as e:
+            if e.args[0] == 1062:
+                raise CustomError(-10003);
+            else:
+                raise e;
+
+
+
     '''
-    登录
     查询用户信息（1.0.1）
     -----------------------------
      2016.5.13 xiaoqy
@@ -60,71 +83,94 @@ class PymysqlHandle(object):
      ios:     1.0.0
      android  1.0.0\[
     －－－－－－－－－－/ －－－－－－－
-    '''   
-    def selectUserInfo(self, userName, userTel=''):
-            connection = SqlHabdleGlobal.connectionDb();
-            with connection.cursor() as cursor:
-                # Create a new record
-                if len(userName.encode('utf-8')) < 3:
-                    userName = userTel;
-                sql = 'call p_GetUserInfo(%s)'
-                cursor.execute(sql, userName)
-                  
-                for row in cursor:
-                    if(not row["userLevel"]):
-                        row["userLevel"] = "1001"
-                    cursorData = row;
-                    return cursorData
-                
-                return 
+    '''
+    def selectUserInfo(self, userID):
+
+        return self.selectUserInfoBykey("userID",userID)
+
+    def selectUserInfoWithUserName(self, userName):
+
+        return self.selectUserInfoBykey("userName",userName)
+
+    '''
+    根据用户唯一键查询用户信息
+    '''
+    def selectUserInfoBykey(self,key,value):
+
+        if key not in ['userID','userName','phone','wxOpenid','email']:
+            raise CustomError(-10007);
+
+        connection = SqlHabdleGlobal.connectionDb();
+        with connection.cursor() as cursor:
+
+            sql = 'select userID,passWord,userName,email,createTime,status,permissions,phone,headImage,wxOpenid from USER_T where '+key+' = %s';
+            cursor.execute(sql, (value))
+            for row in cursor:
+                cursorData = row;
+                return cursorData
+
+
+
 
 
     '''
     修改会员信息
-    '''   
-    def replaceUserInfo(self, data):
-        
+    '''
+    def replaceUserInfo(self, data,userID):
+
+        userData = self.selectUserInfo(data["userID"]);
+        if userData == None:raise CustomError(-10001);
+
+        connection = SqlHabdleGlobal.connectionDb();
+        with connection.cursor() as cursor:
+            # Create a new recors
+            sql = 'UPDATE USER_T SET '
+
+            for key in data.keys():
+                if key == "userID":continue
+
+                if type(data[key]) == int or type(data[key]) == float:
+                    sql = sql+key+'='+str(data[key])+','
+                else:
+                    sql = sql+key+'="'+data[key]+'",'
+
+            sql = sql[0:-1]
+            sql = sql+' WHERE userID='+str(data["userID"])
+            cursor.execute(sql);
+            connection.commit()
+            connection.close()
+
+
+
+    '''
+    获取会员列表
+    '''
+    def getAdminList(self, data,userID):
         connection = SqlHabdleGlobal.connectionDb();
         with connection.cursor() as cursor:
             # Create a new record
-            sql = 'call p_ReplaceUserInfo(%s,%s,%s,%s,%s)';
-            
-            if("userName"  in data.keys()):
-                userName = data['userName']
-            else:
-                userName = None;
-            if("userPassWord"  in data.keys()):
-                userPassWord = data['userPassWord']
-            else:
-                userPassWord = None 
-            if("userTel"  in data.keys()):
-                userTel = data['userTel']
-            else:
-                userTel = None 
-            if("userLevel"  in data.keys()):
-                userLevel = data['userLevel']
-            else:
-                userLevel = None 
-            if("userLogState"  in data.keys()):
-                userLogState = data['userLogState']
-            else:
-                userLogState = None 
-            try:   
-                cursor.execute(sql, (userName,
-                                 userPassWord,
-                                 userTel,
-                                 userLevel,
-                                 userLogState
-                                 )
-                            );
-                connection.commit()
-                connection.close() 
-                returnDic = {"inforCode":0}
-                return returnDic;
-            except MySQLError as ex:
-                returnData = {"inforCode":ex.args[0]};
-                returnData['result'] = ex.args[1]  
-                
+            sql = 'SELECT* FROM USER_T';
+            cursor.execute(sql);
+            connection.commit()
+            adminlist = []
+            for row in cursor:
+                adminlist.append(row)
+            return adminlist;
+
+    '''删除用户'''
+    def removeAdmin(self,data,userID):
+
+        connection = SqlHabdleGlobal.connectionDb();
+        with connection.cursor() as cursor:
+            # Create a new record
+            sql = 'DELETE  FROM USER_T WHERE userID=%s';
+            cursor.execute(sql,(data["userID"]));
+            connection.commit()
+            adminlist = []
+            for row in cursor:
+                adminlist.append(row)
+            return adminlist;
+
     '''
     添加新接口  
     -----------------------------
@@ -133,8 +179,8 @@ class PymysqlHandle(object):
      ios:     1.0.0
      android  1.0.0
     －－－－－－－－－－－－－－－－－   
-    '''     
-    def addInterFace(self,interFaceName,interFaceNameStr,interFacepath):  
+    '''
+    def addInterFace(self,interFaceName,interFaceNameStr,interFacepath):
         try:
             connection = SqlHabdleGlobal.connectionDb();
             with connection.cursor() as cursor:
@@ -143,12 +189,12 @@ class PymysqlHandle(object):
                 connection.commit()
 
         except BaseException:
-            
-            returnDic = {"inforCode":-10000}
+
+            returnDic = {"infoCode":-10000}
             return returnDic
         else:
-            connection.close() 
-            returnDic = {"inforCode":0}
+            connection.close()
+            returnDic = {"infoCode":0}
             return returnDic;
 
     '''
@@ -165,11 +211,11 @@ class PymysqlHandle(object):
 
         except BaseException:
 
-            returnDic = {"inforCode":-10000}
+            returnDic = {"infoCode":-10000}
             return returnDic
         else:
             connection.close()
-            returnDic = {"inforCode":0}
+            returnDic = {"infoCode":0}
             return returnDic;
 
     '''
@@ -180,13 +226,13 @@ class PymysqlHandle(object):
      ios:     1.0.0
      android  1.0.0
     －－－－－－－－－－－－－－－－－
-    '''   
+    '''
     def replaceIntefaceInfo(self, data):
         try:
             interfaceName = data['repInteFaceName'];
             setstr = 'set ';
             for key in data.keys():
-                keystr = str(key)  
+                keystr = str(key)
                 if(keystr != str("repInteFaceName") and keystr != str("inefaceMode")):
                     setstr = setstr+key+'="' +data[key]+'",'
             setstr = setstr[:-1]
@@ -196,14 +242,14 @@ class PymysqlHandle(object):
                 cursor.execute(sql)
                 connection.commit()
         except BaseException:
-            
-            returnDic = {"inforCode":-10000}
+
+            returnDic = {"infoCode":-10000}
             return returnDic
         else:
-            connection.close() 
-            returnDic = {"inforCode":0}
+            connection.close()
+            returnDic = {"infoCode":0}
             return returnDic;
-    
+
     '''
     查询接口列表
     -----------------------------
@@ -212,7 +258,7 @@ class PymysqlHandle(object):
      ios:     1.0.0
      android  1.0.0
     －－－－－－－－－－－－－－－－－
-    '''  
+    '''
     def getInterfaceList(self,data):
 
         connection = SqlHabdleGlobal.connectionDb();
@@ -226,14 +272,14 @@ class PymysqlHandle(object):
             list = []
             for row in cursor:
                 list.append(row)
-            if len(list) <= 0: 
-                returnDic = {"inforCode":-10004}
+            if len(list) <= 0:
+                returnDic = {"infoCode":-10004}
             else:
-                returnDic = {"inforCode":0}   
+                returnDic = {"infoCode":0}
                 returnDic['result'] = list
             return returnDic;
 
-    
+
     ''' 
     查询接口输入输出列表
     -----------------------------
@@ -242,7 +288,7 @@ class PymysqlHandle(object):
      ios:     1.0.0
      android  1.0.0
     －－－－－－－－－－－－－－－－－
-    '''  
+    '''
     def getInterfaceParameterList(self, interFaceName, parameterTypeuse):
 
         connection = SqlHabdleGlobal.connectionDb();
@@ -250,19 +296,19 @@ class PymysqlHandle(object):
             # Create a new record
             sql = 'SELECT * FROM ' + INTERFAVEPARAMETER_TABLE + ' where parameterFatherName=(select interFaceName from ' + INTERFAVE_TABLE + ' where  interFaceName=%s and parameterTypeuse=%s);'
             cursor.execute(sql, (interFaceName, parameterTypeuse))
-            
+
             list = []
             for row in cursor:
                 list.append(row)
-            if len(list) <= 0: 
-                returnDic = {"inforCode":-10004}
+            if len(list) <= 0:
+                returnDic = {"infoCode":-10004}
             else:
-                returnDic = {"inforCode":0}   
+                returnDic = {"infoCode":0}
                 returnDic['result'] = list
-                
+
             return returnDic;
 
-     
+
     ''' 
     查询接口信息
     -----------------------------
@@ -272,7 +318,7 @@ class PymysqlHandle(object):
      android  1.0.0
      interFaceName 接口名
     －－－－－－－－－－－－－－－－－
-    '''    
+    '''
     def getInterFaceInfo(self, interFaceName):
 
         connection = SqlHabdleGlobal.connectionDb();
@@ -283,13 +329,13 @@ class PymysqlHandle(object):
             list = []
             for row in cursor:
                 list.append(row)
-            if len(list) <= 0: 
-                returnDic = {"inforCode":-10004}
+            if len(list) <= 0:
+                returnDic = {"infoCode":-10004}
             else:
-                returnDic = {"inforCode":0}   
+                returnDic = {"infoCode":0}
                 returnDic['result'] = list
             return returnDic;
-   
+
     '''
     添加接口输入输出参数
     -----------------------------
@@ -299,13 +345,13 @@ class PymysqlHandle(object):
      android  1.0.0
      parameterDic 参数dic
     －－－－－－－－－－－－－－－－－
-    ''' 
+    '''
     def addParametervalue(self, parameterDic):
         try:
             connection = SqlHabdleGlobal.connectionDb();
             with connection.cursor() as cursor:
                 # Create a new record
-                sql = 'call p_ReplaceInterFaceParameter(%s,%s,%s,%s,%s,%s,%s,%s,%s)'; 
+                sql = 'call p_ReplaceInterFaceParameter(%s,%s,%s,%s,%s,%s,%s,%s,%s)';
                 cursor.execute(sql,
                                (parameterDic['parameterName'],
                                parameterDic['parameterFatherName'],
@@ -318,52 +364,33 @@ class PymysqlHandle(object):
                                parameterDic['parameterTypeuse']));
                 connection.commit()
         except BaseException as e:
-            returnDic = {"inforCode":-10000}
+            returnDic = {"infoCode":-10000}
             return returnDic
         else:
-            connection.close() 
-            returnDic = {"inforCode":0}
+            connection.close()
+            returnDic = {"infoCode":0}
             return returnDic;
-        
+
     '''
     根据参数id删除参数
-    '''   
+    '''
     def deleteParameter(self,data):
         try:
             connection = SqlHabdleGlobal.connectionDb();
             with connection.cursor() as cursor:
                 # Create a new record
-                sql = 'DELETE FROM SmartHomeParameter_Table WHERE parameterId=%s;'; 
+                sql = 'DELETE FROM SmartHomeParameter_Table WHERE parameterId=%s;';
                 cursor.execute(sql,(data['parameterId']));
                 connection.commit()
         except BaseException as e:
-            returnDic = {"inforCode":-10000}
+            returnDic = {"infoCode":-10000}
             return returnDic
         else:
-            connection.close() 
-            returnDic = {"inforCode":0}
+            connection.close()
+            returnDic = {"infoCode":0}
             return returnDic;
-                
-    '''
-    获取会员列表
-    '''
-    def getMemberList(self, data):
-        connection = SqlHabdleGlobal.connectionDb();
-        with connection.cursor() as cursor:
-            # Create a new record
-            sql = 'call p_getUserList()'; 
-            cursor.execute(sql);
-            connection.commit()
-            list = []
-            for row in cursor:
-                list.append(row)
-            if len(list) <= 0: 
-                returnDic = {"inforCode":-10004} 
-            else:
-                returnDic = {"inforCode":0}   
-                returnDic['result'] = list
-            return returnDic
-    
+
+
     '''
     获取3d彩票数据
     '''
@@ -372,104 +399,104 @@ class PymysqlHandle(object):
         with connection.cursor() as cursor:
             # Create a new record
             beginNum = int(data["pageNum"]) * int(data["pageSize"])
-            sql = 'select* from FC3DData_t   order by outNO desc limit ' + str(beginNum) + ',' + data["pageSize"] + ''; 
+            sql = 'select* from FC3DData_t   order by outNO desc limit ' + str(beginNum) + ',' + data["pageSize"] + '';
             cursor.execute(sql);
             connection.commit()
             list = []
             for row in cursor:
                 row["outdate"] = str(row["outdate"])
                 list.append(row)
-            if len(list) <= 0: 
-                returnDic = {"inforCode":-10004} 
+            if len(list) <= 0:
+                returnDic = {"infoCode":-10004}
             else:
-                returnDic = {"inforCode":0}   
+                returnDic = {"infoCode":0}
                 returnDic['result'] = list
-            connection.close() 
+            connection.close()
             return returnDic
-        
+
     '''
     查询最后一期出球号码
-    '''   
+    '''
     def getLastFCData(self):
         connection = SqlHabdleGlobal.connectionDb();
         with connection.cursor() as cursor:
             # Create a new record
-            sql = 'select* from FC3DData_t order by outNO desc limit 0,1'; 
+            sql = 'select* from FC3DData_t order by outNO desc limit 0,1';
             cursor.execute(sql);
             connection.commit()
             list = []
             for row in cursor:
 #                 row["outdate"] = str(row["outdate"])
                 list.append(row)
-            if len(list) <= 0: 
-                returnDic = {"inforCode":-10004} 
+            if len(list) <= 0:
+                returnDic = {"infoCode":-10004}
             else:
-                returnDic = {"inforCode":0}   
+                returnDic = {"infoCode":0}
                 returnDic['result'] = list
-            connection.close() 
+            connection.close()
             return returnDic
-     
-    def getFCDatabyOutData (self,data):  
-                
+
+    def getFCDatabyOutData (self,data):
+
         connection = SqlHabdleGlobal.connectionDb();
         with connection.cursor() as cursor:
             outdata = None
             if("outNO"  in data.keys()):
                 outdata =data["outNO"];
-            elif ("outdate"  in data.keys()):  
+            elif ("outdate"  in data.keys()):
                 outdata =data["outdate"];
             else:
                 return None
-            sql = 'SELECT * FROM FC3DData_t where outNO = "'+outdata +'" or outdate= "'+outdata+'"' 
+            sql = 'SELECT * FROM FC3DData_t where outNO = "'+outdata +'" or outdate= "'+outdata+'"'
             cursor.execute(sql);
             tablerows = cursor.fetchall()
             if(len(tablerows) == 1):
                 result = tablerows[0];
                 result["outdate"] = str(result["outdate"])
-                returnDic = {"inforCode":0}   
+                returnDic = {"infoCode":0}
                 returnDic['result'] = result
             else:
-                returnDic = {"inforCode":-10004}   
-            connection.close() 
-            return returnDic  
+                returnDic = {"infoCode":-10004}
+            connection.close()
+            return returnDic
     '''
     加载福彩3d数据到数据库中
-    '''       
+    '''
     def loadFC3DDataByText(self, path):
-        
+
         connection = SqlHabdleGlobal.connectionDb();
         with connection.cursor() as cursor:
             # Create a new record
             sql = 'LOAD DATA LOCAL INFILE "' + path + '" INTO TABLE FC3DData_t FIELDS TERMINATED BY " " LINES TERMINATED BY "\\n"';
             cursor.execute(sql);
             connection.commit()
-            connection.close() 
+            connection.close()
     '''
     获取遗漏表数据
-    '''        
+    '''
     def getOmitData(self, data):
-        
+
         connection = SqlHabdleGlobal.connectionDb();
         with connection.cursor() as cursor:
             # Create a new record
             beginNum = (int(data["pageNum"])-1) * int(data["pageSize"])
-            sql = 'SELECT * FROM FC3DOmitData_table order by outNO desc limit ' + str(beginNum) + ',' + data["pageSize"] + ''; 
+            sql = 'SELECT * FROM FC3DOmitData_table order by outNO desc limit ' + str(beginNum) + ',' + data["pageSize"] + '';
             cursor.execute(sql);
             connection.commit()
             list = []
             for row in cursor:
                 row["outdate"] = str(row["outdate"])
                 list.append(row)
-            if len(list) <= 0: 
-                returnDic = {"inforCode":-10004} 
+            if len(list) <= 0:
+                returnDic = {"infoCode":-10004}
             else:
-                returnDic = {"inforCode":0}   
+                returnDic = {"infoCode":0}
                 returnDic['result'] = list
-            connection.close() 
+            connection.close()
             return returnDic
-        
+
     def getFactionList(self, data, userName):
-        
+
         connection = SqlHabdleGlobal.connectionDb();
         with connection.cursor() as cursor:
             # Create a new record
@@ -481,7 +508,7 @@ class PymysqlHandle(object):
             list = []
             for row in cursor:
                 list.append(row)
-            connection.close() 
+            connection.close()
             return list
 
     '''
@@ -532,5 +559,46 @@ class PymysqlHandle(object):
 
 
 
-  
-        
+    '''插入用户section数据'''
+    def insterSection(self,data):
+
+        connection = SqlHabdleGlobal.connectionDb();
+        with connection.cursor() as cursor:
+            keystr = ''
+            valuestr=''
+            for item in data.keys():
+                keystr = keystr+item+','
+                if type(data[item]) == int or type(data[item]) == float:
+                    valuestr = valuestr+str(data[item])+','
+                else:
+                    valuestr = valuestr+'"'+data[item]+'",'
+            keystr = keystr[0:-1]
+            valuestr = valuestr[0:-1]
+            sql = 'INSERT SEDDION_T ('+keystr+') VALUES ('+valuestr+');'
+            cursor.execute(sql)
+            connection.commit()
+            connection.close()
+
+    '''查询用户section数据'''
+    def getSection(self,userID):
+        connection = SqlHabdleGlobal.connectionDb();
+        with connection.cursor() as cursor:
+            sql = "SELECT * FROM SEDDION_T WHERE userID=%s;"
+            cursor.execute(sql,(userID));
+            connection.commit()
+            connection.close()
+
+    '''删除用户section数据'''
+    def deleteSection(self,userID):
+        connection = SqlHabdleGlobal.connectionDb();
+        with connection.cursor() as cursor:
+            sql = "delete from SEDDION_T where userID=(%s)"
+            cursor.execute(sql,(userID));
+            connection.commit()
+            connection.close()
+
+
+
+
+
+

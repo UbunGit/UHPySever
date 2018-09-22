@@ -17,12 +17,12 @@ class FCAnalyse(object):
     '''
     接口文档相关的查询
     '''
-    def FCAnalyseMethodo(self, data, user):
+    def FCAnalyseMethodo(self, data, metho,user):
         self.userName = user;
-        interFaceMetho = data['inefaceMode']
-        mname = 'do_' + interFaceMetho
+
+        mname = 'do_' + metho
         if not hasattr(self, mname):
-            returnDic = {"inforCode":-20001}
+            returnDic = {"infoCode":-20001}
             print ("interFaceMetho=" + mname)
             return returnDic
         method = getattr(self, mname)
@@ -59,10 +59,10 @@ class FCAnalyse(object):
         fc = FC3DProbability()
         data = fc.getRecommendData(data["BeginOutNO"], data["EndOutNO"], data["Probability"], data["outtype"]) 
         if len(data) <= 0:
-            returnDic = {"inforCode":1004}   
+            returnDic = {"infoCode":1004}
             returnDic['result'] = data
         else:
-            returnDic = {"inforCode":0}   
+            returnDic = {"infoCode":0}
             returnDic['result'] = data
         return returnDic
     '''
@@ -73,10 +73,10 @@ class FCAnalyse(object):
         fc = FC3DProbability()
         data = fc.getRecommend(data["BeginOutNO"], data["EndOutNO"], data["Probability"], data["RecommendOutON"]) 
         if len(data) <= 0:
-            returnDic = {"inforCode":1004}   
+            returnDic = {"infoCode":1004}
             returnDic['result'] = data
         else:
-            returnDic = {"inforCode":0}   
+            returnDic = {"infoCode":0}
             returnDic['result'] = data
         return returnDic
     '''
@@ -102,10 +102,10 @@ class FCAnalyse(object):
             data5 = fc.getFrequencyData(data["outdate"],str(value["fatherType"])) 
             dices[str(value["fatherType"])]=data5;
         if len(data) <= 0:
-            returnDic = {"inforCode":1004}   
+            returnDic = {"infoCode":1004}
             returnDic['result'] = data
         else:
-            returnDic = {"inforCode":0} 
+            returnDic = {"infoCode":0}
             returnDic['result'] ={}
             returnDic['result']['blanceData'] = dices
             returnDic['result']['endData'] = fc.deleteOutNum(dices)
@@ -118,7 +118,7 @@ class FCAnalyse(object):
         
         fc = FC3DProbability()
         dices =fc.getFC3DDataBalance();
-        returnDic = {"inforCode":0} 
+        returnDic = {"infoCode":0}
         returnDic['result'] = dices
         return returnDic;
     
@@ -132,7 +132,7 @@ class FCAnalyse(object):
         
         fc = FC3DProbability()
         if(fc.replaceFC3DDataBalance(data)==1):
-            returnDic = {"inforCode":0} 
+            returnDic = {"infoCode":0}
         else:
-            returnDic = {"inforCode":-10000} 
+            returnDic = {"infoCode":-10000}
         return returnDic;

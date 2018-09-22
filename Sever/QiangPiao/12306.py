@@ -13,7 +13,7 @@ class huoche(object):
     driver_name=''
     executable_path=''
     #用户名，密码
-    username = u"18925820292"
+    username = u"13923497592"
     passwd = u"Qiangyuan123"
     # cookies值得自己去找, 下面两个分别是上海, 太原南
     starts = u"%u5170%u5dde%2CLZJ"

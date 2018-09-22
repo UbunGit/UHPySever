@@ -20,7 +20,6 @@ class SqlHabdleGlobal(object):
     '''
     数据库公共操作方法
     '''
-    
     '''
     连接数据库
     -----------------------------
@@ -32,7 +31,8 @@ class SqlHabdleGlobal(object):
     ''' 
     @classmethod  
     def connectionDb(self):
-        
+
+
         connection = pymysql.connect(
                                          host=mod_config.getConfig("database", "dbhost"),
                                          port=PORT,
@@ -43,6 +43,7 @@ class SqlHabdleGlobal(object):
                                          local_infile=1,
                                          cursorclass=pymysql.cursors.DictCursor,
                                          autocommit=True)
+
         return connection;
     '''
     判断表是否存在

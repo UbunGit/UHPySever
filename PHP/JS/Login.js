@@ -23,9 +23,11 @@ $(function() {
 		}
 		
 		var inputArr = {
-			"inefaceMode" : "log",
-			"userName" : userName,
-			"passWord" : passWord
+			"metho" : "login",
+			"param":{
+                "userName" : userName,
+                "passWord" : passWord
+			}
 		};
 		var json = JSON.stringify(inputArr);
 	
@@ -35,18 +37,20 @@ $(function() {
 			data : json,
 			dataType : "json",// jsonp数据类型
 			contentType : "json",
-			success : function(data) {
+			success : function(data,scress,request) {
+				var resuleCode = request.getResponseHeader("resultcode")
+				if (resuleCode == 0) {
 
-				if (data.inforCode == 0) {
-					
-					var userInfo = data.result;
-					setCookie('userName', userInfo.userName, 20, "");
-					setCookie('userId', userInfo.userId, 20, "");
-					setCookie('userImg', userInfo.userImg, 20, "");
+                    setCookie('userID', data.userID, 24, "");
+					setCookie('userName', data.userName, 24, "");
+					setCookie('headImage', data.headImage, 24, "");
+                    setCookie('phone', data.phone, 24, "");
+                    setCookie('email', data.email, 24, "");
+                    setCookie('section', data.section, 24, "");
 					window.location.href = "./index.php";
 
 				} else {
-					var msg = data.result;
+					var msg = data;
 					show_err_msg(msg);
 				}
 			},
@@ -58,7 +62,8 @@ $(function() {
 	});
 
 	$(".register").click(function() {
-		go ("./Register.php");
+        $url = './index.php?className=RegisterController';
+		go ($url);
 		return;
 	});
 });

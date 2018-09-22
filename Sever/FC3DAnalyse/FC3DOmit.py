@@ -14,6 +14,7 @@ class FC3DOmit(object):
     '''
     根据遗漏值分析
     '''
+
     
     # 获取保存遗漏表的表名
     def getOmitTableName(self):
@@ -21,6 +22,7 @@ class FC3DOmit(object):
     
     # 创建表
     def createTable(self, tableName):
+
         connection = SqlHabdleGlobal.connectionDb();
         with connection.cursor() as cursor:
             
@@ -33,7 +35,7 @@ class FC3DOmit(object):
       
     # 获取已有表中的最后一条数据
     def getLastOmitDatd(self, tableName):
-        
+
         connection = SqlHabdleGlobal.connectionDb();
         with connection.cursor() as cursor:
             sql = 'select* from ' + tableName + '  order by outNO desc limit 0,1;'
@@ -48,8 +50,9 @@ class FC3DOmit(object):
     获取元数据相对与频率表的最小数据
     '''
     def getlastNotAnalyseFC3DData(self, lastOutON):
+
         connection = SqlHabdleGlobal.connectionDb();
-        with connection.cursor() as cursor: 
+        with connection.cursor() as cursor:
             if(lastOutON != 0):
                 sql = 'select min(outNO) as lastData from FC3DData_t   where outNO>' + str(lastOutON) + ';'
             else:
@@ -64,6 +67,8 @@ class FC3DOmit(object):
     
     # 加载遗漏表数据
     def reloadOmitData(self):
+
+        connection = SqlHabdleGlobal.connectionDb();
         tableName = self.getOmitTableName()
         # 查看表是否存在，不存在就创建
         if(not SqlHabdleGlobal.isHaveTable(tableName)):
@@ -76,18 +81,17 @@ class FC3DOmit(object):
             minData = self.getlastNotAnalyseFC3DData(lastData["outNO"])
         else:
             minData = self.getlastNotAnalyseFC3DData(0)
-            
-        connection = SqlHabdleGlobal.connectionDb();
+
         with connection.cursor() as cursor:
             while minData["lastData"] != None:
                  
                 sql = 'call pr_insterOneOmitDataToTable(%s,%s);'
                 cursor.execute(sql, (tableName, minData["lastData"]));
-                connection.commit()   
+                connection.commit()
                 lastData = self.getLastOmitDatd(tableName)
                 minData = self.getlastNotAnalyseFC3DData(lastData["outNO"])
                 print("计算遗漏值:" + str(lastData["outNO"]));
-            connection.close()
+                connection.close()
             
         
         

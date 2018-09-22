@@ -68,12 +68,22 @@ function __getCookies($key) {
 	} else {
 		
 		if (!array_key_exists($key, $_COOKIE)){
-			return "Visitors";
+			return null;
 		}else {
 			return $_COOKIE [$key];
 		}
 	}
 }
+
+/**
+ * 删除Cookies中存储key的值
+ * @param unknown $key
+ * @return 返回存储的值
+ */
+function __deleteCookies($key) {
+    __setCookies($key,null);
+}
+
 
 /**
  *  获取系统信息
@@ -159,5 +169,14 @@ function __jsonFormat($data, $indent=null)
     return $ret;
 }
 
+/** 本地语言获取
+ * @param  key  需要翻译的文字
+ */
+function __getText($key,$opt){
+
+    $config= new ConfigINI('language');
+    $text = $config->get($key);
+    return $text;
+}
 
 ?>

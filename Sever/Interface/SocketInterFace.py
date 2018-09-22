@@ -24,7 +24,7 @@ class SocketInterFace(object):
         interFaceMetho = data['inefaceMode']
         mname = 'do_' + interFaceMetho
         if not hasattr(self, mname):
-            returnDic = {"inforCode":-20001}
+            returnDic = {"infoCode":-20001}
             print "interFaceMetho=" + mname;
             return returnDic
         method = getattr(self, mname)
@@ -48,10 +48,10 @@ class SocketInterFace(object):
             data5 = fc.getFrequencyData(data["outdate"],str(value["fatherType"]))
             dices[str(value["fatherType"])]=data5;
         if len(data) <= 0 or len(dices) == 0:
-            returnDic = {"inforCode":1004}
+            returnDic = {"infoCode":1004}
             returnDic['result'] = "概率表为空"
         else:
-            returnDic = {"inforCode":0}
+            returnDic = {"infoCode":0}
             returnDic['result'] ={}
             returnDic['result']['blanceData'] = dices
             returnDic['result']['endData'] = fc.deleteOutNum(dices)
@@ -72,7 +72,7 @@ class SocketInterFace(object):
             outStr = str(outdata['out_bai'])+str(outdata['out_shi'])+str(outdata['out_ge'])
             result = self.do_getFrequencyData(data)
             reply = ""
-            if result["inforCode"] == 0:
+            if result["infoCode"] == 0:
                 enddata = result['result']['endData'];
                 endData  = {}
                 endData["outdate"] = str(outdata['outdate'])

@@ -15,11 +15,12 @@ class AddInterfaceVC extends BaseViewController
 
     function viewwillLoad()
     {
+
         /* 输出头部信息 */
         $this->jsArr = array(
             "AddNewInterFace.js",
-            "Tooltips.js",
-            "Cookie.js"
+            "Tooltips.js"
+
         );
 
         /* 输出头部信息 */

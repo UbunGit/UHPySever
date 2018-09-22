@@ -5,7 +5,7 @@ class Output {
 	private $cssPath;
 	private $assets;
 	function __construct() {
-		$config = new ConfigINI ();
+		$config = new ConfigINI ("path");
 		$this->imagePath = $config->get ( 'URL.root_image' );
 		$this->jsPath = $config->get ( 'URL.root_js' );
 		$this->cssPath = $config->get ( 'URL.root_css' );
@@ -16,9 +16,7 @@ class Output {
 		$path = $this->pagePath . $file;
 		return $path;
 	}
-	function getImage($imageFile) {
-		return $this->imagePath . $imageFile;
-	}
+
 	function getjs($jsFile) {
 		return $this->jsPath . $jsFile;
 	}
@@ -80,51 +78,7 @@ class Output {
 		}
 	}
 	
-	/**
-	 * 输出头部内容
-	 */
-	function outPutHeader($userInfo) {
-		?>
-		</head>
-<body>
 
-	<section id="container">
-
-		<header class="header white-bg">
-			<div class="sidebar-toggle-box">
-				<div class="fa fa-bars tooltips"></div>
-			</div>
-			<!--logo start-->
-			<a href="index.php" class="logo">Ubun<span>Hub</span></a>
-			<!--logo end-->
-			<div class="top-nav ">
-				<!--search & user info start-->
-				<ul class="nav pull-right top-menu">
-					<li><input type="text" class="form-control search"
-						placeholder="Search"></li>
-					<!-- user login dropdown start-->
-					<li class="dropdown"><a data-toggle="dropdown"
-						class="dropdown-toggle" href="#"> <img alt=""
-							src=<?php echo $this->getImage ( $userInfo ['heardImg']); ?>> <span
-							class="username"><?php echo $userInfo ['userName'];?> </span> <b
-							class="caret"></b>
-					</a>
-						<ul class="dropdown-menu extended logout">
-							<div class="log-arrow-up"></div>
-							<li><a href="#"><i class=" fa fa-suitcase"></i>Profile</a></li>
-							<li><a href="#"><i class="fa fa-cog"></i> Settings</a></li>
-							<li><a href="#"><i class="fa fa-bell-o"></i> Notification</a></li>
-							<li><a href="Login.php"><i class="fa fa-key"></i> 注销</a></li>
-						</ul></li>
-					<li class="sb-toggle-right"><i class="fa  fa-align-right"></i></li>
-					<!-- user login dropdown end -->
-				</ul>
-				<!--search & user info end-->
-			</div>
-
-		</header>
-    			<?php
-	}
 	/*
 	 * 输出底部
 	 */
@@ -224,45 +178,6 @@ class Output {
 		}
 	}
 
-	function outSider($sidebarTitle) {
-		?>
-		<!--sidebar start-->
-		<aside>
-			<div id="sidebar" class="nav-collapse ">
-				<!-- sidebar menu start-->
-				<ul class="sidebar-menu" id="nav-accordion">
-				   	<li><?php echo  $this->outsidebarTitle( "主页",$sidebarTitle,"/index.php","fa fa-home");?></li>
-					<li class="sub-menu"><?php echo  $this->outsidebarTitle( "接口管理",$sidebarTitle,"javascript:;",'fa fa-laptop');?>
-					
-						<ul class="sub">
-						<?php
-		echo $this->outSilerbarli ( $this->getPath ( "ScanInterFace.php" ), "接口查询" );
-		echo $this->outSilerbarli ( $this->getPath ( "AddNewInterFace.php" ), "添加接口" );
-		?>
-						</ul></li>
-
-					<li class="sub-menu"><li class="sub-menu"><?php echo  $this->outsidebarTitle( "3D彩票",$sidebarTitle,"javascript:;","fa fa-book");?>
-						<ul class="sub">
-							<?php
-		echo $this->outSilerbarli ( $this->getPath ( "UpdateData.php" ), "更新数据" );
-		echo $this->outSilerbarli ( $this->getPath ( "History3d.php" ), "历史出球" );
-		echo $this->outSilerbarli ( $this->getPath ( "Predictor3D.php" ), "概率统计" );
-		echo $this->outSilerbarli ( $this->getPath ( "FCOutData.php" ), "频率查询" );
-		?>
-						</ul></li>
-
-					<li class="sub-menu"><a href="javascript:;"> <i class="fa fa-cogs"></i>
-							<span>日志分析</span>
-					</a>
-						<ul class="sub">
-							<li><a href=<?php echo  $this->getPath( "./logoInfo.php" );?>>日志分析</a></li>
-						</ul></li>
-				</ul>
-				<!-- sidebar menu end-->
-			</div>
-		</aside>
-		<?php
-	}
 }
 ;
 ?>

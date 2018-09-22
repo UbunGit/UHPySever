@@ -1,5 +1,5 @@
 <?PHP
-require_once ('../Public_php/ViewController.php');
+require_once('../UIKit/UIKit.php');
 class LoginViewController extends ViewController {
 	function viewwillLoad() {
 		/* 输出头部信息 */
@@ -21,12 +21,13 @@ class LoginViewController extends ViewController {
 		$this->outMain ();
 	}
 	function outMain() {
+
 		?>
-<img src="<?php echo $this->getImage('2.jpg') ?> " id="img" />
+
 <div class="main_box">
 	<table class="login_Table">
 		<tr>
-			<td><input type="text" name="username" placeholder=" Pick a username" /></td>
+			<td><input type="text" name="username" placeholder=<?php echo __getText("RegisterController.input your user name","请输入你的用户名")?> /></td>
 		</tr>
 		<tr>
 			<td><input type="password" name="passwd"

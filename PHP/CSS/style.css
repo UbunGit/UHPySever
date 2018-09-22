@@ -2501,13 +2501,13 @@ ul.summary-list {
 
 ul.summary-list > li {
     display: inline-block;
-    width: 32.0%;
+    width: 24%;
     text-align: center;
 }
 
 ul.summary-list > li > a > i {
     display:block;
-    font-size: 18px;
+    font-size: 16px;
     padding-bottom: 5px;
 }
 

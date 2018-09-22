@@ -1,5 +1,5 @@
 <?php
-require_once('../Public_php/ViewController.php');
+require_once('../UIKit/UIKit.php');
 
 abstract class BaseViewController extends ViewController
 {
@@ -9,7 +9,14 @@ abstract class BaseViewController extends ViewController
 
     function viewwillLoad()
     {
-
+        /* 输出头部信息 */
+        $this->jsArr = array(
+            "BaseViewController.js",
+            "Cookie.js"
+        );
+        $this->cssArr = array();
+        $this->abscssArr = array();
+        $this->absjsArr = array();
     }
 
     abstract public function getuserInfo();
@@ -59,17 +66,17 @@ abstract class BaseViewController extends ViewController
                     <!-- user login dropdown start-->
                     <li class="dropdown"><a data-toggle="dropdown"
                                             class="dropdown-toggle" href="#"> <img alt=""
-                                                                                   src=<?php echo $this->getImage($this->userInfo['heardImg']); ?>>
+                                                                                   src=<?php echo $this->userInfo['heardImg']; ?>>
                             <span
                                     class="username"><?php echo $this->userInfo['userName']; ?> </span> <b
                                     class="caret"></b>
                         </a>
                         <ul class="dropdown-menu extended logout">
                             <div class="log-arrow-up"></div>
-                            <li><a href="#"><i class=" fa fa-suitcase"></i>Profile</a></li>
-                            <li><a href="#"><i class="fa fa-cog"></i> Settings</a></li>
-                            <li><a href="#"><i class="fa fa-bell-o"></i> Notification</a></li>
-                            <li><a class="logout-a"><i class="fa fa-key"></i> 注销</a></li>
+                            <li><a href="#"><i class=" fa fa-suitcase"></i><?php echo __getText("BaseViewController.profile","个人信息"); ?></a></li>
+                            <li><a href="#"><i class="fa fa-cog "></i> <?php echo __getText("BaseViewController.settings","设置"); ?></a></li>
+                            <li><a href="#"><i class="fa fa-bell-o"></i> <?php echo __getText("BaseViewController.notification","通知"); ?></a></li>
+                            <li><a class="logout-a"><i class="fa fa-key logout" ></i> <?php  echo __getText("BaseViewController.logout","注销"); ?></a></li>
                         </ul>
                     </li>
                     <li class="sb-toggle-right"><i class="fa  fa-align-right"></i></li>
@@ -95,10 +102,24 @@ abstract class BaseViewController extends ViewController
                         if (empty($value["item"])) {
                             echo '<li >' . '<a ><i class="' . $value["faname"] . '"></i> <span>' . $key . '</span> </a><ul>';
                         } else {
-                            echo '<li class="sub-menu">' . '<a ><i class="' . $value["faname"] . '"></i> <span>' . $key . '</span> </a><ul class="sub">';
+
+
+
+                            $ishas = false;
+                            $ullistStr  =  '';
                             foreach ($value["item"] as $itemkey => $itemValue) {
-                                echo $this->outSilerbarli($itemValue["classNmae"], $itemkey);
+
+                                if (strcmp($itemkey, $this->className) == 0) {
+                                    $ishas = true;
+                                }
+                                $ullistStr = $ullistStr. $this->outSilerbarli($itemkey , $itemValue["text"]);
                             }
+                            if ($ishas){
+                                echo '<li class="sub-menu ">' . '<a class="active"><i class="' . $value["faname"] . '"></i> <span>' . $key . '</span> </a><ul class="sub">';
+                            }else{
+                                echo '<li class="sub-menu">' . '<a ><i class="' . $value["faname"] . '"></i> <span>' . $key . '</span> </a><ul class="sub">';
+                            }
+                            echo  $ullistStr;
                         }
 
                         echo '</ul></li>';
@@ -129,17 +150,35 @@ abstract class BaseViewController extends ViewController
         $array = array(
 
             "主页" => array(
-                "faname" => "fa fa-home"
+                "faname" => "fa fa-home",
+                "item" => array(
+                    "ProfileController" => array(
+                        "text" => "个人信息"
+                    )
+
+                )
+            ),
+            "店铺管理" => array(
+                "faname" => "fa fa-laptop",
+                "item" => array(
+                    "AddGoodsController" => array(
+                        "text" => "商品添加"
+                    ),
+                    "GoodsListController" => array(
+                        "text" => "商品列表"
+                    )
+
+                )
             ),
 
             "接口管理" => array(
                 "faname" => "fa fa-laptop",
                 "item" => array(
-                    "接口查询" => array(
-                        "classNmae" => "InterfaceManageVC"
+                    "InterfaceManageVC" => array(
+                        "text" => "接口查询"
                     ),
-                    "添加接口" => array(
-                        "classNmae" => "AddInterfaceVC"
+                    "AddInterfaceVC" => array(
+                        "text" => "添加接口"
                     )
 
                 )
@@ -147,36 +186,45 @@ abstract class BaseViewController extends ViewController
             "3D彩票" => array(
                 "faname" => "fa fa-book",
                 "item" => array(
-                    "更新数据" => array(
-                        "classNmae" => "UpdateData3dVC"
+                    "UpdateData3dVC" => array(
+                        "text" => "更新数据"
                     ),
-                    "历史出球" => array(
-                        "classNmae" => "History3dVC"
+                    "History3dVC" => array(
+                        "text" => "历史出球"
                     ),
-                    "概率统计" => array(
-                        "classNmae" => "Predictor3DVC"
+                    "Predictor3DVC" => array(
+                        "text" => "概率统计"
                     ),
-                    "频率查询" => array(
-                        "classNmae" => "FCOutDataVC"
+                    "FCOutDataVC" => array(
+                        "text" => "频率查询"
                     )
                 )
             ),
             "双色球" => array(
                 "faname" => "fa fa-book",
                 "item" => array(
-                    "更新数据" => array(
-                        "classNmae" => "UpdateData3dVC"
+                    "UpdateData3dVC" => array(
+                        "text" => "更新数据"
                     ),
-                    "历史出球" => array(
-                        "classNmae" => "History3dVC"
+                    "History3dVC" => array(
+                        "text" => "历史出球"
                     )
                 )
             ),
             "日志分析" => array(
                 "faname" => "fa fa-plapto",
                 "item" => array(
-                    "日志分析" => array(
-                        "classNmae" => "LogViewController"
+                    "LogViewController" => array(
+                        "text" => "日志分析"
+                    )
+
+                )
+            ),
+            "系统管理" => array(
+                "faname" => "fa fa-cog",
+                "item" => array(
+                    "AdminController" => array(
+                        "text" => "管理员"
                     )
 
                 )

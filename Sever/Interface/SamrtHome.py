@@ -14,12 +14,11 @@ class SamrtHome(object):
     '''
     接口文档相关的查询
     '''
-    def samrtHomeMethodo(self, data, user):
+    def samrtHomeMethodo(self, data,metho, user):
         self.userName = user;
-        interFaceMetho = data['inefaceMode']
-        mname = 'do_' + interFaceMetho
+        mname = 'do_' + metho
         if not hasattr(self, mname):
-            returnDic = {"inforCode":-20001}
+            returnDic = {"infoCode":-20001}
             print "interFaceMetho=" + mname;
             return returnDic
         method = getattr(self, mname)
@@ -109,43 +108,6 @@ class SamrtHome(object):
     def do_deleteParameter(self,data):
         pymysqlHandle = PymysqlHandle() 
         return pymysqlHandle.deleteParameter(data)
-    
-    '''
-    2.9获取会员列表
-    '''
-    def do_getMemberList(self, data): 
-        data_Dic = {
-                    "pageSize":data['pageSize'],
-                    "pageNum":data['pageNum'],
-                    }
-        pymysqlHandle = PymysqlHandle() 
-        return pymysqlHandle.getMemberList(data_Dic)  
-    
-    '''
-    2.10 获取会员信息
-    '''
-    def do_getMemberInfo(self, data): 
-       
-        pymysqlHandle = PymysqlHandle() 
-        cursorData = pymysqlHandle.selectUserInfo(data['memberNO'])  
-        returnDic = {"inforCode":0}
-        returnDic['result'] = cursorData 
-        return returnDic;
-    
-    '''
-    2.11 修改会员信息
-    '''
-    def do_replaceMemberInfo(self, data):
-        data_Dic = {
-                    "userName":data['userName'],
-                    "userPassWord":data['userPassWord'],
-                    "userTel":data['userTel'],
-                    "userLevel":data['userLevel'],
-                    "userLogState":data['userLogState']
-                    }
 
-        pymysqlHandle = PymysqlHandle() 
-        return pymysqlHandle.replaceUserInfo(data_Dic)
-    
 
         

@@ -5,11 +5,14 @@ Created on 2016年3月8日
 
 @author: xiaoqy
 '''
+
+import sys ,os
+sys.path.append(os.path.dirname(os.path.dirname(__file__)))
+
 import logging
-
 import pymysql.cursors
-
 import  mod_config
+from PyHandleFile.WriteFile import WriteFile
 
 import time;
 import json
@@ -29,9 +32,9 @@ SMARTHOME_DB = 'SmartHomeDb'  # 智能家居表面
     ios:     1.0.0
     android  1.0.0
 －－－－－－－－－－－－－－－－－
-''' 
+'''
 def connectionDb():
-        
+
         connection = pymysql.connect(
                                          host=mod_config.getConfig("database", "dbhost"),
                                          port=PORT,
@@ -45,65 +48,19 @@ def connectionDb():
         return connection;
     
 def logs(code, msg , userName,leve,logBusiness,connection):
-    if(len(userName) <= 0):
-        userName = "anyOne"
-    if code != 0:
-        msgInfo = ("\n[%s] code:%s msg:%s\n" % (log_date_time_string(),
-                          code,
-                          str(msg)
-                          )
-              )
-    else:
-        msgInfo = ("[%s] code:%s msg:%s\n" % (log_date_time_string(),
-                          code,
-                          str(msg)
-                          )
-              )
-    
-    logging.info(json.dumps(msgInfo.decode('utf8'), sort_keys=True, indent=2));
-    
-    length = len(msgInfo)
-    connection.send('%c%c%s' % (0x81, length, msgInfo))
-    addlogInfo(leve,code,str(msg),logBusiness,userName,log_date_time_string())
+
+    logtext = log_date_time_string()+"\t"+userName+"\t"+str(code)+"\t"+str(leve)+"\t"+logBusiness+"\t"+msg
+    logging.info(json.dumps(logtext.decode('utf8'), sort_keys=True, indent=2));
+    length = len(logtext)
+    connection.send('%c%c%s' % (0x81, length, logtext))
+    log(code,str(msg),userName,leve,logBusiness)
     
 def log(code, msg , userName,leve,logBusiness):
-    if(len(userName) <= 0):
-        userName = "anyOne"
-    if code != 0:
-        msgInfo = ("[%s]   code:%s \n"
-                        "\t\t\t       userName:%s \n"
-                        "\t\t\t       logBusiness:%s \n"
-                        "\t\t\t       msg:%s\n" % (log_date_time_string(),
-                            code,
-                            userName,
-                            logBusiness,
-                            str(msg)
-                          )
-              )
-    else:
-        msgInfo = ("[%s]   code:%s \n"
-                        "\t\t\t       userName:%s \n"
-                        "\t\t\t       logBusiness:%s \n"
-                        "\t\t\t       msg:%s \n" % (log_date_time_string(),
-                            code,
-                            userName,
-                            logBusiness,
-                            str(msg)
-                          )
-              )
-    
-    logging.info(msgInfo)
-    addlogInfo(leve,code,str(msg),logBusiness,userName,log_date_time_string())
+    logtext = "%s\t%s\t%6s\t%2s\t%s\t%s" % (log_date_time_string(),userName,str(code),str(leve),logBusiness,msg)
+    logging.info(logtext)
+    writeFile = WriteFile()
+    writeFile.addLog(logtext)
 
-def addlogInfo (leve,code,msg,logBusiness,userName,time):
-    if (logBusiness !='getLogList' and logBusiness !='[/interface getLogList ]getLogList'):  
-        connection = connectionDb();
-        with connection.cursor() as cursor:
-            sql ='REPLACE   Log_Table  set logLevels=%s,logCode=%s,logDescription=%s,logBusiness=%s,logMember=%s,logTime=%s'
-            cursor.execute(sql,(leve,code,msg,logBusiness,userName,time))
-            connection.commit()
-        connection.close() 
-        
 """
         入参：
         levels 日志等级
@@ -183,9 +140,61 @@ def log_date_time_string():
     """Return the current time formatted for logging."""
     now = time.time()
     year, month, day, hh, mm, ss, x, y, z = time.localtime(now)
-    s = "%04d-%s-%d %d:%d:%d" % (
+    s = "%04d-%s-%d %2d:%2d:%2d" % (
                 year,month,day, hh, mm, ss)
     return s
 
+"""
+        入参：
+        levels 日志等级
+        memberNO 会员账号
+        business 业务名称
+        beginTime 开始时间
+        endTime 结束时间
+        search 搜索关键词
+        pageIndex 页数
+        pageNum 每页大小
+"""
+
+import datetime
+def getLogtext(data):
+
+    '''确定文件并合并'''
+    '''录入数据库'''
+
+    '''确定时间'''
+
+    if("beginTime" not in data.keys()):
+        begindate = datetime.datetime.strptime('0001-01-01','%Y-%m-%d')
+    else:
+        begindate = datetime.datetime.strptime(data['begindate'],'%Y-%m-%d')
+
+    if("endTime" not in data.keys()):
+        enddate = datetime.datetime.strptime('9999-12-31','%Y-%m-%d')
+    else:
+        enddate = datetime.datetime.strptime(data['endTime'],'%Y-%m-%d')
+
+
+    meragefiledir = os.path.dirname(__file__)+("/../Data/log")
+    #获取当前文件夹中的文件名称列表
+    filenames=os.listdir(meragefiledir)
+    #先遍历文件名
+    for filename in filenames:
+        filename = os.path.splitext(filename)[0]
+        fileDate = datetime.datetime.strptime(filename,'%Y-%m-%d')
+        if(fileDate>begindate and fileDate<enddate):
+            print(filename);
+        filename = os.path.abspath(filename)
+        print(filename);
+
+
+
+
+
+if __name__ == '__main__':
+
+    data = {}
+
+    getLogtext(data);
 
     

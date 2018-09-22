@@ -8,31 +8,18 @@ class LogViewController extends BaseViewController {
 	var $logType;
 	var $allcount;
 	function viewwillLoad() {
+	    parent::viewwillLoad();
 		/* 输出头部信息 */
-		$this->jsArr = array (
-				"LogoInfo.js",
-				"Tooltips.js",
-				"config.js",
-				"Cookie.js" 
-		);
-		
-		/* 输出头部信息 */
-		$this->absjsArr = array ();
-		
-		$this->abscssArr = array ();
-		$this->cssArr = array (
-				'header.css',
-				'LogoInfo.css' 
-		);
-		
+        array_push($this->jsArr,"LogoInfo.js","Tooltips.js", "config.js", "Cookie.js");
+        array_push($this->cssArr,"header.css","LogoInfo.css");
 		$this->title = "日志分析";
 	}
 	function getuserInfo() {
-		$userimg = __getCookies ( 'userImg' );
+		$userimg = __getCookies ( 'headImage' );
 		$userName = __getCookies ( 'userName' );
 		
 		$this->userInfo = array (
-				"heardImg" => "fc3d.jpg",
+				"heardImg" => $userimg,
 				"userName" => $userName 
 		);
 	}

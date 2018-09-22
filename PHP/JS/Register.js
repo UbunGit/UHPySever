@@ -28,10 +28,9 @@ $(function() {
 			"inefaceMode" : "register",
 			"userName" : userName,
 			"passWord" : passWord,
-			"telNO":telNO
+			"phone":telNO
 		};
 		var json = JSON.stringify(inputArr);
-		alert(json);
 		$.ajax({
 			type : 'POST',
 			url : httpURL_interFace,
@@ -45,7 +44,7 @@ $(function() {
 					history.go(-1)
 					
 				} else {
-					var msg = data.inforMsg;
+					var msg = data.result;
 					show_err_msg(msg);
 				}
 			},

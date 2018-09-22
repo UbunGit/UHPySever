@@ -10,13 +10,9 @@ Created on 2016年6月30日
 开启服务器
 '''
 
-import os, sys, platform
-import shutil
-import posixpath
-import urllib, urllib2
-import mimetypes
+import os, sys, platform, cgi,posixpath,shutil,urllib,mimetypes
+
 from BaseHTTPServer import HTTPServer, BaseHTTPRequestHandler
-import socket
 
 from pymysql.err import MySQLError
 
@@ -24,10 +20,13 @@ from Interface.FCAnalyse import FCAnalyse
 from Interface.Interface import InterfaceHandle
 from Interface.SamrtHome import SamrtHome
 from Interface.UPAndDown import UPAndDown
+from Interface.WXInterFace import WXInterface
+from Interface.Shoping import Shoping
+
 from PyString import PythonString
-from TOOL import LogHandle
-from TOOL import mod_config
-import cgi
+from TOOL import LogHandle,mod_config
+from TOOL.CustomError import CustomError
+
 
 
 '''
@@ -36,18 +35,26 @@ import cgi
 
 
 class HTTPSeverHandle(BaseHTTPRequestHandler):
-    userName = None  # 用户名
-    userTel = None  # 用户绑定电话号码
-    userId = None  # 用户id
+
+    userID = None
 
     def do_OPTIONS(self):
         self.send_response(200, "ok")
-        self.send_header('Access-Control-Allow-Origin', '*')
-        self.send_header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS')
-        self.send_header("Access-Control-Allow-Headers", "X-Requested-With")
-        self.send_header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept")
+        self.send_header('Accept-Encoding','gzip,deflate');
+        self.send_header('Access-Control-Allow-Origin', '*');
+        self.send_header('Access-Control-Allow-Methods', 'GET, POST,OPTIONS');
+        self.send_header("Access-Control-Allow-Headers", "X-Requested-With");
+        self.send_header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, userID,sign,key,secType");
+        self.end_headers();
+
 
     def do_POST(self):
+        self.send_response(200, "ok")
+        self.send_header('Accept-Encoding','gzip,deflate');
+        self.send_header("Access-Control-Allow-Origin", "*");
+        self.send_header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS')
+        self.send_header("Access-Control-Expose-Headers", "Access-Control-Allow-Origin");
+        self.send_header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept,userID,sign,key,secType")
         self.parse_POST()
 
     def do_GET(self):
@@ -60,108 +67,78 @@ class HTTPSeverHandle(BaseHTTPRequestHandler):
 
     def parse_POST(self):
 
+        self.userID = self.headers.getheader('userID')
 
-            contentType, pdict = cgi.parse_header(self.headers.getheader('content-type'))
-            if contentType == 'application/json' or contentType == 'text/json' or contentType == 'json':
-                length = int(self.headers.getheader('content-length'))
-                field_data = self.rfile.read(length)
-                fields = PythonString.jsonPase(field_data)
-                self.interFaceDef(fields,self.path)
+        length = int(self.headers.getheader('content-length'))
+        inputdata = self.rfile.read(length)
 
-            elif contentType == 'multipart/form-data':
-                postvars = cgi.parse_multipart(self.rfile, pdict)
-                for word in postvars:
-                    if (word != "file" ):
-                        postvars[word] = postvars[word][0]
-                self.interFaceDef(postvars,self.path)
+        cgi.escape(inputdata, quote=True)
+        fields = PythonString.jsonPase(inputdata)
+        self.interFaceDef(fields,self.path)
 
-            else:
-                self.send_error(400,
-                                "Bad HTTP/0.9 request type contentType:(%r)" % contentType)
-                return
-
-    def interFaceDef(self,fields,path):
-        self.send_response(200, "ok")
-        self.send_header("Access-Control-Allow-Origin", "*");
-        self.send_header("Access-Control-Allow-Headers", "X-Requested-With")
-        self.send_header("Access-Control-Allow-Headers", "X-Requested-With, Content-Type")
-        length = int(self.headers['content-length'])
-        acceptType = self.headers.getheader('Accept')
+    def interFaceDef(self,data,path):
 
         try:
-            if ("userName" in fields.keys()):
-                self.userName = fields["userName"]
-            else:
-                self.userName = "verstor"
-            if ("userTel" in fields.keys()):
-                userTel = fields["userTel"];
-            self.send_header("Content-type", acceptType)
-            self.end_headers()
-            interFaceMetho = fields['inefaceMode']
-            LogHandle.log(0, path + ' ' + str(fields), self.userName, 0, interFaceMetho)
+
+            resultcode = 0
+
+            metho = data['metho']
+            param = data['param']  if "param" in data.keys() else None
+            self.userID = self.headers.getheader('userID');
+
+            LogHandle.log(0, "input: "+str(param), self.userID, 0, path+"/"+metho)
 
             if (path == '/interface'):
                 interface = InterfaceHandle()
-                returnData = interface.interfaceMethodo(fields, self.userName)
+                result = interface.interfaceMethodo(param, metho,self.userID)
             elif (path == '/samrtHome'):
                 interface = SamrtHome()
-                returnData = interface.samrtHomeMethodo(fields, self.userName)
+                result = interface.samrtHomeMethodo(param, metho,self.userID)
             elif (path == '/FCAnalyse'):
                 interface = FCAnalyse()
-                returnData = interface.FCAnalyseMethodo(fields, self.userName)
+                result = interface.FCAnalyseMethodo(param, metho,self.userID)
             elif (path == '/UPAndDown'):
                 upAndDown = UPAndDown()
-                returnData = upAndDown.upAndDownMethodo(fields, self.userName)
+                result = upAndDown.upAndDownMethodo(param, metho,self.userID)
+            elif (path == '/WXInterface'):
+                wxInterface = WXInterface()
+                result = wxInterface.upAndDownMethodo(param,metho,self.userID)
+            elif (path == '/Shoping'):
+                shoping = Shoping()
+                result = shoping.interfaceMethodo(param, metho,self.userID)
+
             else:
-                returnData = {"inforCode": -20003};
+                raise CustomError(-10005)
 
         except KeyError, ex:
-            returnData = {"inforCode": -10006}
-            returnData['result'] = 'sever get map value is not key:' + ex.message
+            resultcode = -10006
+            result = u'sever get map value is not key:'+str(ex)
 
         except MySQLError, ex:
-            returnData = {"inforCode": -10000}
-            returnData['result'] = 'sql error:' + ex[1]
+            resultcode = -10000
+            result = 'sql error:' + ex[1]
+
+        except CustomError,ex:
+            resultcode = ex.code
+            result = ex.__str__()
 
         except BaseException, ex:
-            returnData = {"inforCode": -20000}
-            returnData['result'] = ex.message
+            resultcode = -20000
+            result = ex.message
 
-        finally:
+        length = int(self.headers['content-length'])
+        acceptType = self.headers.getheader('Accept')
+        self.send_header("Content-type", acceptType)
 
-            if returnData['inforCode'] != 0:
-                inforCode = returnData['inforCode']
-                if ("result" not in returnData.keys()):
-                    if (not self.errResponses.has_key(inforCode)):
-                        inforMsg = "sever error but not define errorcode";
-                    else:
-                        inforMsg = self.errResponses[inforCode]
-                    returnData['result'] = inforMsg
+        self.send_header("Access-Control-Expose-Headers", "resultcode")
+        self.send_header("resultcode", resultcode)
 
-            returnJson = PythonString.jsonUnPase(returnData)
-            self.wfile.write(returnJson)
-            if returnData['inforCode'] != 0:
-                LogHandle.log(returnData['inforCode'], returnJson, self.userName, 2,
-                              "[" + path + " " + fields['inefaceMode'] + " ]" + interFaceMetho)
-            else:
-                LogHandle.log(returnData['inforCode'], returnJson, self.userName, 0,
-                              "[" + path + " " + fields['inefaceMode'] + " ]" + interFaceMetho)
-    errResponses = {
-        - 20000: ('sever is error'),
-        - 20001: ('interFace not define'),
-        - 20002: ('input value has nil'),
-        - 20003: ('interface not define'),
-        - 20004: ('user not login'),
-        - 20005: ('unkonw'),
-
-        - 10000: ('sql error'),
-        - 10001: ('member is not reginst'),
-        - 10002: ('member is not reginst or passWord is error'),
-        - 10003: ('member NO is reginsted or telNO is reginsted'),
-        - 10004: ("select data is null"),
-        - 10005: ("interface is has in data"),
-        - 10006: ('sever get map value is not key')
-    }
+        self.end_headers()
+        returnJson = "";
+        if (result):
+            returnJson = cgi.escape(PythonString.jsonUnPase(result), quote=False)
+        self.wfile.write(returnJson)
+        LogHandle.log(resultcode, "output: "+returnJson, self.userID, 0, path+"/"+metho)
 
 
     def send_head(self):
@@ -287,18 +264,18 @@ class HTTPSeverHandle(BaseHTTPRequestHandler):
 
 
 
-def star_httpSever():
-    severIp = mod_config.getConfig("INTERFACE", "IP")
-    severPort = mod_config.getConfig("INTERFACE", "PORT")
-    http_server = HTTPServer((severIp, int(severPort)), HTTPSeverHandle)
-    LogHandle.log(0, 'http服务器已开启' + severIp + ":8889", 'anyone', 0, 'start_Httpserver')
-    http_server.serve_forever()  # 设置一直监听并接收请求
+def star_httpSever(httpServer,httpPort):
+
+
+    httpd = HTTPServer((httpServer, int(httpPort)), HTTPSeverHandle)
+    # httpd.socket = ssl.wrap_socket (httpd.socket, certfile='./server.pem', server_side=True)
+    LogHandle.log(0, 'https服务器已开启' + httpServer + ":"+str(httpPort), 'anyone', 0, 'start_Httpserver')
+    httpd.serve_forever()  # 设置一直监听并接收请求
 
 
 '''
 关闭服务器
 '''
-
 
 def stop_server(server):
     server.sorket.close()

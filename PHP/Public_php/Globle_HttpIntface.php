@@ -3,6 +3,7 @@
  * 按功能组装HTTP请求的数据
  */
 class Globle_HttpIntface {
+
 	function __construct() {
 	}
 	
@@ -13,7 +14,7 @@ class Globle_HttpIntface {
 		}else{
 			$options['userName'] = 'userName';
 		}
-		$config= new ConfigINI();
+		$config= new ConfigINI('path');
 		$interFaceIP=$config->get('interFace.InterFaceIP');
 		$request = send_post ( $interFaceIP.$interfacePath, $options );
 		if ($request) {

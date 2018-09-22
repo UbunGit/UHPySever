@@ -10,10 +10,12 @@ import hashlib
 import socket
 import base64
 import json
+from pymysql.err import MySQLError
 from Interface.SocketInterFace import SocketInterFace
 from TOOL import mod_config
 
 class websocket_thread(threading.Thread):
+
     def __init__(self, connection):
         super(websocket_thread, self).__init__()
         self.connection = connection
@@ -22,16 +24,28 @@ class websocket_thread(threading.Thread):
         print 'new websocket client joined!'
        
         while True:
-            data = self.connection.recv(1024)
-            socketInterFace = SocketInterFace(self.connection)
-            inputdata = parse_data(data);
-            print "socket接受到数据："+inputdata;
-            if len(inputdata)>0:
-                inputdata = json.loads(parse_data(data))
-                socketInterFace.socketInterFace(inputdata)
-                reply = '\n'
+            try:
+                data = self.connection.recv(1024)
+                socketInterFace = SocketInterFace(self.connection)
+                inputdata = parse_data(data);
+                print "socket接受到数据："+inputdata;
+                if len(inputdata)>0:
+                    inputdata = json.loads(parse_data(data))
+                    socketInterFace.socketInterFace(inputdata)
+                    reply = '\n'
+                    length = len(reply)
+                    self.connection.send('%c%c%s' % (0x81, length, reply))
+
+            except MySQLError, ex:
+
+                reply = str(ex)+'\n'
                 length = len(reply)
                 self.connection.send('%c%c%s' % (0x81, length, reply))
+            except BaseException, ex:
+                reply =  ex.message +'\n'
+                length = len(reply)
+                self.connection.send('%c%c%s' % (0x81, length, reply))
+
             
 def parse_data(msg):
     v = ord(msg[1]) & 0x7f
@@ -60,15 +74,14 @@ def generate_token(msg):
     ser_key = hashlib.sha1(key).digest()
     return base64.b64encode(ser_key)
             
-def startSocketSever():
-    severIP = mod_config.getConfig("SOCKETSEVER", "IP")
-    severPort = mod_config.getConfig("SOCKETSEVER", "PORT")
+def startSocketSever(socketServer,socketPort):
+
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 
-    sock.bind((severIP, int(severPort)))
+    sock.bind((socketServer, int(socketPort)))
     sock.listen(5)
-    print 'websocket sever '+severIP+severPort+':已开启!'
+    print 'websocket sever '+socketServer+str(socketPort)+':已开启!'
     while True:
         connection, address = sock.accept()
         try:

@@ -1,0 +1,17 @@
+
+
+#input_file {
+    display: none;
+}
+
+.btn_save{
+    background-color: #58c9f3;
+    border-color: #58c9f3;
+    color: #FFFFFF;
+}
+
+.btn_save:hover, .btn_save:focus, .btn_save:active, .btn_save.active, .open .dropdown-toggle.btn-success {
+    background-color: #6dbb4a;
+    border-color: #6dbb4a;
+    color: #FFFFFF;
+}

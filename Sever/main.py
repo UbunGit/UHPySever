@@ -1,29 +1,41 @@
 #!/usr/bin/env python
-# encoding: utf-8
+# -*- coding: UTF-8 -*-
 '''
 Created on 2016年1月27日
 
 @author: xiaoqy
 '''
+
+
 import thread
 
 from HttpSever import HttpSever
 from HttpSever import SocketSever
+from TOOL import mod_config
+
+def main():
 
 
-# thread1 = HttpSever.star_httpSever()
-# thread1.start()
-# 
-# thread2 = SocketSever.startSocketSever()
-# thread2.start()
+   httpServer = mod_config.getConfig("INTERFACE", "IP")
+   httpPort = int(mod_config.getConfig("INTERFACE", "PORT"))
+   socketServer = mod_config.getConfig("SOCKETSEVER", "IP")
+   socketPort = int(mod_config.getConfig("SOCKETSEVER", "PORT"))
 
-# 创建两个线程
-try:
-   thread.start_new_thread( HttpSever.star_httpSever ,())
-   thread.start_new_thread( SocketSever.startSocketSever,())
-except BaseException as ex:
-   print ("Error: unable to start thread")
-   print (ex.message)
-   
-while 1:
-   pass
+
+
+   # 创建两个线程
+   try:
+
+      thread.start_new_thread( HttpSever.star_httpSever ,(httpServer,httpPort))
+      thread.start_new_thread( SocketSever.startSocketSever,(socketServer,socketPort))
+
+   except BaseException as ex:
+      print ("Error: unable to start thread")
+      print (ex.message)
+
+   while 1:
+      pass
+
+if __name__ == "__main__":
+
+   main()

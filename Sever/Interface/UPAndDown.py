@@ -6,9 +6,12 @@ Created on 2016年3月10日
 @author: xiaoqy
 '''
 
+import sys ,os
+sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 from PymysqlHandle.PymysqlHandle import PymysqlHandle
 from TOOL import LogHandle
 from TOOL import mod_config
+from TOOL.CustomError import CustomError
 import sys
 import os
 
@@ -17,22 +20,20 @@ class UPAndDown(object):
     '''
     接口文档相关的查询
     '''
-    def upAndDownMethodo(self, data, user):
+    def upAndDownMethodo(self, data,metho, userID):
 
-        self.userName = user;
-        interFaceMetho = data['inefaceMode']
-        mname = 'do_' + interFaceMetho
+        mname = 'do_' + metho
         if not hasattr(self, mname):
-            returnDic = {"inforCode":-20001}
+            returnDic = {"infoCode":-20001}
             print "interFaceMetho=" + mname;
             return returnDic
         method = getattr(self, mname)
-        return method(data)
+        return method(data,userID)
 
     ''' 
       生成对应下载文件并返回路径
     '''
-    def do_getfileUrl(self,data):
+    def do_getfileUrl(self,data,userID):
 
         url = "http://" + mod_config.getConfig("INTERFACE", "IP")+":"+mod_config.getConfig("INTERFACE", "PORT")
         '''
@@ -48,22 +49,23 @@ class UPAndDown(object):
             sqlhandle = PymysqlHandle()
             sqlhandle.createInterFacetxt(savefile)
 
-            returnDic = {"inforCode":0}
+            returnDic = {"infoCode":0}
             returnDic['result'] = {"url":url}
             return returnDic;
 
 
         else:
-            returnDic = {"inforCode":-1}
+            returnDic = {"infoCode":-1}
 
     '''
     保存上传的文件
     '''
-    def do_saveUpFile(self,data):
+    def do_saveUpFile(self,data,userID):
 
+        url = "http://" + mod_config.getConfig("INTERFACE", "IP")+":"+mod_config.getConfig("INTERFACE", "PORT")
         uptype = data["upType"]
         updata = data["file"][0]
-        ''' 上传接口数据 '''
+        #上传接口数据
         if uptype == "1001":
 
             savefile =  sys.path[0] + "/Data/InterFace.txt"
@@ -75,14 +77,30 @@ class UPAndDown(object):
 
             sqlhandle = PymysqlHandle()
             sqlhandle.insterInterfaceData(savefile)
-            returnDic = {"inforCode":0}
+            returnDic = {"infoCode":0}
             returnDic['result'] = "scresss"
+        #上传用户头像
+        elif (uptype == "1002"):
+            saveStr = "/Data/image/"+str(userID)+"head.png"
+            savefile =  sys.path[0] + saveStr
+            if  os.path.exists(savefile):
+                os.remove(savefile)
+            f = open(savefile, 'w')
+            f.write(updata)
+            f.close()
+
+            url = url + saveStr
+            headImage = {"headImage":url}
+            sqlhandle = PymysqlHandle()
+            sqlhandle.replaceUserInfo(headImage,userID)
+            return headImage
 
         else:
 
-            returnDic = {"inforCode":-1}
+            raise CustomError(-20006)
 
         return returnDic;
+
 
 
 

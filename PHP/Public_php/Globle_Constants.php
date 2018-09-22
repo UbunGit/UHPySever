@@ -39,12 +39,7 @@ class Config {
 		return $result;
 	}
 }
-// /**
-//  * 设置一些全局变量
-//  */
-// // 请求的url
-// define ( 'HTTPREQUESTURL', '192.168.1.27:8889' );
-// define ( 'ERRORLOGPATH', '../../my-errors' );
+
 
 /**
  * 读取ini配置文件
@@ -52,10 +47,16 @@ class Config {
  * Class ConfigINI
  */
 class ConfigINI extends Config {
-	function __construct() {
+
+	function __construct($type) {
 
 		$real ='../config';
-		$this->load ($real.'/config.conf');
+		if($type == 'path'){
+            $this->load ($real.'/config.conf');
+		}else if($type == 'language') {
+            $this->load ($real.'/language.conf');
+        }
+
 	}
 	/**
 	 * 加载ini配置文件
@@ -65,7 +66,7 @@ class ConfigINI extends Config {
 	 * @return bool
 	 */
 	function load($file = NULL) {
-	
+
 		// 判断文件是否存在
 		if (file_exists ( $file) == false) {
 			echo 'config load error'.$file;

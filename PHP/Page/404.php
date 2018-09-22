@@ -20,7 +20,7 @@
 	
 <?PHP 
 require_once('../Public_php/Globle_sc_fns.php');
-$config = new ConfigINI ();
+$config = new ConfigINI ('path');
 $assets = $config->get ( 'URL.root_assets' );
 $cssPath = $config->get ( 'URL.root_css' );
 

@@ -1,0 +1,1 @@
+([('main', '/Users/ubungit/Git/UHPySever/Sever/dist/main', 'EXECUTABLE')],)
